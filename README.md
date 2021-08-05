@@ -12,11 +12,10 @@ Make shure you have the latest version of Neovim (0.5 or higher) and then instal
 bash <(curl -s https://raw.githubusercontent.com/itscarlosecp/itscarlosecp.nvim/main/utils/install.sh)
 ```
 
-This installation script automatically checks if there are any missing dependencies. But in case you wanted to check them manually, you need to have these installed:
+### Post-Installation
 
-- [GCC](https://gcc.gnu.org/): Required by [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) to install and compile language parsers (to improve syntax highlighting).
-- [NodeJS](https://nodejs.org/en/): Some language servers are written in TypeScript, so you would need to have Node in order to install and run them.
-- A font capable of rendering [nerfont](https://github.com/ryanoasis/nerd-fonts) characters. (The font in the screenshots is Cascadia Code).
+- ⚠️ After downloading this config files, Neovim will be automatically opened and will probably show a bunch of error (because plugins are not installed yet). To fix this just press <kbd>Enter</kbd> to skip the error messages and then the plugins should be automatically installed.
+- ⏱️ When you do this open your very first file after installing the plugins, Neovim will start downloading language parsers and will aparently freeze for a few seconds.
 
 ## Features
 
