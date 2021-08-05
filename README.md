@@ -35,8 +35,14 @@ bash <(curl -s https://raw.githubusercontent.com/itscarlosecp/itscarlosecp.nvim/
   - [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua) - Highlight color codes in your files.
 
 ## Customization
-- **Plugins:** Plugins are managed by [Packer](https://github.com/wbthomason/packer.nvim). To install the plugins after downloading my config files, you must run `:PackerInstall` or `:PackerSync`. You can find the plugins list inside the `plugins.lua` file inside the `nvim` config folder. If you make some changes to this file, you will have to compile the plugins again. Find more information about this in the official documentation.
 
-- **Autocompletion:** Intellisense and autocompletion are provided using the official [Neovim LSP API](https://github.com/neovim/nvim-lspconfig). By default, no language servers are installed, you will have to install them manually using [LSPInstall](https://github.com/kabouzeid/nvim-lspinstall) (ex.: `:LspInstall python`).
+### Settings & Mappings
 
-- **Formatting:** File auto-formatting is managed by external formatters. This allows you to use any formatting programm you want externally. Formatters can be configured in the `nvim/lua/_formatter/init.lua` file. Remember to add the filetype you want at the autocommands section at the end of this file.
+### Plugins
+Plugins listed in the `plugins.lua` file are managed by [Packer](https://github.com/wbthomason/packer.nvim). To install the plugins you must run `:PackerInstall` or `:PackerSync`. If you make some changes to this file, you will have to compile the plugins again by running `:PackerCompile` or re-running `:PackerSync`. Find more information about this in the official documentation.
+
+### Autocompletion
+Intellisense and autocompletion are provided using the official [Neovim LSP API](https://github.com/neovim/nvim-lspconfig). By default, no language servers are installed, you will have to install them manually using [LSPInstall](https://github.com/kabouzeid/nvim-lspinstall) (ex.: `:LspInstall python`).
+
+### Formatting
+File auto-formatting is managed by external formatters. This allows you to use any formatting programm you want externally. Formatters can be configured in the `nvim/lua/_formatter/init.lua` file. Remember to add the filetype you want at the autocommands section at the end of this file.
