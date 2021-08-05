@@ -38,6 +38,16 @@ return require "packer".startup({function(use)
 		"windwp/nvim-ts-autotag",
 		after = "nvim-treesitter"
 	}
+	-- Using vim-jsx-pretty to fix React indentation
+	use {
+		"MaxMEllon/vim-jsx-pretty",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		}
+	}
 
 	-- Autocompletion
 	use {
@@ -108,7 +118,9 @@ return require "packer".startup({function(use)
 	use {
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			require "gitsigns".setup()
+			require "gitsigns".setup {
+				numhl = true
+			}
 		end,
 		event = "BufReadPre",
 		requires = {
