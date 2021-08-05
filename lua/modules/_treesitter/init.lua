@@ -1,7 +1,8 @@
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = 'all',
+require "nvim-treesitter.configs".setup {
+	ensure_installed = "all",
 	indent = {
-		enable = false,
+		enable = true,
+		disable = {"c", "cpp"}
 	},
 	autotag = {
 		enable = true

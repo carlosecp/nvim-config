@@ -82,7 +82,7 @@ local function setup_servers()
   local servers = require'lspinstall'.installed_servers()
   for _, server in pairs(servers) do
     local client = require'lspconfig'[server]
-    local config = require'_lsp.configs'[server] or client
+    local config = require'lsp.configs'[server] or client
     client.setup {
       filetypes = config.filetypes or client.filetypes,
       on_attach = common_on_attach,

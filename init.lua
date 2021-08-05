@@ -1,4 +1,8 @@
-require 'plugins'
+-- Importing Configs
+require "settings"
+require "plugins"
 
-vim.cmd[[source $HOME/.config/nvim/settings.vim]]
-vim.cmd[[source $HOME/.config/nvim/mappings.vim]]
+-- Sourcing VimScript
+-- Mappings are just easier to set with VimL
+vim.g.mapleader = " "
+vim.cmd[[source $HOME/.config/nvim/viml/mappings.vim]]

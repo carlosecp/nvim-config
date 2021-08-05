@@ -1,5 +1,4 @@
-let mapleader=' '
-
+" Pane Movement
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -9,14 +8,16 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap J mzJ`z
 
+" Undo Reset
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" Copy to Clipboard
 vnoremap <C-c> "*y
 
-" Main Plugins
+" Plugins
 nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
 nnoremap <silent> <leader>ff <cmd>Telescope find_files hidden=true<CR>
 nnoremap <silent> <C-t> <cmd>lua require'FTerm'.toggle()<CR>
