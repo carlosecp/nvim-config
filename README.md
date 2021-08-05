@@ -37,6 +37,7 @@ bash <(curl -s https://raw.githubusercontent.com/itscarlosecp/itscarlosecp.nvim/
 ## Customization
 
 ### Settings & Mappings
+Vim settings and mappings are split in two files: `settings.lua` and `mappings.vim`. This was intented to be this way because it is easier to manager keymappings from VimScript. This also allows you to modify the default keybinds easily. On the other hand, Vim settings are configured in Lua.
 
 ### Plugins
 Plugins listed in the `plugins.lua` file are managed by [Packer](https://github.com/wbthomason/packer.nvim). To install the plugins you must run `:PackerInstall` or `:PackerSync`. If you make some changes to this file, you will have to compile the plugins again by running `:PackerCompile` or re-running `:PackerSync`. Find more information about this in the official documentation.
@@ -45,4 +46,4 @@ Plugins listed in the `plugins.lua` file are managed by [Packer](https://github.
 Intellisense and autocompletion are provided using the official [Neovim LSP API](https://github.com/neovim/nvim-lspconfig). By default, no language servers are installed, you will have to install them manually using [LSPInstall](https://github.com/kabouzeid/nvim-lspinstall) (ex.: `:LspInstall python`).
 
 ### Formatting
-File auto-formatting is managed by external formatters. This allows you to use any formatting programm you want externally. Formatters can be configured in the `nvim/lua/_formatter/init.lua` file. Remember to add the filetype you want at the autocommands section at the end of this file.
+File auto-formatting is managed by external formatter programs. This allows you to use any formatting programm you want externally. Formatters can be configured in the `_formatter/init.lua` file. Remember to add the filetype you want at the autocommands section at the end of this file if you want autoformatting.
