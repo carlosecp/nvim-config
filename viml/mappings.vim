@@ -25,3 +25,4 @@ tnoremap <silent> <C-t> <cmd>lua require'FTerm'.toggle()<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
+

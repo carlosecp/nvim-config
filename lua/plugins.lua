@@ -119,7 +119,7 @@ return require "packer".startup({function(use)
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require "gitsigns".setup {
-				numhl = true
+				numhl = false
 			}
 		end,
 		event = "BufReadPre",

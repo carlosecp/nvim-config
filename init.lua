@@ -6,3 +6,4 @@ require "plugins"
 -- Mappings are just easier to set with VimL
 vim.g.mapleader = " "
 vim.cmd[[source $HOME/.config/nvim/viml/mappings.vim]]
+
