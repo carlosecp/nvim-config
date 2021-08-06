@@ -32,7 +32,7 @@ return require "packer".startup({function(use)
 			require "modules._treesitter"
 		end,
 		event = "BufRead",
-		run = ":TSUpdate"
+		run = ":TSUpdate",
 	}
 	use {
 		"windwp/nvim-ts-autotag",
