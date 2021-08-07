@@ -84,15 +84,20 @@ local function common_on_attach()
 	vim.cmd[[nnoremap <silent> ]g <cmd>:Lspsaga diagnostic_jump_next<CR>]]
 end
 
+local configs = {
+	json = require "lsp.configs.json",
+	lua = require "lsp.configs.lua",
+}
+
 local function setup_servers()
   lspinstall.setup()
   local servers = lspinstall.installed_servers()
   for _, server in pairs(servers) do
     local client = lspconfig[server]
-    local config = require "lsp.configs"[server] or client
+    local config = configs[server] or client
     client.setup {
       filetypes = config.filetypes or client.filetypes,
-      on_attach = common_on_attach,
+      on_attach = config.on_attach or common_on_attach,
       settings  = config.settings or {}
     }
   end

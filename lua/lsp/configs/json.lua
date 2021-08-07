@@ -1,5 +1,4 @@
-local configs = {
-	json = {
+local json_config = {
 		filetypes = {"json", "jsonc"},
 		settings = {
 			json = {
@@ -31,17 +30,7 @@ local configs = {
 				}
 			}
 		}
-	},
-	lua = {
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = {"vim", "awesome"}
-				}
-			}
-		}
-	},
 }
 
-return configs
+return json_config
 

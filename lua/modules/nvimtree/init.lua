@@ -1,5 +1,7 @@
 vim.g.nvim_tree_ignore = {"node_modules", ".cache", "*.o"}
 vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_tab_open = 1
+vim.g.nvim_tree_special_files = {}
 
 vim.g.nvim_tree_icons = {
 	default = "",
@@ -30,7 +32,3 @@ vim.g.nvim_tree_icons = {
     error   = "",
   }
 }
-
-vim.cmd[[
-hi NvimTreeSpecialFile guifg=#3B8EEA
-]]

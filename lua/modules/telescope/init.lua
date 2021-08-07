@@ -5,8 +5,8 @@ require "telescope".setup {
 		file_ignore_patterns = {"node_modules", ".next", ".git"},
 		color_devicons = true,
 		mappings = {
-			n = {
-				["<c-t>"] = trouble.open_with_trouble
+			i = {
+				["<C-q>"] = trouble.open_with_trouble
 			}
 		}
 	}
