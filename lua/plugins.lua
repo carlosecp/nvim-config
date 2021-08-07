@@ -120,7 +120,9 @@ return require "packer".startup({function(use)
 	-- Utilities
 	use {
 		"blackCauldron7/surround.nvim",
-		keys = {},
+		keys = {
+			{"v", "s"}
+		},
 		config = function()
 			require "surround".setup {}
 		end
