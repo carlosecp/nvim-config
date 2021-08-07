@@ -100,9 +100,7 @@ return require "packer".startup({function(use)
 	use {
 		"projekt0n/github-nvim-theme",
 		config = function()
-			require "github-theme".setup {
-				themeStyle = "dark",
-			}
+			require "colors"
 		end
 	}
 
@@ -148,8 +146,10 @@ return require "packer".startup({function(use)
 
 	-- Utilities
 	use {
-		"tpope/vim-surround",
-		cmd = "S"
+		"blackCauldron7/surround.nvim",
+		config = function()
+			require "surround".setup {}
+		end
 	}
 	use {
 		"junegunn/vim-easy-align",
@@ -160,7 +160,11 @@ return require "packer".startup({function(use)
 		config = function()
 			require "colorizer".setup()
 		end,
-		event = "BufRead"
+		-- event = "BufPreRead"
+	}
+	use {
+		"kristijanhusak/vim-carbon-now-sh",
+		cmd = "CarbonNowSh"
 	}
 
 	-- Packer can manage itself

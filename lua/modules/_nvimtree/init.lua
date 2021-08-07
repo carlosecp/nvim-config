@@ -30,3 +30,7 @@ vim.g.nvim_tree_icons = {
     error   = "",
   }
 }
+
+vim.cmd[[
+hi NvimTreeSpecialFile guifg=#3B8EEA
+]]
