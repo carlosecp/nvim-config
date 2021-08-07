@@ -36,7 +36,13 @@ return require "packer".startup({function(use)
 	}
 	use {
 		"windwp/nvim-ts-autotag",
-		after = "nvim-treesitter"
+		after = "nvim-treesitter",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		}
 	}
 	-- Using vim-jsx-pretty to fix React indentation
 	use {
@@ -57,7 +63,7 @@ return require "packer".startup({function(use)
 		end,
 		event = "InsertEnter",
 		requires = {
-			"windwp/nvim-autopairs",
+			{"windwp/nvim-autopairs", event = "InsertEnter"},
 			"ray-x/lsp_signature.nvim"
 		}
 	}
@@ -76,6 +82,7 @@ return require "packer".startup({function(use)
 	-- Telescope
 	use {
 		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		config = function()
 			require"modules.telescope"
 		end,
@@ -107,7 +114,7 @@ return require "packer".startup({function(use)
 		"hoob3rt/lualine.nvim",
 		config = function()
 			require "modules.lualine"
-		end,
+		end
 	}
 
 	-- Gitsigns
@@ -144,6 +151,7 @@ return require "packer".startup({function(use)
 	-- Utilities
 	use {
 		"blackCauldron7/surround.nvim",
+		cmd = "s",
 		config = function()
 			require "surround".setup {}
 		end
@@ -156,8 +164,7 @@ return require "packer".startup({function(use)
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require "colorizer".setup()
-		end,
-		-- event = "BufPreRead"
+		end
 	}
 	use {
 		"kristijanhusak/vim-carbon-now-sh",
