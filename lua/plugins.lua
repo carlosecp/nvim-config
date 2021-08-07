@@ -20,6 +20,7 @@ return require "packer".startup({function(use)
 	}
 	use {
 		"glepnir/lspsaga.nvim",
+		event = "BufRead",
 		config = function()
 			require "modules.lspsaga"
 		end
@@ -28,10 +29,10 @@ return require "packer".startup({function(use)
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
+		event = "BufRead",
 		config = function()
 			require "modules.treesitter"
 		end,
-		event = "BufRead",
 		run = ":TSUpdate",
 	}
 	use {
@@ -58,13 +59,13 @@ return require "packer".startup({function(use)
 	-- Autocompletion
 	use {
 		"hrsh7th/nvim-compe",
+		event = "InsertEnter",
 		config = function()
 			require "modules.compe"
 		end,
-		event = "InsertEnter",
 		requires = {
-			{"windwp/nvim-autopairs", event = "InsertEnter"},
-			"ray-x/lsp_signature.nvim"
+			{ "windwp/nvim-autopairs", event = "InsertEnter" },
+			{ "ray-x/lsp_signature.nvim", after = "nvim-compe" }
 		}
 	}
 
@@ -75,68 +76,35 @@ return require "packer".startup({function(use)
 		config = function()
 			require"modules.nvimtree"
 		end,
-		requires = {
-			"kyazdani42/nvim-web-devicons"
+		require = {
+			"nvim-web-devicons"
 		}
+	}
+
+	-- Modules
+	use {
+		"nvim-lua/popup.nvim",
+		module = "popup"
+	}
+	use {
+		"nvim-lua/plenary.nvim",
+		module = "plenary"
+	}
+	use {
+		"kyazdani42/nvim-web-devicons",
+		module = "nvim-web-devicons"
 	}
 
 	-- Telescope
 	use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
+		module = {
+			"telescope",
+			"modules.telescope"
+		},
 		config = function()
 			require"modules.telescope"
-		end,
-		requires = {
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons"
-		}
-	}
-
-	-- Terminal
-	use {
-		"numtostr/FTerm.nvim",
-		config = function()
-			require "FTerm".setup()
-		end
-	}
-
-	-- Colorscheme
-	use {
-		"projekt0n/github-nvim-theme",
-		config = function()
-			require "colors"
-		end
-	}
-
-	-- Statusline
-	use {
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require "modules.lualine"
-		end
-	}
-
-	-- Gitsigns
-	use {
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require "gitsigns".setup {
-				numhl = false
-			}
-		end,
-		event = "BufReadPre",
-		requires = {
-			"nvim-lua/plenary.nvim"
-		}
-	}
-
-	-- Trouble
-	use {
-		"folke/trouble.nvim",
-		config = function()
-			require "trouble".setup()
 		end
 	}
 
@@ -152,7 +120,6 @@ return require "packer".startup({function(use)
 	-- Utilities
 	use {
 		"blackCauldron7/surround.nvim",
-		cmd = "s",
 		config = function()
 			require "surround".setup {}
 		end
@@ -163,6 +130,8 @@ return require "packer".startup({function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
+		event = "BufReadPre",
+		-- event = "BufWinEnter",
 		config = function()
 			require "colorizer".setup()
 		end

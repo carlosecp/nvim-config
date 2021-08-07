@@ -1,5 +1,4 @@
 local actions = require "telescope.actions"
-local trouble = require "trouble.providers.telescope"
 
 require "telescope".setup {
 	 defaults = {
@@ -11,7 +10,7 @@ require "telescope".setup {
 
 		mappings = {
 			i = {
-				["m"] = actions.send_to_qflist
+				["<C-q>"] = actions.send_to_qflist
 			}
 		}
   }

@@ -24,8 +24,8 @@ tnoremap <silent> <C-t> <cmd>lua require 'FTerm'.toggle()<CR>
 
 " Telescope
 nnoremap <silent> <leader>ff <cmd>Telescope find_files hidden=true<CR>
-nnoremap <silent> <leader>gl <cmd>Telescope live_grep<CR>
-nnoremap <silent> <leader>gs <cmd>Telescope grep_string<CR>
+nnoremap <silent> <leader>lg <cmd>Telescope live_grep<CR>
+nnoremap <silent> <leader>rg <cmd>Telescope grep_string<CR>
 nnoremap <silent> <leader>nv <cmd>lua require 'modules.telescope'.search_neovim()<CR>
 nnoremap <silent> <leader>df <cmd>lua require 'modules.telescope'.search_dotfiles()<CR>
 
