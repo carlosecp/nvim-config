@@ -1,24 +1,20 @@
+local actions = require "telescope.actions"
 local trouble = require "trouble.providers.telescope"
 
 require "telescope".setup {
-	defaults = {
-		vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
-    },
+	 defaults = {
 		file_ignore_patterns = {"node_modules", ".next", ".git"},
-		color_devicons = true,
+
+    file_previewer = require "telescope.previewers".vim_buffer_cat.new,
+    grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
+    qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
+
 		mappings = {
 			i = {
-				["<C-q>"] = trouble.open_with_trouble
+				["m"] = actions.send_to_qflist
 			}
 		}
-	}
+  }
 }
 
 local M = {}
