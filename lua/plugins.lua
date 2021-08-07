@@ -81,20 +81,6 @@ return require "packer".startup({function(use)
 		}
 	}
 
-	-- Modules
-	use {
-		"nvim-lua/popup.nvim",
-		module = "popup"
-	}
-	use {
-		"nvim-lua/plenary.nvim",
-		module = "plenary"
-	}
-	use {
-		"kyazdani42/nvim-web-devicons",
-		module = "nvim-web-devicons"
-	}
-
 	-- Telescope
 	use {
 		"nvim-telescope/telescope.nvim",
@@ -105,6 +91,26 @@ return require "packer".startup({function(use)
 		},
 		config = function()
 			require"modules.telescope"
+		end
+	}
+
+	-- Statusline
+	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "modules.lualine"
+		end
+	}
+
+
+	-- Colorscheme
+	use {
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require "github-theme".setup {
+				themeStyle = "dark",
+				darkSidebar = false
+			}
 		end
 	}
 
@@ -119,16 +125,14 @@ return require "packer".startup({function(use)
 
 	-- Utilities
 	use {
-		"blackCauldron7/surround.nvim",
+		"tpope/vim-surround",
 		keys = {
-			{"v", "s"}
-		},
-		config = function()
-			require "surround".setup {}
-		end
+			{"v", "S"}
+		}
 	}
 	use {
 		"junegunn/vim-easy-align",
+		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)"
 	}
 	use {
@@ -142,6 +146,20 @@ return require "packer".startup({function(use)
 	use {
 		"kristijanhusak/vim-carbon-now-sh",
 		cmd = "CarbonNowSh"
+	}
+
+	-- Modules
+	use {
+		"nvim-lua/popup.nvim",
+		module = "popup"
+	}
+	use {
+		"nvim-lua/plenary.nvim",
+		module = "plenary"
+	}
+	use {
+		"kyazdani42/nvim-web-devicons",
+		module = "nvim-web-devicons"
 	}
 
 	-- Packer can manage itself
