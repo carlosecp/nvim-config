@@ -5,4 +5,4 @@ require "plugins"
 -- Sourcing VimScript
 -- Mappings are just easier to set with VimL
 vim.g.mapleader = " "
-vim.cmd[[source $HOME/.config/nvim/viml/mappings.vim]]
+vim.cmd[[source $HOME/.config/nvim/viml/maps.vim]]
