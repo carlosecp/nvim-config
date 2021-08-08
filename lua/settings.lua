@@ -27,3 +27,4 @@ vim.opt.splitbelow    = true
 vim.opt.splitright    = true
 vim.opt.termguicolors = true
 
+vim.cmd("set switchbuf+=uselast")

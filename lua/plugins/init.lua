@@ -100,7 +100,6 @@ return require "packer".startup({function(use)
 		end
 	}
 
-
 	-- Statusline
 	use {
 		"hoob3rt/lualine.nvim",
