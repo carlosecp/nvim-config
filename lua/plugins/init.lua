@@ -20,7 +20,6 @@ return require "packer".startup({function(use)
 	}
 	use {
 		"glepnir/lspsaga.nvim",
-		event = "BufRead",
 		config = function()
 			require "plugins.lspsaga"
 		end
