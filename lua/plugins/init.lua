@@ -22,7 +22,7 @@ return require "packer".startup({function(use)
 		"glepnir/lspsaga.nvim",
 		event = "BufRead",
 		config = function()
-			require "modules.lspsaga"
+			require "plugins.lspsaga"
 		end
 	}
 
@@ -31,7 +31,7 @@ return require "packer".startup({function(use)
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 		config = function()
-			require "modules.treesitter"
+			require "plugins.treesitter"
 		end,
 		run = ":TSUpdate",
 	}
@@ -61,7 +61,7 @@ return require "packer".startup({function(use)
 		"hrsh7th/nvim-compe",
 		event = "InsertEnter",
 		config = function()
-			require "modules.compe"
+			require "plugins.compe"
 		end,
 		requires = {
 			{ "windwp/nvim-autopairs", event = "InsertEnter" },
@@ -74,7 +74,7 @@ return require "packer".startup({function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require"modules.nvimtree"
+			require"plugins.nvimtree"
 		end,
 		require = {
 			"nvim-web-devicons"
@@ -86,11 +86,10 @@ return require "packer".startup({function(use)
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		module = {
-			"telescope",
-			"modules.telescope"
+			"telescope.builtin"
 		},
 		config = function()
-			require"modules.telescope"
+			require"plugins.telescope"
 		end
 	}
 
@@ -98,7 +97,7 @@ return require "packer".startup({function(use)
 	use {
 		"hoob3rt/lualine.nvim",
 		config = function()
-			require "modules.lualine"
+			require "plugins.lualine"
 		end
 	}
 
@@ -119,7 +118,7 @@ return require "packer".startup({function(use)
 		"mhartington/formatter.nvim",
 		cmd = "Format",
 		config = function()
-			require "modules.formatter"
+			require "plugins.formatter"
 		end
 	}
 
