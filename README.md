@@ -21,18 +21,18 @@ bash <(curl -s https://raw.githubusercontent.com/itscarlosecp/itscarlosecp.nvim/
 
 - Syntax Highlighting
   - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Improved syntax highlighting when using a compatible colorscheme.
-  - [vim-jsx-pretty](https://github.com/MaxMEllon/vim-jsx-pretty) - Indent markup files like HTML and JSX.
 - Autocompletion
   - [nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall) - Easily install autocompletion and diagnostics support for your favourite language.
   - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) - Pretty interface for dealing with diagnostics.
   - [nvim-compe](https://github.com/hrsh7th/nvim-compe) - Fast interface for interacting with LSP suggestions.
 - Interface
   - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Performant fuzzy finder.
-  - [FTerm.nvim](https://github.com/numtostr/FTerm.nvim) - Floating terminal so you don't have to leave Neovim.
   - [lualine.nvim](https://github.com/hoob3rt/lualine.nvim) - Customizable and fast statusline.
 - Others
-  - [folke/trouble.nvim](https://github.com/folke/trouble.nvim) - Visualize all your diagnostics from a single place.
+  - [vim-carbon-now-sh](https://github.com/kristijanhusak/vim-carbon-now-sh) - Screenshot you code with CarbonNowSh.
   - [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua) - Highlight color codes in your files.
+  - [vim-easy-align](https://github.com/junegunn/vim-easy-align) - Elegant indentation for you code.
+  - [vim-surround](https://github.com/tpope/vim-surround) - Add, remove or change a word's surroundings.
 
 ## Customization
 
