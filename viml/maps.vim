@@ -17,7 +17,7 @@ inoremap ? ?<c-g>u
 " Copy to Clipboard
 vnoremap <C-c> "*y
 
-" Plugins
+" NvimTree
 nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
 
 " Telescope
@@ -27,10 +27,8 @@ nnoremap <silent> <leader>gs <cmd>Telescope grep_string<CR>
 nnoremap <silent> <leader>nv <cmd>lua require 'plugins.telescope'.search_neovim()<CR>
 nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>
 
-" Trobble
-nnoremap <silent> <leader>xx <cmd>TroubleToggle<CR>
-nnoremap <silent> <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<CR>
-nnoremap <silent> <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<CR>
+" Diagnostics
+nnoremap <silent> <leader>q <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
