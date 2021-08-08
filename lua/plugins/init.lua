@@ -65,7 +65,6 @@ return require "packer".startup({function(use)
 		end,
 		requires = {
 			{ "windwp/nvim-autopairs", event = "InsertEnter" },
-			{ "ray-x/lsp_signature.nvim", after = "nvim-compe" }
 		}
 	}
 
@@ -144,6 +143,16 @@ return require "packer".startup({function(use)
 		cmd = "CarbonNowSh"
 	}
 
+	-- Trouble
+	-- use {
+		-- "folke/trouble.nvim",
+		-- config = function()
+			-- require "trouble".setup {
+				-- mode = "loclist"
+			-- }
+		-- end
+	-- }
+
 	-- Modules
 	use {
 		"nvim-lua/popup.nvim",
@@ -156,6 +165,10 @@ return require "packer".startup({function(use)
 	use {
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons"
+	}
+	use {
+		"ray-x/lsp_signature.nvim",
+		module = "lsp_signature"
 	}
 
 	-- Packer can manage itself
