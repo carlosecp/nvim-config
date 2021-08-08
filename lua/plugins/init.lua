@@ -106,10 +106,7 @@ return require "packer".startup({function(use)
 	use {
 		"projekt0n/github-nvim-theme",
 		config = function()
-			require "github-theme".setup {
-				themeStyle = "dark",
-				darkSidebar = false
-			}
+			require "colors"
 		end
 	}
 

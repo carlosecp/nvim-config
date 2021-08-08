@@ -17,6 +17,10 @@ inoremap ? ?<c-g>u
 " Copy to Clipboard
 vnoremap <C-c> "*y
 
+" Toggle Terminal
+nnoremap <silent> <leader>t <cmd> sp \| term<CR> \| i
+tnoremap <silent> <Esc> <C-\><C-n>
+
 " NvimTree
 nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
 
