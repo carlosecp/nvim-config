@@ -63,8 +63,14 @@ return require "packer".startup({function(use)
 			require "plugins.compe"
 		end,
 		requires = {
-			{ "windwp/nvim-autopairs", event = "InsertEnter" },
-			{ "ray-x/lsp_signature.nvim", after = "nvim-compe" }
+			{
+				"windwp/nvim-autopairs",
+				module = {
+					"nvim-autopairs",
+					"nvim-autopairs.completion.compe"
+				}
+			},
+			{ "ray-x/lsp_signature.nvim", module = "lsp_signature" }
 		}
 	}
 
@@ -102,7 +108,6 @@ return require "packer".startup({function(use)
 			require "plugins.lualine"
 		end
 	}
-
 
 	-- Colorscheme
 	use {

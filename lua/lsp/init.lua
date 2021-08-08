@@ -70,10 +70,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 )
 
 local function common_on_attach()
-	require"lsp_signature".on_attach {
+	require "lsp_signature".on_attach {
     bind        = true,
 		fix_pos     = true, -- Don"t autoclose
-		hint_enable = false
   }
 
 	vim.cmd[[nnoremap <silent> K <cmd>:Lspsaga hover_doc<CR>]]
