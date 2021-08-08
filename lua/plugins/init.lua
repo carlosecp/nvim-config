@@ -121,6 +121,21 @@ return require "packer".startup({function(use)
 		end
 	}
 
+	-- Trouble.nvim
+	use {
+		"folke/trouble.nvim",
+		cmd = {
+			"Trouble",
+			"TroubleToggle"
+		},
+		module = {
+			"trouble"
+		},
+		config = function()
+			require "plugins.trouble"
+		end
+	}
+
 	-- Utilities
 	use {
 		"tpope/vim-surround",

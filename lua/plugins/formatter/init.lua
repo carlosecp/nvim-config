@@ -26,8 +26,8 @@ end
 -- Gofmt
 local function gofmt()
 	return {
-		exe = "gofmt",
-		args = {vim.api.nvim_buf_get_name(0)},
+		exe   = "gofmt",
+		args  = {vim.api.nvim_buf_get_name(0)},
 		stdin = true
 	}
 end
@@ -48,14 +48,14 @@ end
 require "formatter".setup {
   logging = false,
   filetype = {
-		c = {clang_format},
-		cpp = {clang_format},
-    css = {prettier},
-    html = {prettier},
-    javascript = {prettier},
+		c               = {clang_format},
+		cpp             = {clang_format},
+    css             = {prettier},
+    html            = {prettier},
+    javascript      = {prettier},
     javascriptreact = {prettier},
-		go = {gofmt},
-    typescript = {prettier},
+		go              = {gofmt},
+    typescript      = {prettier},
     typescriptreact = {prettier},
   }
 }

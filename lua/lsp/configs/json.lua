@@ -1,19 +1,19 @@
 local json_config = {
 		filetypes = {"json", "jsonc"},
-		settings = {
+		settings  = {
 			json = {
 				schemas = {
 					{
 						fileMatch = {"package.json"},
-						url = "https://json.schemastore.org/package.json"
+						url       = "https://json.schemastore.org/package.json"
 					},
 					{
 						fileMatch = {"jsconfig*.json"},
-						url = "https://json.schemastore.org/jsconfig.json"
+						url       = "https://json.schemastore.org/jsconfig.json"
 					},
 					{
 						fileMatch = {"tsconfig*.json"},
-						url = "https://json.schemastore.org/tsconfig.json"
+						url       = "https://json.schemastore.org/tsconfig.json"
 					},
 					{
 						fileMatch = {
@@ -25,7 +25,7 @@ local json_config = {
 					},
 					{
 						fileMatch = {".eslintrc", ".eslintrc.json"},
-						url = "https://json.schemastore.org/eslintrc.json"
+						url       = "https://json.schemastore.org/eslintrc.json"
 					}
 				}
 			}

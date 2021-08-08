@@ -1,5 +1,5 @@
 local lspinstall = require "lspinstall"
-local lspconfig = require "lspconfig"
+local lspconfig  = require "lspconfig"
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -71,8 +71,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 local function common_on_attach()
 	require"lsp_signature".on_attach {
-    bind = true,
-		fix_pos = true, -- Don"t autoclose
+    bind        = true,
+		fix_pos     = true, -- Don"t autoclose
 		hint_enable = false
   }
 
