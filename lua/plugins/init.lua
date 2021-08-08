@@ -93,12 +93,12 @@ return require "packer".startup({function(use)
 	}
 
 	-- Statusline
-	use {
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require "plugins.lualine"
-		end
-	}
+	-- use {
+		-- "hoob3rt/lualine.nvim",
+		-- config = function()
+			-- require "plugins.lualine"
+		-- end
+	-- }
 
 
 	-- Colorscheme
