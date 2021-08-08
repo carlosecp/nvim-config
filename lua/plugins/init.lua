@@ -64,6 +64,7 @@ return require "packer".startup({function(use)
 		end,
 		requires = {
 			{ "windwp/nvim-autopairs", event = "InsertEnter" },
+			{ "ray-x/lsp_signature.nvim", after = "nvim-compe" }
 		}
 	}
 
@@ -72,7 +73,7 @@ return require "packer".startup({function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require"plugins.nvimtree"
+			require "plugins.nvimtree"
 		end,
 		require = {
 			"nvim-web-devicons"
@@ -84,20 +85,23 @@ return require "packer".startup({function(use)
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		module = {
-			"telescope.builtin"
+			"telescope",
+			"telescope.builtin",
+			"plugins.telescope"
 		},
 		config = function()
-			require"plugins.telescope"
+			require "plugins.telescope"
 		end
 	}
 
+
 	-- Statusline
-	-- use {
-		-- "hoob3rt/lualine.nvim",
-		-- config = function()
-			-- require "plugins.lualine"
-		-- end
-	-- }
+	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "plugins.lualine"
+		end
+	}
 
 
 	-- Colorscheme
@@ -142,16 +146,6 @@ return require "packer".startup({function(use)
 		cmd = "CarbonNowSh"
 	}
 
-	-- Trouble
-	-- use {
-		-- "folke/trouble.nvim",
-		-- config = function()
-			-- require "trouble".setup {
-				-- mode = "loclist"
-			-- }
-		-- end
-	-- }
-
 	-- Modules
 	use {
 		"nvim-lua/popup.nvim",
@@ -164,10 +158,6 @@ return require "packer".startup({function(use)
 	use {
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons"
-	}
-	use {
-		"ray-x/lsp_signature.nvim",
-		module = "lsp_signature"
 	}
 
 	-- Packer can manage itself
