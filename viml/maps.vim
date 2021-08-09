@@ -31,10 +31,9 @@ nnoremap <silent> <leader>gs <cmd>Telescope grep_string<CR>
 nnoremap <silent> <leader>nv <cmd>lua require 'plugins.telescope'.search_neovim()<CR>
 nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>
 
-" Trouble
-nnoremap <silent> <leader>q  <cmd>TroubleToggle<CR>
-nnoremap <silent> <leader>Q <cmd>TroubleToggle lsp_workspace_diagnostics<CR>
-
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
 
+" Quickfix
+" Trouble
+nnoremap <silent> <leader>q <cmd>TroubleToggle lsp_document_diagnostics<CR>

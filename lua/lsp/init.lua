@@ -60,27 +60,29 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
+    signs     = true,
+    underline = true,
     virtual_text = {
       prefix  = "",
       spacing = 0
     },
-    signs     = true,
-    underline = true
+		update_in_insert = true
   }
 )
 
 local function common_on_attach()
 	require "lsp_signature".on_attach {
-    bind        = true,
-		fix_pos     = true, -- Don"t autoclose
+    bind            = true,
+		fix_pos         = true, -- Don't autoclose
+		floating_window = false
   }
 
 	vim.cmd[[nnoremap <silent> K <cmd>:Lspsaga hover_doc<CR>]]
 	vim.cmd[[nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>]]
 	vim.cmd[[nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>]]
 	vim.cmd[[nnoremap <silent> gs <cmd>:Lspsaga signature_help<CR>]]
-	vim.cmd[[nnoremap <silent> [g <cmd>:Lspsaga diagnostic_jump_prev<CR>]]
-	vim.cmd[[nnoremap <silent> ]g <cmd>:Lspsaga diagnostic_jump_next<CR>]]
+	-- vim.cmd[[nnoremap <silent> [g <cmd>:Lspsaga diagnostic_jump_prev<CR>]]
+	-- vim.cmd[[nnoremap <silent> ]g <cmd>:Lspsaga diagnostic_jump_next<CR>]]
 end
 
 local configs = {
@@ -109,3 +111,4 @@ require"lspinstall".post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+

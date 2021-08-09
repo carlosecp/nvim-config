@@ -116,27 +116,27 @@ return require "packer".startup({function(use)
 		end
 	}
 
+	-- Trouble
+	use {
+		"folke/trouble.nvim",
+		config = function()
+			require "plugins.trouble"
+		end
+	}
+
+	-- use {
+		-- "itscarlosecp/vimway-lsp-diag.nvim",
+		-- config = function()
+			-- require "vimway-lsp-diag".init()
+		-- end
+	-- }
+
 	-- Formatter
 	use {
 		"mhartington/formatter.nvim",
 		cmd = "Format",
 		config = function()
 			require "plugins.formatter"
-		end
-	}
-
-	-- Trouble.nvim
-	use {
-		"folke/trouble.nvim",
-		cmd = {
-			"Trouble",
-			"TroubleToggle"
-		},
-		module = {
-			"trouble"
-		},
-		config = function()
-			require "plugins.trouble"
 		end
 	}
 
