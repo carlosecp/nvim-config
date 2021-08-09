@@ -93,24 +93,6 @@ return require "packer".startup({function(use)
 		end
 	}
 
-	-- FZF
-	use {
-		"kevinhwang91/nvim-bqf",
-		config = function()
-			require "bqf".setup {
-				magic_window = {
-					default = false
-				}
-			}
-		end,
-		requires = {{
-			"junegunn/fzf",
-			run = function()
-				vim.cmd[["fzf#install()"]]
-			end
-		}}
-	}
-
 	-- Colorscheme
 	use {
 		"projekt0n/github-nvim-theme",
