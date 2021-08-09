@@ -18,12 +18,12 @@ return require "packer".startup({function(use)
 			require "lsp"
 		end
 	}
-	use {
-		"glepnir/lspsaga.nvim",
-		config = function()
-			require "plugins.lspsaga"
-		end
-	}
+	-- use {
+		-- "glepnir/lspsaga.nvim",
+		-- config = function()
+			-- require "plugins.lspsaga"
+		-- end
+	-- }
 
 	-- Treesitter
 	use {
@@ -101,12 +101,12 @@ return require "packer".startup({function(use)
 	}
 
 	-- Statusline
-	use {
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require "plugins.lualine"
-		end
-	}
+	-- use {
+		-- "hoob3rt/lualine.nvim",
+		-- config = function()
+			-- require "plugins.lualine"
+		-- end
+	-- }
 
 	-- Colorscheme
 	use {
@@ -117,12 +117,12 @@ return require "packer".startup({function(use)
 	}
 
 	-- Trouble
-	use {
-		"folke/trouble.nvim",
-		config = function()
-			require "plugins.trouble"
-		end
-	}
+	-- use {
+		-- "folke/trouble.nvim",
+		-- config = function()
+			-- require "plugins.trouble"
+		-- end
+	-- }
 
 	-- use {
 		-- "itscarlosecp/vimway-lsp-diag.nvim",

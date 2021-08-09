@@ -1,13 +1,13 @@
-local trouble = require "trouble.providers.telescope"
+-- local trouble = require "trouble.providers.telescope"
 
 require "telescope".setup {
 	 defaults = {
 		file_ignore_patterns = {"node_modules", ".next", ".git"},
 
-		mappings = {
-      i = { ["<C-q>"] = trouble.open_with_trouble },
-      n = { ["<C-q>"] = trouble.open_with_trouble },
-    },
+		-- mappings = {
+      -- i = { ["<C-q>"] = trouble.open_with_trouble },
+      -- n = { ["<C-q>"] = trouble.open_with_trouble },
+    -- },
 
     file_previewer   = require "telescope.previewers".vim_buffer_cat.new,
     grep_previewer   = require "telescope.previewers".vim_buffer_vimgrep.new,
