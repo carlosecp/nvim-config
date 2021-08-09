@@ -18,7 +18,7 @@ inoremap ? ?<c-g>u
 vnoremap <C-c> "*y
 
 " Toggle Terminal
-nnoremap <silent> <leader>t <cmd> vs \| term \| i <CR>
+nnoremap <silent> <leader>t <cmd> sp \| resize 12 \| term<CR> \| i
 tnoremap <silent> <Esc> <C-\><C-n>
 
 " NvimTree
