@@ -93,6 +93,15 @@ return require "packer".startup({function(use)
 		end
 	}
 
+	-- Quickfix List
+	use {
+		"itscarlosecp/vimway-lsp-diag.nvim",
+		module = "vimway-lsp-diag",
+		config = function()
+			require "vimway-lsp-diag"
+		end
+	}
+
 	-- Colorschemes
 	use {
 		"sainnhe/gruvbox-material",

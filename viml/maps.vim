@@ -37,5 +37,6 @@ nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfile
 xmap ga <Plug>(EasyAlign)
 
 " Quickfix List
+nnoremap <silent> <leader>q <cmd>lua require 'lsp.utils'.show_diagnostics()<CR>
 nnoremap <silent> [g <cmd>cnext    <CR>
 nnoremap <silent> ]g <cmd>cprevious<CR>
