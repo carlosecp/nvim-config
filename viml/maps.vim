@@ -25,13 +25,12 @@ tnoremap <silent> <Esc> <C-\><C-n>
 nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
 
 " Telescope
-nnoremap <silent> <leader>ff <cmd>lua require 'telescope.builtin'.find_files { hidden = true; previewer = false }<CR>
-nnoremap <silent> <leader>lg <cmd>lua require 'telescope.builtin'.live_grep { previewer = false }<CR>
-nnoremap <silent> <leader>gs <cmd>lua require 'telescope.builtin'.grep_string { previews = false }<CR>
+nnoremap <silent> <leader>ff <cmd>lua require 'telescope.builtin'.find_files { hidden = true }<CR>
+nnoremap <silent> <leader>lg <cmd>lua require 'telescope.builtin'.live_grep<CR>
+nnoremap <silent> <leader>gs <cmd>lua require 'telescope.builtin'.grep_string<CR>
 nnoremap <silent> <leader>nv <cmd>lua require 'plugins.telescope'.search_neovim()<CR>
 nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
 
-" Quickfix
