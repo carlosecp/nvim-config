@@ -1,16 +1,6 @@
 local lspinstall = require "lspinstall"
 local lspconfig  = require "lspconfig"
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
-
 vim.lsp.protocol.CompletionItemKind = {
   "   (Text) ",
   "   (Method)",
@@ -56,6 +46,16 @@ vim.fn.sign_define(
   {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
 )
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -71,18 +71,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 )
 
 local function common_on_attach()
-	require "lsp_signature".on_attach {
-    bind            = true,
-		fix_pos         = true, -- Don't autoclose
-		floating_window = false
-  }
-
-	vim.cmd[[nnoremap <silent> K <cmd>:Lspsaga hover_doc<CR>]]
-	vim.cmd[[nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>]]
-	vim.cmd[[nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>]]
-	vim.cmd[[nnoremap <silent> gs <cmd>:Lspsaga signature_help<CR>]]
-	-- vim.cmd[[nnoremap <silent> [g <cmd>:Lspsaga diagnostic_jump_prev<CR>]]
-	-- vim.cmd[[nnoremap <silent> ]g <cmd>:Lspsaga diagnostic_jump_next<CR>]]
+	vim.cmd[[nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()          <CR>]]
+	vim.cmd[[nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()     <CR>]]
+	vim.cmd[[nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()    <CR>]]
+	vim.cmd[[nnoremap <silent> gs <cmd>lua vim.lsp.buf.signature_help() <CR>]]
 end
 
 local configs = {
@@ -107,7 +99,7 @@ end
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don"t have to restart neovim
-require"lspinstall".post_install_hook = function ()
+require "lspinstall".post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end

@@ -1,4 +1,4 @@
--- Automatically install Packer if its missing
+--  Automatically install Packer if its missing
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -18,12 +18,6 @@ return require "packer".startup({function(use)
 			require "lsp"
 		end
 	}
-	-- use {
-		-- "glepnir/lspsaga.nvim",
-		-- config = function()
-			-- require "plugins.lspsaga"
-		-- end
-	-- }
 
 	-- Treesitter
 	use {
@@ -69,8 +63,7 @@ return require "packer".startup({function(use)
 					"nvim-autopairs",
 					"nvim-autopairs.completion.compe"
 				}
-			},
-			{ "ray-x/lsp_signature.nvim", module = "lsp_signature" }
+			}
 		}
 	}
 
@@ -100,13 +93,23 @@ return require "packer".startup({function(use)
 		end
 	}
 
-	-- Statusline
-	-- use {
-		-- "hoob3rt/lualine.nvim",
-		-- config = function()
-			-- require "plugins.lualine"
-		-- end
-	-- }
+	-- FZF
+	use {
+		"kevinhwang91/nvim-bqf",
+		config = function()
+			require "bqf".setup {
+				magic_window = {
+					default = false
+				}
+			}
+		end,
+		requires = {{
+			"junegunn/fzf",
+			run = function()
+				vim.cmd[["fzf#install()"]]
+			end
+		}}
+	}
 
 	-- Colorscheme
 	use {
@@ -115,21 +118,6 @@ return require "packer".startup({function(use)
 			require "colors"
 		end
 	}
-
-	-- Trouble
-	-- use {
-		-- "folke/trouble.nvim",
-		-- config = function()
-			-- require "plugins.trouble"
-		-- end
-	-- }
-
-	-- use {
-		-- "itscarlosecp/vimway-lsp-diag.nvim",
-		-- config = function()
-			-- require "vimway-lsp-diag".init()
-		-- end
-	-- }
 
 	-- Formatter
 	use {

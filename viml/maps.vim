@@ -35,5 +35,3 @@ nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfile
 xmap ga <Plug>(EasyAlign)
 
 " Quickfix
-" Trouble
-nnoremap <silent> <leader>q <cmd>TroubleToggle lsp_document_diagnostics<CR>
