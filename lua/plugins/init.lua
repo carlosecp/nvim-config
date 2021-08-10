@@ -12,12 +12,6 @@ end
 return require "packer".startup({function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
-	use {
-		"kabouzeid/nvim-lspinstall",
-		config = function()
-			require "lsp"
-		end
-	}
 
 	-- Treesitter
 	use {
@@ -93,15 +87,6 @@ return require "packer".startup({function(use)
 		end
 	}
 
-	-- Formatter
-	use {
-		"mhartington/formatter.nvim",
-		cmd = "Format",
-		config = function()
-			require "plugins.formatter"
-		end
-	}
-
 	-- Utilities
 	use {
 		"tpope/vim-surround",
@@ -121,19 +106,6 @@ return require "packer".startup({function(use)
 			require "colorizer".setup()
 		end
 	}
-	use {
-		"kristijanhusak/vim-carbon-now-sh",
-		cmd = "CarbonNowSh"
-	}
-
-	-- Colorscheme
-	use {
-		"sainnhe/gruvbox-material",
-		config = function()
-			require "themes"
-		end
-	}
-	use "rktjmp/lush.nvim"
 
 	-- Modules
 	use {
