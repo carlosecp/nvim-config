@@ -1,6 +1,5 @@
 -- Colorscheme
 vim.opt.background = "dark"
-vim.g.gruvbox_material_background = "medium"
 vim.cmd[[colorscheme gruvbox-material]]
 
 -- Autocomands for terminal background

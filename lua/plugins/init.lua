@@ -87,6 +87,23 @@ return require "packer".startup({function(use)
 		end
 	}
 
+	-- Colorscheme
+	-- use {
+		-- "sainnhe/gruvbox-material",
+		-- config = function()
+			-- require "colors"
+		-- end
+	-- }
+	use {
+		"rktjmp/lush.nvim",
+	}
+	use {
+		"$HOME/gruvbox",
+		config = function()
+			vim.cmd[[colorscheme gruvbox]]
+		end
+	}
+
 	-- Utilities
 	use {
 		"tpope/vim-surround",
