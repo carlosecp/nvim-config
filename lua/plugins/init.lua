@@ -93,23 +93,6 @@ return require "packer".startup({function(use)
 		end
 	}
 
-	-- Quickfix List
-	use {
-		"itscarlosecp/vimway-lsp-diag.nvim",
-		module = "vimway-lsp-diag",
-		config = function()
-			require "vimway-lsp-diag"
-		end
-	}
-
-	-- Colorschemes
-	use {
-		"sainnhe/gruvbox-material",
-		config = function()
-			require "colors"
-		end
-	}
-
 	-- Formatter
 	use {
 		"mhartington/formatter.nvim",
@@ -142,6 +125,15 @@ return require "packer".startup({function(use)
 		"kristijanhusak/vim-carbon-now-sh",
 		cmd = "CarbonNowSh"
 	}
+
+	-- Colorscheme
+	use {
+		"sainnhe/gruvbox-material",
+		config = function()
+			require "themes"
+		end
+	}
+	use "rktjmp/lush.nvim"
 
 	-- Modules
 	use {
