@@ -5,7 +5,7 @@ require "github-theme".setup {
 vim.cmd[[
 " Custom Highlight Groups
 highlight StatusLineNC guifg=#6cb6ff guibg=#2d333b
-highlight NvimTreeIndentMarker guifg=#2d333b
+highlight NvimTreeIndentMarker guifg=#47505d
 
 " Terminal Highlight
 highlight DarkTerm guibg=#1e2228

@@ -12,6 +12,13 @@ end
 return require "packer".startup({function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
+	use {
+		"kabouzeid/nvim-lspinstall",
+		config = function()
+			require "lsp"
+		end
+	}
+
 
 	-- Treesitter
 	use {
@@ -88,7 +95,7 @@ return require "packer".startup({function(use)
 	use {
 		"projekt0n/github-nvim-theme",
 		config = function()
-			require "themes"
+			require "colors"
 		end
 	}
 
