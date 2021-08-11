@@ -150,50 +150,59 @@ local theme = lush(function()
 		LspDiagnosticsVirtualTextWarning   { VirtualTextWarning },
 
 		-- Treesitter
-    -- TSError              { }, -- For syntax/parser errors.
-    -- TSPunctDelimiter     { }, -- For delimiters ie: `.`
-    -- TSPunctBracket       { }, -- For brackets and parens.
-    -- TSPunctSpecial       { }, -- For special punctutation that does not fall in the catagories before.
-    -- TSConstant           { }, -- For constants
-    -- TSConstBuiltin       { }, -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro         { }, -- For constants that are defined by macros: `NULL` in C.
-    -- TSString             { }, -- For strings.
-    -- TSStringRegex        { }, -- For regexes.
-    -- TSStringEscape       { }, -- For escape characters within a string.
-    -- TSCharacter          { }, -- For characters.
-    -- TSNumber             { }, -- For integers.
-    -- TSBoolean            { }, -- For booleans.
-    -- TSFloat              { }, -- For floats.
-    -- TSFunction           { }, -- For function (calls and definitions).
-    -- TSFuncBuiltin        { }, -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro          { }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    -- TSParameter          { }, -- For parameters of a function.
-    -- TSParameterReference { }, -- For references to parameters of a function.
-    -- TSMethod             { }, -- For method calls and definitions.
-    -- TSField              { }, -- For fields.
-    -- TSProperty           { }, -- Same as `TSField`.
-    -- TSConstructor        { }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
-    -- TSConditional        { }, -- For keywords related to conditionnals.
-    -- TSRepeat             { }, -- For keywords related to loops.
-    -- TSLabel              { }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
-    -- TSKeyword            { }, -- For keywords that don't fall in previous categories.
-    -- TSKeywordFunction    { }, -- For keywords used to define a fuction.
-    -- TSException          { }, -- For exception related keywords.
-    -- TSType               { }, -- For types.
-    -- TSTypeBuiltin        { }, -- For builtin types (you guessed it, right ?).
-    -- TSNamespace          { }, -- For identifiers referring to modules and namespaces.
-    -- TSInclude            { }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    -- TSAnnotation         { }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSText               { }, -- For strings considered text in a markup language.
-    -- TSStrong             { }, -- For text to be represented with strong.
-    -- TSEmphasis           { }, -- For text to be represented with emphasis.
-    -- TSUnderline          { }, -- For text to be represented with an underline.
-    -- TSTitle              { }, -- Text that is part of a title.
-    -- TSLiteral            { }, -- Literal text.
-    -- TSURI                { }, -- Any URI like a link or email.
-    -- TSVariable           { }, -- Any variable name that does not have another highlight.
-    -- TSVariableBuiltin    { }, -- Variable names that are defined by the languages, like `this` or `self`.
+		TSAnnotation { fg = hsl("#d3869b") },
+		TSAttribute { fg = hsl("#d3869b") },
+		TSBoolean { fg = hsl("#d3869b") },
+		TSCharacter { fg = hsl("#89b482") },
+		TSComment { Comment },
+		TSConditional { fg = hsl("#ea6962") },
+		TSConstBuiltin { fg = hsl("#7daea3") },
+		TSConstMacro { fg = hsl("#7daea3") },
+		TSConstant { fg = Normal.fg },
+		TSConstructor { fg = hsl("#a9b665") },
+		TSDanger { fg = hsl("#282828"), bg = hsl("#ea6962"), gui = "bold" },
+		TSEmphasis { gui = "bold" },
+		TSEnvironment { Macro },
+		TSEnvironmentName { Type },
+		TSException { fg = p.error },
+		TSField { fg = hsl("#a9b665") },
+		TSFloat { fg = hsl("#d3869b") },
+		TSFuncBuiltin { fg = hsl("#a9b665") },
+		TSFuncMacro { fg = hsl("#a9b665") },
+		TSFunction { fg = hsl("#a9b665") },
+		TSInclude { fg = hsl("#ea6962") },
+		TSKeyword { fg = hsl("#ea6962") },
+		TSKeywordFunction { fg = hsl("#ea6962") },
+		TSKeywordOperator { fg = hsl("#e78a4e") },
+		TSKeywordReturn { TSKeyword },
+		TSLabel { fg = hsl("#e78a4e") },
+		TSLiteral { String },
+		TSMath { fg = hsl("#7daea3") },
+		TSMethod { fg = hsl("#a9b665") },
+		TSNamespace     { fg = hsl("#d8a657") },
+		TSNone          { fg = Normal.fg },
+		TSNumber        { fg = hsl("#d3869b") },
+		TSOperator      { fg = hsl("#e78a4e") },
+		TSParameter     { fg = Normal.fg },
+		TSParameterReference  { fg = Normal.fg },
+		TSProperty      { fg = hsl("#a9b665") },
+		TSPunctBracket  { fg = Normal.fg },
+		TSPunctDelimiter  { fg = hsl("#928374") },
+		TSPunctSpecial  { fg = hsl("#7daea3") },
+		TSRepeat        { fg = hsl("#ea6962") },
+		TSString        { fg = hsl("") },
+		TSStringEscape  { fg = hsl("") },
+		TSStringRegex   { fg = hsl("") },
+		TSStructure     { fg = hsl("") },
+		TSSymbol        { fg = hsl("") },
+		TSTag           { fg = hsl("") },
+		TSTagDelimiter  { fg = hsl("") },
+		TSText          { fg = hsl("") },
+		TSStrike        { fg = hsl("") },
+		TSMath          { fg = hsl("") },
+		TSType          { fg = hsl("") },
+		TSTypeBuiltin   { fg = hsl("") },
+		TSURI           { fg = hsl("") },
   }
 end)
 
