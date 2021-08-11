@@ -150,59 +150,124 @@ local theme = lush(function()
 		LspDiagnosticsVirtualTextWarning   { VirtualTextWarning },
 
 		-- Treesitter
-		TSAnnotation { fg = hsl("#d3869b") },
-		TSAttribute { fg = hsl("#d3869b") },
-		TSBoolean { fg = hsl("#d3869b") },
-		TSCharacter { fg = hsl("#89b482") },
-		TSComment { Comment },
-		TSConditional { fg = hsl("#ea6962") },
-		TSConstBuiltin { fg = hsl("#7daea3") },
-		TSConstMacro { fg = hsl("#7daea3") },
-		TSConstant { fg = Normal.fg },
-		TSConstructor { fg = hsl("#a9b665") },
-		TSDanger { fg = hsl("#282828"), bg = hsl("#ea6962"), gui = "bold" },
-		TSEmphasis { gui = "bold" },
-		TSEnvironment { Macro },
-		TSEnvironmentName { Type },
-		TSException { fg = p.error },
-		TSField { fg = hsl("#a9b665") },
-		TSFloat { fg = hsl("#d3869b") },
-		TSFuncBuiltin { fg = hsl("#a9b665") },
-		TSFuncMacro { fg = hsl("#a9b665") },
-		TSFunction { fg = hsl("#a9b665") },
-		TSInclude { fg = hsl("#ea6962") },
-		TSKeyword { fg = hsl("#ea6962") },
-		TSKeywordFunction { fg = hsl("#ea6962") },
-		TSKeywordOperator { fg = hsl("#e78a4e") },
-		TSKeywordReturn { TSKeyword },
-		TSLabel { fg = hsl("#e78a4e") },
-		TSLiteral { String },
-		TSMath { fg = hsl("#7daea3") },
-		TSMethod { fg = hsl("#a9b665") },
-		TSNamespace     { fg = hsl("#d8a657") },
-		TSNone          { fg = Normal.fg },
-		TSNumber        { fg = hsl("#d3869b") },
-		TSOperator      { fg = hsl("#e78a4e") },
-		TSParameter     { fg = Normal.fg },
-		TSParameterReference  { fg = Normal.fg },
-		TSProperty      { fg = hsl("#a9b665") },
-		TSPunctBracket  { fg = Normal.fg },
-		TSPunctDelimiter  { fg = hsl("#928374") },
-		TSPunctSpecial  { fg = hsl("#7daea3") },
-		TSRepeat        { fg = hsl("#ea6962") },
-		TSString        { fg = hsl("") },
-		TSStringEscape  { fg = hsl("") },
-		TSStringRegex   { fg = hsl("") },
-		TSStructure     { fg = hsl("") },
-		TSSymbol        { fg = hsl("") },
-		TSTag           { fg = hsl("") },
-		TSTagDelimiter  { fg = hsl("") },
-		TSText          { fg = hsl("") },
-		TSStrike        { fg = hsl("") },
-		TSMath          { fg = hsl("") },
-		TSType          { fg = hsl("") },
-		TSTypeBuiltin   { fg = hsl("") },
-		TSURI           { fg = hsl("") },
+		TSAnnotation         { fg = hsl("#d3869b") },
+		TSAttribute          { fg = hsl("#d3869b") },
+		TSBoolean            { fg = hsl("#d3869b") },
+		TSCharacter          { fg = hsl("#89b482") },
+		TSComment            { Comment },
+		TSConditional        { fg = hsl("#ea6962") },
+		TSConstBuiltin       { fg = hsl("#7daea3") },
+		TSConstMacro         { fg = hsl("#7daea3") },
+		TSConstant           { fg = Normal.fg },
+		TSConstructor        { fg = hsl("#a9b665") },
+		TSDanger             { fg = hsl("#282828"), bg = hsl("#ea6962"), gui = "bold" },
+		TSEmphasis           { gui = "bold" },
+		TSEnvironment        { Macro },
+		TSEnvironmentName    { Type },
+		TSException          { fg = p.error },
+		TSField              { fg = hsl("#a9b665") },
+		TSFloat              { fg = hsl("#d3869b") },
+		TSFuncBuiltin        { fg = hsl("#a9b665") },
+		TSFuncMacro          { fg = hsl("#a9b665") },
+		TSFunction           { fg = hsl("#a9b665") },
+		TSInclude            { fg = hsl("#ea6962") },
+		TSKeyword            { fg = hsl("#ea6962") },
+		TSKeywordFunction    { fg = hsl("#ea6962") },
+		TSKeywordOperator    { fg = hsl("#e78a4e") },
+		TSKeywordReturn      { TSKeyword },
+		TSLabel              { fg = hsl("#e78a4e") },
+		TSLiteral            { String },
+		TSMath               { fg = hsl("#7daea3") },
+		TSMethod             { fg = hsl("#a9b665") },
+		TSNamespace          { fg = hsl("#d8a657") },
+		TSNone               { fg = Normal.fg },
+		TSNumber             { fg = hsl("#d3869b") },
+		TSOperator           { fg = hsl("#e78a4e") },
+		TSParameter          { fg = Normal.fg },
+		TSParameterReference { fg = Normal.fg },
+		TSProperty           { fg = hsl("#a9b665") },
+		TSPunctBracket       { fg = Normal.fg },
+		TSPunctDelimiter     { fg = hsl("#928374") },
+		TSPunctSpecial       { fg = hsl("#7daea3") },
+		TSRepeat             { fg = hsl("#ea6962") },
+		TSString             { fg = hsl("") },
+		TSStringEscape       { fg = hsl("") },
+		TSStringRegex        { fg = hsl("") },
+		TSStructure          { fg = hsl("") },
+		TSSymbol             { fg = hsl("") },
+		TSTag                { fg = hsl("") },
+		TSTagDelimiter       { fg = hsl("") },
+		TSText               { fg = hsl("") },
+		TSStrike             { fg = hsl("") },
+		TSMath               { fg = hsl("") },
+		TSType               { fg = hsl("") },
+		TSTypeBuiltin        { fg = hsl("") },
+		TSURI                { fg = hsl("") },
+
+		-- Nvimtree
+		-- NvimTreeSymlink xxx links to Fg
+		-- NvimTreeFolderName xxx links to Green
+		-- NvimTreeRootFolder xxx links to Grey
+		-- NvimTreeFolderIcon xxx links to Orange
+		-- NvimTreeEmptyFolderName xxx links to Green
+		-- NvimTreeOpenedFolderName xxx links to Green
+		-- NvimTreeExecFile xxx links to Fg
+		-- NvimTreeOpenedFile xxx links to Fg
+		-- NvimTreeSpecialFile xxx links to Fg
+		-- NvimTreeImageFile xxx links to Fg
+		-- NvimTreeMarkdownFile xxx links to Fg
+		-- NvimTreeIndentMarker xxx links to Grey
+		-- NvimTreeGitDirty xxx links to Yellow
+		-- NvimTreeGitStaged xxx links to Blue
+		-- NvimTreeGitMerge xxx links to Orange
+		-- NvimTreeGitRenamed xxx links to Purple
+		-- NvimTreeGitNew xxx links to Aqua
+		-- NvimTreeGitDeleted xxx links to Red
+
+		-- Telescope
+		-- TelescopeSelectionCaret xxx links to TelescopeSelection
+		-- TelescopeMultiSelection xxx links to Type
+		-- TelescopeNormal xxx links to Normal
+		-- TelescopePreviewNormal xxx links to Normal
+		-- TelescopePromptBorder xxx links to TelescopeBorder
+		-- TelescopeResultsBorder xxx links to TelescopeBorder
+		-- TelescopePreviewBorder xxx links to TelescopeBorder
+		-- TelescopePreviewLine xxx links to Visual
+		-- TelescopePreviewMatch xxx links to Search
+		-- TelescopePreviewPipe xxx links to Constant
+		-- TelescopePreviewCharDev xxx links to Constant
+		-- TelescopePreviewDirectory xxx links to Directory
+		-- TelescopePreviewBlock xxx links to Constant
+		-- TelescopePreviewLink xxx links to Special
+		-- TelescopePreviewSocket xxx links to Statement
+		-- TelescopePreviewRead xxx links to Constant
+		-- TelescopePreviewWrite xxx links to Statement
+		-- TelescopePreviewExecute xxx links to String
+		-- TelescopePreviewHyphen xxx links to NonText
+		-- TelescopePreviewSticky xxx links to Keyword
+		-- TelescopePreviewSize xxx links to String
+		-- TelescopePreviewUser xxx links to Constant
+		-- TelescopePreviewGroup xxx links to Constant
+		-- TelescopePreviewDate xxx links to Directory
+		-- TelescopeResultsClass xxx links to Function
+		-- TelescopeResultsConstant xxx links to Constant
+		-- TelescopeResultsField xxx links to Function
+		-- TelescopeResultsFunction xxx links to Function
+		-- TelescopeResultsMethod xxx links to Method
+		-- TelescopeResultsOperator xxx links to Operator
+		-- TelescopeResultsStruct xxx links to Struct
+		-- TelescopeResultsVariable xxx links to SpecialChar
+		-- TelescopeResultsLineNr xxx links to LineNr
+		-- TelescopeResultsIdentifier xxx links to Identifier
+		-- TelescopeResultsNumber xxx links to Number
+		-- TelescopeResultsComment xxx links to Comment
+		-- TelescopeResultsSpecialComment xxx links to SpecialComment
+		-- TelescopeResultsDiffChange xxx links to DiffChange
+		-- TelescopeResultsDiffAdd xxx links to DiffAdd
+		-- TelescopeResultsDiffDelete xxx links to DiffDelete
+		-- TelescopeResultsDiffUntracked xxx links to NonText
+
+		--
   }
 end)
 
