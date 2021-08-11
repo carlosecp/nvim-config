@@ -4,7 +4,8 @@ require "github-theme".setup {
 
 vim.cmd[[
 " Custom Highlight Groups
-highlight StatusLineNC guibg=#6cb6ff
+" highlight StatusLineNC guifg=#22272e guibg=#6cb6ff
+highlight StatusLineNC guifg=#6cb6ff guibg=#2d333b
 
 " Terminal Highlight
 highlight DarkTerm guibg=#1e2228
