@@ -89,13 +89,10 @@ return require "packer".startup({function(use)
 
 	-- Colorscheme
 	use {
-		"sainnhe/gruvbox-material",
+		"projekt0n/github-nvim-theme",
 		config = function()
 			require "themes"
 		end
-	}
-	use {
-		"rktjmp/lush.nvim"
 	}
 
 	-- Utilities

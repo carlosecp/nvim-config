@@ -1,8 +1,13 @@
-vim.g.background = "dark"
-vim.cmd[[colorscheme gruvbox-material]]
+require "github-theme".setup {
+	themeStyle = "dimmed"
+}
 
 vim.cmd[[
-highlight DarkTerm guibg=#1e1e1e
+" Custom Highlight Groups
+highlight StatusLineNC guibg=#6cb6ff
+
+" Terminal Highlight
+highlight DarkTerm guibg=#1e2228
 
 au TermOpen,TermEnter * setlocal nonu nornu
 au TermOpen,TermEnter * setlocal winhl=Normal:DarkTerm,NormalNC:DarkTerm
