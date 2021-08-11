@@ -67,10 +67,7 @@ return require "packer".startup({function(use)
 		cmd = "NvimTreeToggle",
 		config = function()
 			require "plugins.nvimtree"
-		end,
-		require = {
-			"nvim-web-devicons"
-		}
+		end
 	}
 
 	-- Telescope
@@ -126,7 +123,10 @@ return require "packer".startup({function(use)
 	}
 	use {
 		"kyazdani42/nvim-web-devicons",
-		module = "nvim-web-devicons"
+		module = "nvim-web-devicons",
+		config = function()
+			require "plugins.devicons"
+		end
 	}
 
 	-- Packer can manage itself
