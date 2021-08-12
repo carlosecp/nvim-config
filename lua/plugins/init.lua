@@ -9,20 +9,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
-return require "packer".startup({function(use)
+return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
 	use {
 		"kabouzeid/nvim-lspinstall",
 		config = function()
 			require "lsp"
-		end
-	}
-	use {
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require "null-ls".config {}
-			require ("lspconfig")["null-ls"].setup {}
 		end
 	}
 
@@ -144,13 +137,5 @@ return require "packer".startup({function(use)
 
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
-end,
--- Configure Packer Install Interface
-config = {
-	display = {
-		open_fn = function()
-			return require "packer.util".float{ border = "single" }
-		end
-	}
-}})
+end)
 
