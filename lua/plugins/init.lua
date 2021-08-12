@@ -18,7 +18,13 @@ return require "packer".startup({function(use)
 			require "lsp"
 		end
 	}
-
+	use {
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require "null-ls".config {}
+			require ("lspconfig")["null-ls"].setup {}
+		end
+	}
 
 	-- Treesitter
 	use {

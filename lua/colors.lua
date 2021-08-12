@@ -6,6 +6,7 @@ vim.cmd[[
 " Custom Highlight Groups
 highlight StatusLineNC guifg=#6cb6ff guibg=#2d333b
 highlight NvimTreeIndentMarker guifg=#47505d
+highlight PmenuSel guifg=#2d333b guibg=#6cb6ff
 
 " Terminal Highlight
 highlight DarkTerm guibg=#1e2228
