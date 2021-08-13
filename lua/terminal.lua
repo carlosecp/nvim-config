@@ -20,7 +20,8 @@ local function termOpen()
 	else
 		if vim.fn.win_gotoid(toggle_term_window) == 0 then
 			vim.cmd("sp")
-			vim.cmd("resize " .. toggle_term_window_size)
+			-- vimcmd("resize " .. toggle_term_window_size)
+			vim.cmd("resize 15")
 			vim.cmd("buffer Toggle\\ Terminal")
 
 			toggle_term_window = vim.api.nvim_get_current_win()

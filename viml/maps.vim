@@ -16,6 +16,7 @@ inoremap ? ?<c-g>u
 
 " Toggle Terminal
 nnoremap <silent> <leader>t <cmd>lua require 'terminal'.termToggle()<CR>
+tnoremap <silent> <Esc> <C-\><C-n>
 
 " NvimTree
 nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
