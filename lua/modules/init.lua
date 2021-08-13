@@ -10,30 +10,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
-	-- LSP
+	-- Conquer of Completion
 	use {
-		"neovim/nvim-lspconfig",
+		"neoclide/coc.nvim",
+		branch = "release",
+		event = "BufRead",
 		config = function()
-			require "lsp.utils"
-		end
-	}
-	use {
-		"kabouzeid/nvim-lspinstall",
-		config = function()
-			require "lsp"
-		end
-	}
-	use {
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require "null-ls".setup {
-				on_attach = function(client)
-					client.resolved_capabilities.document_formatting = true
-					if client.resolved_capabilities.document_formatting then
-						vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-					end
-				end
-			}
+			vim.cmd[[source $HOME/.config/nvim/viml/coc.vim]]
 		end
 	}
 
@@ -64,24 +47,6 @@ return require "packer".startup(function(use)
 			"javascriptreact",
 			"typescript",
 			"typescriptreact"
-		}
-	}
-
-	-- Autocompletion
-	use {
-		"hrsh7th/nvim-compe",
-		event = "InsertEnter",
-		config = function()
-			require "modules.compe"
-		end,
-		requires = {
-			{
-				"windwp/nvim-autopairs",
-				module = {
-					"nvim-autopairs",
-					"nvim-autopairs.completion.compe"
-				}
-			}
 		}
 	}
 

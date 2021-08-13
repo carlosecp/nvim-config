@@ -32,4 +32,3 @@ nnoremap <silent> <leader>df <cmd>lua require 'modules.telescope'.search_dotfile
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
-

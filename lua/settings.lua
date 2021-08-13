@@ -8,6 +8,7 @@ vim.opt.ignorecase = true
 vim.opt.completeopt = "menuone,noselect"
 vim.opt.pumheight   = 10
 vim.opt.cmdheight   = 2
+vim.opt.updatetime  = 300
 
 -- Indentation
 vim.opt.tabstop    = 2
@@ -26,3 +27,4 @@ vim.cmd("set iskeyword+=-")
 vim.opt.splitbelow    = true
 vim.opt.splitright    = true
 vim.opt.termguicolors = true
+
