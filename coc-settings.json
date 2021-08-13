@@ -5,6 +5,7 @@
 	"diagnostic.hintSign": "",
 	"diagnostic.infoSign": "",
 
+
 	// Autocompletion
 	"suggest.noselect": true,
 	"suggest.completionItemKindLabels": {
@@ -17,7 +18,7 @@
 		"enum": " 練 (Enum)",
 		"enumMember": "   (EnumMember)",
 		"color": "   (Color)",
-		"property": " 襁 (Property)",
+		"property": "襁 (Property)",
 		"field": " ﴲ  (Field)",
 		"unit": "   (Unit)",
 		"file": "   (File)",
@@ -39,6 +40,6 @@
 
 	// Lua
   "Lua.diagnostics.globals": [
-    "vim",
+    "vim"
   ]
 }

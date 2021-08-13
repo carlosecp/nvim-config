@@ -74,12 +74,7 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
-	use {
-		"projekt0n/github-nvim-theme",
-		config = function()
-			require "colors"
-		end
-	}
+	use "projekt0n/github-nvim-theme"
 
 	-- Utilities
 	use {
