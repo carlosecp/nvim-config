@@ -12,6 +12,12 @@ end
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
+	use {
+		"kabouzeid/nvim-lspinstall",
+		config = function()
+			require "lsp"
+		end
+	}
 
 	-- Treesitter
 	use {
@@ -82,6 +88,16 @@ return require "packer".startup(function(use)
 		config = function()
 			require "plugins.telescope"
 		end
+	}
+
+	-- FZF
+	{
+		"junegunn/fzf.vim",
+		requires = {
+			"junegunn/fzf",
+			dir = "$HOME/.fzf",
+			run = "./install"
+		}
 	}
 
 	-- Colorscheme
