@@ -24,7 +24,7 @@ return require "packer".startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 		config = function()
-			require "plugins.treesitter"
+			require "modules.treesitter"
 		end,
 		run = ":TSUpdate",
 	}
@@ -54,7 +54,7 @@ return require "packer".startup(function(use)
 		"hrsh7th/nvim-compe",
 		event = "InsertEnter",
 		config = function()
-			require "plugins.compe"
+			require "modules.compe"
 		end,
 		requires = {
 			{
@@ -72,7 +72,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require "plugins.nvimtree"
+			require "modules.nvimtree"
 		end
 	}
 
@@ -83,10 +83,10 @@ return require "packer".startup(function(use)
 		module = {
 			"telescope",
 			"telescope.builtin",
-			"plugins.telescope"
+			"modules.telescope"
 		},
 		config = function()
-			require "plugins.telescope"
+			require "modules.telescope"
 		end
 	}
 
@@ -131,7 +131,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require "plugins.devicons"
+			require "modules.devicons"
 		end
 	}
 

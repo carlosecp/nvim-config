@@ -15,7 +15,7 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " Toggle Terminal
-nnoremap <silent> <leader>t <cmd>lua require 'terminal'.termToggle()<CR>
+nnoremap <silent> <leader>t <cmd>lua require 'modules.terminal'.termToggle()<CR>
 tnoremap <silent> <Esc> <C-\><C-n>
 
 " NvimTree
@@ -27,8 +27,8 @@ nnoremap <silent> <leader>ff <cmd>Telescope find_files hidden=true<CR>
 nnoremap <silent> <leader>lg <cmd>Telescope live_grep             <CR>
 nnoremap <silent> <leader>gc <cmd>Telescope git_commits           <CR>
 " Custom Actions
-nnoremap <silent> <leader>nv <cmd>lua require 'plugins.telescope'.search_neovim()  <CR>
-nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>
+nnoremap <silent> <leader>nv <cmd>lua require 'modules.telescope'.search_neovim()  <CR>
+nnoremap <silent> <leader>df <cmd>lua require 'modules.telescope'.search_dotfiles()<CR>
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
