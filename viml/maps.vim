@@ -14,12 +14,8 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
-" Copy to Clipboard
-vnoremap <C-c> "*y
-
 " Toggle Terminal
-" nnoremap <silent> <leader>t <cmd> sp \| resize 12 \| term<CR> \| i
-" tnoremap <silent> <Esc> <C-\><C-n>
+nnoremap <silent> <leader>t <cmd>lua require 'terminal'.termToggle()<CR>
 
 " NvimTree
 nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
@@ -36,7 +32,3 @@ nnoremap <silent> <leader>df <cmd>lua require 'plugins.telescope'.search_dotfile
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
 
-" Quickfix List
-nnoremap <silent> <leader>q <cmd>lua require 'lsp.utils'.show_diagnostics()<CR>
-nnoremap <silent> [g <cmd>cnext    <CR>
-nnoremap <silent> ]g <cmd>cprevious<CR>

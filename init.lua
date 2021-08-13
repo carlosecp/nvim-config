@@ -7,3 +7,4 @@ require "plugins"
 vim.g.mapleader = " "
 vim.cmd[[source $HOME/.config/nvim/viml/maps.vim]]
 vim.cmd[[source $HOME/.config/nvim/viml/statusline.vim]]
+
