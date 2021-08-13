@@ -23,6 +23,19 @@ return require "packer".startup(function(use)
 			require "lsp"
 		end
 	}
+	use {
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require "null-ls".setup {
+				on_attach = function(client)
+					client.resolved_capabilities.document_formatting = true
+					if client.resolved_capabilities.document_formatting then
+						vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+					end
+				end
+			}
+		end
+	}
 
 	-- Treesitter
 	use {
