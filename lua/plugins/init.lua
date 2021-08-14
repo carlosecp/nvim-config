@@ -107,11 +107,12 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"rktjmp/lush.nvim",
-		cmd = {
-			"Lushify",
-			"LushRunTutorial"
-		}
+		-- Local development: "$HOME/themes.nvim",
+		"itscarlosecp/themes.nvim",
+		config = function()
+			vim.cmd("colorscheme monokai")
+		end,
+		requires = "rktjmp/lush.nvim"
 	}
 
 	-- Utilities
