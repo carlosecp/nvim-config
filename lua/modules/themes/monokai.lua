@@ -349,6 +349,12 @@ local theme = lush(function()
 		TelescopeBorder { fg = p.ui.border },
 
 		-- Custom Highlight Groups
+		-- Statusline: Custom Groups
+		VimMode { fg = StatusLine.bg, bg = p.ui.accent },
+		GitBranch { fg = StatusLine.fg, bg = p.ui.inactive.darken(50) },
+		ScrollPercentage { fg = StatusLine.fg, bg = p.ui.inactive.darken(50) },
+		CursorLoc { fg = StatusLine.bg, bg = p.ui.accent },
+
 		-- DarkTerm: Terminal Darker bg
 		DarkTerm { bg = p.ui.bg.dark }
 	}
