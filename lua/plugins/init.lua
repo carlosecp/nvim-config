@@ -52,6 +52,25 @@ return require "packer".startup(function(use)
 		}
 	}
 
+	-- Autocompletion
+	use {
+		"hrsh7th/nvim-compe",
+		event = "InsertEnter",
+		config = function()
+			require "plugins.compe"
+		end,
+		requires = {
+			{
+				"windwp/nvim-autopairs",
+				module = {
+					"nvim-autopairs",
+					"nvim-autopairs.completion.compe"
+				}
+			}
+		}
+	}
+
+
 	-- Telescope
 	use {
 		"nvim-telescope/telescope.nvim",
@@ -73,6 +92,9 @@ return require "packer".startup(function(use)
 			-- require "plugins.lualine"
 		-- end
 	-- }
+	
+	-- Bufferline
+	use "akinsho/nvim-bufferline.lua"
 
 	-- Formatter
 	use {
@@ -81,6 +103,15 @@ return require "packer".startup(function(use)
 		config = function()
 			require "plugins.formatter"
 		end
+	}
+
+	-- Colorscheme
+	use {
+		"rktjmp/lush.nvim",
+		cmd = {
+			"Lushify",
+			"LushRunTutorial"
+		}
 	}
 
 	-- Utilities
