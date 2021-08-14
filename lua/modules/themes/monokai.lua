@@ -2,16 +2,17 @@ local lush = require "lush"
 local hsl = lush.hsl
 
 local p = {
-	explorer = {
-		fg = hsl("#dddddd"),
-		bg = hsl("#161616"),
-		folder_icon = hsl("#90a4ae")
+	nvimtree = {
+		folder_icon = hsl("#90a4ae"),
 	},
 	ui = {
 		fg = hsl("#dddddd"),
-		bg = hsl("#1f1f1f"),
+		bg = {
+			std = hsl("#1f1f1f"),
+			dark = hsl("#161616"),
+		},
 
-		line_nr = hsl("#666666"),
+		inactive = hsl("#666666"),
 		cursor = hsl("#f2f2f2"),
 		cursor_line = hsl("#292929"),
 		visual = hsl("#464646"),
@@ -82,7 +83,7 @@ local p = {
 
 local theme = lush(function()
   return {
-		Normal { fg = p.ui.fg, bg = p.ui.bg },
+		Normal { fg = p.ui.fg, bg = p.ui.bg.std },
 
 		-- Syntax
 		-- Regular Syntax
@@ -181,7 +182,7 @@ local theme = lush(function()
 
 
 		-- Interface
-		LineNr { fg = p.ui.line_nr },
+		LineNr { fg = p.ui.inactive },
 		CursorLineNR { LineNr },
     EndOfBuffer  { LineNr },
     VertSplit    { LineNr },
@@ -189,7 +190,10 @@ local theme = lush(function()
 		CursorLine { bg = p.ui.cursor_line },
 		CursorColumn { CursorLine },
     Visual       { bg = p.ui.visual },
-    VisualNOS    { },
+    VisualNOS    { Visual },
+    TermCursor   { Cursor },
+    TermCursorNC { },
+    SignColumn   { bg = Visual.bg },
 
 		-- Git
     DiffAdd      { fg = p.git.added },
@@ -220,7 +224,6 @@ local theme = lush(function()
     NormalNC     { },
     Question     { },
     QuickFixLine { },
-    SignColumn   { },
     SpecialKey   { },
     SpellBad     { },
     SpellCap     { },
@@ -232,16 +235,14 @@ local theme = lush(function()
     TabLine      { },
     TabLineFill  { },
     TabLineSel   { },
-    TermCursor   { },
-    TermCursorNC { },
     WarningMsg   { },
     Whitespace   { },
     lCursor      { },
 
 		-- NvimTree
-		NvimTreeNormal          { fg = p.explorer.fg, bg = p.explorer.bg },
-    Directory               { fg = p.explorer.fg },
-		NvimTreeFolderIcon      { fg = p.explorer.folder_icon },
+		NvimTreeNormal          { fg = Normal.fg, bg = p.ui.bg.dark },
+    Directory               { fg = Normal.fg },
+		NvimTreeFolderIcon      { fg = p.nvimtree.folder_icon },
 		NvimTreeFolderName      { Directory },
 		NvimTreeEmptyFolderName { Directory },
 		NvimTreeCursorLine      { CursorLine },
@@ -259,29 +260,83 @@ local theme = lush(function()
 		NvimTreeGitStaged  { DiffAdd },
 
 		-- NvimTree LSP
-		NvimTreeLspDiagnosticsError {},
-		NvimTreeLspDiagnosticsHint {},
-		NvimTreeLspDiagnosticsInformation {},
-		NvimTreeLspDiagnosticsWarning {},
+		NvimTreeLspDiagnosticsError       { },
+		NvimTreeLspDiagnosticsHint        { },
+		NvimTreeLspDiagnosticsInformation { },
+		NvimTreeLspDiagnosticsWarning     { },
 		
-		NvimTreeFileDeleted {},
-		NvimTreeFileDirty {},
-		NvimTreeFileMerge {},
-		NvimTreeFileNew {},
-		NvimTreeFileRenamed {},
-		NvimTreeFileStaged {},
-		NvimTreeExecFile { },
-		NvimTreeImageFile {},
-		NvimTreeOpenedFile {},
-		NvimTreeOpenedFolderName {},
-		NvimTreePopup {},
-		NvimTreeRootFolder {},
-		NvimTreeSpecialFile {},
-		NvimTreeStatusLine {},
-		NvimTreeStatusLineNC {},
-		NvimTreeSymlink {},
-		NvimTreeVertSplit {},
-		NvimTreeWindowPicker {},
+		NvimTreeFileDeleted      { },
+		NvimTreeFileDirty        { },
+		NvimTreeFileMerge        { },
+		NvimTreeFileNew          { },
+		NvimTreeFileRenamed      { },
+		NvimTreeFileStaged       { },
+		NvimTreeExecFile         { },
+		NvimTreeImageFile        { },
+		NvimTreeOpenedFile       { },
+		NvimTreeOpenedFolderName { },
+		NvimTreePopup            { },
+		NvimTreeRootFolder       { },
+		NvimTreeSpecialFile      { },
+		NvimTreeStatusLine       { },
+		NvimTreeStatusLineNC     { },
+		NvimTreeSymlink          { },
+		NvimTreeVertSplit        { },
+		NvimTreeWindowPicker     { },
+
+		-- Bufferline
+		BufferLineFill                      { bg = p.ui.bg.dark },
+
+		BufferLineBackground                { fg = p.ui.inactive, bg = Normal.bg },
+		BufferLineCloseButton               { fg = BufferLineBackground.fg },
+		BufferLineDiagnostic                { },
+		BufferLineDuplicate                 { },
+		BufferLineError                     { },
+		BufferLineErrorDiagnostic           { },
+		BufferLineInfo                      { },
+		BufferLineInfoDiagnostic            { },
+		BufferLineModified                  { },
+		BufferLinePick                      { },
+		BufferLineSeparator                 { },
+		BufferLineWarning                   { },
+		BufferLineWarningDiagnostic         { },
+
+		BufferLineBufferSelected            { fg = Normal.fg, bg = BufferLineBackground.bg },
+		BufferLineDiagnosticSelected        { },
+		BufferLineCloseButtonSelected       { fg = BufferLineBufferVisible.fg },
+		BufferLineDuplicateSelected         { },
+		BufferLineErrorSelected             { },
+		BufferLineErrorDiagnosticSelected   { },
+		BufferLineInfoSelected              { },
+		BufferLineInfoDiagnosticSelected    { },
+		BufferLineModifiedSelected          { },
+		BufferLinePickSelected              { },
+		BufferLineSeparatorSelected         { },
+		BufferLineWarningSelected           { },
+		BufferLineWarningDiagnosticSelected { },
+
+		BufferLineBufferVisible             {},
+		BufferLineCloseButtonVisible        { },
+		BufferLineDiagnosticVisible         { },
+		BufferLineDuplicateVisible          { },
+		BufferLineErrorVisible              { },
+		BufferLineErrorDiagnosticVisible    { },
+		BufferLineInfoVisible               { },
+		BufferLineInfoDiagnosticVisible     { },
+		BufferLineModifiedVisible           { },
+		BufferLinePickVisible               { },
+		BufferLineSeparatorVisible          { },
+		BufferLineWarningVisible            { },
+		BufferLineWarningDiagnosticVisible  { },
+
+		BufferLineIndicatorSelected         { },
+
+		BufferLineTab                       { },
+		BufferLineTabClose                  { },
+		BufferLineTabSelected               { },
+
+		BufferlineDevIconDefaultInactive    { },
+		BufferlineDevIconDefaultSelected    { }
 	}
 end)
 
