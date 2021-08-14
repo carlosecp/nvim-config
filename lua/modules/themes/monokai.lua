@@ -3,7 +3,17 @@ local hsl = lush.hsl
 
 local p = {
 	nvimtree = {
+		inactive = hsl("#666666"),
 		folder_icon = hsl("#90a4ae"),
+	},
+	lsp = {
+		error = hsl("#f44747"),
+		warning = hsl("#b1b011"),
+		hint = hsl("#007acc"),
+		info = hsl("#007acc")
+	},
+	bufferline = {
+		inactive = hsl("#666666"),
 	},
 	ui = {
 		fg = hsl("#dddddd"),
@@ -16,6 +26,7 @@ local p = {
 		cursor = hsl("#f2f2f2"),
 		cursor_line = hsl("#292929"),
 		visual = hsl("#464646"),
+		border = hsl("#666666"),
 
 		autocomplete = {
 			bg = hsl("#262626"),
@@ -86,7 +97,7 @@ local theme = lush(function()
 		Normal { fg = p.ui.fg, bg = p.ui.bg.std },
 
 		-- Syntax
-		-- Regular Syntax
+		-- Syntax: Regular
 		Comment        { fg = p.syntax.reg.comment },
 		Constant       { fg = p.syntax.reg.constant },
 		String         { fg = p.syntax.reg.string },
@@ -119,12 +130,11 @@ local theme = lush(function()
 		Tag            { Special },
 		Delimiter      { Special },
 		Debug          { Special },
-
 		Underlined { gui = "underline" },
 		Error      { fg = p.ui.error },
 		Todo       { fg = p.ui.todo },
 
-		-- Treesitter Syntax
+		-- Syntax: Treesitter
 		TSAnnotation         { fg = p.syntax.ts.annotation },
 		TSAttribute          { fg = p.syntax.ts.attribute },
 		TSBoolean            { Boolean },
@@ -178,10 +188,15 @@ local theme = lush(function()
 		TSTypeBuiltin        { fg = p.syntax.ts.type_builtin },
 		TSURI                { },
 
-		-- LSP Diagnostics
-
+		-- LSP 
+		-- LSP: Diagnostics
+		LspDiagnosticsDefaultError         { fg = p.lsp.error },
+		LspDiagnosticsDefaultHint          { fg = p.lsp.hint },
+		LspDiagnosticsDefaultInformation   { fg = p.lsp.info },
+		LspDiagnosticsDefaultWarning       { fg = p.lsp.warning },
 
 		-- Interface
+		-- Interface: General
 		LineNr { fg = p.ui.inactive },
 		CursorLineNR { LineNr },
     EndOfBuffer  { LineNr },
@@ -194,19 +209,29 @@ local theme = lush(function()
     TermCursor   { Cursor },
     TermCursorNC { },
     SignColumn   { bg = Visual.bg },
+    Substitute   { Visual },
 
-		-- Git
+		-- Interface: Git
     DiffAdd      { fg = p.git.added },
     DiffChange   { fg = p.git.modified },
     DiffDelete   { fg = p.git.deleted },
     DiffText     { },
 
-		-- Autocomplete
+		-- Interface: Autocomplete
     Pmenu        { bg = p.ui.autocomplete.bg },
     PmenuSbar    { Pmenu },
     PmenuSel     { bg = p.ui.autocomplete.selection },
     PmenuThumb   { bg = p.ui.autocomplete.scrollbar },
     WildMenu     { Pmenu },
+
+		-- Interface: Statusline
+    StatusLine   { fg = p.ui.fg, bg = p.ui.bg.dark },
+    StatusLineNC { fg = p.ui.inactive, bg = StatusLine.bg },
+
+		-- Interface: Tabline
+    TabLine      { },
+    TabLineFill  { },
+    TabLineSel   { },
 
     ColorColumn  { },
     Conceal      { },
@@ -225,19 +250,14 @@ local theme = lush(function()
     Question     { },
     QuickFixLine { },
     SpecialKey   { },
-    SpellBad     { },
-    SpellCap     { },
-    SpellLocal   { },
-    SpellRare    { },
-    StatusLine   { },
-    StatusLineNC { },
-    Substitute   { },
-    TabLine      { },
-    TabLineFill  { },
-    TabLineSel   { },
     WarningMsg   { },
-    Whitespace   { },
-    lCursor      { },
+    Whitespace   { fg = p.ui.inactive },
+
+		-- Spell
+		SpellBad     { gui = "underline" },
+    SpellCap     { SpellBad },
+    SpellLocal   { SpellBad },
+		SpellRare    { SpellBad },
 
 		-- NvimTree
 		NvimTreeNormal          { fg = Normal.fg, bg = p.ui.bg.dark },
@@ -245,10 +265,13 @@ local theme = lush(function()
 		NvimTreeFolderIcon      { fg = p.nvimtree.folder_icon },
 		NvimTreeFolderName      { Directory },
 		NvimTreeEmptyFolderName { Directory },
+		NvimTreeOpenedFile       { fg = NvimTreeNormal.fg },
+		NvimTreeOpenedFolderName { fg = NvimTreeNormal.fg },
 		NvimTreeCursorLine      { CursorLine },
 		NvimTreeCursorColumn    { CursorColumn },
-		NvimTreeEndOfBuffer     { EndOfBuffer },
-		NvimTreeIndentMarker    { NvimTreeEndOfBuffer },
+		NvimTreeEndOfBuffer     { fg = p.nvimtree.inactive },
+		NvimTreeIndentMarker    { fg = p.nvimtree.inactive },
+		NvimTreeVertSplit       { fg = p.nvimtree.inactive, bg = NvimTreeNormal.bg },
 
 		-- NvimTree Git
 		NvimTreeGitDeleted { DiffDelete },
@@ -259,84 +282,86 @@ local theme = lush(function()
 		NvimTreeGitNew     { DiffAdd },
 		NvimTreeGitStaged  { DiffAdd },
 
+		NvimTreeFileDeleted      { NvimTreeGitDeleted },
+		NvimTreeFileDirty        { NvimTreeGitDirty },
+		NvimTreeFileRenamed      { NvimTreeGitRenamed },
+		NvimTreeFileMerge        { NvimTreeGitMerge },
+		NvimTreeFileNew          { NvimTreeGitNew },
+		NvimTreeFileStaged       { NvimTreeGitStaged },
+
 		-- NvimTree LSP
-		NvimTreeLspDiagnosticsError       { },
-		NvimTreeLspDiagnosticsHint        { },
-		NvimTreeLspDiagnosticsInformation { },
-		NvimTreeLspDiagnosticsWarning     { },
+		NvimTreeLspDiagnosticsError       { LspDiagnosticsDefaultError },
+		NvimTreeLspDiagnosticsHint        { LspDiagnosticsDefaultHint },
+		NvimTreeLspDiagnosticsInformation { LspDiagnosticsDefaultInformation },
+		NvimTreeLspDiagnosticsWarning     { LspDiagnosticsDefaultWarning },
 		
-		NvimTreeFileDeleted      { },
-		NvimTreeFileDirty        { },
-		NvimTreeFileMerge        { },
-		NvimTreeFileNew          { },
-		NvimTreeFileRenamed      { },
-		NvimTreeFileStaged       { },
 		NvimTreeExecFile         { },
 		NvimTreeImageFile        { },
-		NvimTreeOpenedFile       { },
-		NvimTreeOpenedFolderName { },
 		NvimTreePopup            { },
 		NvimTreeRootFolder       { },
 		NvimTreeSpecialFile      { },
 		NvimTreeStatusLine       { },
 		NvimTreeStatusLineNC     { },
 		NvimTreeSymlink          { },
-		NvimTreeVertSplit        { },
 		NvimTreeWindowPicker     { },
 
 		-- Bufferline
 		BufferLineFill                      { bg = p.ui.bg.dark },
+		BufferLineTabClose                  { BufferLineFill },
 
+		-- Not Active/Selected Tabs
 		BufferLineBackground                { fg = p.ui.inactive, bg = Normal.bg },
 		BufferLineCloseButton               { fg = BufferLineBackground.fg },
+		BufferLineError                     { LspDiagnosticsDefaultError },
+		BufferLineInfo                      { LspDiagnosticsDefaultInformation },
+		BufferLineWarning                   { LspDiagnosticsDefaultWarning },
 		BufferLineDiagnostic                { },
+		BufferLineErrorDiagnostic           { BufferLineError },
+		BufferLineInfoDiagnostic            { BufferLineInfo },
+		BufferLineWarningDiagnostic         { BufferLineWarning },
+		BufferLineModified                  { DiffChange },
 		BufferLineDuplicate                 { },
-		BufferLineError                     { },
-		BufferLineErrorDiagnostic           { },
-		BufferLineInfo                      { },
-		BufferLineInfoDiagnostic            { },
-		BufferLineModified                  { },
 		BufferLinePick                      { },
 		BufferLineSeparator                 { },
-		BufferLineWarning                   { },
-		BufferLineWarningDiagnostic         { },
 
+		-- Active/Selected Tabs
 		BufferLineBufferSelected            { fg = Normal.fg, bg = BufferLineBackground.bg },
-		BufferLineDiagnosticSelected        { },
 		BufferLineCloseButtonSelected       { fg = BufferLineBufferVisible.fg },
+		BufferLineErrorSelected             { BufferLineError },
+		BufferLineInfoSelected              { BufferLineInfo },
+		BufferLineWarningSelected           { BufferLineWarning },
+		BufferLineDiagnosticSelected        { },
+		BufferLineErrorDiagnosticSelected   { BufferLineErrorDiagnostic },
+		BufferLineInfoDiagnosticSelected    { BufferLineInfoDiagnostic },
+		BufferLineWarningDiagnosticSelected { BufferLineWarningDiagnostic },
+		BufferLineModifiedSelected          { BufferLineModified },
 		BufferLineDuplicateSelected         { },
-		BufferLineErrorSelected             { },
-		BufferLineErrorDiagnosticSelected   { },
-		BufferLineInfoSelected              { },
-		BufferLineInfoDiagnosticSelected    { },
-		BufferLineModifiedSelected          { },
 		BufferLinePickSelected              { },
 		BufferLineSeparatorSelected         { },
-		BufferLineWarningSelected           { },
-		BufferLineWarningDiagnosticSelected { },
-
-		BufferLineBufferVisible             {},
-		BufferLineCloseButtonVisible        { },
-		BufferLineDiagnosticVisible         { },
-		BufferLineDuplicateVisible          { },
-		BufferLineErrorVisible              { },
-		BufferLineErrorDiagnosticVisible    { },
-		BufferLineInfoVisible               { },
-		BufferLineInfoDiagnosticVisible     { },
-		BufferLineModifiedVisible           { },
-		BufferLinePickVisible               { },
-		BufferLineSeparatorVisible          { },
-		BufferLineWarningVisible            { },
-		BufferLineWarningDiagnosticVisible  { },
-
 		BufferLineIndicatorSelected         { },
 
+		BufferLineBufferVisible             { },
+		BufferLineCloseButtonVisible        { },
+		BufferLineErrorVisible              { BufferLineError },
+		BufferLineInfoVisible               { BufferLineInfo },
+		BufferLineWarningVisible            { BufferLineWarning },
+		BufferLineDiagnosticVisible         { },
+		BufferLineErrorDiagnosticVisible    { BufferLineErrorDiagnostic },
+		BufferLineInfoDiagnosticVisible     { BufferLineInfoDiagnostic },
+		BufferLineWarningDiagnosticVisible  { BufferLineWarningDiagnostic },
+		BufferLineModifiedVisible           { BufferLineModified },
+		BufferLineDuplicateVisible          { },
+		BufferLinePickVisible               { },
+		BufferLineSeparatorVisible          { },
+
 		BufferLineTab                       { },
-		BufferLineTabClose                  { },
 		BufferLineTabSelected               { },
 
 		BufferlineDevIconDefaultInactive    { },
-		BufferlineDevIconDefaultSelected    { }
+		BufferlineDevIconDefaultSelected    { },
+
+		-- Telescope
+		TelescopeBorder { fg = p.ui.border }
 	}
 end)
 
