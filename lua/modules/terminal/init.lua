@@ -13,7 +13,7 @@ local function termOpen()
 		vim.cmd("resize " .. default_term_size)
 
 		toggle_term_job_id = vim.fn.termopen("bash", { detach = 1 })
-		vim.cmd("silent file Toggle\\ Terminal")
+		vim.cmd("silent file Terminal")
 
 		toggle_term_window = vim.api.nvim_get_current_win()
 		toggle_term_buffer = vim.api.nvim_get_current_buf()
@@ -24,7 +24,7 @@ local function termOpen()
 			vim.cmd("sp")
 			-- vimcmd("resize " .. toggle_term_window_size)
 			vim.cmd("resize " .. default_term_size)
-			vim.cmd("buffer Toggle\\ Terminal")
+			vim.cmd("buffer Terminal")
 
 			toggle_term_window = vim.api.nvim_get_current_win()
 		end
