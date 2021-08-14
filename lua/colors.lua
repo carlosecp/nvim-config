@@ -1,17 +1,10 @@
-require "github-theme".setup {
-	themeStyle = "dimmed"
-}
+vim.opt.background = "dark"
+vim.g.gruvbox_material_background = "medium"
+vim.cmd("colorscheme gruvbox-material")
 
 vim.cmd[[
-" Custom Highlight Groups
-highlight StatusLineNC guifg=#6cb6ff guibg=#2d333b
-highlight NvimTreeIndentMarker guifg=#47505d
-highlight PmenuSel guifg=#2d333b guibg=#6cb6ff
-highlight PmenuSBar guibg=#6cb6ff
-highlight PmenuThumb guibg=#2d333b
-
 " Terminal Highlight
-highlight DarkTerm guibg=#1e2228
+highlight DarkTerm guibg=#1e1e1e
 
 au TermOpen,TermEnter * setlocal nonu nornu
 au TermOpen,TermEnter * setlocal winhl=Normal:DarkTerm,NormalNC:DarkTerm

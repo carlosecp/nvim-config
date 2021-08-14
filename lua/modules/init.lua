@@ -74,7 +74,7 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
-	use "projekt0n/github-nvim-theme"
+	use "sainnhe/gruvbox-material"
 
 	-- Utilities
 	use {
