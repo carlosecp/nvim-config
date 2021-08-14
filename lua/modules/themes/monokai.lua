@@ -2,15 +2,36 @@ local lush = require "lush"
 local hsl = lush.hsl
 
 local p = {
+	explorer = {
+		fg = hsl("#dddddd"),
+		bg = hsl("#161616"),
+		folder_icon = hsl("#90a4ae")
+	},
 	ui = {
-		fg0 = hsl("#dddddd"),
+		fg = hsl("#dddddd"),
+		bg = hsl("#1f1f1f"),
 
-		bg0 = hsl("#0f0f0f"),
-		bg1 = hsl("#161616"),
-		bg2 = hsl("#1f1f1f"),
+		line_nr = hsl("#666666"),
+		cursor = hsl("#f2f2f2"),
+		cursor_line = hsl("#292929"),
+		visual = hsl("#464646"),
+
+		autocomplete = {
+			bg = hsl("#262626"),
+			scrollbar = hsl("#505050"),
+			selection = hsl("#363636")
+		},
 
 		error = hsl("#f44747"),
 		todo = hsl("#c586c0"),
+	},
+	git = {
+		added = hsl("#ffd600"),
+		conflict = hsl("#fe413f"),
+		deleted = hsl("#c4265e"),
+		ignored = hsl("#777777"),
+		modified = hsl("#b3b42b"),
+		untracked = hsl("#86b42b"),
 	},
 	syntax = {
 		reg = {
@@ -61,8 +82,10 @@ local p = {
 
 local theme = lush(function()
   return {
-		Normal { fg = p.ui.fg0, bg = p.ui.bg2 },
+		Normal { fg = p.ui.fg, bg = p.ui.bg },
 
+		-- Syntax
+		-- Regular Syntax
 		Comment        { fg = p.syntax.reg.comment },
 		Constant       { fg = p.syntax.reg.constant },
 		String         { fg = p.syntax.reg.string },
@@ -100,6 +123,7 @@ local theme = lush(function()
 		Error      { fg = p.ui.error },
 		Todo       { fg = p.ui.todo },
 
+		-- Treesitter Syntax
 		TSAnnotation         { fg = p.syntax.ts.annotation },
 		TSAttribute          { fg = p.syntax.ts.attribute },
 		TSBoolean            { Boolean },
@@ -153,7 +177,111 @@ local theme = lush(function()
 		TSTypeBuiltin        { fg = p.syntax.ts.type_builtin },
 		TSURI                { },
 
-		NvimTreeNormal { bg = p.ui.explorer_bg }
+		-- LSP Diagnostics
+
+
+		-- Interface
+		LineNr { fg = p.ui.line_nr },
+		CursorLineNR { LineNr },
+    EndOfBuffer  { LineNr },
+    VertSplit    { LineNr },
+    Cursor       { fg = Normal.bg, bg = p.ui.cursor },
+		CursorLine { bg = p.ui.cursor_line },
+		CursorColumn { CursorLine },
+    Visual       { bg = p.ui.visual },
+    VisualNOS    { },
+
+		-- Git
+    DiffAdd      { fg = p.git.added },
+    DiffChange   { fg = p.git.modified },
+    DiffDelete   { fg = p.git.deleted },
+    DiffText     { },
+
+		-- Autocomplete
+    Pmenu        { bg = p.ui.autocomplete.bg },
+    PmenuSbar    { Pmenu },
+    PmenuSel     { bg = p.ui.autocomplete.selection },
+    PmenuThumb   { bg = p.ui.autocomplete.scrollbar },
+    WildMenu     { Pmenu },
+
+    ColorColumn  { },
+    Conceal      { },
+    CursorIM     { },
+    ErrorMsg     { fg = p.ui.error },
+    FoldColumn   { },
+    Folded       { },
+    MatchParen   { },
+    ModeMsg      { },
+    MoreMsg      { },
+    MsgArea      { },
+    MsgSeparator { },
+    NonText      { },
+    NormalFloat  { },
+    NormalNC     { },
+    Question     { },
+    QuickFixLine { },
+    SignColumn   { },
+    SpecialKey   { },
+    SpellBad     { },
+    SpellCap     { },
+    SpellLocal   { },
+    SpellRare    { },
+    StatusLine   { },
+    StatusLineNC { },
+    Substitute   { },
+    TabLine      { },
+    TabLineFill  { },
+    TabLineSel   { },
+    TermCursor   { },
+    TermCursorNC { },
+    WarningMsg   { },
+    Whitespace   { },
+    lCursor      { },
+
+		-- NvimTree
+		NvimTreeNormal          { fg = p.explorer.fg, bg = p.explorer.bg },
+    Directory               { fg = p.explorer.fg },
+		NvimTreeFolderIcon      { fg = p.explorer.folder_icon },
+		NvimTreeFolderName      { Directory },
+		NvimTreeEmptyFolderName { Directory },
+		NvimTreeCursorLine      { CursorLine },
+		NvimTreeCursorColumn    { CursorColumn },
+		NvimTreeEndOfBuffer     { EndOfBuffer },
+		NvimTreeIndentMarker    { NvimTreeEndOfBuffer },
+
+		-- NvimTree Git
+		NvimTreeGitDeleted { DiffDelete },
+		NvimTreeGitIgnored { fg = p.git.ignored },
+		NvimTreeGitDirty   { DiffChange },
+		NvimTreeGitRenamed { DiffChange },
+		NvimTreeGitMerge   { },
+		NvimTreeGitNew     { DiffAdd },
+		NvimTreeGitStaged  { DiffAdd },
+
+		-- NvimTree LSP
+		NvimTreeLspDiagnosticsError {},
+		NvimTreeLspDiagnosticsHint {},
+		NvimTreeLspDiagnosticsInformation {},
+		NvimTreeLspDiagnosticsWarning {},
+		
+		NvimTreeFileDeleted {},
+		NvimTreeFileDirty {},
+		NvimTreeFileMerge {},
+		NvimTreeFileNew {},
+		NvimTreeFileRenamed {},
+		NvimTreeFileStaged {},
+		NvimTreeExecFile { },
+		NvimTreeImageFile {},
+		NvimTreeOpenedFile {},
+		NvimTreeOpenedFolderName {},
+		NvimTreePopup {},
+		NvimTreeRootFolder {},
+		NvimTreeSpecialFile {},
+		NvimTreeStatusLine {},
+		NvimTreeStatusLineNC {},
+		NvimTreeSymlink {},
+		NvimTreeVertSplit {},
+		NvimTreeWindowPicker {},
 	}
 end)
 

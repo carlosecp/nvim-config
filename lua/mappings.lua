@@ -18,7 +18,7 @@ map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 
 map("n", "<Leader>t", "<cmd>lua require 'modules.terminal'.termToggle()<CR>", opts)
-map("n", "<Esc>", "<C-\\n><C-n>", opts)
+vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
 map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
 map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
