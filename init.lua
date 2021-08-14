@@ -7,7 +7,6 @@ require "modules"
 vim.g.mapleader = " "
 vim.cmd[[source $HOME/.config/nvim/viml/maps.vim]]
 
--- Other Settings
-require "modules.statusline"
+-- Colorscheme
 require "colors"
 

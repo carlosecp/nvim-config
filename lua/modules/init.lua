@@ -73,6 +73,23 @@ return require "packer".startup(function(use)
 		end
 	}
 
+	-- Statusline
+	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "modules.statusline"
+		end
+	}
+
+	-- Formatter
+	use {
+		"mhartington/formatter.nvim",
+		cmd = "Format",
+		config = function()
+			require"_formatter"
+		end
+	}
+
 	-- Colorscheme
 	use "sainnhe/gruvbox-material"
 
