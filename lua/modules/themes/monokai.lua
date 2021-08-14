@@ -25,8 +25,10 @@ local p = {
 		inactive = hsl("#666666"),
 		cursor = hsl("#f2f2f2"),
 		cursor_line = hsl("#292929"),
+		fold = hsl("#2b2b2b"),
 		visual = hsl("#464646"),
 		border = hsl("#666666"),
+		accent = hsl("#978771"),
 
 		autocomplete = {
 			bg = hsl("#262626"),
@@ -197,18 +199,20 @@ local theme = lush(function()
 
 		-- Interface
 		-- Interface: General
-		LineNr { fg = p.ui.inactive },
+		LineNr       { fg = p.ui.inactive },
 		CursorLineNR { LineNr },
     EndOfBuffer  { LineNr },
     VertSplit    { LineNr },
     Cursor       { fg = Normal.bg, bg = p.ui.cursor },
-		CursorLine { bg = p.ui.cursor_line },
+		CursorLine   { bg = p.ui.cursor_line },
 		CursorColumn { CursorLine },
+    ColorColumn  { CursorColumn },
     Visual       { bg = p.ui.visual },
     VisualNOS    { Visual },
     TermCursor   { Cursor },
     TermCursorNC { },
-    SignColumn   { bg = Visual.bg },
+    SignColumn   { Visual },
+		Search       { Visual },
     Substitute   { Visual },
 
 		-- Interface: Git
@@ -233,24 +237,24 @@ local theme = lush(function()
     TabLineFill  { },
     TabLineSel   { },
 
-    ColorColumn  { },
+		-- Interface: Others
     Conceal      { },
     CursorIM     { },
     ErrorMsg     { fg = p.ui.error },
-    FoldColumn   { },
-    Folded       { },
-    MatchParen   { },
+    Folded       { fg = Normal.fg, bg = p.ui.fold },
+    FoldColumn   { Folded },
+    MatchParen   { fg = Normal.bg, bg = p.ui.accent },
     ModeMsg      { },
     MoreMsg      { },
     MsgArea      { },
     MsgSeparator { },
-    NonText      { },
-    NormalFloat  { },
-    NormalNC     { },
-    Question     { },
-    QuickFixLine { },
+    NonText      { fg = p.ui.inactive },
+    NormalFloat  { Normal },
+    NormalNC     { Normal },
+    Question     { Normal },
+    QuickFixLine { Search },
     SpecialKey   { },
-    WarningMsg   { },
+    WarningMsg   { fg = p.lsp.warning },
     Whitespace   { fg = p.ui.inactive },
 
 		-- Spell
@@ -298,18 +302,23 @@ local theme = lush(function()
 		NvimTreeExecFile         { },
 		NvimTreeImageFile        { },
 		NvimTreePopup            { },
-		NvimTreeRootFolder       { },
+		NvimTreeRootFolder       { fg = p.ui.inactive },
 		NvimTreeSpecialFile      { },
-		NvimTreeStatusLine       { },
-		NvimTreeStatusLineNC     { },
-		NvimTreeSymlink          { },
-		NvimTreeWindowPicker     { },
+		NvimTreeStatusLine       { StatusLine },
+		NvimTreeStatusLineNC     { NvimTreeStatusLine },
+		NvimTreeSymlink          { fg = p.ui.inactive },
+		NvimTreeWindowPicker     { StatusLine },
 
-		-- Bufferline
+		-- BufferLine
+		-- BufferLine: Globals
 		BufferLineFill                      { bg = p.ui.bg.dark },
 		BufferLineTabClose                  { BufferLineFill },
 
-		-- Not Active/Selected Tabs
+		-- BufferLine: Tabs
+		BufferLineTab                       { fg = p.ui.inacitve },
+		BufferLineTabSelected               { },
+
+		-- BufferLine: Inactive/Non-Selected Buffers
 		BufferLineBackground                { fg = p.ui.inactive, bg = Normal.bg },
 		BufferLineCloseButton               { fg = BufferLineBackground.fg },
 		BufferLineError                     { LspDiagnosticsDefaultError },
@@ -324,7 +333,7 @@ local theme = lush(function()
 		BufferLinePick                      { },
 		BufferLineSeparator                 { },
 
-		-- Active/Selected Tabs
+		-- BufferLine: Active/Selected Buffers
 		BufferLineBufferSelected            { fg = Normal.fg, bg = BufferLineBackground.bg },
 		BufferLineCloseButtonSelected       { fg = BufferLineBufferVisible.fg },
 		BufferLineErrorSelected             { BufferLineError },
@@ -340,6 +349,7 @@ local theme = lush(function()
 		BufferLineSeparatorSelected         { },
 		BufferLineIndicatorSelected         { },
 
+		-- BufferLine: Active/Selected Buffers
 		BufferLineBufferVisible             { },
 		BufferLineCloseButtonVisible        { },
 		BufferLineErrorVisible              { BufferLineError },
@@ -354,14 +364,16 @@ local theme = lush(function()
 		BufferLinePickVisible               { },
 		BufferLineSeparatorVisible          { },
 
-		BufferLineTab                       { },
-		BufferLineTabSelected               { },
-
 		BufferlineDevIconDefaultInactive    { },
 		BufferlineDevIconDefaultSelected    { },
 
 		-- Telescope
-		TelescopeBorder { fg = p.ui.border }
+		-- Telescope: General
+		TelescopeBorder { fg = p.ui.border },
+
+		-- Custom Highlight Groups
+		-- DarkTerm: Terminal Darker bg
+		DarkTerm { bg = p.ui.bg.dark }
 	}
 end)
 
