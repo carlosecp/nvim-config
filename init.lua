@@ -1,5 +1,8 @@
 require "settings"
 require "plugins"
 require "mappings"
--- require "modules.terminal"
+
+require "modules.lsp"
+require "modules.lsp.setup"
+require "modules.terminal"
 

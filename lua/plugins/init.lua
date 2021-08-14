@@ -2,10 +2,10 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
+	fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
 	execute "packadd packer.nvim"
 end
 
@@ -32,6 +32,25 @@ return require "packer".startup(function(use)
 			require "plugins.nvimtree"
 		end
 	}
+	use {
+		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		}
+	}
+	use {
+		"MaxMEllon/vim-jsx-pretty",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		}
+	}
 
 	-- Telescope
 	use {
@@ -48,12 +67,12 @@ return require "packer".startup(function(use)
 	}
 
 	-- Statusline
-	use {
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require "plugins.lualine"
-		end
-	}
+	-- use {
+		-- "hoob3rt/lualine.nvim",
+		-- config = function()
+			-- require "plugins.lualine"
+		-- end
+	-- }
 
 	-- Formatter
 	use {
