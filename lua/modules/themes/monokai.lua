@@ -315,19 +315,12 @@ local theme = lush(function()
 		BufferLineTabClose                  { BufferLineFill },
 
 		-- BufferLine: Tabs
-		BufferLineTab                       { fg = p.ui.inacitve },
-		BufferLineTabSelected               { },
+		BufferLineTab                       { fg = p.ui.inacitve, bg = p.ui.bg.dark },
+		BufferLineTabSelected               { fg = Normal.fg, bg = Normal.bg },
 
 		-- BufferLine: Inactive/Non-Selected Buffers
 		BufferLineBackground                { fg = p.ui.inactive, bg = Normal.bg },
 		BufferLineCloseButton               { fg = BufferLineBackground.fg },
-		BufferLineError                     { LspDiagnosticsDefaultError },
-		BufferLineInfo                      { LspDiagnosticsDefaultInformation },
-		BufferLineWarning                   { LspDiagnosticsDefaultWarning },
-		BufferLineDiagnostic                { },
-		BufferLineErrorDiagnostic           { BufferLineError },
-		BufferLineInfoDiagnostic            { BufferLineInfo },
-		BufferLineWarningDiagnostic         { BufferLineWarning },
 		BufferLineModified                  { DiffChange },
 		BufferLineDuplicate                 { },
 		BufferLinePick                      { },
@@ -336,36 +329,20 @@ local theme = lush(function()
 		-- BufferLine: Active/Selected Buffers
 		BufferLineBufferSelected            { fg = Normal.fg, bg = BufferLineBackground.bg },
 		BufferLineCloseButtonSelected       { fg = BufferLineBufferVisible.fg },
-		BufferLineErrorSelected             { BufferLineError },
-		BufferLineInfoSelected              { BufferLineInfo },
-		BufferLineWarningSelected           { BufferLineWarning },
-		BufferLineDiagnosticSelected        { },
-		BufferLineErrorDiagnosticSelected   { BufferLineErrorDiagnostic },
-		BufferLineInfoDiagnosticSelected    { BufferLineInfoDiagnostic },
-		BufferLineWarningDiagnosticSelected { BufferLineWarningDiagnostic },
 		BufferLineModifiedSelected          { BufferLineModified },
 		BufferLineDuplicateSelected         { },
 		BufferLinePickSelected              { },
 		BufferLineSeparatorSelected         { },
-		BufferLineIndicatorSelected         { },
+		BufferLineIndicatorSelected         { fg = p.ui.accent },
 
 		-- BufferLine: Active/Selected Buffers
-		BufferLineBufferVisible             { },
-		BufferLineCloseButtonVisible        { },
-		BufferLineErrorVisible              { BufferLineError },
-		BufferLineInfoVisible               { BufferLineInfo },
-		BufferLineWarningVisible            { BufferLineWarning },
-		BufferLineDiagnosticVisible         { },
-		BufferLineErrorDiagnosticVisible    { BufferLineErrorDiagnostic },
-		BufferLineInfoDiagnosticVisible     { BufferLineInfoDiagnostic },
-		BufferLineWarningDiagnosticVisible  { BufferLineWarningDiagnostic },
+		-- Visible but not focused (Ex.: Splits)
+		BufferLineBufferVisible             { BufferLineBackground },
+		BufferLineCloseButtonVisible        { BufferLineCloseButton },
 		BufferLineModifiedVisible           { BufferLineModified },
 		BufferLineDuplicateVisible          { },
 		BufferLinePickVisible               { },
 		BufferLineSeparatorVisible          { },
-
-		BufferlineDevIconDefaultInactive    { },
-		BufferlineDevIconDefaultSelected    { },
 
 		-- Telescope
 		-- Telescope: General
