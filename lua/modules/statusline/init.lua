@@ -1,4 +1,4 @@
-local vimModes = {
+vim.g.vimModes = {
 	["n"] = "normal",
 	["no"] = "normal",
 	["v"] = "visual",
@@ -35,7 +35,7 @@ end
 
 vim.api.nvim_set_option("statusline", "")
 setStl("%#VimMode#")
-setStl(" " .. vimModes[vim.fn.mode()]:upper() .. " ")
+setStl(" %{toupper(g:vimModes[mode()])} ")
 setStl("%#GitBranch#")
 setStl(" " .. gitBranch() .. " ")
 setStl("%#StatusLine#")
