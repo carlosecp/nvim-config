@@ -10,44 +10,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
-	-- Conquer of Completion
-	use {
-		"neoclide/coc.nvim",
-		branch = "release",
-		event = "BufRead",
-		config = function()
-			vim.cmd[[source $HOME/.config/nvim/viml/coc.vim]]
-		end
-	}
+	-- LSP
+	use "neovim/nvim-lspconfig"
+	use "kabouzeid/nvim-lspinstall"
 
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 		config = function()
-			require "modules.treesitter"
+			require "plugins.treesitter"
 		end,
 		run = ":TSUpdate",
-	}
-	use {
-		"windwp/nvim-ts-autotag",
-		after = "nvim-treesitter",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact"
-		}
-	}
-	-- Using vim-jsx-pretty to fix React indentation
-	use {
-		"MaxMEllon/vim-jsx-pretty",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact"
-		}
 	}
 
 	-- Nvimtree
@@ -55,7 +29,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require "modules.nvimtree"
+			require "plugins.nvimtree"
 		end
 	}
 
@@ -69,7 +43,7 @@ return require "packer".startup(function(use)
 			"modules.telescope"
 		},
 		config = function()
-			require "modules.telescope"
+			require "plugins.telescope"
 		end
 	}
 
@@ -77,7 +51,7 @@ return require "packer".startup(function(use)
 	use {
 		"hoob3rt/lualine.nvim",
 		config = function()
-			require "modules.statusline"
+			require "plugins.lualine"
 		end
 	}
 
@@ -86,12 +60,9 @@ return require "packer".startup(function(use)
 		"mhartington/formatter.nvim",
 		cmd = "Format",
 		config = function()
-			require"_formatter"
+			require "plugins.formatter"
 		end
 	}
-
-	-- Colorscheme
-	use "sainnhe/gruvbox-material"
 
 	-- Utilities
 	use {
@@ -126,7 +97,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require "modules.devicons"
+			require "plugins.devicons"
 		end
 	}
 

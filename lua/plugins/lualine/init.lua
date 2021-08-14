@@ -1,6 +1,6 @@
 require "lualine".setup {
 	options = {
-		theme = "gruvbox",
+		theme = "github",
 		section_separators = {"", ""},
 		component_separators = {"", ""},
 		icons_enabled = 1
