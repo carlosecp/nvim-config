@@ -2,7 +2,7 @@
 
 Welcome to my own Neovim configuration files. This config is intended to be clean, simple to undestand, mantain and modify, although I strongly recommend using it as an inspiration for building you own Neovim config.
 
-![itscarlosecp_nvim](https://user-images.githubusercontent.com/47466248/128403136-336b309c-1b6c-4078-bda1-3c44e3defbc4.png)
+![itscarlosecp_nvim](https://user-images.githubusercontent.com/47466248/129460312-47b37d03-6307-4196-8d82-57f82d7d6886.png)
 
 ## Installation
 
