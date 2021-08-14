@@ -85,16 +85,10 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- Statusline
-	-- use {
-		-- "hoob3rt/lualine.nvim",
-		-- config = function()
-			-- require "plugins.lualine"
-		-- end
-	-- }
-	
 	-- Bufferline
-	use "akinsho/nvim-bufferline.lua"
+	use {
+		"akinsho/nvim-bufferline.lua"
+	}
 
 	-- Formatter
 	use {
@@ -107,11 +101,8 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		-- Local development: "$HOME/themes.nvim",
-		"itscarlosecp/themes.nvim",
-		config = function()
-			vim.cmd("colorscheme monokai")
-		end,
+		-- Local development:
+		"$HOME/themes.nvim",
 		requires = "rktjmp/lush.nvim"
 	}
 

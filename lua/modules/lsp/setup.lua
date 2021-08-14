@@ -18,17 +18,17 @@ local signs = {
 defineSings(signs)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    signs     = true,
-    underline = true,
-    virtual_text = {
-      prefix  = "",
-      spacing = 0
-    },
-		update_in_insert = true
-  }
+vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics,
+{
+	signs     = true,
+	underline = true,
+	virtual_text = {
+		prefix  = "",
+		spacing = 0
+	},
+	update_in_insert = true
+}
 )
 
 vim.lsp.protocol.CompletionItemKind = {

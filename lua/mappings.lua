@@ -24,5 +24,7 @@ map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
 map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
 map("n", "<Leader>lg", "<cmd>Telescope live_grep", opts)
 map("n", "<Leader>gc", "<cmd>Telescope git_commits", opts)
+map("n", "<Leader>nv", "<cmd>lua require 'plugins.telescope'.search_neovim()<CR>", opts)
+map("n", "<Leader>df", "<cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
 
 map("x", "ga", "<Plug>(EasyAlign)", {})

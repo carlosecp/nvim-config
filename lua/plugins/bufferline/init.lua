@@ -18,3 +18,4 @@ require "bufferline".setup {
     end,
 	}
 }
+
