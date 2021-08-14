@@ -1,21 +1,38 @@
-local function defineSings(signs)
-	for sign_name, icon in ipairs(signs) do
-		vim.fn.sign_define(sign_name, {
-			texthl = sign_name,
-			text = icon,
-			numhl = sign_name
-		})
-	end
-end
+vim.fn.sign_define(
+  "LspDiagnosticsSignError",
+  {
+		texthl = "LspDiagnosticsSignError",
+		text = "",
+		numhl = "LspDiagnosticsSignError"
+	}
+)
 
-local signs = {
-  LspDiagnosticsSignError = "",
-  LspDiagnosticsSignWarning = "",
-  LspDiagnosticsSignHint = "",
-  LspDiagnosticsSignInformation = "",
-}
+vim.fn.sign_define(
+  "LspDiagnosticsSignWarning",
+  {
+		texthl = "LspDiagnosticsSignWarning",
+		text = "",
+		numhl = "LspDiagnosticsSignWarning"
+	}
+)
 
-defineSings(signs)
+vim.fn.sign_define(
+  "LspDiagnosticsSignHint",
+  {
+		texthl = "LspDiagnosticsSignHint",
+		text = "",
+		numhl = "LspDiagnosticsSignHint"
+	}
+)
+
+vim.fn.sign_define(
+  "LspDiagnosticsSignInformation",
+  {
+		texthl = "LspDiagnosticsSignInformation",
+		text = "",
+		numhl = "LspDiagnosticsSignInformation"
+	}
+)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.lsp.with(
