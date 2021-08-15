@@ -29,6 +29,10 @@
 	},
 
 	// LSPs Individual Settings
+	// Clangd
+	"clangd.disableSnippetCompletion": true,
+	"clangd.path": "/home/itscarlosecp/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
+
 	// TailwindCSS
 	"languageserver": {
 		// npm i -g @tailwindcss/language-server

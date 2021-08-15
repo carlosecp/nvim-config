@@ -77,12 +77,25 @@ return require "packer".startup(function(use)
 		requires = "rktjmp/lush.nvim"
 	}
 
+	-- Formatter
+	use {
+		"mhartington/formatter.nvim",
+		cmd = "Format",
+		config = function()
+			require "plugins.formatter"
+		end
+	}
+
 	-- Utilities
 	use {
 		"tpope/vim-surround",
 		keys = {
 			{"v", "S"}
 		}
+	}
+	use {
+		"kristijanhusak/vim-carbon-now-sh",
+		module = "CarbonNowSh"
 	}
 	use {
 		"junegunn/vim-easy-align",
