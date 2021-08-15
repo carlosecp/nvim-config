@@ -36,8 +36,13 @@ end
 vim.api.nvim_set_option("statusline", "")
 setStl("%#VimMode#")
 setStl(" %{toupper(g:vimModes[mode()])} ")
-setStl("%#GitBranch#")
-setStl(" " .. gitBranch() .. " ")
+
+local gitInfo = gitBranch()
+if gitInfo ~= "" then
+	setStl("%#GitBranch#")
+	setStl(" " .. gitBranch() .. " ")
+end
+
 setStl("%#StatusLine#")
 setStl(" %f ")
 setStl("%=")
