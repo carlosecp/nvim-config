@@ -66,6 +66,10 @@ return require "packer".startup(function(use)
 					"nvim-autopairs",
 					"nvim-autopairs.completion.compe"
 				}
+			},
+			{
+				"ray-x/lsp_signature.nvim",
+				module = "lsp_signature"
 			}
 		}
 	}
@@ -81,15 +85,6 @@ return require "packer".startup(function(use)
 		},
 		config = function()
 			require "plugins.telescope"
-		end
-	}
-
-	-- Formatter
-	use {
-		"mhartington/formatter.nvim",
-		cmd = "Format",
-		config = function()
-			require "plugins.formatter"
 		end
 	}
 

@@ -1,3 +1,5 @@
+local map = vim.api.nvim_set_keymap
+
 -- Defult Config
 require "compe".setup {
   enabled          = true;
@@ -34,14 +36,14 @@ require "compe".setup {
 }
 
 -- Autopairs integration with Compe
-require "nvim-autopairs".setup({
+require "nvim-autopairs".setup {
   disable_filetype = { "TelescopePrompt" }
-})
+}
 
-require "nvim-autopairs.completion.compe".setup({
+require "nvim-autopairs.completion.compe".setup {
   map_cr = true, --  map <CR> on insert mode
   map_complete = true -- it will auto insert `(` after select function or method item
-})
+}
 
 -- Tab Autcompletion
 local t = function(str)
@@ -53,9 +55,6 @@ local check_back_space = function()
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
@@ -69,12 +68,15 @@ _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
   else
-    -- If <S-Tab> is not working in your terminal, change it to <C-h>
     return t "<S-Tab>"
   end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>",   "v:lua.tab_complete()",   {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>",   "v:lua.tab_complete()",   {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+map("i", "<Tab>",   "v:lua.tab_complete()",   { expr = true })
+map("s", "<Tab>",   "v:lua.tab_complete()",   { expr = true })
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+
+-- Completion Triggers
+map("i", "<C-Space>", "compe#complete()", { silent = true, expr = true })
+
