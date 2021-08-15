@@ -30,6 +30,22 @@
 
 	// LSPs Individual Settings
 	// TailwindCSS
+	"languageserver": {
+		// npm i -g @tailwindcss/language-server
+		"tailwindls": {
+			"command": "tailwindcss-language-server",
+			"args": ["--stdio"],
+			"filetypes": [
+				"html",
+				"css",
+				"javascript",
+				"typescript",
+				"javascriptreact",
+				"typescriptreact"
+			],
+			"rootPatterns": ["tailwind.config.js", "package.json", ".git"]
+		}
+	},
 
 	// Lua
   "Lua.diagnostics.globals": [
