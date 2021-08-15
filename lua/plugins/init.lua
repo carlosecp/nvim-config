@@ -10,9 +10,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
-	-- LSP
-	use "neovim/nvim-lspconfig"
-	use "kabouzeid/nvim-lspinstall"
+	-- Conquer of Completion
+	use {
+		"neoclide/coc.nvim",
+		branch = "release",
+		config = function()
+			vim.cmd[[ source $HOME/.config/nvim/viml/coc.vim ]]
+		end
+	}
 
 	-- Treesitter
 	use {
@@ -49,28 +54,6 @@ return require "packer".startup(function(use)
 			"javascriptreact",
 			"typescript",
 			"typescriptreact"
-		}
-	}
-
-	-- Autocompletion
-	use {
-		"hrsh7th/nvim-compe",
-		event = "InsertEnter",
-		config = function()
-			require "plugins.compe"
-		end,
-		requires = {
-			{
-				"windwp/nvim-autopairs",
-				module = {
-					"nvim-autopairs",
-					"nvim-autopairs.completion.compe"
-				}
-			},
-			{
-				"ray-x/lsp_signature.nvim",
-				module = "lsp_signature"
-			}
 		}
 	}
 

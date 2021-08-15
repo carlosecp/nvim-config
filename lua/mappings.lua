@@ -17,9 +17,11 @@ map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 
+-- Terminal
 map("n", "<Leader>t", "<cmd>lua require 'modules.terminal'.termToggle()<CR>", opts)
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
+-- Telescope
 map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
 map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
 map("n", "<Leader>lg", "<cmd>Telescope live_grep<CR>", opts)
@@ -28,3 +30,10 @@ map("n", "<Leader>nv", "<cmd>lua require 'plugins.telescope'.search_neovim()<CR>
 map("n", "<Leader>df", "<cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
 
 map("x", "ga", "<Plug>(EasyAlign)", {})
+
+-- Conquer of Completion
+map("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
+map("n", "[g", "<Plug>(coc-diagnostic-prev)", opts)
+map("n", "]g", "<Plug>(coc-diagnostic-next)", opts)
+map("n", "gd", "<Plug>(coc-definition)", opts)
+map("n", "<Leader>rn", "<Plug>(coc-rename)", opts)

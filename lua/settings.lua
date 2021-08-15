@@ -14,7 +14,6 @@ vim.opt.relativenumber  = true
 vim.opt.scrolloff       = 5
 vim.opt.cursorline      = true
 vim.cmd("set iskeyword+=-")
-vim.cmd("set iskeyword+=_")
 vim.opt.splitbelow      = true
 vim.opt.splitright      = true
 vim.opt.termguicolors   = true
