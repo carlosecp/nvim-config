@@ -70,7 +70,6 @@ return require "packer".startup(function(use)
 		}
 	}
 
-
 	-- Telescope
 	use {
 		"nvim-telescope/telescope.nvim",
@@ -83,11 +82,6 @@ return require "packer".startup(function(use)
 		config = function()
 			require "plugins.telescope"
 		end
-	}
-
-	-- Bufferline
-	use {
-		"akinsho/nvim-bufferline.lua"
 	}
 
 	-- Formatter
