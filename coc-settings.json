@@ -28,6 +28,11 @@
 		"module": "   (Module)"
 	},
 
+	"diagnostic.errorSign": "",
+	"diagnostic.warningSign": "",
+	"diagnostic.hintSign": "ﬤ",
+	"diagnostic.infoSign": "",
+
 	// LSPs Individual Settings
 	// Clangd
 	"clangd.disableSnippetCompletion": true,

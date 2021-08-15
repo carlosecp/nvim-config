@@ -64,7 +64,7 @@ return require "packer".startup(function(use)
 		module = {
 			"telescope",
 			"telescope.builtin",
-			"modules.telescope"
+			"plugins.telescope"
 		},
 		config = function()
 			require "plugins.telescope"

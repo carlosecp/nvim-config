@@ -10,7 +10,6 @@ map("n", "<C-H>", "<C-W><C-H>", { noremap = true })
 
 map("n", "n", "nzz",   { noremap = true })
 map("n", "N", "Nzz",   { noremap = true })
-map("n", "J", "mzJ`z", { noremap = true })
 
 map("i", ",", ",<c-g>u", { noremap = true })
 map("i", ".", ".<c-g>u", { noremap = true })
