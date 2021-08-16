@@ -73,7 +73,7 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"itscarlosecp/themes.nvim",
+		"$HOME/themes.nvim",
 		requires = "rktjmp/lush.nvim"
 	}
 

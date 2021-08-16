@@ -27,6 +27,7 @@ map("n", "<Leader>lg", "<cmd>Telescope live_grep<CR>", opts)
 map("n", "<Leader>gc", "<cmd>Telescope git_commits<CR>", opts)
 map("n", "<Leader>nv", "<cmd>lua require 'plugins.telescope'.search_neovim()<CR>", opts)
 map("n", "<Leader>df", "<cmd>lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
+map("n", "<Leader>cs", "<cmd>lua require 'plugins.telescope'.colorscheme()<CR>", opts)
 
 map("x", "ga", "<Plug>(EasyAlign)", {})
 

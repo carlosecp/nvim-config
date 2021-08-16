@@ -23,4 +23,12 @@ M.search_neovim = function()
 	}
 end
 
+M.colorscheme = function()
+	require "telescope.builtin".find_files {
+		prompt_title = "Change Colorscheme",
+		cwd = "$HOME/themes.nvim",
+		hidden = true
+	}
+end
+
 return M
