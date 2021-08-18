@@ -6,17 +6,24 @@ vim.g.nvim_tree_tab_open       = 1
 vim.g.nvim_tree_special_files  = {}
 vim.g.nvim_tree_indent_markers = 0
 
+vim.g.nvim_tree_show_icons = {
+  git = 1,
+	folders = 1,
+	files = 1,
+	folder_arrows = 0
+}
+
 vim.g.nvim_tree_icons = {
 	default = "",
   symlink = "",
   git = {
-    unstaged  = "",
-    staged    = "",
-    unmerged  = "",
-    renamed   = "",
-    untracked = "",
-    deleted   = "",
-    ignored   = ""
+    unstaged  = "•",
+    staged    = "•",
+    unmerged  = "•",
+    renamed   = "•",
+    untracked = "•",
+    deleted   = "•",
+    ignored   = "•"
   },
   folder = {
     default      = "",
