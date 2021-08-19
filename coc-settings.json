@@ -28,10 +28,10 @@
 		"module": "   (Module)"
 	},
 
-	"diagnostic.errorSign": "",
-	"diagnostic.warningSign": "",
-	"diagnostic.hintSign": "ﬤ",
-	"diagnostic.infoSign": "",
+	"diagnostic.errorSign": "",
+	"diagnostic.warningSign": "",
+	"diagnostic.hintSign": "",
+	"diagnostic.infoSign": "",
 
 	// LSPs Individual Settings
 	// Clangd

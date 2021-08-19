@@ -14,6 +14,10 @@ require "nvim-treesitter.configs".setup {
       node_decremental  = "<C-m>",
     }
   },
-	autotag = { enable = true }
+	autotag = { enable = true },
+	rainbow = {
+		enable = true,
+		extended_mode = false
+	}
 }
 

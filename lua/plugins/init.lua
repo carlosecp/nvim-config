@@ -9,7 +9,16 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
-return require "packer".startup(function(use)
+local special_ft = {
+	web_dev = {
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
+	}
+}
+
+return require "packer".startup {function(use)
 	-- Conquer of Completion
 	use {
 		"neoclide/coc.nvim",
@@ -28,6 +37,15 @@ return require "packer".startup(function(use)
 		end,
 		run = ":TSUpdate",
 	}
+	use {
+		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
+		ft = special_ft.web_dev
+	}
+	use {
+		"MaxMEllon/vim-jsx-pretty",
+		ft = special_ft.web_dev
+	}
 
 	-- Nvimtree
 	use {
@@ -36,25 +54,6 @@ return require "packer".startup(function(use)
 		config = function()
 			require "plugins.nvimtree"
 		end
-	}
-	use {
-		"windwp/nvim-ts-autotag",
-		after = "nvim-treesitter",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact"
-		}
-	}
-	use {
-		"MaxMEllon/vim-jsx-pretty",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact"
-		}
 	}
 
 	-- Telescope
@@ -95,7 +94,7 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"kristijanhusak/vim-carbon-now-sh",
-		module = "CarbonNowSh"
+		cmd = "CarbonNowSh"
 	}
 	use {
 		"junegunn/vim-easy-align",
@@ -107,6 +106,13 @@ return require "packer".startup(function(use)
 		event = "BufReadPre",
 		config = function()
 			require "colorizer".setup()
+		end
+	}
+	use {
+		"lewis6991/gitsigns.nvim",
+		event = "BufReadPre",
+		config = function()
+			require "gitsigns".setup()
 		end
 	}
 
@@ -129,5 +135,13 @@ return require "packer".startup(function(use)
 
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
-end)
+end,
+config = {
+	display = {
+		open_fn = function()
+			return require "packer.util".float { border = "single" }
+		end
+	}
+}
+}
 
