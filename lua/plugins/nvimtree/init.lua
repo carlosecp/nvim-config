@@ -17,7 +17,6 @@ vim.g.nvim_tree_icons = {
 	default = "",
   symlink = "",
   git = {
-<<<<<<< HEAD
     unstaged  = "●",
     staged    = "●",
     unmerged  = "●",
