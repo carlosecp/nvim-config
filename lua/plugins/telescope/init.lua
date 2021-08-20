@@ -25,7 +25,7 @@ end
 
 M.colorscheme = function()
 	require "telescope.builtin".find_files {
-		prompt_title = "Change Colorscheme",
+		prompt_title = "Search Colorscheme",
 		cwd = "$HOME/themes.nvim",
 		hidden = true
 	}

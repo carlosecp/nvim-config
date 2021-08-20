@@ -46,6 +46,13 @@ return require "packer".startup {function(use)
 		"MaxMEllon/vim-jsx-pretty",
 		ft = special_ft.web_dev
 	}
+	use {
+		"nvim-treesitter/playground",
+		cmd = {
+			"TSPlaygroundToggle"
+			"TSHighlightCapturesUnderCursor"
+		}
+	}
 
 	-- Nvimtree
 	use {
