@@ -17,4 +17,4 @@ vim.cmd("set iskeyword+=-")
 vim.opt.splitbelow      = true
 vim.opt.splitright      = true
 vim.opt.termguicolors   = true
-
+vim.opt.conceallevel = 2
