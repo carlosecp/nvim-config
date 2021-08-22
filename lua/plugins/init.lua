@@ -18,13 +18,16 @@ local special_ft = {
 	}
 }
 
-return require "packer".startup {function(use)
+return require "packer".startup(function(use)
 	-- Conquer of Completion
 	use {
 		"neoclide/coc.nvim",
 		branch = "release",
 		config = function()
 			vim.cmd[[ source $HOME/.config/nvim/viml/coc.vim ]]
+		end,
+		setup = function()
+			require "mappings".coc()
 		end
 	}
 
@@ -35,7 +38,7 @@ return require "packer".startup {function(use)
 		config = function()
 			require "plugins.treesitter"
 		end,
-		run = ":TSUpdate",
+		run = ":TSUpdate"
 	}
 	use {
 		"windwp/nvim-ts-autotag",
@@ -60,6 +63,9 @@ return require "packer".startup {function(use)
 		cmd = "NvimTreeToggle",
 		config = function()
 			require "plugins.nvimtree"
+		end,
+		setup = function()
+			require "mappings".nvimTree()
 		end
 	}
 
@@ -74,6 +80,9 @@ return require "packer".startup {function(use)
 		},
 		config = function()
 			require "plugins.telescope"
+		end,
+		setup = function()
+			require "mappings".telescope()
 		end
 	}
 
@@ -106,7 +115,10 @@ return require "packer".startup {function(use)
 	use {
 		"junegunn/vim-easy-align",
 		cmd = "EasyAlign",
-		keys = "<Plug>(EasyAlign)"
+		keys = "<Plug>(EasyAlign)",
+		setup = function()
+			require "mappings".easyAlign()
+		end
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
@@ -142,13 +154,5 @@ return require "packer".startup {function(use)
 
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
-end,
-config = {
-	display = {
-		open_fn = function()
-			return require "packer.util".float { border = "single" }
-		end
-	}
-}
-}
+end)
 

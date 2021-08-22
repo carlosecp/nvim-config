@@ -1,3 +1,5 @@
+vim.cmd[[colorscheme github]]
+
 -- Colorscheme Autocmds
 vim.cmd[[
 " Terminal Highlight
@@ -7,8 +9,3 @@ au TermOpen,TermEnter * setlocal nocursorline
 au TermOpen,TermEnter * setlocal winfixheight
 ]]
 
--- Conceals
-vim.cmd[[
-syntax match Normal "\[\ \]" conceal cchar=
-syntax match Normal "\[x\]" conceal cchar=
-]]
