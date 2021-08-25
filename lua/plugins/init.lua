@@ -5,29 +5,30 @@ local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
+	fn.system {"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path}
 	execute "packadd packer.nvim"
 end
 
-local special_ft = {
-	web_dev = {
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact"
-	}
-}
-
 return require "packer".startup(function(use)
-	-- Conquer of Completion
+	-- LSP
+	use "neovim/nvim-lspconfig"
+	use "kabouzeid/nvim-lspinstall"
 	use {
-		"neoclide/coc.nvim",
-		branch = "release",
+		"hrsh7th/nvim-cmp",
 		config = function()
-			vim.cmd[[ source $HOME/.config/nvim/viml/coc.vim ]]
+			require "plugins.cmp"
 		end,
-		setup = function()
-			require "mappings".coc()
+		requires = {
+			"windwp/nvim-autopairs",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp"
+		}
+	}
+	use {
+		"glepnir/lspsaga.nvim",
+		config = function()
+			require "plugins.lspsaga"
 		end
 	}
 
@@ -39,22 +40,6 @@ return require "packer".startup(function(use)
 			require "plugins.treesitter"
 		end,
 		run = ":TSUpdate"
-	}
-	use {
-		"windwp/nvim-ts-autotag",
-		after = "nvim-treesitter",
-		ft = special_ft.web_dev
-	}
-	use {
-		"MaxMEllon/vim-jsx-pretty",
-		ft = special_ft.web_dev
-	}
-	use {
-		"nvim-treesitter/playground",
-		cmd = {
-			"TSPlaygroundToggle",
-			"TSHighlightCapturesUnderCursor"
-		}
 	}
 
 	-- Nvimtree
@@ -83,13 +68,27 @@ return require "packer".startup(function(use)
 		end,
 		setup = function()
 			require "mappings".telescope()
+		end,
+		requires = {{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			run = "make"
+		}}
+	}
+
+	-- Lualine
+	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "plugins.lualine"
 		end
 	}
 
 	-- Colorscheme
 	use {
-		"$HOME/themes.nvim",
-		requires = "rktjmp/lush.nvim"
+		"shaunsingh/nord.nvim",
+		config = function()
+			require "colors"
+		end
 	}
 
 	-- Formatter
@@ -107,10 +106,6 @@ return require "packer".startup(function(use)
 		keys = {
 			{"v", "S"}
 		}
-	}
-	use {
-		"kristijanhusak/vim-carbon-now-sh",
-		cmd = "CarbonNowSh"
 	}
 	use {
 		"junegunn/vim-easy-align",
