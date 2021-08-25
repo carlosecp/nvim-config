@@ -19,10 +19,14 @@ return require "packer".startup(function(use)
 			require "plugins.cmp"
 		end,
 		requires = {
-			"windwp/nvim-autopairs",
+			-- Extensions
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lua",
-			"hrsh7th/cmp-nvim-lsp"
+			"hrsh7th/cmp-nvim-lsp",
+			{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+
+			-- Other
+			"windwp/nvim-autopairs",
+			{ "ray-x/lsp_signature.nvim", module = "lsp_signature" },
 		}
 	}
 	use {

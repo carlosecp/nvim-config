@@ -31,3 +31,4 @@ require "lualine".setup {
     lualine_z = {}
 	}
 }
+

@@ -1,6 +1,6 @@
 local lspconfig  = require "lspconfig"
 local lspinstall = require "lspinstall"
-local utils      = require "modules.lsp.utils"
+local utils      = require "modules.lsp.configs.utils"
 
 local configs = {
 	json = require "modules.lsp.configs.json",

@@ -1,14 +1,21 @@
 local map = vim.api.nvim_set_keymap
 local opts = { silent = true, noremap = true }
 
-local U = {}
+local C = {}
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require "cmp_nvim_lsp".update_capabilities(capabilities)
+C.capabilities = vim.lsp.protocol.make_client_capabilities()
+C.capabilities = require "cmp_nvim_lsp".update_capabilities(C.capabilities)
 
-U.capabilities = capabilities
+C.common_on_attach = function()
+	-- Enable LSPSignature
+	require "lsp_signature".on_attach {
+		bind = true,
+		fix_pos = true,
+		handler_opts = {
+			border = "single"
+		}
+	}
 
-U.common_on_attach = function()
 	-- Native LSP Mapping
 	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -21,4 +28,5 @@ U.common_on_attach = function()
 	map("n", "]g", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 end
 
-return U
+return C
+
