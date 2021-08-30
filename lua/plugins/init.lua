@@ -10,30 +10,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
-	-- LSP
-	use "neovim/nvim-lspconfig"
-	use "kabouzeid/nvim-lspinstall"
+	-- Conquer of Completion
 	use {
-		"hrsh7th/nvim-cmp",
+		"neoclide/coc.nvim",
+		branch = "release",
 		config = function()
-			require "plugins.cmp"
+			vim.cmd[[ source $HOME/.config/nvim/viml/coc.vim ]]
 		end,
-		requires = {
-			-- Extensions
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-
-			-- Other
-			"windwp/nvim-autopairs",
-			{ "ray-x/lsp_signature.nvim", module = "lsp_signature" },
-		}
-	}
-
-	use {
-		"glepnir/lspsaga.nvim",
-		config = function()
-			require "plugins.lspsaga"
+		setup = function()
+			require "mappings".coc()
 		end
 	}
 
@@ -109,6 +94,10 @@ return require "packer".startup(function(use)
 		keys = {
 			{"v", "S"}
 		}
+	}
+	use {
+		"kristijanhusak/vim-carbon-now-sh",
+		cmd = "CarbonNowSh"
 	}
 	use {
 		"junegunn/vim-easy-align",

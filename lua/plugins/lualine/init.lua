@@ -10,7 +10,9 @@ local github = {
 	visual = default_colors,
 	replace = default_colors,
 	command = default_colors,
-	inactive = default_colors
+	inactive = {
+		a = { bg = "#1f2428", fg = "#6c7a89", gui = "bold" },
+	}
 }
 
 require "lualine".setup {
@@ -35,12 +37,12 @@ require "lualine".setup {
 		lualine_z = {"progress"}
 	},
 	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {{
+		lualine_a = {{
 			"filename",
 			path = 1
 		}},
+		lualine_b = {},
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {}
