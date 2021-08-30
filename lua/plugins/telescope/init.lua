@@ -1,6 +1,6 @@
 require "telescope".setup {
 	 defaults = {
-		file_ignore_patterns = {"node_modules", ".next", ".git"},
+		file_ignore_patterns = {"node_modules/", ".next/", ".git/"},
 		previewer = false
 	},
 	extensions = {

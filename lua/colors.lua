@@ -1,5 +1,4 @@
-vim.g.nord_borders  = true
-vim.cmd[[colorscheme nord]]
+vim.cmd[[colorscheme github]]
 
 -- Redefiningcolorscheme
 vim.cmd[[

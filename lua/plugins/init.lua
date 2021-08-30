@@ -89,7 +89,10 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
-	use "shaunsingh/nord.nvim"
+	use {
+		"$HOME/themes.nvim",
+		requires = "rktjmp/lush.nvim"
+	}
 
 	-- Formatter
 	use {

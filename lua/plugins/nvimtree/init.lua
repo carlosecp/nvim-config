@@ -5,7 +5,7 @@ vim.g.nvim_tree_follow         = 1
 vim.g.nvim_tree_tab_open       = 1
 vim.g.nvim_tree_special_files  = {}
 vim.g.nvim_tree_indent_markers = 0
-vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_git_hl         = 1
 
 vim.g.nvim_tree_show_icons = {
   git = 0,
