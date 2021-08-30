@@ -1,6 +1,13 @@
 vim.g.nord_borders  = true
 vim.cmd[[colorscheme nord]]
 
+-- Redefiningcolorscheme
+vim.cmd[[
+" Nord
+hi! link NvimTreeEmptyFolderName NvimTreeFolderName
+hi TSStringEscape guifg=#bf616a
+]]
+
 -- Terminal Autocmds
 vim.cmd[[
 " Terminal Settings

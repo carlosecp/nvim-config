@@ -22,13 +22,14 @@ return require "packer".startup(function(use)
 			-- Extensions
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
-			{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+			"hrsh7th/cmp-path",
 
 			-- Other
 			"windwp/nvim-autopairs",
 			{ "ray-x/lsp_signature.nvim", module = "lsp_signature" },
 		}
 	}
+
 	use {
 		"glepnir/lspsaga.nvim",
 		config = function()
@@ -88,12 +89,7 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
-	use {
-		"shaunsingh/nord.nvim",
-		config = function()
-			require "colors"
-		end
-	}
+	use "shaunsingh/nord.nvim"
 
 	-- Formatter
 	use {
