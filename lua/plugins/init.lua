@@ -65,14 +65,6 @@ return require "packer".startup(function(use)
 		}}
 	}
 
-	-- Lualine
-	use {
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require "plugins.lualine"
-		end
-	}
-
 	-- Colorscheme
 	use {
 		"$HOME/themes.nvim",

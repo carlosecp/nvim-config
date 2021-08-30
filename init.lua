@@ -1,7 +1,7 @@
 require "settings"
 require "plugins"
 require "mappings"
-require "colors"
+require "autocmds"
 
 require "modules.terminal"
 
