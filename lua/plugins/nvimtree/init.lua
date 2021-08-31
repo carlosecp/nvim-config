@@ -11,7 +11,7 @@ vim.g.nvim_tree_show_icons = {
   git = 0,
 	folders = 1,
 	files = 1,
-	folder_arrows = 0
+	folder_arrows = 1
 }
 
 vim.g.nvim_tree_icons = {
@@ -62,5 +62,5 @@ vim.g.nvim_tree_bindings = {
 	{ key = "<C-y>",   cb = tree_cb "copy_path" },
 	{ key = "<C-S-y>", cb = tree_cb "copy_absolute_path" },
 	{ key = "q",       cb = tree_cb "close" },
-	{ key = "?",      cb = tree_cb "toggle_help" },
+	{ key = "?",      cb = tree_cb "toggle_help" }
 }
