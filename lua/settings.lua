@@ -1,4 +1,3 @@
--- SETTINGS
 -- General
 vim.opt.hidden        = true
 vim.opt.cursorline    = true

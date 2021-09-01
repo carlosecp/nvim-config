@@ -43,16 +43,4 @@ M.easyAlign = function()
 	map("x", "ga", "<Plug>(EasyAlign)", {})
 end
 
--- Conquer of Completion
-M.coc = function()
-	map("i", "<C-Space>", "coc#refresh()",        { silent = true, expr = true })
-	map("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
-	map("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
-	map("n", "gd", "<Plug>(coc-definition)",      { silent = true })
-	map("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
-	map("n", "gi", "<Plug>(coc-implementation)",  { silent = true })
-	map("n", "gr", "<Plug>(coc-references)",      { silent = true })
-	map("n", "<Leader>rn", "<Plug>(coc-rename)",  { silent = true })
-end
-
 return M

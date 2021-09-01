@@ -47,4 +47,12 @@ T.termToggle = function()
 	end
 end
 
+-- Change settings for terminal window
+vim.cmd[[
+" Terminal Settings
+au TermOpen,TermEnter * setlocal nonu nornu
+au TermOpen,TermEnter * setlocal nocursorline
+au TermOpen,TermEnter * setlocal winfixheight
+]]
+
 return T
