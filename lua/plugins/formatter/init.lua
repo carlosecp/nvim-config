@@ -1,12 +1,12 @@
 local function prettier()
   return {
-    exe = "prettierd",
+    exe = "prettier",
     args = {
-      vim.api.nvim_buf_get_name(0),
 			"--print-width 80",
-			"--tab-width 2",
+			"--tab-width 4",
 			"--use-tabs",
 			"--no-semi",
+			vim.api.nvim_buf_get_name(0)
     },
     stdin = true
   }
@@ -39,7 +39,7 @@ require "formatter".setup {
     javascriptreact = {prettier},
 		go = {gofmt},
     typescript = {prettier},
-    typescriptreact = {prettier},
+    typescriptreact = {prettier}
   }
 }
 
