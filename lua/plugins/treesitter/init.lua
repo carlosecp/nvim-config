@@ -23,8 +23,3 @@ require "nvim-treesitter.configs".setup {
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.jsonc.used_by = "json"
-
-vim.cmd[[
-syntax match Todo   " \[_\]" conceal cchar=
-syntax match Todo   " \[X\]"  conceal cchar=
-]]

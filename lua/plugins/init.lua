@@ -10,16 +10,31 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
-	-- Conquer of Completion
+	-- LSP
+	use "neovim/nvim-lspconfig"
+	use "kabouzeid/nvim-lspinstall"
 	use {
-		"neoclide/coc.nvim",
-		branch = "release",
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		config = function()
-			vim.cmd[[source $HOME/.config/nvim/viml/coc.vim]]
+			require "plugins.cmp"
 		end,
-		setup = function()
-			require "maps".coc()
+		requires = {
+			{ "hrsh7th/vim-vsnip",    after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path",     after = "nvim-cmp" }
+		}
+	}
+	use {
+		"glepnir/lspsaga.nvim",
+		config = function()
+			require "plugins.lspsaga"
 		end
+	}
+	use {
+		"ray-x/lsp_signature.nvim",
+		module = "lsp_signature"
 	}
 
 	-- Treesitter
@@ -33,6 +48,15 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"MaxMEllon/vim-jsx-pretty",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact"
+		}
+	}
+	use {
+		"windwp/nvim-ts-autotag",
 		ft = {
 			"javascript",
 			"javascriptreact",
