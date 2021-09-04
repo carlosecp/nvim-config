@@ -1,4 +1,6 @@
-return {
+local C = {}
+
+C.json = {
 	filetypes = {"json", "jsonc"},
 	settings = {
 		json = {
@@ -31,3 +33,15 @@ return {
 		}
 	}
 }
+
+C.lua = {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {"vim", "awesome"}
+			}
+		}
+	}
+}
+
+return C

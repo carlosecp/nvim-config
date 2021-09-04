@@ -73,7 +73,7 @@ return require "packer".startup(function(use)
 			require "plugins.nvimtree"
 		end,
 		setup = function()
-			require "maps".nvimTree()
+			require "mappings".nvimTree()
 		end
 	}
 
@@ -90,7 +90,7 @@ return require "packer".startup(function(use)
 			require "plugins.telescope"
 		end,
 		setup = function()
-			require "maps".telescope()
+			require "mappings".telescope()
 		end,
 		requires = {{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -129,7 +129,7 @@ return require "packer".startup(function(use)
 		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
-			require "maps".easyAlign()
+			require "mappings".easyAlign()
 		end
 	}
 	use {
@@ -160,4 +160,3 @@ return require "packer".startup(function(use)
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
 end)
-

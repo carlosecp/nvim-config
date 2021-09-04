@@ -1,9 +1,6 @@
 local cmp = require "cmp"
 cmp.setup {
 	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
-	completion = {
-		completeopt  = "menu,menuone,noinsert"
-	},
 	documentation = {
 		border    = "rounded",
 		max_width = 80

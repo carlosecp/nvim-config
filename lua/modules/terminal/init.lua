@@ -1,3 +1,6 @@
+local map = vim.api.nvim_set_keymap
+local opts = { silent = true, noremap = true }
+
 local toggle_term_window = -1
 local toggle_term_buffer = -1
 local toggle_term_job_id = -1
@@ -39,7 +42,7 @@ local function termClose()
 	end
 end
 
-T.termToggle = function()
+function T.termToggle()
 	if vim.fn.win_gotoid(toggle_term_window) == 0 then
 		termOpen()
 	else
@@ -54,5 +57,8 @@ au TermOpen,TermEnter * setlocal nonu nornu
 au TermOpen,TermEnter * setlocal nocursorline
 au TermOpen,TermEnter * setlocal winfixheight
 ]]
+
+-- Activa keymappings
+require "mappings".toggleTerminal()
 
 return T

@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+local map  = vim.api.nvim_set_keymap
 local opts = { silent = true, noremap = true }
 
 local C = {}
@@ -6,7 +6,7 @@ local C = {}
 C.capabilities = vim.lsp.protocol.make_client_capabilities()
 C.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-C.on_attach = function()
+function C.on_attach()
 	-- Enable LSPSignature
 	require "lsp_signature".on_attach {
 		use_lspsaga = true
@@ -25,4 +25,3 @@ C.on_attach = function()
 end
 
 return C
-
