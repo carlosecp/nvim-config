@@ -36,6 +36,11 @@ return require "packer".startup(function(use)
 		"ray-x/lsp_signature.nvim",
 		module = "lsp_signature"
 	}
+	use {
+		"windwp/nvim-autopairs",
+		opt = _G.plugins.autopairs,
+		module = { "nvim-autopairs", "nvim-autopairs.completion.cmp" }
+	}
 
 	-- Treesitter
 	use {

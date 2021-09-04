@@ -1,6 +1,10 @@
 -- Source Defaults
 require "settings"
 require "mappings"
+
+-- Plugins
+-- Optional Plugins
+_G.plugins = { autopairs = false }
 require "plugins"
 
 -- Core Modules

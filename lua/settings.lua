@@ -30,8 +30,8 @@ o.updatetime     = 300 -- Faster autocompletion
 
 -- Indentation
 o.expandtab      = false  -- Use spces instead of tabs
-o.tabstop        = 4      -- Tab character width
-o.shiftwidth     = 4      -- Fallbacks to tabstop
+o.tabstop        = 2      -- Tab character width
+o.shiftwidth     = 2      -- Fallbacks to tabstop
 o.autoindent     = true   -- Indent on newline (<CR>)
 o.smartindent    = true   -- Smarter indentation
 o.smarttab       = true   -- Smarter tab width
