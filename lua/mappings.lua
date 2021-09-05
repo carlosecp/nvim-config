@@ -1,6 +1,13 @@
+--[[ Keymappings for default Neovim actions
+and specific plugins. These function are called
+from the plugins file to be activated after
+loading their respective plugins.
+]]
+
 local map = vim.api.nvim_set_keymap
 local opts = { silent = true, noremap = true }
 
+-- ### NEOVIM ###
 -- Mapleader
 vim.g.mapleader = " "
 
@@ -16,17 +23,12 @@ map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 
+--- ### PLUGINS ###
 local M = {}
 
 -- NvimTree
 function M.nvimTree()
 	map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
-end
-
--- Toggle Terminal
-function M.toggleTerminal()
-	map("n", "<Leader>t", "<cmd>lua require 'modules.terminal'.termToggle()<CR>", opts)
-	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
 -- Telescope
@@ -42,6 +44,13 @@ end
 -- EasyAlign
 function M.easyAlign()
 	map("x", "ga", "<Plug>(EasyAlign)", {})
+end
+
+-- Toggle Terminal
+-- Custom terminal module
+function M.toggleTerminal()
+	map("n", "<Leader>t", "<cmd>lua require 'modules.terminal'.termToggle()<CR>", opts)
+	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
 return M

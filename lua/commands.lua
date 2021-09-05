@@ -1,4 +1,8 @@
--- Change settings for terminal window
+--[[ Autocommands and Neovim's default
+behaviour modifiers
+]]
+
+-- Change settings and hgroup for terminal window
 vim.cmd[[
 " Terminal Highlight
 au TermOpen,TermEnter * setlocal winhl=Normal:Terminal,NormalNC:TerminalNC

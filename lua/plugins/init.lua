@@ -9,8 +9,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
+-- Defining filtypes for frontend development
+-- related plugins to lazy-load them
+local frontend_ft = {
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact"
+}
+
 return require "packer".startup(function(use)
-	-- LSP
+	-- Language Server Protocol
+	-- Autcompletion
 	use "neovim/nvim-lspconfig"
 	use "kabouzeid/nvim-lspinstall"
 	use {
@@ -20,6 +30,7 @@ return require "packer".startup(function(use)
 			require "plugins.cmp"
 		end,
 		requires = {
+			-- nvim-cmp modules to provide completion sources
 			{ "hrsh7th/vim-vsnip",    after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
@@ -43,34 +54,34 @@ return require "packer".startup(function(use)
 	}
 
 	-- Treesitter
+	-- Syntax and indentation
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 		config = function()
 			require "plugins.treesitter"
 		end,
-		run = ":TSUpdate"
+		run = ":TSUpdate",
+		requires = {
+			-- Treesitter modules
+			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
+			{
+				"nvim-treesitter/playground",
+				cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
+			},
+			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+			{ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
+			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft }
+		}
 	}
+	-- Using this to help Neovim with indentation in JSX
 	use {
 		"MaxMEllon/vim-jsx-pretty",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact"
-		}
-	}
-	use {
-		"windwp/nvim-ts-autotag",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact"
-		}
+		ft = frontend_ft
 	}
 
-	-- Nvimtree
+	-- NvimTree
+	-- File explorer
 	use {
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
@@ -83,6 +94,7 @@ return require "packer".startup(function(use)
 	}
 
 	-- Telescope
+	-- Fuzzy finder
 	use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
@@ -104,12 +116,15 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
+	-- My custom colorschemes
 	use {
-		"$HOME/themes.nvim",
+		"$HOME/themes.nvim", -- I have this repo locally to test my changes
+		-- "itscarlosecp/theme.nvim", if you don't have this repo locally
 		requires = "rktjmp/lush.nvim"
 	}
 
 	-- Formatter
+	-- Formatters must be installed separately
 	use {
 		"mhartington/formatter.nvim",
 		cmd = "Format",
@@ -134,9 +149,6 @@ return require "packer".startup(function(use)
 		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
-			if _G.plugins.easy_align_ignore_comments then
-				vim.g.easy_align_ignore_groups = {}
-			end
 			require "mappings".easyAlign()
 		end
 	}
@@ -148,7 +160,7 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- Modules
+	-- Modules required for multiple plugins
 	use {
 		"nvim-lua/popup.nvim",
 		module = "popup"

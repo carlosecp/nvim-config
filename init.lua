@@ -1,4 +1,11 @@
-vim.cmd("let g:easy_align_ignore_groups = ['Comment', 'String']")
+--[[
+	itscarlosecp.nvim
+• Author: Carlos Castillo (itscarlosecp)
+• Github: https://github.com/itscarlosecp
+
+	"Clean and simple Neovim configuration written
+	in Lua. Easy to configure to your own liking."
+]]
 
 -- Source Defaults
 require "settings"
@@ -6,11 +13,7 @@ require "mappings"
 require "commands"
 
 -- Plugins
--- Optional Plugins
-_G.plugins = {
-	autopairs = false,
-	easy_align_ignore_comments = true
-}
+_G.plugins = { autopairs = false }
 require "plugins"
 
 -- Core Modules
@@ -19,6 +22,6 @@ require "plugins"
 require "modules.lsp"
 require "modules.terminal"
 
--- Extra Settings
+-- Colorscheme
 vim.cmd[[colorscheme github]]
 

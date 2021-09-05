@@ -62,6 +62,7 @@ cmp.setup {
 	}
 }
 
+-- Only use autopairs if enabled
 if _G.plugins.autopairs then
 	require "nvim-autopairs".setup()
 	require "nvim-autopairs.completion.cmp".setup {

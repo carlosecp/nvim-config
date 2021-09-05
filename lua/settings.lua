@@ -1,3 +1,5 @@
+-- Neovim settings and options
+
 local o = vim.opt
 
 -- Defaults

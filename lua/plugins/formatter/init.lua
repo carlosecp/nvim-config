@@ -1,11 +1,10 @@
+local prettier_config_path = "$HOME/.config/nvim/utils/.prettierrc"
 local function prettier()
+	-- npm install -g prettier
   return {
     exe = "prettier",
     args = {
-			"--print-width 80",
-			"--tab-width 4",
-			"--use-tabs",
-			"--no-semi",
+			"--config " .. prettier_config_path,
 			vim.api.nvim_buf_get_name(0)
     },
     stdin = true
@@ -29,7 +28,7 @@ local function clang_format()
 end
 
 require "formatter".setup {
-  logging = false,
+  logging = true,
   filetype = {
 		c = {clang_format},
 		cpp = {clang_format},

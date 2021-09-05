@@ -1,3 +1,4 @@
+-- Redefining some icons
 require "nvim-web-devicons".setup {
 	override = {
 		[".env.local"] = {
