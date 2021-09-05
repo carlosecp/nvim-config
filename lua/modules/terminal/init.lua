@@ -50,15 +50,7 @@ function T.termToggle()
 	end
 end
 
--- Change settings for terminal window
-vim.cmd[[
-" Terminal Settings
-au TermOpen,TermEnter * setlocal nonu nornu
-au TermOpen,TermEnter * setlocal nocursorline
-au TermOpen,TermEnter * setlocal winfixheight
-]]
-
--- Activa keymappings
+-- Activates keymappings
 require "mappings".toggleTerminal()
 
 return T

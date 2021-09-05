@@ -1,6 +1,7 @@
 -- Source Defaults
 require "settings"
 require "mappings"
+require "commands"
 
 -- Plugins
 -- Optional Plugins
@@ -14,5 +15,5 @@ require "modules.lsp"
 require "modules.terminal"
 
 -- Extra Settings
-vim.cmd[[colorscheme github]]
+vim.cmd[[colorscheme monokai]]
 
