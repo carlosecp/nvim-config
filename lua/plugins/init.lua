@@ -134,6 +134,9 @@ return require "packer".startup(function(use)
 		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
+			if _G.plugins.easy_align_ignore_comments then
+				vim.g.easy_align_ignore_groups = {}
+			end
 			require "mappings".easyAlign()
 		end
 	}

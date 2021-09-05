@@ -19,7 +19,8 @@ function C.on_attach()
 	-- LSPSaga Mappings
 	map("n", "K",  "<cmd>Lspsaga hover_doc<CR>", opts)
 	map("n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
-	map("n", "rn", "<cmd>Lspsaga rename<CR>", opts)
+	map("n", "gc", "<cmd>Lspsaga code_action<CR>", opts)
+	map("n", "<Leader>r", "<cmd>Lspsaga rename<CR>", opts)
 	map("n", "[g", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	map("n", "]g", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 end
