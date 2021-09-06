@@ -20,6 +20,27 @@ require "nvim-treesitter.configs".setup {
 		highlight_definitions = { enable = true }
 	},
 
+	-- Treesitter Text-Objects
+	 textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner"
+      }
+    },
+		swap = {
+			enable = true,
+			swap_next = {
+				["<Leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<Leader>A"] = "@parameter.inner",
+			}
+		}
+  },
+
 	-- Treesitter Playground
 	playground = {
 		enable          = true,
