@@ -60,6 +60,11 @@ require "nvim-web-devicons".setup {
 			icon  = "",
 			color = "#0288d1",
 			name  = "YarnLock"
+		},
+		scm = {
+			icon  = "ﬦ",
+			color = "#3c58a4",
+			name  = "Scheme"
 		}
 	}
 }

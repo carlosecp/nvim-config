@@ -18,6 +18,8 @@ local frontend_ft = {
 	"typescriptreact"
 }
 
+local ts_playground_cmds = {"TSPlaygroundToggle", "TSHighlightCapturesUnderCursor"}
+
 return require "packer".startup(function(use)
 	-- Language Server Protocol
 	-- Autcompletion
@@ -65,6 +67,7 @@ return require "packer".startup(function(use)
 		requires = {
 			-- Treesitter modules
 			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
+			{ "nvim-treesitter/playground", after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
 			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft }

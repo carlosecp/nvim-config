@@ -17,9 +17,11 @@ _G.plugins = { autopairs = false }
 require "core.plugins"
 
 -- Custom Modules
+-- Language Servers
 -- To install new language servers:
 -- :LspInstall <lang_name>
 require "modules.lsp"
+-- Toggle terminal
 require "modules.terminal"
 
 -- Colorscheme

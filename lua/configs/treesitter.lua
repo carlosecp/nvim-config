@@ -34,6 +34,27 @@ require "nvim-treesitter.configs".setup {
 			}
 		}
 	},
+
+	-- Playing with textobjects
+	textobjects = {
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
+    },
+  },
+
+	-- Treesitter playground
+	 playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25,
+    persist_queries = false
+  }
 }
 
 -- Use the jsonc parser for standard json files
