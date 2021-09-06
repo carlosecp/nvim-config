@@ -4,5 +4,3 @@
  name: (property_identifier) @method
  type: (type_annotation (function_type)))
 
-
-
