@@ -15,5 +15,9 @@ au TermOpen,TermEnter * setlocal winfixheight
 
 -- Override filetypes for specific files
 vim.cmd[[
+" Identify .prettierc as standard JSON
 au BufRead,BufNewFile .prettierrc set ft=json
+
+" Take .json files as .jsonc
+au BufRead,BufNewFile *.json set ft=jsonc
 ]]

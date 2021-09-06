@@ -8,15 +8,15 @@
 ]]
 
 -- Source Defaults
-require "settings"
-require "mappings"
-require "commands"
+require "core.settings"
+require "core.mappings"
+require "core.commands"
 
--- Plugins
+-- Third-party Plugins
 _G.plugins = { autopairs = false }
-require "plugins"
+require "core.plugins"
 
--- Core Modules
+-- Custom Modules
 -- To install new language servers:
 -- :LspInstall <lang_name>
 require "modules.lsp"

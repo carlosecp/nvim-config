@@ -33,7 +33,7 @@ require "nvim-treesitter.configs".setup {
 				smart_rename = "<Leader>rn"
 			}
 		}
-	}
+	},
 }
 
 -- Use the jsonc parser for standard json files

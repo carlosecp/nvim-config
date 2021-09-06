@@ -51,6 +51,6 @@ function T.termToggle()
 end
 
 -- Activates keymappings
-require "mappings".toggleTerminal()
+require "core.mappings".toggleTerminal()
 
 return T

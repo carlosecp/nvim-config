@@ -65,10 +65,6 @@ return require "packer".startup(function(use)
 		requires = {
 			-- Treesitter modules
 			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
-			{
-				"nvim-treesitter/playground",
-				cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
-			},
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
 			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft }
@@ -89,7 +85,7 @@ return require "packer".startup(function(use)
 			require "plugins.nvimtree"
 		end,
 		setup = function()
-			require "mappings".nvimTree()
+			require "core.mappings".nvimTree()
 		end
 	}
 
@@ -107,7 +103,7 @@ return require "packer".startup(function(use)
 			require "plugins.telescope"
 		end,
 		setup = function()
-			require "mappings".telescope()
+			require "core.mappings".telescope()
 		end,
 		requires = {{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -149,7 +145,7 @@ return require "packer".startup(function(use)
 		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
-			require "mappings".easyAlign()
+			require "core.mappings".easyAlign()
 		end
 	}
 	use {
