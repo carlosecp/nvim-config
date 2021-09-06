@@ -1,11 +1,14 @@
--- Require packages
+-- ### Install and load LSP configs
 local lspconfig  = require "lspconfig"
 local lspinstall = require "lspinstall"
--- Defaults
+-- ### Custom configs
+-- Common utilities for LSPs and individual configs
 local configs = require "modules.lsp.configs"
 local commons = require "modules.lsp.commons"
 
-local function setup_servers()
+-- ### LSPInstall ###
+-- Use LSPInstall to install and load servers
+local function load_servers()
 	lspinstall.setup()
 	local servers = lspinstall.installed_servers()
 
@@ -22,19 +25,18 @@ local function setup_servers()
 	end
 end
 
-lspinstall.post_install_hook = function ()
-	setup_servers()
+-- Reload LSPInstall after installing a server
+function lspinstall.post_install_hook()
+	load_servers()
 	vim.cmd("bufdo e")
 end
 
-local function setup()
-	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = {
-			spacing = 0
-		}
-	})
-	setup_servers()
+-- ### SETUP ###
+-- Start servers with defined configs and defaults
+local function setup_servers()
+	commons.setup.diagnostics()
+	commons.setup.floating_windows()
+	load_servers()
 end
 
-setup()
+setup_servers()

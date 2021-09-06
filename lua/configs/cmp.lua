@@ -2,7 +2,7 @@ local cmp = require "cmp"
 cmp.setup {
 	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
 	documentation = {
-		border    = "rounded",
+		border    = _G.itscarlosecp.borders,
 		max_width = 80
 	},
 	mapping = {
@@ -14,7 +14,7 @@ cmp.setup {
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
-		{ name = "path" },
+		{ name = "path" }
 	},
 	formatting = {
 		format = function(entry, vim_item)
@@ -63,7 +63,7 @@ cmp.setup {
 }
 
 -- Only use autopairs if enabled
-if _G.plugins.autopairs then
+if _G.itscarlosecp.plugins.autopairs then
 	require "nvim-autopairs".setup()
 	require "nvim-autopairs.completion.cmp".setup {
 		map_cr       = true, --  map <CR> on insert mode

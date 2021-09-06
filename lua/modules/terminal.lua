@@ -1,6 +1,4 @@
-local map = vim.api.nvim_set_keymap
-local opts = { silent = true, noremap = true }
-
+-- Custom toggle temminal module
 local toggle_term_window = -1
 local toggle_term_buffer = -1
 local toggle_term_job_id = -1
@@ -50,7 +48,7 @@ function T.termToggle()
 	end
 end
 
--- Activates keymappings
+-- Activates mappings
 require "core.mappings".toggleTerminal()
 
 return T

@@ -15,30 +15,37 @@ require "telescope".setup {
 
 require "telescope".load_extension("fzf")
 
-local M = {}
+--- ### CUSTOM FINDERS ###
+local F = {}
 
-M.search_dotfiles = function()
+-- Search inside my dotfiles directory
+local dotfiles_path = "$HOME/.dotfiles"
+F.search_dotfiles = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Dotfiles",
-		cwd = "$HOME/.dotfiles",
+		cwd = dotfiles_path,
 		hidden = true
 	}
 end
 
-M.search_neovim = function()
+-- Search inside my Neovim config
+local nvim_config_path = "$HOME/.config/nvim"
+F.search_neovim = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Neovim",
-		cwd = "$HOME/.config/nvim",
+		cwd = nvim_config_path,
 		hidden = true
 	}
 end
 
-M.colorscheme = function()
+-- Search inside my custom colorschemes repo
+local themes_nvim_path = "$HOME/themes.nvim"
+F.colorscheme = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Colorscheme",
-		cwd = "$HOME/themes.nvim",
+		cwd = themes_nvim_path,
 		hidden = true
 	}
 end
 
-return M
+return F

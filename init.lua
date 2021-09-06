@@ -1,5 +1,7 @@
 --[[
-	itscarlosecp.nvim
+	╔═══════════════════╗
+	║ ITSCARLOSECP.NVIM ║
+	╚═══════════════════╝
 • Author: Carlos Castillo (itscarlosecp)
 • Github: https://github.com/itscarlosecp
 
@@ -7,20 +9,38 @@
 	in Lua. Easy to configure to your own liking."
 ]]
 
--- Source Defaults
+--[[
+TODO: Pending tasks/configs
+• Implement snippets support
+]]
+
+-- ### GLOBAL CONFIG ###
+-- Values that I want to keep unified and
+-- are used in many places.
+_G.itscarlosecp = {
+	borders = "rounded",
+	plugins = {
+		autopairs = false
+	}
+}
+
+-- ### DEFAULTS ###
+-- Sources core defaults
 require "core.settings"
 require "core.mappings"
 require "core.commands"
+require "core.utils"
 
--- Third-party Plugins
-_G.plugins = { autopairs = false }
+-- ### PLUGINS ####
+-- Plugins list
 require "core.plugins"
 
--- Custom Modules
--- Language Servers
+-- ### LANGUAGE SERVERS ###
 -- To install new language servers:
 -- :LspInstall <lang_name>
 require "modules.lsp"
+
+-- ### CUSTOM MODULES ###
 -- Toggle terminal
 require "modules.terminal"
 

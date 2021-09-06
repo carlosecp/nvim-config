@@ -1,32 +1,51 @@
-local map  = vim.api.nvim_set_keymap
-local opts = { silent = true, noremap = true }
+local C = { setup = {} }
 
-local C = {}
-
+-- ### SERVER DEFAULTS ###
 C.capabilities = vim.lsp.protocol.make_client_capabilities()
 C.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 function C.on_attach()
-	-- Enable LSPSignature
-	require "lsp_signature".on_attach {
-		use_lspsaga = true
-	}
+	-- Use default LSP mappings
+	-- Includes LSPSaga's mappings
+	require "core.mappings".lsp()
+end
 
-	-- Language Server Protocol
-	--[[ Some of this bindings are defined in nvim-treesitter config, because
-	it uses it's syntax trees to interact with the native LSP.
-	]]
+-- ### NEOVIM LSP CLIENT SETUP ###
+-- Hover and Diagnositcs popup windows
+function C.setup.floating_windows()
+	vim.lsp.handlers["textDocument/hover"] =
+	vim.lsp.with(vim.lsp.handlers.hover, {
+		border = _G.itscarlosecp.borders
+	})
 
-	-- Native LSP Mapping
-	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	vim.lsp.handlers["textDocument/signatureHelp"] =
+	vim.lsp.with(vim.lsp.handlers.signature_help, {
+		border = _G.itscarlosecp.borders
+	})
+end
 
-	-- LSPSaga Mappings
-	map("n", "K",  "<cmd>Lspsaga hover_doc<CR>", opts)
-	map("n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
-	map("n", "gc", "<cmd>Lspsaga code_action<CR>", opts)
-	map("n", "[g", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-	map("n", "]g", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+local function set_signcolumn_sign(diag_type, sign)
+	vim.fn.sign_define(diag_type, {
+		text = sign,
+		numhl = diag_type
+	})
+end
+
+-- Diagnostics signs
+function C.setup.diagnostics()
+	-- Setting signcolumn signs
+	set_signcolumn_sign("LspDiagnosticsSignError",          "")
+	set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
+	set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")
+	set_signcolumn_sign("LspDiagnosticsDefaultHint",        "")
+
+	-- Diagnositcs windows/virtual text
+	vim.lsp.handlers["textDocument/publishDiagnostics"] =
+	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = {
+			spacing = 0
+		}
+	})
 end
 
 return C

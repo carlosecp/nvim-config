@@ -7,7 +7,7 @@ loading their respective plugins.
 local map = vim.api.nvim_set_keymap
 local opts = { silent = true, noremap = true }
 
--- ### NEOVIM ###
+-- ### NEOVIM DEFAULTS ###
 -- Mapleader
 vim.g.mapleader = " "
 
@@ -25,6 +25,22 @@ map("i", "?", "?<c-g>u", { noremap = true })
 
 --- ### PLUGINS ###
 local M = {}
+
+-- LSP Common Mappings
+function M.lsp()
+	-- Hover information
+	map("n", "K",   "<cmd>lua vim.lsp.buf.hover()<CR>",            opts)
+	map("n", "gs",  "<cmd>lua vim.lsp.buf.signature_help()<CR>",   opts)
+	-- Symbol definitions
+	map("n", "gd",  "<cmd>lua vim.lsp.buf.definition()<CR>",       opts)
+	map("n", "gD",  "<cmd>lua vim.lsp.buf.declaration()<CR>",      opts)
+	-- Actions
+	map("n", "grr", "<cmd>lua vim.lsp.buf.rename()<CR>",           opts)
+	map("n", "gc",  "<cmd>lua vim.lsp.buf.code_action()<CR>",      opts)
+	-- Diagnostics
+	map("n", "[g",  "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+	map("n", "]g",  "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+end
 
 -- NvimTree
 function M.nvimTree()

@@ -21,8 +21,8 @@ local frontend_ft = {
 local ts_playground_cmds = {"TSPlaygroundToggle", "TSHighlightCapturesUnderCursor"}
 
 return require "packer".startup(function(use)
-	-- Language Server Protocol
-	-- Autcompletion
+	-- ### Language Server Protocol
+	-- ### Autocompletion
 	use "neovim/nvim-lspconfig"
 	use "kabouzeid/nvim-lspinstall"
 	use {
@@ -40,23 +40,12 @@ return require "packer".startup(function(use)
 		}
 	}
 	use {
-		"glepnir/lspsaga.nvim",
-		config = function()
-			require "configs.lspsaga"
-		end
-	}
-	use {
-		"ray-x/lsp_signature.nvim",
-		module = "lsp_signature"
-	}
-	use {
 		"windwp/nvim-autopairs",
-		opt = _G.plugins.autopairs,
+		opt = _G.itscarlosecp.plugins.autopairs,
 		module = { "nvim-autopairs", "nvim-autopairs.completion.cmp" }
 	}
 
-	-- Treesitter
-	-- Syntax and indentation
+	-- ### Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
@@ -80,8 +69,7 @@ return require "packer".startup(function(use)
 		ft = frontend_ft
 	}
 
-	-- NvimTree
-	-- File explorer
+	-- ### NvimTree
 	use {
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
@@ -93,8 +81,7 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- Telescope
-	-- Fuzzy finder
+	-- ### Telescope
 	use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
@@ -115,7 +102,7 @@ return require "packer".startup(function(use)
 		}}
 	}
 
-	-- Colorscheme
+	-- ### Colorscheme
 	-- My custom colorschemes
 	use {
 		"$HOME/themes.nvim", -- I have this repo locally to test my changes
@@ -123,7 +110,7 @@ return require "packer".startup(function(use)
 		requires = "rktjmp/lush.nvim"
 	}
 
-	-- Formatter
+	-- ### Formatter
 	-- Formatters must be installed separately
 	use {
 		"mhartington/formatter.nvim",
@@ -133,7 +120,8 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- Utilities
+	-- ### Utilities
+	-- Useful vim utilities
 	use {
 		"tpope/vim-surround",
 		keys = {
@@ -160,7 +148,8 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- Modules required for multiple plugins
+	-- ### Modules
+	-- Helps with lazy-loading
 	use {
 		"nvim-lua/popup.nvim",
 		module = "popup"
