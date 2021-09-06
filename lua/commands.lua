@@ -13,3 +13,7 @@ au TermOpen,TermEnter * setlocal nocursorline
 au TermOpen,TermEnter * setlocal winfixheight
 ]]
 
+-- Override filetypes for specific files
+vim.cmd[[
+au BufRead,BufNewFile .prettierrc set ft=json
+]]
