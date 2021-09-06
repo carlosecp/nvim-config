@@ -12,6 +12,7 @@
 --[[
 TODO: Pending tasks/configs
 • Implement snippets support
+• Borders hardcoded in diagnostics mappings
 ]]
 
 -- ### GLOBAL CONFIG ###
@@ -20,7 +21,14 @@ TODO: Pending tasks/configs
 _G.itscarlosecp = {
 	borders = "rounded",
 	plugins = {
-		autopairs = false
+		autopairs = false,
+		rainbow = {
+			"#143d79",
+			"#255ab2",
+			"#4184e4",
+			"#6cb6ff",
+			"#c6e6ff"
+		}
 	}
 }
 

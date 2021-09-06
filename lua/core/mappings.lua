@@ -38,8 +38,8 @@ function M.lsp()
 	map("n", "grr", "<cmd>lua vim.lsp.buf.rename()<CR>",           opts)
 	map("n", "gc",  "<cmd>lua vim.lsp.buf.code_action()<CR>",      opts)
 	-- Diagnostics
-	map("n", "[g",  "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-	map("n", "]g",  "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+	map("n", "[g",  "<cmd>lua vim.lsp.diagnostic.goto_next({popup_opts={border='rounded'}})<CR>", opts)
+	map("n", "]g",  "<cmd>lua vim.lsp.diagnostic.goto_prev({popup_opts={border='rounded'}})<CR>", opts)
 end
 
 -- NvimTree

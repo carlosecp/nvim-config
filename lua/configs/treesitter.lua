@@ -11,7 +11,8 @@ require "nvim-treesitter.configs".setup {
 	autotag  = { enable = true },
 	rainbow  = {
 		enable = true,
-		extended_mode = false
+		extended_mode = false,
+		colors = _G.itscarlosecp.plugins.rainbow
 	},
 
 	-- Native LSP action capabilities
