@@ -67,10 +67,11 @@ return require "packer".startup(function(use)
 		requires = {
 			-- Treesitter modules
 			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
-			{ "nvim-treesitter/playground", after = "nvim-treesitter" },
+			{ "nvim-treesitter/playground", after = "nvim-treesitter", cmd = ts_playground_cmds },
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft }
+			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft },
+			{ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" }
 		}
 	}
 	-- Using this to help Neovim with indentation in JSX
