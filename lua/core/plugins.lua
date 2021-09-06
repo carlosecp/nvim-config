@@ -27,7 +27,7 @@ return require "packer".startup(function(use)
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
-			require "plugins.cmp"
+			require "configs.cmp"
 		end,
 		requires = {
 			-- nvim-cmp modules to provide completion sources
@@ -40,7 +40,7 @@ return require "packer".startup(function(use)
 	use {
 		"glepnir/lspsaga.nvim",
 		config = function()
-			require "plugins.lspsaga"
+			require "configs.lspsaga"
 		end
 	}
 	use {
@@ -59,7 +59,7 @@ return require "packer".startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 		config = function()
-			require "plugins.treesitter"
+			require "configs.treesitter"
 		end,
 		run = ":TSUpdate",
 		requires = {
@@ -82,7 +82,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require "plugins.nvimtree"
+			require "configs.nvimtree"
 		end,
 		setup = function()
 			require "core.mappings".nvimTree()
@@ -97,10 +97,10 @@ return require "packer".startup(function(use)
 		module = {
 			"telescope",
 			"telescope.builtin",
-			"plugins.telescope"
+			"configs.telescope"
 		},
 		config = function()
-			require "plugins.telescope"
+			require "configs.telescope"
 		end,
 		setup = function()
 			require "core.mappings".telescope()
@@ -125,7 +125,7 @@ return require "packer".startup(function(use)
 		"mhartington/formatter.nvim",
 		cmd = "Format",
 		config = function()
-			require "plugins.formatter"
+			require "configs.formatter"
 		end
 	}
 
@@ -169,7 +169,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require "plugins.devicons"
+			require "configs.devicons"
 		end
 	}
 
