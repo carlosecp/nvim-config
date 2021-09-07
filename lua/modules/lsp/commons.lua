@@ -24,7 +24,7 @@ function C.setup.floating_windows()
 	})
 end
 
-local function set_signcolumn_sign(diag_type, sign)
+local function aux_set_signcolumn_sign(diag_type, sign)
 	vim.fn.sign_define(diag_type, {
 		text = sign,
 		numhl = diag_type
@@ -34,10 +34,10 @@ end
 -- Diagnostics signs
 function C.setup.diagnostics()
 	-- Setting signcolumn signs
-	set_signcolumn_sign("LspDiagnosticsSignError",          "")
-	set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
-	set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")
-	set_signcolumn_sign("LspDiagnosticsDefaultHint",        "")
+	aux_set_signcolumn_sign("LspDiagnosticsSignError",          "")
+	aux_set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
+	aux_set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")
+	aux_set_signcolumn_sign("LspDiagnosticsDefaultHint",        "")
 
 	-- Diagnositcs windows/virtual text
 	vim.lsp.handlers["textDocument/publishDiagnostics"] =
