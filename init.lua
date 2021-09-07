@@ -49,7 +49,6 @@ require "core.plugins"
 require "modules.lsp"
 
 -- ### CUSTOM MODULES ###
--- Toggle terminal
 require "modules.terminal"
 
 -- Colorscheme
