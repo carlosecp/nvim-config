@@ -10,7 +10,7 @@ require "nvim-treesitter.configs".setup {
 	-- ### THID-PARTY MODULES ###
 	autotag  = { enable = true },
 	rainbow  = {
-		enable = true,
+		enable = false,
 		extended_mode = false,
 		colors = _G.itscarlosecp.plugins.rainbow
 	},
