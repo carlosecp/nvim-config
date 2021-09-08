@@ -16,6 +16,11 @@ require "nvim-web-devicons".setup {
 			color = "#0087c9",
 			name  = "DockerIgnore"
 		},
+		["go.mod"] = {
+			icon  = "ﳑ",
+			color = "#519aba",
+			name  = "Gomod"
+		},
 		js = {
 			icon  = "",
 			color = "#efd81d",
