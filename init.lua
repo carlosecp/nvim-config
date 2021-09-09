@@ -52,5 +52,5 @@ require "modules.lsp"
 require "modules.terminal"
 
 -- Colorscheme
-vim.cmd[[colorscheme github]]
+vim.cmd[[colorscheme monokai]]
 

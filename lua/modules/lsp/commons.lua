@@ -4,9 +4,11 @@ local C = { setup = {} }
 C.capabilities = vim.lsp.protocol.make_client_capabilities()
 C.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-function C.on_attach()
+function C.on_attach(client)
+	-- Disable LSP's builtin formatters
+	client.resolved_capabilities.document_formatting = false
+
 	-- Use default LSP mappings
-	-- Includes LSPSaga's mappings
 	require "core.mappings".lsp()
 end
 

@@ -26,7 +26,10 @@ return require "packer".startup(function(use)
 	-- ### Language Server Protocol
 	-- ### Autocompletion
 	use "neovim/nvim-lspconfig"
-	use "kabouzeid/nvim-lspinstall"
+	use {
+		"kabouzeid/nvim-lspinstall",
+		"jose-elias-alvarez/null-ls.nvim"
+	}
 	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -110,16 +113,6 @@ return require "packer".startup(function(use)
 		"$HOME/themes.nvim", -- I have this repo locally to test my changes
 		-- "itscarlosecp/theme.nvim", if you don't have this repo locally
 		requires = "rktjmp/lush.nvim"
-	}
-
-	-- ### Formatter
-	-- Formatters must be installed separately
-	use {
-		"mhartington/formatter.nvim",
-		cmd = "Format",
-		config = function()
-			require "configs.formatter"
-		end
 	}
 
 	-- ### Utilities

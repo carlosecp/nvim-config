@@ -3,16 +3,16 @@ require "telescope".setup {
 		file_ignore_patterns = {"node_modules/", ".next/", ".git/"},
 		previewer = false
 	},
-	pickers = {
-		buffers = {
-			previewer = false,
-			theme = "dropdown"
-		},
-		find_files = {
-			previewer = false,
-			theme = "dropdown"
-		}
-	},
+	-- pickers = {
+		-- buffers = {
+			-- previewer = false,
+			-- theme = "dropdown"
+		-- },
+		-- find_files = {
+			-- previewer = false,
+			-- theme = "dropdown"
+		-- }
+	-- },
 	extensions = {
 		fzf = {
 			fuzzy = true,

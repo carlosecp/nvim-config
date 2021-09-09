@@ -1,6 +1,7 @@
 -- ### Install and load LSP configs
 local lspconfig  = require "lspconfig"
 local lspinstall = require "lspinstall"
+local null_ls = require "null-ls"
 -- ### Custom configs
 -- Common utilities for LSPs and individual configs
 local configs = require "modules.lsp.configs"
@@ -25,9 +26,18 @@ local function load_servers()
 	end
 end
 
+-- ### NULL-LS ###
+local function load_null_ls()
+	null_ls.config(configs.null_ls)
+	lspconfig["null-ls"].setup {
+		on_attach = commons.on_attach
+	}
+end
+
 -- Reload LSPInstall after installing a server
 function lspinstall.post_install_hook()
 	load_servers()
+	load_null_ls()
 	vim.cmd("bufdo e")
 end
 
@@ -37,6 +47,7 @@ local function setup_servers()
 	commons.setup.diagnostics()
 	commons.setup.floating_windows()
 	load_servers()
+	load_null_ls()
 end
 
 setup_servers()

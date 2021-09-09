@@ -2,6 +2,8 @@
 need customization. You can find the valid keys here:
 https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 ]]
+local null_ls = require "null-ls"
+local prettier_rc_path = vim.fn.expand("$HOME/.config/nvim/utils/.prettierrc")
 
 local C = {}
 
@@ -45,6 +47,15 @@ C.lua = {
 			diagnostics = {
 				globals = {"vim", "awesome"}
 			}
+		}
+	}
+}
+
+C.null_ls = {
+	debug = true,
+	sources = {
+		null_ls.builtins.formatting.prettierd.with {
+			extra_args = { "--config", prettier_rc_path }
 		}
 	}
 }
