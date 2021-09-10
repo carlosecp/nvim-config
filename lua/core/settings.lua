@@ -7,7 +7,7 @@ o.cursorline     = true  -- Highlight current line
 o.termguicolors  = true  -- Enables 24-bit RGB colors in TUI
 o.splitbelow     = true  -- New split defaults to below position
 o.splitright     = true  -- New vert split deafult to right position
-o.mouse          = "a"   -- Enable mouse support
+-- o.mouse          = "a"   -- Enable mouse support
 
 -- ### Search
 o.incsearch      = true -- Incremental search

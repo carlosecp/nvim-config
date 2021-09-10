@@ -5,7 +5,8 @@ require "nvim-treesitter.configs".setup {
 		enable = true,
 		additional_vim_regex_highlighting = true,
 		custom_captures = {
-			["struct"] = "Struct"
+			["struct"] = "Struct",
+			["identifier"] = "Variable"
 		}
 	},
 	indent   = { enable = false },
@@ -13,7 +14,7 @@ require "nvim-treesitter.configs".setup {
 	-- ### THID-PARTY MODULES ###
 	autotag  = { enable = true },
 	rainbow  = {
-		enable = false,
+		enable = true,
 		extended_mode = false,
 		colors = _G.itscarlosecp.plugins.rainbow
 	},
