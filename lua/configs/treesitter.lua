@@ -12,7 +12,6 @@ require "nvim-treesitter.configs".setup {
 	indent   = { enable = false },
 
 	-- ### THID-PARTY MODULES ###
-	autotag  = { enable = true },
 	rainbow  = {
 		enable = false,
 		extended_mode = false,

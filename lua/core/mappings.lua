@@ -57,16 +57,15 @@ function M.telescope()
 	map("n", "<Leader>cs", "<cmd>lua require 'configs.telescope'.colorscheme()<CR>", opts)
 end
 
+-- Bufferline
+function M.bufferline()
+	map("n", "<Tab>",   "<cmd>BufferLineCycleNext<CR>", opts)
+	map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+end
+
 -- EasyAlign
 function M.easyAlign()
 	map("x", "ga", "<Plug>(EasyAlign)", {})
-end
-
--- Toggle Terminal
--- Custom terminal module
-function M.toggleTerminal()
-	map("n", "<Leader>t", "<cmd>lua require 'modules.terminal'.termToggle()<CR>", opts)
-	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
 return M

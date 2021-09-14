@@ -10,15 +10,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
--- Defining filtypes for frontend development
--- related plugins to lazy-load them
-local frontend_ft = {
-	"javascript",
-	"javascriptreact",
-	"typescript",
-	"typescriptreact"
-}
-
 local ts_playground_cmds = {
 	"TSPlaygroundToggle", "TSHighlightCapturesUnderCursor"}
 
@@ -26,10 +17,7 @@ return require "packer".startup(function(use)
 	-- ### Language Server Protocol
 	-- ### Autocompletion
 	use "neovim/nvim-lspconfig"
-	use {
-		"kabouzeid/nvim-lspinstall",
-		"jose-elias-alvarez/null-ls.nvim"
-	}
+	use "kabouzeid/nvim-lspinstall"
 	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -43,11 +31,6 @@ return require "packer".startup(function(use)
 			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 			{ "hrsh7th/cmp-path",     after = "nvim-cmp" }
 		}
-	}
-	use {
-		"windwp/nvim-autopairs",
-		opt = _G.itscarlosecp.plugins.autopairs,
-		module = { "nvim-autopairs", "nvim-autopairs.completion.cmp" }
 	}
 
 	-- ### Treesitter
@@ -64,14 +47,8 @@ return require "packer".startup(function(use)
 			{ "nvim-treesitter/playground", after = "nvim-treesitter", cmd = ts_playground_cmds },
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft },
 			{ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" }
 		}
-	}
-	-- Using this to help Neovim with indentation in JSX
-	use {
-		"MaxMEllon/vim-jsx-pretty",
-		ft = frontend_ft
 	}
 
 	-- ### NvimTree
@@ -107,13 +84,43 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- ### Statusline
+	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "configs.lualine"
+		end
+	}
+
+	-- ### Bufferline
+	use {
+		"akinsho/bufferline.nvim",
+		config = function()
+			require "configs.bufferline"
+		end,
+		setup = function()
+			require "core.mappings".bufferline()
+		end
+	}
+
+	-- ### Formatter
+	-- Formatters must be installed separately
+	use {
+		"mhartington/formatter.nvim",
+		cmd = "Format",
+		config = function()
+			require "configs.formatter"
+		end
+	}
+
 	-- ### Colorscheme
 	-- My custom colorschemes
-	use {
-		"$HOME/themes.nvim", -- I have this repo locally to test my changes
-		-- "itscarlosecp/theme.nvim", if you don't have this repo locally
-		requires = "rktjmp/lush.nvim"
-	}
+	-- use {
+		-- "$HOME/themes.nvim", -- I have this repo locally to test my changes
+		-- -- "itscarlosecp/theme.nvim", if you don't have this repo locally
+		-- requires = "rktjmp/lush.nvim"
+	-- }
+	use "folke/tokyonight.nvim"
 
 	-- ### Utilities
 	-- Useful vim utilities
@@ -122,10 +129,6 @@ return require "packer".startup(function(use)
 		keys = {
 			{"v", "S"}
 		}
-	}
-	use {
-		"kristijanhusak/vim-carbon-now-sh",
-		cmd = "CarbonNowSh"
 	}
 	use {
 		"junegunn/vim-easy-align",

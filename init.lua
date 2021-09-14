@@ -21,7 +21,16 @@ TODO: Pending tasks/configs
 _G.itscarlosecp = {
 	borders = "rounded",
 	plugins = {
-		autopairs = false,
+		formatter = {
+			prettierrc = "$HOME/.config/nvim/utils/.prettierrc"
+		},
+		telescope = {
+			paths = {
+				dotfiles = "$HOME/dotfiles",
+				neovim   = "$HOME/.config/nvim",
+				themes   = "$HOME/themes.nvim"
+			}
+		},
 		rainbow = {
 			"#ffcb12",
 			"#a563d6",
@@ -46,9 +55,6 @@ require "core.plugins"
 -- :LspInstall <lang_name>
 require "modules.lsp"
 
--- ### CUSTOM MODULES ###
-require "modules.terminal"
-
 -- Colorscheme
-vim.cmd[[colorscheme github]]
+vim.cmd[[colorscheme tokyonight]]
 
