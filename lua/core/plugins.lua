@@ -113,6 +113,15 @@ return require "packer".startup(function(use)
 		end
 	}
 
+	-- ### Trouble
+	use {
+		"folke/trouble.nvim",
+		cmd = "TroubleToggle",
+		config = function()
+			require "configs.trouble"
+		end
+	}
+
 	-- ### Colorscheme
 	-- My custom colorschemes
 	-- use {
