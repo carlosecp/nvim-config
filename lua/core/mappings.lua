@@ -18,10 +18,14 @@ map("n", "<C-K>", "<C-W><C-K>", { noremap = true })
 map("n", "<C-L>", "<C-W><C-L>", { noremap = true })
 map("n", "<C-H>", "<C-W><C-H>", { noremap = true })
 
+-- Better undoing
 map("i", ",", ",<c-g>u", { noremap = true })
 map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
+
+-- Terminal escape
+vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
 --- ### PLUGINS ###
 local M = {}
