@@ -13,7 +13,7 @@ require "nvim-treesitter.configs".setup {
 
 	-- ### THID-PARTY MODULES ###
 	rainbow  = {
-		enable = false,
+		enable = true,
 		extended_mode = false,
 		colors = _G.itscarlosecp.plugins.rainbow
 	},

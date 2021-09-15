@@ -92,17 +92,6 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- ### Bufferline
-	use {
-		"akinsho/bufferline.nvim",
-		config = function()
-			require "configs.bufferline"
-		end,
-		setup = function()
-			require "core.mappings".bufferline()
-		end
-	}
-
 	-- ### Formatter
 	-- Formatters must be installed separately
 	use {
@@ -113,22 +102,7 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- ### Trouble
-	use {
-		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
-		config = function()
-			require "configs.trouble"
-		end
-	}
-
 	-- ### Colorscheme
-	-- My custom colorschemes
-	-- use {
-		-- "$HOME/themes.nvim", -- I have this repo locally to test my changes
-		-- -- "itscarlosecp/theme.nvim", if you don't have this repo locally
-		-- requires = "rktjmp/lush.nvim"
-	-- }
 	use "folke/tokyonight.nvim"
 
 	-- ### Utilities
