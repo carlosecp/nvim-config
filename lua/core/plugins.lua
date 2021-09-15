@@ -86,9 +86,9 @@ return require "packer".startup(function(use)
 
 	-- ### Statusline
 	use {
-		"hoob3rt/lualine.nvim",
+		"tjdevries/express_line.nvim",
 		config = function()
-			require "configs.lualine"
+			require "configs.express_line"
 		end
 	}
 
