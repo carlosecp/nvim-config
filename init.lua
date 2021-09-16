@@ -53,7 +53,7 @@ require "core.plugins"
 -- ### LANGUAGE SERVERS ###
 -- To install new language servers:
 -- :LspInstall <lang_name>
--- require "modules.lsp"
+require "modules.lsp"
 
 -- Colorscheme
 -- require "core.colors"("tokyonight")
