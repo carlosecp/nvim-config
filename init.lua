@@ -56,4 +56,5 @@ require "core.plugins"
 -- require "modules.lsp"
 
 -- Colorscheme
-require "core.colors"("tokyonight")
+-- require "core.colors"("tokyonight")
+vim.cmd[[colorscheme github]]
