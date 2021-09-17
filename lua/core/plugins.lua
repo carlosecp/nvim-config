@@ -84,6 +84,14 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- ### Statusline
+	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "configs.lualine"
+		end
+	}
+
 	-- ### Formatter
 	-- Formatters must be installed separately
 	use {
