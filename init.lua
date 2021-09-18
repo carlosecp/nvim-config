@@ -4,15 +4,6 @@
 	╚═══════════════════╝
 • Author: Carlos Castillo (itscarlosecp)
 • Github: https://github.com/itscarlosecp
-
-	"Clean and simple Neovim configuration written
-	in Lua. Easy to configure to your own liking."
-]]
-
---[[
-TODO: Pending tasks/configs
-• Implement snippets support
-• Borders hardcoded in diagnostics mappings
 ]]
 
 -- ### GLOBAL CONFIG ###
@@ -51,10 +42,7 @@ require "core.utils"
 require "core.plugins"
 
 -- ### LANGUAGE SERVERS ###
--- To install new language servers:
--- :LspInstall <lang_name>
 require "modules.lsp"
 
 -- Colorscheme
--- require "core.colors"("tokyonight")
-vim.cmd[[colorscheme github]]
+vim.cmd[[colo github]]
