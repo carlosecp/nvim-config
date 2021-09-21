@@ -46,7 +46,6 @@ return require "packer".startup(function(use)
 			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
 			{ "nvim-treesitter/playground", after = "nvim-treesitter", cmd = ts_playground_cmds },
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-			{ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
 			{ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" }
 		}
 	}
@@ -63,8 +62,16 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- ### Telescope
+	-- Statusline
 	use {
+		"hoob3rt/lualine.nvim",
+		config = function()
+			require "configs.lualine"
+		end
+	}
+
+	-- ### Telescope
+		use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		module = {
@@ -95,10 +102,11 @@ return require "packer".startup(function(use)
 	}
 
 	-- ### Colorscheme
-	use {
-		"$HOME/themes.nvim",
-		requires = {"rktjmp/lush.nvim"}
-	}
+	-- use {
+		-- "$HOME/themes.nvim",
+		-- requires = {"rktjmp/lush.nvim"}
+	-- }
+	use "shaunsingh/nord.nvim"
 
 	-- ### Utilities
 	-- Useful vim utilities
@@ -127,7 +135,7 @@ return require "packer".startup(function(use)
 
 	-- ### Modules
 	-- Helps with lazy-loading
-	use {
+		use {
 		"nvim-lua/popup.nvim",
 		module = "popup"
 	}

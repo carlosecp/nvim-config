@@ -21,11 +21,6 @@ _G.itscarlosecp = {
 				neovim   = "$HOME/.config/nvim",
 				themes   = "$HOME/themes.nvim"
 			}
-		},
-		rainbow = {
-			"#ffcb12",
-			"#a563d6",
-			"#c6e6ff"
 		}
 	}
 }
@@ -45,4 +40,4 @@ require "core.plugins"
 require "modules.lsp"
 
 -- Colorscheme
-vim.cmd[[colo github]]
+require "core.colors"("nord")

@@ -1,9 +1,6 @@
-local configs = {}
-
-function configs.tokyonight()
-	vim.cmd[[colorscheme tokyonight]]
-end
-
-return function(theme)
-	configs[theme]()
+return function(cs)
+	if cs == "nord" then
+		vim.g.nord_borders = true
+		vim.cmd[[colorscheme nord]]
+	end
 end
