@@ -10,9 +10,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
-local ts_playground_cmds = {
-	"TSPlaygroundToggle", "TSHighlightCapturesUnderCursor"}
-
 return require "packer".startup(function(use)
 	-- ### Language Server Protocol
 	-- ### Autocompletion
@@ -44,9 +41,9 @@ return require "packer".startup(function(use)
 		requires = {
 			-- Treesitter modules
 			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
-			{ "nvim-treesitter/playground", after = "nvim-treesitter", cmd = ts_playground_cmds },
+			{ "nvim-treesitter/playground",               after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-			{ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" }
+			{ "p00f/nvim-ts-rainbow",                     after = "nvim-treesitter" }
 		}
 	}
 
