@@ -39,5 +39,6 @@ require "core.plugins"
 -- ### LANGUAGE SERVERS ###
 require "modules.lsp"
 
--- Colorscheme
+-- ### UI ###
+require "modules.statusline"
 require "core.colors"("nord")

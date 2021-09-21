@@ -48,24 +48,24 @@ return require "packer".startup(function(use)
 	}
 
 	-- ### NvimTree
-	use {
-		"kyazdani42/nvim-tree.lua",
-		cmd = "NvimTreeToggle",
-		config = function()
-			require "configs.nvimtree"
-		end,
-		setup = function()
-			require "core.mappings".nvimTree()
-		end
-	}
+	-- use {
+		-- "kyazdani42/nvim-tree.lua",
+		-- cmd = "NvimTreeToggle",
+		-- config = function()
+			-- require "configs.nvimtree"
+		-- end,
+		-- setup = function()
+			-- require "core.mappings".nvimTree()
+		-- end
+	-- }
 
 	-- Statusline
-	use {
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require "configs.lualine"
-		end
-	}
+	-- use {
+		-- "hoob3rt/lualine.nvim",
+		-- config = function()
+			-- require "configs.lualine"
+		-- end
+	-- }
 	-- use {
 		-- "tjdevries/express_line.nvim",
 		-- config = function()
@@ -74,25 +74,25 @@ return require "packer".startup(function(use)
 	-- }
 
 	-- ### Telescope
-		use {
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		module = {
-			"telescope",
-			"telescope.builtin",
-			"configs.telescope"
-		},
-		config = function()
-			require "configs.telescope"
-		end,
-		setup = function()
-			require "core.mappings".telescope()
-		end,
-		requires = {{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			run = "make"
-		}}
-	}
+	-- use {
+		-- "nvim-telescope/telescope.nvim",
+		-- cmd = "Telescope",
+		-- module = {
+			-- "telescope",
+			-- "telescope.builtin",
+			-- "configs.telescope"
+		-- },
+		-- config = function()
+			-- require "configs.telescope"
+		-- end,
+		-- setup = function()
+			-- require "core.mappings".telescope()
+		-- end,
+		-- requires = {{
+			-- "nvim-telescope/telescope-fzf-native.nvim",
+			-- run = "make"
+		-- }}
+	-- }
 
 	-- ### Formatter
 	-- Formatters must be installed separately
@@ -138,21 +138,21 @@ return require "packer".startup(function(use)
 
 	-- ### Modules
 	-- Helps with lazy-loading
-		use {
-		"nvim-lua/popup.nvim",
-		module = "popup"
-	}
-	use {
-		"nvim-lua/plenary.nvim",
-		module = "plenary"
-	}
-	use {
-		"kyazdani42/nvim-web-devicons",
-		module = "nvim-web-devicons",
-		config = function()
-			require "configs.devicons"
-		end
-	}
+	-- use {
+		-- "nvim-lua/popup.nvim",
+		-- module = "popup"
+	-- }
+	-- use {
+		-- "nvim-lua/plenary.nvim",
+		-- module = "plenary"
+	-- }
+	-- use {
+		-- "kyazdani42/nvim-web-devicons",
+		-- module = "nvim-web-devicons",
+		-- config = function()
+			-- require "configs.devicons"
+		-- end
+	-- }
 
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
