@@ -69,6 +69,12 @@ return require "packer".startup(function(use)
 			require "configs.lualine"
 		end
 	}
+	-- use {
+		-- "tjdevries/express_line.nvim",
+		-- config = function()
+			-- require "configs.express_line"
+		-- end
+	-- }
 
 	-- ### Telescope
 		use {
@@ -154,3 +160,4 @@ return require "packer".startup(function(use)
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
 end)
+
