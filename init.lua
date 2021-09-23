@@ -19,13 +19,9 @@ _G.itscarlosecp = {
 	}
 }
 
--- Sources core defaults
 require "core.settings"
 require "core.mappings"
-require "core.commands"
 require "core.utils"
-
--- Plugins and LSP
 require "core.plugins"
 require "modules.lsp"
-require "core.colors"("nord")
+require "core.commands"

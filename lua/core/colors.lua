@@ -3,7 +3,7 @@ return function(cs)
 		vim.g.nord_borders = true
 		vim.cmd[[colorscheme nord]]
 		vim.cmd[[
-		hi VimMode guibg=#d8dee9
+		hi CmpDocumentationBorder guifg=yellow
 		]]
 	end
 end

@@ -39,6 +39,13 @@ function M.lsp()
 	map("n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",                                     opts)
 	map("n", "[g",         ":lua vim.lsp.diagnostic.goto_next({popup_opts={border='rounded'}})<CR>", opts)
 	map("n", "]g",         ":lua vim.lsp.diagnostic.goto_prev({popup_opts={border='rounded'}})<CR>", opts)
+
+	vim.cmd[[
+	imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+	smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+	imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+	smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+	]]
 end
 
 function M.telescope()
