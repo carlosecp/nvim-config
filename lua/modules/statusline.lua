@@ -38,6 +38,16 @@ local function section_mode()
 	statusline(" ")
 end
 
+local function section_file()
+	local buffer_name, buffer_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
+	local icon = require "nvim-web-devicons".get_icon(buffer_name, buffer_ext)
+
+	statusline("%=")
+	statusline(string.format(" %s %s ", icon, buffer_name))
+	vim.cmd[[set statusline+=%{expand('%:~:.')}]]
+	statusline("%=")
+end
+
 local function section_cursor()
 	statusline("[%l:%c]")
 	statusline("[%2p%%]")
@@ -47,9 +57,7 @@ local function set_statusline()
 	section_mode()
 	statusline("%#StatusLine#")
 	statusline(git_branch())
-	statusline("%=")
-	vim.cmd[[set statusline+=%{expand('%:~:.')}]]
-	statusline("%=")
+	section_file()
 	section_cursor()
 	statusline(" ")
 end
