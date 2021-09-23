@@ -72,6 +72,14 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- Statusline
+	use {
+		"tjdevries/express_line.nvim",
+		config = function()
+			require "configs.express_line"
+		end
+	}
+
 	-- Explorer
 	use {
 		"kyazdani42/nvim-tree.lua",

@@ -24,7 +24,6 @@ require "core.settings"
 require "core.mappings"
 require "core.commands"
 require "core.utils"
-require "modules.statusline"
 
 -- Plugins and LSP
 require "core.plugins"
