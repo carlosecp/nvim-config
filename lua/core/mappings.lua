@@ -61,6 +61,15 @@ function M.telescope()
 	map("n", "<Leader>cs", "<cmd>lua require 'configs.telescope'.colorscheme()<CR>", opts)
 end
 
+function M.fzf()
+	map("n", "<Leader>ff", "<cmd>FzfLua files<CR>", opts)
+	map("n", "<Leader>lg", "<cmd>FzfLua", opts)
+	map("n", "<Leader>gc", "<cmd>FzfLua", opts)
+	map("n", "<Leader>nv", "<cmd>FzfLua", opts)
+	map("n", "<Leader>df", "<cmd>FzfLua", opts)
+	map("n", "<Leader>cs", "<cmd>FzfLua", opts)
+end
+
 -- EasyAlign
 function M.easyAlign()
 	map("x", "ga", "<Plug>(EasyAlign)", {})

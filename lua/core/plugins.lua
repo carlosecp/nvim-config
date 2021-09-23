@@ -47,52 +47,18 @@ return require "packer".startup(function(use)
 		}
 	}
 
-	-- ### NvimTree
-	-- use {
-		-- "kyazdani42/nvim-tree.lua",
-		-- cmd = "NvimTreeToggle",
-		-- config = function()
-			-- require "configs.nvimtree"
-		-- end,
-		-- setup = function()
-			-- require "core.mappings".nvimTree()
-		-- end
-	-- }
-
-	-- Statusline
-	-- use {
-		-- "hoob3rt/lualine.nvim",
-		-- config = function()
-			-- require "configs.lualine"
-		-- end
-	-- }
-	-- use {
-		-- "tjdevries/express_line.nvim",
-		-- config = function()
-			-- require "configs.express_line"
-		-- end
-	-- }
-
-	-- ### Telescope
-	-- use {
-		-- "nvim-telescope/telescope.nvim",
-		-- cmd = "Telescope",
-		-- module = {
-			-- "telescope",
-			-- "telescope.builtin",
-			-- "configs.telescope"
-		-- },
-		-- config = function()
-			-- require "configs.telescope"
-		-- end,
-		-- setup = function()
-			-- require "core.mappings".telescope()
-		-- end,
-		-- requires = {{
-			-- "nvim-telescope/telescope-fzf-native.nvim",
-			-- run = "make"
-		-- }}
-	-- }
+	-- ### Fuzzy Finder
+	use {
+		"ibhagwan/fzf-lua",
+		cmd = "FzfLua",
+		config = function()
+			require "configs.fzf"
+		end,
+		setup = function()
+			require "core.mappings".fzf()
+		end,
+		requires = "vijaymarupudi/nvim-fzf"
+	}
 
 	-- ### Formatter
 	-- Formatters must be installed separately
@@ -105,10 +71,6 @@ return require "packer".startup(function(use)
 	}
 
 	-- ### Colorscheme
-	-- use {
-		-- "$HOME/themes.nvim",
-		-- requires = {"rktjmp/lush.nvim"}
-	-- }
 	use "shaunsingh/nord.nvim"
 
 	-- ### Utilities
@@ -131,28 +93,16 @@ return require "packer".startup(function(use)
 	use {
 		"norcalli/nvim-colorizer.lua",
 		event = "BufReadPre",
-		config = function()
-			require "colorizer".setup()
-		end
 	}
 
 	-- ### Modules
-	-- Helps with lazy-loading
-	-- use {
-		-- "nvim-lua/popup.nvim",
-		-- module = "popup"
-	-- }
-	-- use {
-		-- "nvim-lua/plenary.nvim",
-		-- module = "plenary"
-	-- }
-	-- use {
-		-- "kyazdani42/nvim-web-devicons",
-		-- module = "nvim-web-devicons",
-		-- config = function()
-			-- require "configs.devicons"
-		-- end
-	-- }
+	use {
+		"kyazdani42/nvim-web-devicons",
+		module = "nvim-web-devicons",
+		config = function()
+			require "configs.devicons"
+		end
+	}
 
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
