@@ -1,6 +1,5 @@
 local C = { setup = {} }
 
--- ### SERVER DEFAULTS ###
 C.capabilities = vim.lsp.protocol.make_client_capabilities()
 C.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -13,7 +12,6 @@ function C.on_attach(client)
 	require "core.mappings".lsp()
 end
 
--- ### NEOVIM LSP CLIENT SETUP ###
 -- Hover and Diagnositcs popup windows
 function C.setup.floating_windows()
 	vim.lsp.handlers["textDocument/hover"] =
@@ -34,9 +32,7 @@ local function aux_set_signcolumn_sign(diag_type, sign)
 	})
 end
 
--- Diagnostics signs
 function C.setup.diagnostics()
-	-- Setting signcolumn signs
 	aux_set_signcolumn_sign("LspDiagnosticsSignError",          "")
 	aux_set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
 	aux_set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")

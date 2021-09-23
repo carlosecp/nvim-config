@@ -1,13 +1,8 @@
--- ### Install and load LSP configs
 local lspconfig  = require "lspconfig"
 local lspinstall = require "lspinstall"
--- ### Custom configs
--- Common utilities for LSPs and individual configs
-local configs = require "modules.lsp.configs"
-local commons = require "modules.lsp.commons"
+local configs    = require "modules.lsp.configs"
+local commons    = require "modules.lsp.commons"
 
--- ### LSPInstall ###
--- Use LSPInstall to install and load servers
 local function load_servers()
 	lspinstall.setup()
 	local servers = lspinstall.installed_servers()
@@ -31,7 +26,6 @@ function lspinstall.post_install_hook()
 	vim.cmd("bufdo e")
 end
 
--- ### SETUP ###
 -- Start servers with defined configs and defaults
 local function setup_servers()
 	commons.setup.diagnostics()

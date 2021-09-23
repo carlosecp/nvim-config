@@ -1,0 +1,14 @@
+{
+	"Bootstrap application": {
+		"prefix": "main",
+		"body": [
+			"#include <stdlib.h>",
+			"#include <stdio.h>\n",
+			"int main(int argc, char *argv[]) {",
+			"\t$1",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "Bootstraps and standard C application"
+	}
+}

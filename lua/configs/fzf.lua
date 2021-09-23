@@ -1,9 +1,10 @@
 require "fzf-lua".setup {
 	fzf_layout = "default",
+	border = _G.itscarlosecp.borders,
 	previewers = {
-		builtin = {
-			hidden = true
-		}
+		cat =     { hidden = true },
+		bat =     { hidden = true },
+		builtin = { hidden = true },
 	},
 	files = {
 		git_icons = false,

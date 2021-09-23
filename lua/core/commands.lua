@@ -1,7 +1,3 @@
---[[ Autocommands and Neovim's default
-behaviour modifiers
-]]
-
 -- Terminal window settings
 vim.cmd[[
 " Terminal Highlight

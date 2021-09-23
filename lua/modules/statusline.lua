@@ -28,7 +28,7 @@ local function gitBranch()
 	end
 end
 
-local function setStl(value, addSpaces)
+local function setStl(value)
 	local newStl = vim.go.statusline .. value
 	vim.api.nvim_set_option("statusline", newStl)
 end

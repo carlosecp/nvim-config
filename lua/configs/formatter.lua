@@ -1,12 +1,13 @@
 local function prettier()
 	-- npm install -g prettier
-	local rc_path = "$HOME/.config/nvim/utils/.prettierrc"
+	-- npm install -g @fsouza/prettierd
+	local prettierrc = "$HOME/.config/nvim/utils/.prettierrc"
   return {
     exe = "prettier",
     args = {
-			"--config " .. rc_path,
+			"--config " .. prettierrc,
 			vim.api.nvim_buf_get_name(0)
-    },
+		},
     stdin = true
   }
 end

@@ -1,5 +1,4 @@
 require "nvim-treesitter.configs".setup {
-	--- ### BUILTIN MODULES ###
 	ensure_installed = "all",
 	highlight = {
 		enable = true,
@@ -11,7 +10,7 @@ require "nvim-treesitter.configs".setup {
 	},
 	indent   = { enable = false },
 
-	-- ### THID-PARTY MODULES ###
+	playground = { enable = true },
 	rainbow  = {
 		enable = true,
 		extended_mode = false,
@@ -21,17 +20,11 @@ require "nvim-treesitter.configs".setup {
 			"#c6e6ff"
 		}
 	},
-
-	-- Native LSP action capabilities
 	refactor = {
 		highlight_definitions = { enable = true }
-	},
-
-	-- Treesitter Playground
-	playground = { enable = true }
+	}
 }
 
--- ### CUSTOM PARSERS ###
 -- Use the jsonc parser for standard json files
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.jsonc.used_by = "json"

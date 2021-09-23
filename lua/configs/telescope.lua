@@ -4,14 +4,8 @@ require "telescope".setup {
 		previewer = false
 	},
 	pickers = {
-		buffers = {
-			previewer = false,
-			-- theme = "dropdown"
-		},
-		find_files = {
-			previewer = false,
-			-- theme = "dropdown"
-		}
+		buffers    = { previewer = false },
+		find_files = { previewer = false }
 	},
 	extensions = {
 		fzf = {
@@ -25,7 +19,7 @@ require "telescope".setup {
 
 require "telescope".load_extension("fzf")
 
---- ### CUSTOM FINDERS ###
+--- Custom Finders
 local F = {}
 
 -- Search inside my dotfiles directory
