@@ -4,14 +4,6 @@ Welcome to my own Neovim configuration files. This config is intended to be clea
 
 ![neovim](https://user-images.githubusercontent.com/47466248/131421510-8b6aabb6-1480-4938-a6ea-bd5d7f923d44.png)
 
-## Installation
-
-Make shure you have the latest version of Neovim (0.5 or higher) and then install in one command:
-
-```shell
-bash <(curl -s https://raw.githubusercontent.com/itscarlosecp/itscarlosecp.nvim/main/utils/install.sh)
-```
-
 ### Post-Installation
 
 - ⚠️ After downloading this config files, Neovim will be automatically opened and will probably show a bunch of error (because plugins are not installed yet). To fix this just press <kbd>Enter</kbd> to skip the error messages and then the plugins should be automatically installed.
