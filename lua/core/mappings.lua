@@ -26,15 +26,19 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 --- Plugins
 local M = {}
 
+function M.nvimtree()
+	map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
+end
+
 function M.lsp()
-	map("n", "K",   ":lua vim.lsp.buf.hover()<CR>",            opts)
-	map("n", "gs",  ":lua vim.lsp.buf.signature_help()<CR>",   opts)
-	map("n", "gd",  ":lua vim.lsp.buf.definition()<CR>",       opts)
-	map("n", "gD",  ":lua vim.lsp.buf.declaration()<CR>",      opts)
-	map("n", "grr", ":lua vim.lsp.buf.rename()<CR>",           opts)
-	map("n", "gc",  ":lua vim.lsp.buf.code_action()<CR>",      opts)
-	map("n", "[g",  ":lua vim.lsp.diagnostic.goto_next({popup_opts={border='rounded'}})<CR>", opts)
-	map("n", "]g",  ":lua vim.lsp.diagnostic.goto_prev({popup_opts={border='rounded'}})<CR>", opts)
+	map("n", "K",          ":lua vim.lsp.buf.hover()<CR>",                                           opts)
+	map("n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>",                                  opts)
+	map("n", "gd",         ":lua vim.lsp.buf.definition()<CR>",                                      opts)
+	map("n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",                                     opts)
+	map("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                                          opts)
+	map("n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",                                     opts)
+	map("n", "[g",         ":lua vim.lsp.diagnostic.goto_next({popup_opts={border='rounded'}})<CR>", opts)
+	map("n", "]g",         ":lua vim.lsp.diagnostic.goto_prev({popup_opts={border='rounded'}})<CR>", opts)
 end
 
 function M.telescope()

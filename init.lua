@@ -28,7 +28,4 @@ require "core.utils"
 -- Plugins and LSP
 require "core.plugins"
 require "modules.lsp"
-
--- Custom modules
-require "modules.statusline"
 require "core.colors"("nord")

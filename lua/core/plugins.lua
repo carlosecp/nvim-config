@@ -72,6 +72,26 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- Explorer
+	use {
+		"kyazdani42/nvim-tree.lua",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require "configs.nvimtree"
+		end,
+		setup = function()
+			require "core.mappings".nvimtree()
+		end
+	}
+
+	-- Statusline
+	use {
+		"tjdevries/express_line.nvim",
+		config = function()
+			require "configs.express_line"
+		end
+	}
+
 	-- Formatter
 	-- Formatters must be installed separately
 	use {
