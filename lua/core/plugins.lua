@@ -20,7 +20,13 @@ return require "packer".startup(function(use)
 			require "configs.cmp"
 		end,
 		requires = {
-			{ "hrsh7th/vim-vsnip",    after = "nvim-cmp" },
+			{
+				"hrsh7th/vim-vsnip",
+				after = "nvim-cmp",
+				config = function()
+					require "configs.vsnip"
+				end
+			},
 			{ "hrsh7th/cmp-vsnip",    after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
@@ -100,7 +106,7 @@ return require "packer".startup(function(use)
 		"norcalli/nvim-colorizer.lua",
 		event = "BufReadPre",
 		config = function()
-			require "colorizer".setup()
+			require "configs.colorizer"
 		end
 	}
 
