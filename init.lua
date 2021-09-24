@@ -24,6 +24,7 @@ require "core.mappings"
 require "core.utils"
 require "core.plugins"
 require "core.commands"
+require "modules.statusline"
 
 require "modules.lsp"
 require "core.colors"("nord")
