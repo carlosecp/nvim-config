@@ -1,8 +1,8 @@
 local M = {}
 
-M.colors = {
+local colors = {
 	active   = "%#StatusLine#",
-	inactive = "%#StatuslineNC#",
+	inactive = "%#StatusLineNC#",
 	line_col = "%#LineCol#",
 	mode     = "%#Mode#",
 }
@@ -34,9 +34,14 @@ M.modes = setmetatable({
 	end
 })
 
+M.special_files = {
+	[""] = "",
+	["NvimTree"] = " NvimTree "
+}
+
 function M.get_current_mode(self)
 	local current_mode = vim.api.nvim_get_mode().mode
-	return string.format("[%s]", self.modes[current_mode]):upper()
+	return string.format(" %s ", self.modes[current_mode])
 end
 
 function M.get_branch()
@@ -44,24 +49,33 @@ function M.get_branch()
 		if branch == "" then return branch else return string.format("  %s ", branch) end
 end
 
-function M.get_filename()
+function M.get_filename(self)
+	local filename, extension = vim.fn.expand("%:t"), vim.fn.expand("%:e")
+	local icon = require "nvim-web-devicons".get_icon(filename, extension, { default = true })
 	local filetype = vim.bo.filetype
-	if filetype == "TelescopePrompt" then return "" end
-	return " %t "
+
+	if self.special_files[filetype] ~= nil then return self.special_files[filetype] end
+	return string.format(" %s %s ", icon, filename)
+end
+
+function M.get_filetype()
+	local filetype = vim.bo.filetype
+	if filetype == "" then return "" else return string.format("[%s]", filetype) end
 end
 
 function M.get_line_col()
-  return "[%l:%c][%2p%%]"
+  return " %l:%c  %2p%% "
 end
 
 function M.set_active(self)
-	local mode     = self:get_current_mode()
-	local branch   = self:get_branch()
+	local mode     = colors.mode .. self:get_current_mode()
+	local branch   = colors.active .. self:get_branch()
 	local filename = self:get_filename()
+	local filetype = self:get_filetype()
 	local line_col = self:get_line_col()
 
 	return table.concat({
-		mode, branch, "%=", filename, "%=", line_col
+		mode, branch, "%=", filename, "%=", filetype, line_col
 	})
 end
 
@@ -70,8 +84,8 @@ function M.set_inactive(self)
 	return table.concat({ filename })
 end
 
-function M.set_explorer()
-	return " NvimTree "
+function M.set_explorer(self)
+	return self.special_files["NvimTree"]
 end
 
 Statusline = setmetatable(M, {
@@ -85,8 +99,8 @@ Statusline = setmetatable(M, {
 vim.cmd[[
 	augroup Statusline
 		au!
-		au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline('active')
-		au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline('inactive')
-		au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline('explorer')
+		au WinEnter,BufEnter * setlocal statusline=%{%v:lua.Statusline('active')%}
+		au WinLeave,BufLeave * setlocal statusline=%{%v:lua.Statusline('inactive')%}
+		au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%{%v:lua.Statusline('explorer')%}
 	augroup END
 ]]
