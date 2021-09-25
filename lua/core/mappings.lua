@@ -9,16 +9,20 @@ map("n", "<C-J>",     "<C-W><C-J>",          { noremap = true })
 map("n", "<C-K>",     "<C-W><C-K>",          { noremap = true })
 map("n", "<C-L>",     "<C-W><C-L>",          { noremap = true })
 map("n", "<C-H>",     "<C-W><C-H>",          { noremap = true })
-map("n", "<C-Up>",    ":resize +5<CR>",      { noremap = true })
-map("n", "<C-Down>",  ":resize -5<CR>",      { noremap = true })
-map("n", "<C-Right>", ":vert resize +5<CR>", { noremap = true })
-map("n", "<C-Left>",  ":vert resize -5<CR>", { noremap = true })
+map("n", "<C-Up>",    ":resize +5<CR>",      opts)
+map("n", "<C-Down>",  ":resize -5<CR>",      opts)
+map("n", "<C-Right>", ":vert resize +5<CR>", opts)
+map("n", "<C-Left>",  ":vert resize -5<CR>", opts)
 
 -- Better undoing
 map("i", ",", ",<c-g>u", { noremap = true })
 map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
+
+-- Swap liens
+map("n", "<Leader>sp", "ddp",  opts)
+map("n", "<Leader>sP", "ddkP", opts)
 
 -- Terminal escape
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
