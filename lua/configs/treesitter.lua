@@ -20,6 +20,10 @@ require "nvim-treesitter.configs".setup {
 			"#c6e6ff"
 		}
 	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 	refactor = {
 		highlight_definitions = { enable = true }
 	}

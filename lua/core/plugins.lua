@@ -47,8 +47,19 @@ return require "packer".startup(function(use)
 			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
 			{ "nvim-treesitter/playground",               after = "nvim-treesitter" },
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-			{ "p00f/nvim-ts-rainbow",                     after = "nvim-treesitter" }
+			{ "p00f/nvim-ts-rainbow",                     after = "nvim-treesitter" },
 		}
+	}
+	use {
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		after = "nvim-treesitter",
+		requires = {{
+			"terrortylor/nvim-comment",
+			cmd = "CommentToggle",
+			config = function()
+				require "configs.comment"
+			end
+		}}
 	}
 
 	-- Fuzzy Finder
@@ -96,6 +107,7 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use "shaunsingh/nord.nvim"
+	-- use "maaslalani/nordbuddy"
 
 	-- Utilities
 	-- Useful vim utilities
