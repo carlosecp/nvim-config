@@ -50,17 +50,6 @@ return require "packer".startup(function(use)
 			{ "p00f/nvim-ts-rainbow",                     after = "nvim-treesitter" },
 		}
 	}
-	use {
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		after = "nvim-treesitter",
-		requires = {{
-			"terrortylor/nvim-comment",
-			cmd = "CommentToggle",
-			config = function()
-				require "configs.comment"
-			end
-		}}
-	}
 
 	-- Fuzzy Finder
 	use {
