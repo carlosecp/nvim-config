@@ -1,6 +1,7 @@
 ; highlights.scm
 
 ; Highlight structs identifiers as custom types
+; typedef struct "identifier"
 (struct_specifier
 	 name: (type_identifier) @structure)
 

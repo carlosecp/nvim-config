@@ -12,7 +12,7 @@ require "nvim-treesitter.configs".setup {
 
 	playground = { enable = true },
 	rainbow  = {
-		enable = true,
+		enable = false,
 		extended_mode = false,
 		colors = {
 			"#ffcb12",
