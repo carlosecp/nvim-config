@@ -31,7 +31,7 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 local M = {}
 
 function M.nvimtree()
-	map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
+	map("n", "<Leader>e",  ":NvimTreeToggle<CR>", opts)
 end
 
 function M.lsp()

@@ -1,7 +1,7 @@
 local C = { setup = {} }
 
 C.capabilities = vim.lsp.protocol.make_client_capabilities()
-C.capabilities.textDocument.completion.completionItem.snippetSupport = true
+C.capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 function C.on_attach(client)
 	-- Disable LSP's builtin formatters

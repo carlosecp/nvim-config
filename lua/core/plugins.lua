@@ -75,6 +75,7 @@ return require "packer".startup(function(use)
 	-- Explorer
 	use {
 		"kyazdani42/nvim-tree.lua",
+		commit = "da26dfa",
 		cmd = "NvimTreeToggle",
 		config = function()
 			require "configs.nvimtree"
@@ -95,7 +96,8 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
-	use "shaunsingh/nord.nvim"
+	use "arcticicestudio/nord-vim"
+	-- use "shaunsingh/nord.nvim"
 	-- use "maaslalani/nordbuddy"
 
 	-- Utilities
