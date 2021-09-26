@@ -12,13 +12,8 @@ require "nvim-treesitter.configs".setup {
 
 	playground = { enable = true },
 	rainbow  = {
-		enable = false,
-		extended_mode = false,
-		colors = {
-			"#ffcb12",
-			"#a563d6",
-			"#c6e6ff"
-		}
+		enable = true,
+		extended_mode = false
 	},
 	refactor = {
 		highlight_definitions = { enable = true }
