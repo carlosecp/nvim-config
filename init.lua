@@ -27,4 +27,3 @@ require "core.commands"
 
 require "modules.statusline"
 require "modules.lsp"
-require "themes"("nord")

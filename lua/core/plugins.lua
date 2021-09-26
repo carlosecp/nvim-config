@@ -96,9 +96,12 @@ return require "packer".startup(function(use)
 	}
 
 	-- Colorscheme
-	use "arcticicestudio/nord-vim"
-	-- use "shaunsingh/nord.nvim"
-	-- use "maaslalani/nordbuddy"
+	use {
+		"arcticicestudio/nord-vim",
+		config = function()
+			require "themes.nord"
+		end
+	}
 
 	-- Utilities
 	-- Useful vim utilities
