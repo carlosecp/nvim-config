@@ -102,6 +102,7 @@ return require "packer".startup(function(use)
 			require "themes.nord"
 		end
 	}
+	use "morhetz/gruvbox"
 
 	-- Utilities
 	-- Useful vim utilities

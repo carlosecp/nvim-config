@@ -1,5 +1,5 @@
 require "nvim-treesitter.configs".setup {
-	ensure_installed = "all",
+	ensure_installed = _G.itscarlosecp.plugins.ts.parsers,
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = true,
@@ -9,9 +9,8 @@ require "nvim-treesitter.configs".setup {
 		}
 	},
 	indent   = { enable = false },
-
 	playground = { enable = true },
-	rainbow  = {
+		rainbow  = {
 		enable = true,
 		extended_mode = false
 	},

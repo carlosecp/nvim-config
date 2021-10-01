@@ -6,18 +6,8 @@
 • Github: https://github.com/itscarlosecp
 ]]
 
-_G.itscarlosecp = {
-	borders = "rounded",
-	plugins = {
-		telescope = {
-			paths = {
-				dotfiles = "$HOME/dotfiles",
-				neovim   = "$HOME/.config/nvim",
-				themes   = "$HOME/themes.nvim"
-			}
-		}
-	}
-}
+local defaults = require "core.defaults"
+_G.itscarlosecp = defaults({})
 
 require "core.settings"
 require "core.mappings"

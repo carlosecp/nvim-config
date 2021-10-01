@@ -16,4 +16,3 @@ au BufRead,BufNewFile .prettierrc set ft=json
 " Take .json files as .jsonc
 au BufRead,BufNewFile *.json set ft=jsonc
 ]]
-

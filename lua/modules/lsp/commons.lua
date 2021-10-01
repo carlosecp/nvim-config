@@ -5,7 +5,7 @@ C.capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 function C.on_attach(client)
 	-- Disable LSP's builtin formatters
-	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_formatting       = false
 	client.resolved_capabilities.document_range_formatting = false
 
 	-- Use default LSP mappings

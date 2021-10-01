@@ -58,3 +58,5 @@ vim.g.nvim_tree_bindings = {
 	{ key = "q",       cb = tree_cb "close" },
 	{ key = "?",      cb = tree_cb "toggle_help" }
 }
+
+-- require "nvim-tree".setup()
