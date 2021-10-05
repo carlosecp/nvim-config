@@ -2,9 +2,10 @@
 	"Bootstrap Application": {
 		"prefix": "main",
 		"body": [
-			"#include <stdlib.h>",
-			"#include <stdio.h>\n",
-			"int main(int argc, char* argv[]) {",
+			"#include <stdlib.h>\n",
+			"int",
+			"main(int argc, char* argv[])",
+			"{",
 			"\t$1",
 			"\treturn 0;",
 			"}"
