@@ -12,18 +12,18 @@ cmp.setup {
 		["<CR>"]      = cmp.mapping.confirm()
 	},
 	sources = {
-		{ name = "vsnip" },
 		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "path" }
+		{ name = "vsnip"    },
+		{ name = "path"     },
+		{ name = "buffer"   }
 	},
 	formatting = {
 		format = function(entry, vim_item)
 			vim_item.menu = ({
-				buffer = "[Buffer]",
-				nvim_lsp = "[LSP]",
-				vsnip = "[vsnip]",
-				nvim_lua = "[Lua]",
+				nvim_lsp      = "[LSP]",
+				buffer        = "[Buffer]",
+				nvim_lua      = "[Lua]",
+				vsnip         = "[vsnip]",
 				latex_symbols = "[Latex]",
 			})[entry.source.name]
 			vim_item.kind = ({

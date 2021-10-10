@@ -24,4 +24,6 @@ hi rainbowcol4 guifg=#8fbcbb
 hi rainbowcol5 guifg=#88c0d0
 hi rainbowcol6 guifg=#b48ead
 hi rainbowcol7 guifg=#ebcb8b
+
+hi NvimTreeEndOfBuffer guifg=#2e3440
 ]]
