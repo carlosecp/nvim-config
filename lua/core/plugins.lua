@@ -52,27 +52,13 @@ return require "packer".startup(function(use)
 	}
 
 	-- Fuzzy Finder
-	-- use {
-		-- "nvim-telescope/telescope.nvim",
-		-- cmd = "Telescope",
-		-- module = {
-			-- "telescope",
-			-- "telescope.builtin",
-			-- "configs.telescope"
-		-- },
-		-- config = function()
-			-- require "configs.telescope"
-		-- end,
-		-- setup = function()
-			-- require "core.mappings".telescope()
-		-- end,
-		-- requires = {{
-			-- "nvim-telescope/telescope-fzf-native.nvim",
-			-- run = "make"
-		-- }}
-	-- }
 	use {
 		"ibhagwan/fzf-lua",
+		cmd = "FzfLua",
+		module = {
+			"fzf-lua",
+			"configs.fzf"
+		},
 		config = function()
 			require "configs.fzf"
 		end,
