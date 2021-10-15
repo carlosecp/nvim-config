@@ -1,13 +1,13 @@
 -- use {
 -- "shaunsingh/nord.nvim",
 -- config = function()
--- require "themes.nord_buddy"
+-- require "themes.nord_nvim"
 -- end
 -- }
 
 vim.g.nord_borders = true
+vim.g.nord_disable_background = true
 vim.cmd("colo nord")
 vim.cmd[[
-hi Mode guifg=#a3be8c guibg=#2e3440 gui=bold
-hi TelescopeBorder guifg=#434c5e
+hi Mode guifg=#a3be8c guibg=NONE gui=bold
 ]]

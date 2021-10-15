@@ -100,7 +100,12 @@ return require "packer".startup(function(use)
 			require "themes.nord"
 		end
 	}
-	use "morhetz/gruvbox"
+	-- use {
+		-- "shaunsingh/nord.nvim",
+		-- config = function()
+			-- require "themes.nord_nvim"
+		-- end
+	-- }
 
 	-- Utilities
 	-- Useful vim utilities

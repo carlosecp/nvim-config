@@ -6,12 +6,14 @@
 -- }
 
 vim.cmd("colo nord")
+-- Interface
 vim.cmd[[
-hi Normal guibg=NONE
-hi Mode guifg=#ebcb8b guibg=NONE gui=bold
-hi Comment guifg=#75829c
-hi LineNr guifg=#525d73
-hi FloatBorder guifg=#434c5e guibg=NONE
+hi Mode guifg=#a3be8c guibg=NONE gui=bold
+hi NvimTreeEndOfBuffer guifg=#2e3440
+]]
+
+-- Syntax
+vim.cmd[[
 hi Boolean guifg=	#88c0d0
 hi Type guifg=#8fbcbb
 hi Structure guifg=#8fbcbb
@@ -24,5 +26,17 @@ hi rainbowcol4 guifg=#8fbcbb
 hi rainbowcol5 guifg=#88c0d0
 hi rainbowcol6 guifg=#b48ead
 hi rainbowcol7 guifg=#ebcb8b
-hi NvimTreeEndOfBuffer guifg=#2e3440
 ]]
+
+-- Transparency
+-- vim.cmd[[
+-- hi Normal guibg=NONE
+-- hi LineNr guifg=#616e88
+-- hi VertSplit guifg=#4c566a guibg=NONE
+-- hi StatusLineNC guibg=#4c566a
+-- 
+-- hi FloatBorder guifg=#4c566a guibg=NONE
+-- hi NvimTreeEndOfBuffer guifg=NONE
+-- 
+-- hi Comment guifg=#616e88
+-- ]]
