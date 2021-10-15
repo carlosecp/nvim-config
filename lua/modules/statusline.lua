@@ -51,11 +51,14 @@ end
 
 function M.get_filename(self)
 	local filename, extension = vim.fn.expand("%:t"), vim.fn.expand("%:e")
-	local icon = require "nvim-web-devicons".get_icon(filename, extension, { default = true })
 	local filetype = vim.bo.filetype
 
-	if self.special_files[filetype] ~= nil then return self.special_files[filetype] end
-	return string.format(" %s %s ", icon, filename)
+	if self.special_files[filetype] ~= nil then
+		return self.special_files[filetype]
+	else
+		local icon = require "nvim-web-devicons".get_icon(filename, extension, { default = true })
+		return string.format(" %s %s ", icon, filename)
+	end
 end
 
 function M.get_filetype()

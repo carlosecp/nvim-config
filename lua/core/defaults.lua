@@ -1,7 +1,7 @@
 local defaults = {
 	borders = "rounded",
 	plugins = {
-		telescope = {
+		fuzzy_finder = {
 			paths = {
 				dotfiles = "$HOME/dotfiles",
 				neovim   = "$HOME/.config/nvim",

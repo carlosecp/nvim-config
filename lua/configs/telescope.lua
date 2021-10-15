@@ -26,7 +26,7 @@ local F = {}
 F.search_dotfiles = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Dotfiles",
-		cwd = _G.itscarlosecp.plugins.telescope.paths.dotfiles,
+		cwd = _G.itscarlosecp.plugins.fuzzy_finder.paths.dotfiles,
 		hidden = true
 	}
 end
@@ -35,16 +35,7 @@ end
 F.search_neovim = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Neovim",
-		cwd = _G.itscarlosecp.plugins.telescope.paths.neovim,
-		hidden = true
-	}
-end
-
--- Search inside my custom colorschemes repo
-F.colorscheme = function()
-	require "telescope.builtin".find_files {
-		prompt_title = "Search Colorscheme",
-		cwd = _G.itscarlosecp.plugins.telescope.paths.themes,
+		cwd = _G.itscarlosecp.plugins.fuzzy_finder.paths.neovim,
 		hidden = true
 	}
 end

@@ -20,7 +20,7 @@ map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 
--- Swap liens
+-- Swap lines
 map("n", "<Leader>sp", "ddp",  opts)
 map("n", "<Leader>sP", "ddkP", opts)
 
@@ -57,7 +57,14 @@ function M.telescope()
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>", opts)
 	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>", opts)
 	map("n", "<Leader>df", ":lua require 'configs.telescope'.search_dotfiles()<CR>", opts)
-	map("n", "<Leader>cs", ":lua require 'configs.telescope'.colorscheme()<CR>", opts)
+end
+
+function M.fzf()
+	map("n", "<Leader>ff", ":FzfLua files<CR>", opts)
+	map("n", "<Leader>lg", ":FzfLua live_grep_glob<CR>", opts)
+	map("n", "<Leader>nv", ":lua require 'configs.fzf'.search_neovim()<CR>", opts)
+	map("n", "<Leader>df", ":lua require 'configs.fzf'.search_dotfiles()<CR>", opts)
+	map("n", "<Leader>gc", ":FzfLua git_commits<CR>", opts)
 end
 
 function M.easyAlign()
