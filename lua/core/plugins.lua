@@ -52,23 +52,6 @@ return require "packer".startup(function(use)
 	}
 
 	-- Fuzzy Finder
-	-- use {
-		-- "ibhagwan/fzf-lua",
-		-- cmd = "FzfLua",
-		-- module = {
-			-- "fzf-lua",
-			-- "configs.fzf"
-		-- },
-		-- config = function()
-			-- require "configs.fzf"
-		-- end,
-		-- setup = function()
-			-- require "core.mappings".fzf()
-		-- end,
-		-- requires = {
-			-- "vijaymarupudi/nvim-fzf",
-		-- }
-	-- }
 	use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
@@ -89,6 +72,27 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- Explorer
+	use {
+		"kyazdani42/nvim-tree.lua",
+		commit = "da26dfa",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require "configs.nvimtree"
+		end,
+		setup = function()
+			require "core.mappings".nvimtree()
+		end
+	}
+
+	-- Statusline
+	-- use {
+		-- "hoob3rt/lualine.nvim",
+		-- config = function()
+			-- require "configs.lualine"
+		-- end
+	-- }
+
 	-- Formatter
 	-- Formatters must be installed separately
 	use {
@@ -101,20 +105,20 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"arcticicestudio/nord-vim",
+		"shaunsingh/nord.nvim",
 		config = function()
-			require "themes.nord"
+			require "themes.nord_nvim"
 		end
 	}
-	-- use {
-		-- "shaunsingh/nord.nvim",
-		-- config = function()
-			-- require "themes.nord_nvim"
-		-- end
-	-- }
 
 	-- Utilities
-	-- Useful vim utilities
+	use {
+		"lewis6991/gitsigns.nvim",
+		event = "BufReadPre",
+		config = function()
+			require "configs.gitsigns"
+		end
+	}
 	use {
 		"tpope/vim-surround",
 		keys = {

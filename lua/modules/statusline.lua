@@ -41,7 +41,7 @@ M.special_files = {
 
 function M.get_current_mode(self)
 	local current_mode = vim.api.nvim_get_mode().mode
-	return string.format(" %s ", self.modes[current_mode])
+	return string.format("█ %s ", self.modes[current_mode])
 end
 
 function M.get_branch()

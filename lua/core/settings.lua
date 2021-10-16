@@ -36,6 +36,9 @@ o.autoindent     = true  -- Indent on newline (<CR>)
 o.smartindent    = true  -- Smarter indentation
 o.smarttab       = true  -- Smarter tab width
 
+-- Shell
+o.shell = "sh"
+
 -- Format Options
 -- Stop adding comments on newline
 vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
