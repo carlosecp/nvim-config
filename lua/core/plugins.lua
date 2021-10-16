@@ -52,35 +52,41 @@ return require "packer".startup(function(use)
 	}
 
 	-- Fuzzy Finder
+	-- use {
+		-- "ibhagwan/fzf-lua",
+		-- cmd = "FzfLua",
+		-- module = {
+			-- "fzf-lua",
+			-- "configs.fzf"
+		-- },
+		-- config = function()
+			-- require "configs.fzf"
+		-- end,
+		-- setup = function()
+			-- require "core.mappings".fzf()
+		-- end,
+		-- requires = {
+			-- "vijaymarupudi/nvim-fzf",
+		-- }
+	-- }
 	use {
-		"ibhagwan/fzf-lua",
-		cmd = "FzfLua",
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		module = {
-			"fzf-lua",
-			"configs.fzf"
+			"telescope",
+			"telescope.builtin",
+			"configs.telescope"
 		},
 		config = function()
-			require "configs.fzf"
+			require "configs.telescope"
 		end,
 		setup = function()
-			require "core.mappings".fzf()
+			require "core.mappings".telescope()
 		end,
-		requires = {
-			"vijaymarupudi/nvim-fzf"
-		}
-	}
-
-	-- Explorer
-	use {
-		"kyazdani42/nvim-tree.lua",
-		commit = "da26dfa",
-		cmd = "NvimTreeToggle",
-		config = function()
-			require "configs.nvimtree"
-		end,
-		setup = function()
-			require "core.mappings".nvimtree()
-		end
+		requires = {{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			run = "make"
+		}}
 	}
 
 	-- Formatter

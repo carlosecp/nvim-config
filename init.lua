@@ -15,5 +15,6 @@ require "core.utils"
 require "core.plugins"
 require "core.commands"
 
+require "configs.netrw"
 require "modules.statusline"
 require "modules.lsp"

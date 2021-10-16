@@ -10,6 +10,7 @@ vim.cmd("colo nord")
 vim.cmd[[
 hi Mode guifg=#a3be8c guibg=NONE gui=bold
 hi NvimTreeEndOfBuffer guifg=#2e3440
+hi NvimTreeEndOfBuffer guifg=#2e3440
 ]]
 
 -- Syntax
@@ -28,15 +29,3 @@ hi rainbowcol6 guifg=#b48ead
 hi rainbowcol7 guifg=#ebcb8b
 ]]
 
--- Transparency
--- vim.cmd[[
--- hi Normal guibg=NONE
--- hi LineNr guifg=#616e88
--- hi VertSplit guifg=#4c566a guibg=NONE
--- hi StatusLineNC guibg=#4c566a
--- 
--- hi FloatBorder guifg=#4c566a guibg=NONE
--- hi NvimTreeEndOfBuffer guifg=NONE
--- 
--- hi Comment guifg=#616e88
--- ]]

@@ -5,8 +5,7 @@ require "fzf-lua".setup {
 		preview = {
 			border = _G.itscarlosecp.borders
 		}
-	},
-	files = { previewer = false }
+	}
 }
 
 --- Custom Finders
