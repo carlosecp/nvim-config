@@ -9,8 +9,10 @@ vim.cmd("colo nord")
 -- Interface
 vim.cmd[[
 hi Mode guifg=#a3be8c guibg=NONE gui=bold
+hi StatusLine guibg=#3b4252
+hi StatusLineNC guibg=#3b4252
 hi NvimTreeEndOfBuffer guifg=#2e3440
-hi NvimTreeEndOfBuffer guifg=#2e3440
+hi TelescopeBorder guifg=#616e88
 ]]
 
 -- Syntax

@@ -105,9 +105,9 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"shaunsingh/nord.nvim",
+		"arcticicestudio/nord-vim",
 		config = function()
-			require "themes.nord_nvim"
+			require "themes.nord"
 		end
 	}
 
