@@ -4,25 +4,9 @@ C.capabilities = vim.lsp.protocol.make_client_capabilities()
 C.capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 function C.on_attach(client)
-	-- Disable LSP's builtin formatters
 	client.resolved_capabilities.document_formatting       = false
 	client.resolved_capabilities.document_range_formatting = false
-
-	-- Use default LSP mappings
 	require "core.mappings".lsp()
-end
-
--- Hover and Diagnositcs popup windows
-function C.setup.floating_windows()
-	vim.lsp.handlers["textDocument/hover"] =
-	vim.lsp.with(vim.lsp.handlers.hover, {
-		border = nil
-	})
-
-	vim.lsp.handlers["textDocument/signatureHelp"] =
-	vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = nil
-	})
 end
 
 function C.setup.diagnostics()
@@ -39,6 +23,19 @@ function C.setup.diagnostics()
 		virtual_text = {
 			spacing = 0
 		}
+	})
+end
+
+-- Hover and Diagnositcs popup windows
+function C.setup.floating_windows()
+	vim.lsp.handlers["textDocument/hover"] =
+	vim.lsp.with(vim.lsp.handlers.hover, {
+		border = nil
+	})
+
+	vim.lsp.handlers["textDocument/signatureHelp"] =
+	vim.lsp.with(vim.lsp.handlers.signature_help, {
+		border = nil
 	})
 end
 

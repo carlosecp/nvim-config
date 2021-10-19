@@ -13,6 +13,10 @@ end
 return require "packer".startup(function(use)
 	use {
 		"williamboman/nvim-lsp-installer",
+		event = "BufReadPost",
+		config = function()
+			require "modules.lsp"
+		end,
 		requires = "neovim/nvim-lspconfig"
 	}
 	use {
