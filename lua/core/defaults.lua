@@ -9,7 +9,7 @@ local defaults = {
 			},
 		},
 		ts = {
-			parsers = {"c", "cpp", "lua", "json", "jsonc"}
+			parsers = "all"
 		}
 	}
 }

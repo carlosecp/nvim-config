@@ -1,36 +1,20 @@
-local lspconfig  = require "lspconfig"
-local lspinstall = require "lspinstall"
-local configs    = require "modules.lsp.configs"
-local commons    = require "modules.lsp.commons"
+local installer = require "nvim-lsp-installer.servers"
+local commons = require "modules.lsp.commons"
 
-local function load_servers()
-	lspinstall.setup()
-	local servers = lspinstall.installed_servers()
+local L = {}
 
-	for _, server in pairs(servers) do
-		local client = lspconfig[server]
-		local config = configs[server] or client
+function L.setup(server_name, opts)
+	local ok, server = installer.get_server(server_name)
 
-		client.setup {
-			capabilities = commons.capabilities,
-			filetypes    = config.filetypes or client.filetypes,
-			on_attach    = config.on_attach or commons.on_attach,
-			settings     = config.settings or {}
-		}
+	if ok then
+		if not server:is_installed() then server:install() end
+
+		opts.capabilities = commons.capabilities
+		opts.on_attach = commons.on_attach
+
+		server:setup(opts)
+		vim.cmd[[ do User LspAttachBuffers ]]
 	end
 end
 
--- Reload LSPInstall after installing a server
-function lspinstall.post_install_hook()
-	load_servers()
-	vim.cmd("bufdo e")
-end
-
--- Start servers with defined configs and defaults
-local function setup_servers()
-	commons.setup.diagnostics()
-	commons.setup.floating_windows()
-	load_servers()
-end
-
-setup_servers()
+return L

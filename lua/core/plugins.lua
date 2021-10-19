@@ -11,8 +11,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
-	use "neovim/nvim-lspconfig"
-	use "kabouzeid/nvim-lspinstall"
+	use {
+		"williamboman/nvim-lsp-installer",
+		requires = "neovim/nvim-lspconfig"
+	}
 	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -105,11 +107,12 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"arcticicestudio/nord-vim",
+		"shaunsingh/nord.nvim",
 		config = function()
-			require "themes.nord"
+			require "themes.nord_nvim"
 		end
 	}
+
 
 	-- Utilities
 	use {

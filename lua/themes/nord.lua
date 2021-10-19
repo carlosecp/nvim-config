@@ -31,3 +31,13 @@ hi rainbowcol6 guifg=#b48ead
 hi rainbowcol7 guifg=#ebcb8b
 ]]
 
+
+-- Transparency
+vim.cmd[[
+hi Normal guibg=NONE
+hi Visual guibg=#3b4252
+hi LineNr guifg=#616e88 
+hi Comment guifg=#616e88 
+hi VertSplit guifg=#434c5e guibg=NONE
+hi SignColumn guibg=NONE
+]]

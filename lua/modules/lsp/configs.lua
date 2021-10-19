@@ -1,6 +1,6 @@
 local C = {}
 
-C.json = {
+C.jsonls = {
 	filetypes = {"json", "jsonc"},
 	settings = {
 		json = {
@@ -34,7 +34,7 @@ C.json = {
 	}
 }
 
-C.lua = {
+C.sumneko_lua = {
 	settings = {
 		Lua = {
 			diagnostics = {

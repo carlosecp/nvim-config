@@ -16,27 +16,22 @@ end
 function C.setup.floating_windows()
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
-		border = _G.itscarlosecp.borders
+		border = nil
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =
 	vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = _G.itscarlosecp.borders
-	})
-end
-
-local function aux_set_signcolumn_sign(diag_type, sign)
-	vim.fn.sign_define(diag_type, {
-		text = sign,
-		numhl = diag_type
+		border = nil
 	})
 end
 
 function C.setup.diagnostics()
-	aux_set_signcolumn_sign("LspDiagnosticsSignError",          "")
-	aux_set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
-	aux_set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")
-	aux_set_signcolumn_sign("LspDiagnosticsDefaultHint",        "")
+	vim.cmd[[
+	sign define LspDiagnosticsSignError text=
+	sign define LspDiagnosticsSignWarning text=
+	sign define LspDiagnosticsSignInformation text=
+	sign define LspDiagnosticsSignHint text=
+	]]
 
 	-- Diagnositcs windows/virtual text
 	vim.lsp.handlers["textDocument/publishDiagnostics"] =
