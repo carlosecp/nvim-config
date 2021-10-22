@@ -10,15 +10,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
+local lsp_langs = {"lua", "c", "cpp"}
+local coloirzer_langs = {"lua", "css"}
+
 return require "packer".startup(function(use)
 	-- LSP
 	use {
 		"williamboman/nvim-lsp-installer",
-		event = "BufReadPost",
+		ft = lsp_langs,
 		config = function()
 			require "modules.lsp"
 		end,
-		requires = "neovim/nvim-lspconfig"
+		requires = { "neovim/nvim-lspconfig" }
 	}
 
 	-- Autcompletion
@@ -133,10 +136,10 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
-		event = "BufReadPre",
+		ft = coloirzer_langs,
 		config = function()
 			require "configs.colorizer"
-		end
+		end,
 	}
 
 	-- Modules
