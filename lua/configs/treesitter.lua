@@ -10,8 +10,8 @@ require "nvim-treesitter.configs".setup {
 	},
 	indent   = { enable = false },
 	playground = { enable = true },
-		rainbow  = {
-		enable = true,
+	rainbow  = {
+		enable = false,
 		extended_mode = false
 	},
 	refactor = {

@@ -1,43 +1,43 @@
 local o = vim.opt
 
 -- Defaults
-o.hidden         = true  -- Don't unload buffers when hidden
-o.cursorline     = true  -- Highlight current line
-o.termguicolors  = true  -- Enables 24-bit RGB colors in TUI
-o.splitbelow     = true  -- New split defaults to below position
-o.splitright     = true  -- New vert split deafult to right position
+o.hidden         = true
+o.cursorline     = true
+o.termguicolors  = true
+o.splitbelow     = true
+o.splitright     = true
 
 -- Search
-o.incsearch      = true  -- Incremental search
-o.hlsearch       = true  -- Highlight all matching search results
-o.ignorecase     = true  -- Case insensitive search
+o.incsearch      = true
+o.hlsearch       = true
+o.ignorecase     = true
 
 -- Scrolling
-o.number         = true  -- Show line numbers to the side
-o.relativenumber = true  -- Show numbers relative to the current line
-o.wrap           = false -- Don't wrap long lines
-o.scrolloff      = 5     -- Scroll before end of buffer
+o.number         = true
+o.relativenumber = true
+o.wrap           = false
+o.scrolloff      = 5
 
 -- Autocompletion
 o.completeopt    = {
-  "menu",     -- Use popupmenu to show results
-  "menuone",  -- Use the popup even with one result
-  "noselect", -- Don't autoselect first entry
-	"noinsert"  -- Don't insert until user selects
+  "menu",
+  "menuone",
+  "noselect",
+	"noinsert"
 }
-o.pumheight      = 10    -- Maximum results per popup page
-o.cmdheight      = 2     -- Height of neovim's command line (in lines)
+o.pumheight      = 10
+o.cmdheight      = 2
 
 -- Indentation
-o.expandtab      = false -- Use spces instead of tabs
-o.tabstop        = 2     -- Tab character width
-o.shiftwidth     = 2     -- Fallbacks to tabstop
-o.autoindent     = true  -- Indent on newline (<CR>)
-o.smartindent    = true  -- Smarter indentation
-o.smarttab       = true  -- Smarter tab width
+o.expandtab      = false
+o.tabstop        = 2
+o.shiftwidth     = 2
+o.autoindent     = true
+o.smartindent    = true
+o.smarttab       = true
 
 -- Shell
-o.shell = "sh"
+o.shell = "zsh"
 
 -- Format Options
 -- Stop adding comments on newline

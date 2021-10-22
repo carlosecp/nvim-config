@@ -11,6 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require "packer".startup(function(use)
+	-- LSP
 	use {
 		"williamboman/nvim-lsp-installer",
 		event = "BufReadPost",
@@ -19,6 +20,8 @@ return require "packer".startup(function(use)
 		end,
 		requires = "neovim/nvim-lspconfig"
 	}
+
+	-- Autcompletion
 	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -49,11 +52,7 @@ return require "packer".startup(function(use)
 		end,
 		run = ":TSUpdate",
 		requires = {
-			-- Treesitter modules
-			-- https://github.com/nvim-treesitter/nvim-treesitter#available-modules
-			{ "nvim-treesitter/playground",               after = "nvim-treesitter" },
-			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-			{ "p00f/nvim-ts-rainbow",                     after = "nvim-treesitter" },
+			-- { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 		}
 	}
 
@@ -91,14 +90,6 @@ return require "packer".startup(function(use)
 		end
 	}
 
-	-- Statusline
-	-- use {
-		-- "hoob3rt/lualine.nvim",
-		-- config = function()
-			-- require "configs.lualine"
-		-- end
-	-- }
-
 	-- Formatter
 	-- Formatters must be installed separately
 	use {
@@ -116,7 +107,6 @@ return require "packer".startup(function(use)
 			require "themes.nord_nvim"
 		end
 	}
-
 
 	-- Utilities
 	use {

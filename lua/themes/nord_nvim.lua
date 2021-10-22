@@ -6,8 +6,9 @@
 -- }
 
 vim.g.nord_borders = true
--- vim.g.nord_disable_background = true
 vim.cmd("colo nord")
 vim.cmd[[
 hi EndOfBuffer guifg=#2e3440
+hi Comment gui=italic
+hi NvimTreeGitIgnored gui=NONE
 ]]

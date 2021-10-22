@@ -13,9 +13,12 @@ cmp.setup {
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "vsnip"    },
 		{ name = "path"     },
-		{ name = "buffer"   }
+		{ name = "vsnip"    },
+		{
+			name = "buffer",
+			keyword_length = 5
+		}
 	},
 	formatting = {
 		format = function(entry, vim_item)
@@ -60,5 +63,10 @@ cmp.setup {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body)
 		end
+	},
+	experimental = {
+		native_menu = false,
+		ghost_text = true
 	}
 }
+
