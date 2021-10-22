@@ -21,11 +21,6 @@
 require "telescope".setup {
 	 defaults = {
 		file_ignore_patterns = {"node_modules/", ".next/", ".git/"},
-		previewer = false
-	},
-	pickers = {
-		buffers    = { previewer = false },
-		find_files = { previewer = false }
 	},
 	extensions = {
 		fzf = {

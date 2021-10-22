@@ -1,7 +1,5 @@
 --[[
-	╔═══════════════════╗
-	║ ITSCARLOSECP.NVIM ║
-	╚═══════════════════╝
+	ITSCARLOSECP.NVIM
 • Author: Carlos Castillo (itscarlosecp)
 • Github: https://github.com/itscarlosecp
 ]]
