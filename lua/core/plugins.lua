@@ -11,7 +11,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 local lsp_langs = {"lua", "c", "cpp"}
-local coloirzer_langs = {"lua", "css"}
 
 return require "packer".startup(function(use)
 	-- LSP
@@ -136,7 +135,7 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
-		ft = coloirzer_langs,
+		cmd = "NvimColorizerToggle",
 		config = function()
 			require "configs.colorizer"
 		end,
