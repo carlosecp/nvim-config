@@ -15,4 +15,3 @@ require "core.commands"
 
 require "modules.statusline"
 require "modules.lsp"
-

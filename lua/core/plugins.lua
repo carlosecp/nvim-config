@@ -72,10 +72,11 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"shaunsingh/nord.nvim",
+		"ellisonleao/gruvbox.nvim",
 		config = function()
-			require "themes.nord_nvim"
-		end
+			require "themes.gruvbox_nvim"
+		end,
+		requires = "rktjmp/lush.nvim"
 	}
 
 	-- Utilities
