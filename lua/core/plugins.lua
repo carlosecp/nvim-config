@@ -60,21 +60,23 @@ return require "packer".startup(function(use)
 
 	-- Fuzzy Finder
 	use {
-		"ibhagwan/fzf-lua",
-		cmd = "FzfLua",
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		module = {
-			"fzf-lua",
-			"configs.fzf"
+			"telescope",
+			"telescope.builtin",
+			"configs.telescope"
 		},
 		config = function()
-			require "configs.fzf"
+			require "configs.telescope"
 		end,
 		setup = function()
-			require "core.mappings".fzf()
+			require "core.mappings".telescope()
 		end,
-		requires = {
-			"vijaymarupudi/nvim-fzf"
-		}
+		requires = {{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			run = "make"
+		}}
 	}
 
 	-- Explorer
@@ -126,7 +128,7 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
-		cmd = "BufReadPre",
+		event = "BufReadPre",
 		config = function()
 			require "configs.colorizer"
 		end,

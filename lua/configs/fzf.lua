@@ -1,12 +1,4 @@
-require "fzf-lua".setup {
-	winopts = {
-		border = _G.itscarlosecp.borders,
-		hl = { border = "FloatBorder" },
-		preview = {
-			border = _G.itscarlosecp.borders
-		}
-	}
-}
+require "fzf-lua".setup {}
 
 --- Custom Finders
 local F = {}
