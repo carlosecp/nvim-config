@@ -19,8 +19,14 @@
 --	}
 
 require "telescope".setup {
-	 defaults = {
-		file_ignore_patterns = {"node_modules/", ".next/", ".git/"}
+	defaults = {
+		file_ignore_patterns = {"node_modules/", ".next/", ".git/"},
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.5,
+			}
+		}
 	},
 	extensions = {
 		fzf = {
