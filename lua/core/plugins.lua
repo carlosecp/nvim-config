@@ -10,13 +10,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
-local lsp_langs = {"lua", "c", "cpp"}
+local lsps = {"lua", "c", "cpp"}
 
 return require "packer".startup(function(use)
 	-- LSP
 	use {
 		"williamboman/nvim-lsp-installer",
-		ft = lsp_langs,
+		ft = lsps,
 		config = function()
 			require "modules.lsp"
 		end,
@@ -60,23 +60,21 @@ return require "packer".startup(function(use)
 
 	-- Fuzzy Finder
 	use {
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
+		"ibhagwan/fzf-lua",
+		cmd = "FzfLua",
 		module = {
-			"telescope",
-			"telescope.builtin",
-			"configs.telescope"
+			"fzf-lua",
+			"configs.fzf"
 		},
 		config = function()
-			require "configs.telescope"
+			require "configs.fzf"
 		end,
 		setup = function()
-			require "core.mappings".telescope()
+			require "core.mappings".fzf()
 		end,
-		requires = {{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			run = "make"
-		}}
+		requires = {
+			"vijaymarupudi/nvim-fzf"
+		}
 	}
 
 	-- Explorer
@@ -112,13 +110,6 @@ return require "packer".startup(function(use)
 
 	-- Utilities
 	use {
-		"lewis6991/gitsigns.nvim",
-		event = "BufReadPre",
-		config = function()
-			require "configs.gitsigns"
-		end
-	}
-	use {
 		"tpope/vim-surround",
 		keys = {
 			{"v", "S"}
@@ -135,7 +126,7 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
-		cmd = "NvimColorizerToggle",
+		cmd = "BufReadPre",
 		config = function()
 			require "configs.colorizer"
 		end,

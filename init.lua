@@ -5,7 +5,7 @@
 ]]
 
 local defaults = require "core.defaults"
-_G.itscarlosecp = defaults({})
+_G.itscarlosecp = defaults {}
 
 require "core.settings"
 require "core.mappings"
