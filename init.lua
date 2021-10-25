@@ -14,4 +14,5 @@ require "core.plugins"
 require "core.commands"
 
 require "modules.statusline"
+require "modules.lsp"
 

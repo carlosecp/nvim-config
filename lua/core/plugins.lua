@@ -10,18 +10,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
-local lsps = {"lua", "c", "cpp"}
-
 return require "packer".startup(function(use)
 	-- LSP
-	use {
-		"williamboman/nvim-lsp-installer",
-		ft = lsps,
-		config = function()
-			require "modules.lsp"
-		end,
-		requires = { "neovim/nvim-lspconfig" }
-	}
+	use "neovim/nvim-lspconfig"
 
 	-- Autcompletion
 	use {
@@ -54,7 +45,7 @@ return require "packer".startup(function(use)
 		end,
 		run = ":TSUpdate",
 		requires = {
-			-- { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 		}
 	}
 
@@ -77,29 +68,6 @@ return require "packer".startup(function(use)
 			"nvim-telescope/telescope-fzf-native.nvim",
 			run = "make"
 		}}
-	}
-
-	-- Explorer
-	use {
-		"kyazdani42/nvim-tree.lua",
-		commit = "da26dfa",
-		cmd = "NvimTreeToggle",
-		config = function()
-			require "configs.nvimtree"
-		end,
-		setup = function()
-			require "core.mappings".nvimtree()
-		end
-	}
-
-	-- Formatter
-	-- Formatters must be installed separately
-	use {
-		"mhartington/formatter.nvim",
-		cmd = "Format",
-		config = function()
-			require "configs.formatter"
-		end
 	}
 
 	-- Colorscheme
