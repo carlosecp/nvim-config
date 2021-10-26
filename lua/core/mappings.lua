@@ -20,29 +20,23 @@ map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 
--- Swap lines
-map("n", "<Leader>sp", "ddp",  opts)
-map("n", "<Leader>sP", "ddkP", opts)
-
 -- Terminal escape
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
 --- Plugins
 local M = {}
 
-function M.nvimtree()
-	map("n", "<Leader>e",  ":NvimTreeToggle<CR>", opts)
-end
-
 function M.lsp()
-	map("n", "K",          ":lua vim.lsp.buf.hover()<CR>",                                           opts)
-	map("n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>",                                  opts)
-	map("n", "gd",         ":lua vim.lsp.buf.definition()<CR>",                                      opts)
-	map("n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",                                     opts)
-	map("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                                          opts)
-	map("n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",                                     opts)
-	map("n", "[g",         ":lua vim.lsp.diagnostic.goto_next({popup_opts={border='rounded'}})<CR>", opts)
-	map("n", "]g",         ":lua vim.lsp.diagnostic.goto_prev({popup_opts={border='rounded'}})<CR>", opts)
+	map("n", "K",          ":lua vim.lsp.buf.hover()<CR>",          opts)
+	map("n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>", opts)
+	map("n", "gd",         ":lua vim.lsp.buf.definition()<CR>",     opts)
+	map("n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",    opts)
+	map("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",         opts)
+	map("n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",    opts)
+
+	local popup_opts = string.format("popup_opts = { border = %s }", _G.itscarlosecp.borders)
+	map("n", "[g", ":lua vim.lsp.diagnostic.goto_next({" .. popup_opts .. "})<CR>", opts)
+	map("n", "]g", ":lua vim.lsp.diagnostic.goto_prev({" .. popup_opts .. "})<CR>", opts)
 
 	vim.cmd[[
 	imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
@@ -57,14 +51,6 @@ function M.telescope()
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>", opts)
 	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>", opts)
 	map("n", "<Leader>df", ":lua require 'configs.telescope'.search_dotfiles()<CR>", opts)
-end
-
-function M.fzf()
-	map("n", "<Leader>ff", ":FzfLua files<CR>", opts)
-	map("n", "<Leader>lg", ":FzfLua live_grep_glob<CR>", opts)
-	map("n", "<Leader>nv", ":lua require 'configs.fzf'.search_neovim()<CR>", opts)
-	map("n", "<Leader>df", ":lua require 'configs.fzf'.search_dotfiles()<CR>", opts)
-	map("n", "<Leader>gc", ":FzfLua git_commits<CR>", opts)
 end
 
 function M.easyAlign()

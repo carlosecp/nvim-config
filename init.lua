@@ -4,14 +4,16 @@
 • Github: https://github.com/itscarlosecp
 ]]
 
-local defaults = require "core.defaults"
-_G.itscarlosecp = defaults {}
+_G.itscarlosecp = {
+	borders = nil
+}
 
-require "core.settings"
+require "core.options"
 require "core.mappings"
 require "core.utils"
 require "core.plugins"
 require "core.commands"
 
+require "modules.explorer"
 require "modules.statusline"
 require "modules.lsp"
