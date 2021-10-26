@@ -21,6 +21,5 @@ lspconfig.tsserver.setup(common_setup)
 -- Installation: npm install -g @tailwindcss/language-server
 lspconfig.tailwindcss.setup(common_setup)
 
--- emmet
--- Installation: npm install -g emmet-ls
-lspconfig.emmet_ls.setup(common_setup)
+-- emmet-language-server
+require "modules.lsp.servers.emmet-language-server"
