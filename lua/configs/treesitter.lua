@@ -1,14 +1,14 @@
 require "nvim-treesitter.configs".setup {
-	ensure_installed = { "lua", "c", "cpp" },
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = true,
-		custom_captures = {
-			["struct"] = "Struct",
-			["identifier"] = "Variable"
-		}
+		disable = { "html" },
+		additional_vim_regex_highlighting = true
 	},
-	indent   = { enable = false },
+	indent = {
+		enable = false,
+		disable = {}
+	},
 	refactor = {
 		highlight_definitions = { enable = true }
 	}

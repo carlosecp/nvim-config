@@ -26,6 +26,10 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 --- Plugins
 local M = {}
 
+function M.nvimtree()
+	map("n", "<Leader>e",  ":NvimTreeToggle<CR>", opts)
+end
+
 function M.lsp()
 	map("n", "K",          ":lua vim.lsp.buf.hover()<CR>",          opts)
 	map("n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>", opts)

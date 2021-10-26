@@ -1,20 +1,26 @@
 --  Automatically install Packer if its missing
 local execute = vim.api.nvim_command
-local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
-if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system {
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	vim.fn.system {
 		"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
 	execute "packadd packer.nvim"
 end
+
+local frontend_ft = {
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact"
+}
 
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
 
-	-- Autcompletion
+	-- Autocompletion
 	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -48,6 +54,10 @@ return require "packer".startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 		}
 	}
+	use {
+		"MaxMEllon/vim-jsx-pretty",
+		ft = frontend_ft
+	}
 
 	-- Fuzzy Finder
 	use {
@@ -70,6 +80,19 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- Explorer
+	use {
+		"kyazdani42/nvim-tree.lua",
+		commit = "da26dfa",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require "configs.nvimtree"
+		end,
+		setup = function()
+			require "core.mappings".nvimtree()
+		end
+	}
+
 	-- Colorscheme
 	use {
 		"ellisonleao/gruvbox.nvim",
@@ -77,6 +100,29 @@ return require "packer".startup(function(use)
 			require "themes.gruvbox_nvim"
 		end,
 		requires = "rktjmp/lush.nvim"
+	}
+
+	-- Colaborative Sessions
+	use {
+		"jbyuki/instant.nvim",
+		cmd = {
+			"InstantStartSingle",
+			"InstantJoinSingle",
+			"InstantStop",
+			"InstantStartSession",
+			"InstantJoinSession",
+			"InstantStop",
+			"InstantStatus",
+			"InstantFollow",
+			"InstantStopFollow",
+			"InstantOpenAll",
+			"InstantSaveAll",
+			"InstantMark",
+			"InstantMarkClear"
+		},
+		config = function()
+			vim.g.instant_username = "itscarlosecp"
+		end
 	}
 
 	-- Utilities
