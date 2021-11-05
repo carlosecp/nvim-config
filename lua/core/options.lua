@@ -37,7 +37,7 @@ o.smartindent    = true
 o.smarttab       = true
 
 -- Shell
-o.shell = "fish"
+o.shell = "sh"
 
 -- Format Options
 -- Stop adding comments on newline

@@ -17,3 +17,5 @@ require "core.commands"
 require "modules.explorer"
 require "modules.statusline"
 require "modules.lsp"
+require "modules.terminal"
+

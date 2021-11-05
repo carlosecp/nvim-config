@@ -95,37 +95,31 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"ellisonleao/gruvbox.nvim",
+		"shaunsingh/nord.nvim",
 		config = function()
-			require "themes.gruvbox_nvim"
-		end,
-		requires = "rktjmp/lush.nvim"
-	}
-
-	-- Colaborative Sessions
-	use {
-		"jbyuki/instant.nvim",
-		cmd = {
-			"InstantStartSingle",
-			"InstantJoinSingle",
-			"InstantStop",
-			"InstantStartSession",
-			"InstantJoinSession",
-			"InstantStop",
-			"InstantStatus",
-			"InstantFollow",
-			"InstantStopFollow",
-			"InstantOpenAll",
-			"InstantSaveAll",
-			"InstantMark",
-			"InstantMarkClear"
-		},
-		config = function()
-			vim.g.instant_username = "itscarlosecp"
+			require "themes.nord_nvim"
 		end
 	}
 
+	-- Colaborative Sessions
+-- 	use {
+-- 		"jbyuki/instant.nvim",
+-- 		config = function()
+-- 			require "configs.instant"
+-- 		end
+-- 	}
+
 	-- Utilities
+	use {
+		"ThePrimeagen/harpoon",
+		module = {
+			"harpoon.mark",
+			"harpoon.ui"
+		},
+		config = function()
+			require "configs.harpoon"
+		end
+	}
 	use {
 		"tpope/vim-surround",
 		keys = {
@@ -143,7 +137,7 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
-		event = "BufReadPre",
+		cmd = "ColorizerToggle",
 		config = function()
 			require "configs.colorizer"
 		end,

@@ -23,8 +23,15 @@ map("i", "?", "?<c-g>u", { noremap = true })
 -- Terminal escape
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 
---- Plugins
+-- Others
+map("n", "<Leader>cc", ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>", opts)
+
 local M = {}
+
+function M.terminal()
+	map("n", "<Leader>t", ":lua require 'modules.terminal'.termToggle()<CR>", opts)
+	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
+end
 
 function M.nvimtree()
 	map("n", "<Leader>e",  ":NvimTreeToggle<CR>", opts)

@@ -1,6 +1,7 @@
 require "telescope".setup {
 	defaults = {
-		file_ignore_patterns = {"node_modules/", ".next/", ".git/"},
+		file_ignore_patterns = { "node_modules/", ".next/", ".git/" },
+		sorting_strategy = "ascending",
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",

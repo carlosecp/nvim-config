@@ -1,0 +1,3 @@
+require "harpoon".setup {
+	projects = {}
+}
