@@ -121,6 +121,13 @@ return require "packer".startup(function(use)
 		end
 	}
 	use {
+		"kristijanhusak/vim-carbon-now-sh",
+		cmd = "CarbonNowSh",
+		config = function()
+			require "configs.carbon_now_sh"
+		end
+	}
+	use {
 		"tpope/vim-surround",
 		keys = {
 			{"v", "S"}
