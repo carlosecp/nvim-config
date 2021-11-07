@@ -22,4 +22,8 @@ lspconfig.tsserver.setup(common_setup)
 lspconfig.tailwindcss.setup(common_setup)
 
 -- emmet-language-server
-require "modules.lsp.servers.emmet-language-server"
+-- require "modules.lsp.servers.emmet-language-server"
+
+-- jsonls
+-- Installation: npm i -g vscode-langservers-extracted
+require "modules.lsp.servers.jsonls"

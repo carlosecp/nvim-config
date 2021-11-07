@@ -3,7 +3,8 @@ local commons = require "modules.lsp.commons"
 
 -- sumneko_lua
 -- Installation: https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/
-local sumneko_binary_path = vim.fn.exepath("lua-language-server")
+local path_binary = "/home/itscarlosecp/lsp/lua-language-server/bin/Linux/lua-language-server"
+local sumneko_binary_path = vim.fn.exepath(path_binary)
 local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ":h:h:h")
 
 local runtime_path = vim.split(package.path, ";")
