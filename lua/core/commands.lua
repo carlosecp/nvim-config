@@ -1,12 +1,7 @@
---[[ Autocommands and Neovim's default
-behaviour modifiers
-]]
-
--- Change settings and hgroup for terminal window
+-- Terminal window settings
 vim.cmd[[
 " Terminal Highlight
 au TermOpen,TermEnter * setlocal winhl=Normal:Terminal,NormalNC:TerminalNC
-
 " Terminal Settings
 au TermOpen,TermEnter * setlocal nonu nornu
 au TermOpen,TermEnter * setlocal nocursorline
@@ -17,7 +12,6 @@ au TermOpen,TermEnter * setlocal winfixheight
 vim.cmd[[
 " Identify .prettierc as standard JSON
 au BufRead,BufNewFile .prettierrc set ft=json
-
 " Take .json files as .jsonc
 au BufRead,BufNewFile *.json set ft=jsonc
 ]]

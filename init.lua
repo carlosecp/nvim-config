@@ -8,7 +8,6 @@ _G.itscarlosecp = {
 	borders = "rounded"
 }
 
--- Sources core defaults
 require "core.options"
 require "core.mappings"
 require "core.utils"
@@ -18,4 +17,5 @@ require "core.commands"
 require "modules.lsp"
 require "modules.terminal"
 require "modules.netrw"
+require "modules.statusline"
 

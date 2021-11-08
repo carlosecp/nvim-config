@@ -10,7 +10,7 @@ local default_term_size = 12
 
 local T = {}
 
-local function termOpen()
+local function term_open()
 	if vim.fn.bufexists(toggle_term_buffer) == 0 then
 		vim.cmd("new toggle_term")
 		vim.cmd("resize " .. default_term_size)
@@ -34,7 +34,7 @@ local function termOpen()
 	end
 end
 
-local function termClose()
+local function term_close()
 	if vim.fn.win_gotoid(toggle_term_window) ~= 0 then
 		-- Stores the previous terminal windows size
 		toggle_term_window_size = vim.fn.winheight(toggle_term_window)
@@ -42,11 +42,11 @@ local function termClose()
 	end
 end
 
-function T.termToggle()
+function T.term_toggle()
 	if vim.fn.win_gotoid(toggle_term_window) == 0 then
-		termOpen()
+		term_open()
 	else
-		termClose()
+		term_close()
 	end
 end
 
