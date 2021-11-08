@@ -3,16 +3,16 @@ local opts = { silent = true, noremap = true }
 
 vim.g.mapleader = " "
 
--- Buffers/Panes navigation
-map("n", "<Leader><Leader>", "<C-^>", opts)
-map("n", "<C-J>",     "<C-W><C-J>",          { noremap = true })
-map("n", "<C-K>",     "<C-W><C-K>",          { noremap = true })
-map("n", "<C-L>",     "<C-W><C-L>",          { noremap = true })
-map("n", "<C-H>",     "<C-W><C-H>",          { noremap = true })
-map("n", "<C-Up>",    ":resize +5<CR>",      opts)
-map("n", "<C-Down>",  ":resize -5<CR>",      opts)
-map("n", "<C-Right>", ":vert resize +5<CR>", opts)
-map("n", "<C-Left>",  ":vert resize -5<CR>", opts)
+map("n", "<Leader>h",        ":noh<CR>",            opts)
+map("n", "<Leader><Leader>", "<C-^>",               opts)
+map("n", "<C-J>",            "<C-W><C-J>",          { noremap = true })
+map("n", "<C-K>",            "<C-W><C-K>",          { noremap = true })
+map("n", "<C-L>",            "<C-W><C-L>",          { noremap = true })
+map("n", "<C-H>",            "<C-W><C-H>",          { noremap = true })
+map("n", "<C-Up>",           ":resize +5<CR>",      opts)
+map("n", "<C-Down>",         ":resize -5<CR>",      opts)
+map("n", "<C-Right>",        ":vert resize +5<CR>", opts)
+map("n", "<C-Left>",         ":vert resize -5<CR>", opts)
 
 -- Better undoing
 map("i", ",", ",<c-g>u", { noremap = true })
