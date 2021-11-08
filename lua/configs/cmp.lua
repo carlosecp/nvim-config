@@ -13,16 +13,20 @@ cmp.setup {
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "path" }
+		{ name = "path"     },
+		{ name = "vsnip"    },
+		{
+			name = "buffer",
+			keyword_length = 5
+		}
 	},
 	formatting = {
 		format = function(entry, vim_item)
 			vim_item.menu = ({
-				buffer        = "[Buffer]",
 				nvim_lsp      = "[LSP]",
-				vsnip         = "[vsnip]",
+				buffer        = "[Buffer]",
 				nvim_lua      = "[Lua]",
+				vsnip         = "[vsnip]",
 				latex_symbols = "[Latex]",
 			})[entry.source.name]
 			vim_item.kind = ({
@@ -59,5 +63,9 @@ cmp.setup {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body)
 		end
+	},
+	experimental = {
+		ghost_text = true
 	}
 }
+

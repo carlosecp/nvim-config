@@ -5,7 +5,7 @@
 ]]
 
 _G.itscarlosecp = {
-	borders = nil
+	borders = "rounded"
 }
 
 -- Sources core defaults

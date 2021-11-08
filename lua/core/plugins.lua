@@ -1,17 +1,14 @@
 --  Automatically install Packer if its missing
 local execute = vim.api.nvim_command
-local fn = vim.fn
 
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
-if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system {
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	vim.fn.system {
 		"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
 	execute "packadd packer.nvim"
 end
 
--- Defining filtypes for frontend development
--- related plugins to lazy-load them
 local frontend_ft = {
 	"javascript",
 	"javascriptreact",
@@ -22,10 +19,9 @@ local frontend_ft = {
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
-	use {
-		"kabouzeid/nvim-lspinstall",
-		"jose-elias-alvarez/null-ls.nvim"
-	}
+	use "williamboman/nvim-lsp-installer"
+
+	-- Autocompletion
 	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -33,10 +29,17 @@ return require "packer".startup(function(use)
 			require "configs.cmp"
 		end,
 		requires = {
+			{
+				"hrsh7th/vim-vsnip",
+				after = "nvim-cmp",
+				config = function()
+					require "configs.vsnip"
+				end
+			},
+			{ "hrsh7th/cmp-vsnip",    after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path",     after = "nvim-cmp" },
-			{ "hrsh7th/vim-vsnip",    after = "nvim-cmp" }
+			{ "hrsh7th/cmp-path",     after = "nvim-cmp" }
 		}
 	}
 
@@ -55,19 +58,6 @@ return require "packer".startup(function(use)
 	use {
 		"MaxMEllon/vim-jsx-pretty",
 		ft = frontend_ft
-	}
-
-	-- NvimTree
-	use {
-		"kyazdani42/nvim-tree.lua",
-		commit = "da26dfa",
-		cmd = "NvimTreeToggle",
-		config = function()
-			require "configs.nvimtree"
-		end,
-		setup = function()
-			require "core.mappings".nvimtree()
-		end
 	}
 
 	-- Fuzzy Finder
@@ -91,6 +81,19 @@ return require "packer".startup(function(use)
 		}}
 	}
 
+	-- Explorer
+	use {
+		"kyazdani42/nvim-tree.lua",
+		commit = "da26dfa",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require "configs.nvimtree"
+		end,
+		setup = function()
+			require "core.mappings".nvimtree()
+		end
+	}
+
 	-- Colorscheme
 	use {
 		"shaunsingh/nord.nvim",
@@ -99,7 +102,15 @@ return require "packer".startup(function(use)
 		end
 	}
 
-		-- Utilities
+	-- Colaborative Sessions
+-- 	use {
+-- 		"jbyuki/instant.nvim",
+-- 		config = function()
+-- 			require "configs.instant"
+-- 		end
+-- 	}
+
+	-- Utilities
 	use {
 		"ThePrimeagen/harpoon",
 		module = {
@@ -160,3 +171,4 @@ return require "packer".startup(function(use)
 	-- Packer can manage itself
 	use "wbthomason/packer.nvim"
 end)
+
