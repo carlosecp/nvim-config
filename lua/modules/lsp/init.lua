@@ -1,29 +1,37 @@
-local lspconfig = require "lspconfig"
+local lspconfig  = require "lspconfig"
+local lspinstall = require "lspinstall"
+local opts = require "modules.lsp.opts"
 local commons = require "modules.lsp.commons"
 
-local common_setup = {
-	capabilities = commons.capabilities,
-	on_attach = commons.on_attach,
-}
+-- Use LSPInstall to install and load servers
+local function load_servers()
+	lspinstall.setup()
+	local servers = lspinstall.installed_servers()
 
--- sumneko_lua
-require "modules.lsp.servers.sumneko_lua"
+	for _, server in pairs(servers) do
+		local client = lspconfig[server]
+		local config = opts[server] or client
 
--- clangd
--- Installation: sudo pacman -S clang
-lspconfig.clangd.setup(common_setup)
+		client.setup {
+			capabilities = commons.capabilities,
+			filetypes    = config.filetypes or client.filetypes,
+			on_attach    = config.on_attach or commons.on_attach,
+			settings     = config.settings or {}
+		}
+	end
+end
 
--- javascript/typescript
--- Installation: npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup(common_setup)
+-- Reload LSPInstall after installing a server
+function lspinstall.post_install_hook()
+	load_servers()
+	vim.cmd("bufdo e")
+end
 
--- TailwindCSS
--- Installation: npm install -g @tailwindcss/language-server
-lspconfig.tailwindcss.setup(common_setup)
+-- Start servers with defined configs and defaults
+local function setup_servers()
+	commons.setup.diagnostics()
+	commons.setup.floating_windows()
+	load_servers()
+end
 
--- emmet-language-server
--- require "modules.lsp.servers.emmet-language-server"
-
--- jsonls
--- Installation: npm i -g vscode-langservers-extracted
-require "modules.lsp.servers.jsonls"
+setup_servers()

@@ -8,14 +8,14 @@ _G.itscarlosecp = {
 	borders = nil
 }
 
+-- Sources core defaults
 require "core.options"
 require "core.mappings"
 require "core.utils"
 require "core.plugins"
 require "core.commands"
 
-require "modules.explorer"
-require "modules.statusline"
 require "modules.lsp"
 require "modules.terminal"
+require "modules.netrw"
 
