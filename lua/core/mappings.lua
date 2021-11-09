@@ -31,26 +31,6 @@ function mappings.nvimtree()
 	map("n", "<Leader>e",  "<cmd>NvimTreeToggle<CR>", opts)
 end
 
-function mappings.lsp()
-	map("n", "K",          "<cmd>lua vim.lsp.buf.hover()<CR>",          opts)
-	map("n", "gs",         "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	map("n", "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>",     opts)
-	map("n", "gD",         "<cmd>lua vim.lsp.buf.declaration()<CR>",    opts)
-	map("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>",         opts)
-	map("n", "gc",         "<cmd>lua vim.lsp.buf.code_action()<CR>",    opts)
-
-	local popup_opts = "popup_opts = { border = 'rounded' }"
-	map("n", "[g", "<cmd>lua vim.lsp.diagnostic.goto_next({" .. popup_opts .. "})<CR>", opts)
-	map("n", "]g", "<cmd>lua vim.lsp.diagnostic.goto_prev({" .. popup_opts .. "})<CR>", opts)
-
-	vim.cmd[[
-	imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' <cmd> '<Tab>'
-	smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' <cmd> '<Tab>'
-	imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' <cmd> '<S-Tab>'
-	smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' <cmd> '<S-Tab>'
-	]]
-end
-
 function mappings.telescope()
 	map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
 	map("n", "<Leader>lg", "<cmd>Telescope live_grep<CR>", opts)
