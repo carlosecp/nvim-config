@@ -5,5 +5,7 @@
 -- 	end
 -- }
 
+vim.g.solarized_italics = 0
 vim.cmd("colo solarized")
 vim.cmd("hi Normal guibg=NONE")
+vim.cmd("hi TSVariable guibg=NONE")

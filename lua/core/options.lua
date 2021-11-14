@@ -1,11 +1,13 @@
 local o = vim.opt
 
 -- Defaults
+o.syntax = "off"
 o.hidden         = true
 o.cursorline     = true
 o.termguicolors  = true
 o.splitbelow     = true
 o.splitright     = true
+o.colorcolumn    = "80"
 
 -- Search
 o.incsearch      = true

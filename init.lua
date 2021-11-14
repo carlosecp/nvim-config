@@ -17,5 +17,4 @@ require "core.commands"
 require "modules.lsp"
 require "modules.terminal"
 require "modules.netrw"
-require "modules.statusline"
 

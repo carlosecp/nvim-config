@@ -2,16 +2,19 @@ require "nvim-treesitter.configs".setup {
 	ensure_installed = "all",
 	highlight = {
 		enable = true,
-		disable = { "html" },
+		-- disable = { "html" },
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		enable = false,
+		enable = true,
 		disable = {}
 	},
 	refactor = {
 		highlight_definitions = { enable = true }
-	}
+	},
+	 playground = {
+    enable = true
+  }
 }
 
 -- Use the jsonc parser for standard json files

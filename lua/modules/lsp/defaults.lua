@@ -3,7 +3,7 @@ local opts = { silent = true, noremap = true }
 local defaults = {}
 
 defaults.capabilities = vim.lsp.protocol.make_client_capabilities()
-defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
+defaults.capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 function defaults.on_attach(client, bufnr)
 	client.resolved_capabilities.document_formatting = false

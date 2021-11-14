@@ -16,6 +16,11 @@ local frontend_ft = {
 	"typescriptreact"
 }
 
+local ts_playground_cmds = {
+	"TSPlaygroundToggle",
+	"TSHighlightCapturesUnderCursor"
+}
+
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
@@ -56,6 +61,11 @@ return require "packer".startup(function(use)
 		run = ":TSUpdate",
 		requires = {
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+			{
+				"nvim-treesitter/playground" ,
+				after = "nvim-treesitter",
+				cmd = ts_playground_cmds
+			}
 		}
 	}
 	use {
@@ -84,34 +94,13 @@ return require "packer".startup(function(use)
 		}}
 	}
 
-	-- Explorer
-	use {
-		"kyazdani42/nvim-tree.lua",
-		commit = "da26dfa",
-		cmd = "NvimTreeToggle",
-		config = function()
-			require "configs.nvimtree"
-		end,
-		setup = function()
-			require "core.mappings".nvimtree()
-		end
-	}
-
 	-- Colorscheme
 	use {
-		"shaunsingh/nord.nvim",
+		"ishan9299/nvim-solarized-lua",
 		config = function()
-			require "themes.nord_nvim"
+			require "themes.solarized_nvim"
 		end
 	}
-
-	-- Colaborative Sessions
--- 	use {
--- 		"jbyuki/instant.nvim",
--- 		config = function()
--- 			require "configs.instant"
--- 		end
--- 	}
 
 	-- Utilities
 	use {
