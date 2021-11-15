@@ -1,6 +1,4 @@
-local telescope = require "telescope"
-
-telescope.setup {
+require "telescope".setup {
 	defaults = {
 		file_ignore_patterns = { "node_modules/", ".next/", ".git/" },
 		sorting_strategy = "ascending",
@@ -21,13 +19,13 @@ telescope.setup {
 	}
 }
 
-telescope.load_extension("fzf")
+require "telescope".load_extension("fzf")
 
 --- Custom Finders
-local finders = {}
+local F = {}
 
 -- Search inside my dotfiles directory
-finders.search_dotfiles = function()
+F.search_dotfiles = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Dotfiles",
 		cwd = "/home/itscarlosecp/dotfiles",
@@ -36,7 +34,7 @@ finders.search_dotfiles = function()
 end
 
 -- Search inside my Neovim config
-finders.search_neovim = function()
+F.search_neovim = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Neovim",
 		cwd = "/home/itscarlosecp/.config/nvim",
@@ -44,4 +42,4 @@ finders.search_neovim = function()
 	}
 end
 
-return finders
+return F

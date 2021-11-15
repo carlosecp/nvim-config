@@ -8,6 +8,7 @@ _G.itscarlosecp = {
 	borders = "rounded"
 }
 
+-- Sources core defaults
 require "core.options"
 require "core.mappings"
 require "core.utils"

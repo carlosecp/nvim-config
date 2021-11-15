@@ -24,10 +24,7 @@ local ts_playground_cmds = {
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
-	use {
-		"williamboman/nvim-lsp-installer",
-		"jose-elias-alvarez/null-ls.nvim"
-	}
+	use "williamboman/nvim-lsp-installer"
 
 	-- Autocompletion
 	use {
@@ -92,14 +89,6 @@ return require "packer".startup(function(use)
 			"nvim-telescope/telescope-fzf-native.nvim",
 			run = "make"
 		}}
-	}
-
-	-- Statusline
-	use {
-		"tjdevries/express_line.nvim",
-		config = function()
-			require "configs.express_line"
-		end
 	}
 
 	-- Colorscheme

@@ -1,7 +1,6 @@
 local o = vim.opt
 
 -- Defaults
-o.syntax = "off"
 o.hidden         = true
 o.cursorline     = true
 o.termguicolors  = true

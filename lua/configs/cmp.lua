@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-
 cmp.setup {
 	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
 	documentation = {
