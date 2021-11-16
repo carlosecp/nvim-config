@@ -1,21 +1,14 @@
-local map = vim.api.nvim_set_keymap
-local opts = { silent = true, noremap = true }
-
 local toggle_term_window = -1
 local toggle_term_buffer = -1
-local toggle_term_job_id = -1
-local toggle_term_window_size = -1
-
-local default_term_size = 12
 
 local T = {}
 
 local function termOpen()
+	-- If terminal buffer does not exists
 	if vim.fn.bufexists(toggle_term_buffer) == 0 then
-		vim.cmd("new toggle_term")
-		vim.cmd("resize " .. default_term_size)
-
-		toggle_term_job_id = vim.fn.termopen("fish", { detach = 1 })
+		vim.cmd("vnew toggle_term") -- use just `new` to :split terminal
+		-- vim.cmd("resize " .. term_size)
+		vim.fn.termopen("fish", { detach = 1 })
 		vim.cmd("silent file Terminal")
 
 		toggle_term_window = vim.api.nvim_get_current_win()
@@ -24,9 +17,7 @@ local function termOpen()
 		vim.opt.buflisted = false
 	else
 		if vim.fn.win_gotoid(toggle_term_window) == 0 then
-			vim.cmd("sp")
-			-- vimcmd("resize " .. toggle_term_window_size)
-			vim.cmd("resize " .. default_term_size)
+			vim.cmd("vs")
 			vim.cmd("buffer Terminal")
 
 			toggle_term_window = vim.api.nvim_get_current_win()
@@ -37,7 +28,7 @@ end
 local function termClose()
 	if vim.fn.win_gotoid(toggle_term_window) ~= 0 then
 		-- Stores the previous terminal windows size
-		toggle_term_window_size = vim.fn.winheight(toggle_term_window)
+		-- toggle_term_window_size = vim.fn.winheight(toggle_term_window)
 		vim.cmd("hide")
 	end
 end

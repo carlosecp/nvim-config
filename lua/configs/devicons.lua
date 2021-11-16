@@ -21,16 +21,6 @@ require "nvim-web-devicons".setup {
 			color = "#519aba",
 			name  = "Gomod"
 		},
-		js = {
-			icon  = "",
-			color = "#efd81d",
-			name  = "Javascript"
-		},
-		ts = {
-			icon  = "ﯤ",
-			color = "#2f74c0",
-			name  = "Typescript"
-		},
 		[".prettierrc"] = {
 			icon  = "",
 			color = "#56b3b4",
