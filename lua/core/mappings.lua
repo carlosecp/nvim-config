@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 
 map("n", "<Leader>h",        ":noh<CR>",            opts)
 map("n", "<Leader><Leader>", "<C-^>",               opts)
+map("n", "<Leader>e",        ":Exp<CR>",            opts)
 map("n", "<C-J>",            "<C-W><C-J>",          { noremap = true })
 map("n", "<C-K>",            "<C-W><C-K>",          { noremap = true })
 map("n", "<C-L>",            "<C-W><C-L>",          { noremap = true })
@@ -29,7 +30,8 @@ map("n", "<Leader>cc", ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80'
 local M = {}
 
 function M.terminal()
-	map("n", "<Leader>t", ":lua require 'modules.terminal'.termToggle()<CR>", opts)
+	map("n", "<Leader>t", ":lua require 'modules.terminal'.termToggle('vertical')<CR>", opts)
+	map("n", "<Leader>T", ":lua require 'modules.terminal'.termToggle('horizontal')<CR>", opts)
 	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
@@ -66,6 +68,11 @@ end
 
 function M.easyAlign()
 	map("x", "ga", "<Plug>(EasyAlign)", {})
+end
+
+function M.trouble()
+	map("n", "<Leader>x", ":TroubleToggle lsp_workspace_diagnostics<CR>", opts)
+	map("n", "<Leader>X", ":TroubleToggle lsp_document_diagnostics<CR>",  opts)
 end
 
 return M

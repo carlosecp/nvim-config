@@ -119,10 +119,13 @@ return require "packer".startup(function(use)
 		end
 	}
 	use {
-		"kristijanhusak/vim-carbon-now-sh",
-		cmd = "CarbonNowSh",
+		"folke/trouble.nvim",
+		cmd = { "Trouble", "TroubleToggle" },
 		config = function()
-			require "configs.carbon_now_sh"
+			require "configs.trouble"
+		end,
+		setup = function()
+			require "core.mappings".trouble()
 		end
 	}
 	use {
