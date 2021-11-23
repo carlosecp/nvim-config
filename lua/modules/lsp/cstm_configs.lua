@@ -52,4 +52,10 @@ servers.sumneko_lua = {
 	}
 }
 
+servers.emmet_ls = { -- npm install -g ls_emmet
+	cmd = { "ls_emmet", "--stdio" },
+	filetypes = { "html", "css", "scss", "javascript", "javascriptreact",
+	"typescript", "typescriptreact" }
+}
+
 return servers

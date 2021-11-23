@@ -46,7 +46,7 @@ return require "packer".startup(function(use)
 			},
 			{ "hrsh7th/cmp-vsnip",    after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", module = "cmp_nvim_lsp" },
+			{ "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
 			{ "hrsh7th/cmp-path",     after = "nvim-cmp" }
 		}
 	}
@@ -61,6 +61,7 @@ return require "packer".startup(function(use)
 		run = ":TSUpdate",
 		requires = {
 			{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft },
 			{
 				"nvim-treesitter/playground" ,
 				after = "nvim-treesitter",

@@ -12,9 +12,12 @@ require "nvim-treesitter.configs".setup {
 	refactor = {
 		highlight_definitions = { enable = true }
 	},
-	 playground = {
-    enable = true
-  }
+	playground = {
+		enable = true
+	},
+	autotag = {
+		enable = true
+	}
 }
 
 -- Use the jsonc parser for standard json files
