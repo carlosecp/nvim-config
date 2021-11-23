@@ -47,6 +47,7 @@ function M.lsp(bufnr)
 	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",    opts)
 	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",         opts)
 	bufmap(bufnr, "n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",    opts)
+	bufmap(bufnr, "n", "gx",         ":lua vim.lsp.buf.formatting()<CR>",     opts)
 
 	bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
 	bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
