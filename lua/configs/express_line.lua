@@ -27,7 +27,7 @@ local function generator()
 
 	table.insert(el_segments, extensions.mode)
 	table.insert(el_segments, "%=")
-	table.insert(el_segments, get_icon())
+	-- table.insert(el_segments, get_icon())
 	table.insert(el_segments, get_filename())
 	table.insert(el_segments, "%=")
 	table.insert(el_segments, get_cursor_loc())
