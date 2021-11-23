@@ -24,12 +24,14 @@ local ts_playground_cmds = {
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
-	use "williamboman/nvim-lsp-installer"
+	use {
+		"williamboman/nvim-lsp-installer",
+		"jose-elias-alvarez/null-ls.nvim"
+	}
 
 	-- Autocompletion
 	use {
 		"hrsh7th/nvim-cmp",
-		module = "cmp_nvim_lsp",
 		event = "InsertEnter",
 		config = function()
 			require "configs.cmp"
@@ -44,7 +46,7 @@ return require "packer".startup(function(use)
 			},
 			{ "hrsh7th/cmp-vsnip",    after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", module = "cmp_nvim_lsp" },
 			{ "hrsh7th/cmp-path",     after = "nvim-cmp" }
 		}
 	}

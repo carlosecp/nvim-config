@@ -1,9 +1,18 @@
+local lspconfig     = require "lspconfig"
 local lsp_installer = require "nvim-lsp-installer"
 local cstm_configs  = require "modules.lsp.cstm_configs"
 local setup         = require "modules.lsp.setup"
+local null_ls       = require "null-ls"
 
-local function common_on_attach(_, bufnr)
+local function common_on_attach(client, bufnr)
+	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_range_formatting = false
+
 	require "core.mappings".lsp(bufnr)
+
+	if client.resolved_capabilities.document_formatting then
+		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+	end
 end
 
 lsp_installer.on_server_ready(function(server)
@@ -29,3 +38,13 @@ lsp_installer.on_server_ready(function(server)
 
 	server:setup(server_config)
 end)
+
+null_ls.config {
+    sources = {
+			null_ls.builtins.formatting.prettierd -- npm install -g @fsouza/prettierd
+		}
+}
+
+lspconfig["null-ls"].setup {
+    on_attach = common_on_attach
+}
