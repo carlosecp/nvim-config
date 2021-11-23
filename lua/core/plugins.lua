@@ -29,6 +29,7 @@ return require "packer".startup(function(use)
 	-- Autocompletion
 	use {
 		"hrsh7th/nvim-cmp",
+		module = "cmp_nvim_lsp",
 		event = "InsertEnter",
 		config = function()
 			require "configs.cmp"
@@ -101,9 +102,9 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"ishan9299/nvim-solarized-lua",
+		"navarasu/onedark.nvim",
 		config = function()
-			require "themes.solarized_nvim"
+			require "themes.onedark"
 		end
 	}
 

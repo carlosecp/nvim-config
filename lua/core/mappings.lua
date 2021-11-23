@@ -1,5 +1,6 @@
-local map  = vim.api.nvim_set_keymap
-local opts = { silent = true, noremap = true }
+local map    = vim.api.nvim_set_keymap
+local bufmap = vim.api.nvim_buf_set_keymap
+local opts   = { silent = true, noremap = true }
 
 vim.g.mapleader = " "
 
@@ -39,24 +40,16 @@ function M.nvimtree()
 	map("n", "<Leader>e",  ":NvimTreeToggle<CR>", opts)
 end
 
-function M.lsp()
-	map("n", "K",          ":lua vim.lsp.buf.hover()<CR>",          opts)
-	map("n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>", opts)
-	map("n", "gd",         ":lua vim.lsp.buf.definition()<CR>",     opts)
-	map("n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",    opts)
-	map("n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",         opts)
-	map("n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",    opts)
+function M.lsp(bufnr)
+	bufmap(bufnr, "n", "K",          ":lua vim.lsp.buf.hover()<CR>",          opts)
+	bufmap(bufnr, "n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>", opts)
+	bufmap(bufnr, "n", "gd",         ":lua vim.lsp.buf.definition()<CR>",     opts)
+	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",    opts)
+	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",         opts)
+	bufmap(bufnr, "n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",    opts)
 
-	local popup_opts = string.format("popup_opts = { border = %s }", _G.itscarlosecp.borders)
-	map("n", "[g", ":lua vim.lsp.diagnostic.goto_next({" .. popup_opts .. "})<CR>", opts)
-	map("n", "]g", ":lua vim.lsp.diagnostic.goto_prev({" .. popup_opts .. "})<CR>", opts)
-
-	vim.cmd[[
-	imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-	smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-	imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-	smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-	]]
+	bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
+	bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
 end
 
 function M.telescope()
@@ -71,8 +64,8 @@ function M.easyAlign()
 end
 
 function M.trouble()
-	map("n", "<Leader>x", ":TroubleToggle lsp_workspace_diagnostics<CR>", opts)
-	map("n", "<Leader>X", ":TroubleToggle lsp_document_diagnostics<CR>",  opts)
+	map("n", "<Leader>x", ":TroubleToggle lsp_document_diagnostics<CR>",  opts)
+	map("n", "<Leader>X", ":TroubleToggle lsp_workspace_diagnostics<CR>", opts)
 end
 
 return M

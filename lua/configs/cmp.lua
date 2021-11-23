@@ -2,7 +2,7 @@ local cmp = require "cmp"
 cmp.setup {
 	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
 	documentation = {
-		border    = _G.itscarlosecp.borders,
+		border    = "rounded",
 		max_width = 80
 	},
 	mapping = {

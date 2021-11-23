@@ -1,6 +1,6 @@
-local opts = {}
+local servers = {}
 
-opts.jsonls = {
+servers.jsonls = {
 	filetypes = { "json", "jsonc" },
 	settings = {
 		json = {
@@ -12,15 +12,6 @@ opts.jsonls = {
 						"tsconfig.*.json",
 					},
 					url = "https://json.schemastore.org/tsconfig.json",
-				},
-				{
-					description = "Babel configuration",
-					fileMatch = {
-						".babelrc.json",
-						".babelrc",
-						"babel.config.json",
-					},
-					url = "https://json.schemastore.org/babelrc.json",
 				},
 				{
 					description = "ESLint config",
@@ -51,7 +42,7 @@ opts.jsonls = {
 	}
 }
 
-opts.sumneko_lua = {
+servers.sumneko_lua = {
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -61,4 +52,4 @@ opts.sumneko_lua = {
 	}
 }
 
-return opts
+return servers
