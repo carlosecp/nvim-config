@@ -22,10 +22,10 @@ require "telescope".setup {
 require "telescope".load_extension("fzf")
 
 --- Custom Finders
-local F = {}
+local cstm_finders = {}
 
 -- Search inside my dotfiles directory
-F.search_dotfiles = function()
+cstm_finders.search_dotfiles = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Dotfiles",
 		cwd = "/home/itscarlosecp/dotfiles",
@@ -34,7 +34,7 @@ F.search_dotfiles = function()
 end
 
 -- Search inside my Neovim config
-F.search_neovim = function()
+cstm_finders.search_neovim = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Neovim",
 		cwd = "/home/itscarlosecp/.config/nvim",
@@ -42,4 +42,4 @@ F.search_neovim = function()
 	}
 end
 
-return F
+return cstm_finders

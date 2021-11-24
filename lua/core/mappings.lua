@@ -15,58 +15,47 @@ map("n", "<C-Up>",           ":resize +5<CR>",      opts)
 map("n", "<C-Down>",         ":resize -5<CR>",      opts)
 map("n", "<C-Right>",        ":vert resize +5<CR>", opts)
 map("n", "<C-Left>",         ":vert resize -5<CR>", opts)
-
--- Better undoing
 map("i", ",", ",<c-g>u", { noremap = true })
 map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
-
--- Terminal escape
-vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-
--- Others
 map("n", "<Leader>cc", ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>", opts)
 
-local M = {}
+local mappings = {}
 
-function M.terminal()
-	map("n", "<Leader>t", ":lua require 'modules.terminal'.termToggle('vertical')<CR>", opts)
-	map("n", "<Leader>T", ":lua require 'modules.terminal'.termToggle('horizontal')<CR>", opts)
-	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-end
-
-function M.nvimtree()
-	map("n", "<Leader>e",  ":NvimTreeToggle<CR>", opts)
-end
-
-function M.lsp(bufnr)
+mappings.lsp = function(bufnr)
 	bufmap(bufnr, "n", "K",          ":lua vim.lsp.buf.hover()<CR>",          opts)
 	bufmap(bufnr, "n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>", opts)
 	bufmap(bufnr, "n", "gd",         ":lua vim.lsp.buf.definition()<CR>",     opts)
 	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",    opts)
 	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",         opts)
 	bufmap(bufnr, "n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",    opts)
-	bufmap(bufnr, "n", "gx",         ":lua vim.lsp.buf.formatting()<CR>",     opts)
+	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting()<CR>",     opts)
 
 	bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
 	bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
 end
 
-function M.telescope()
-	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", opts)
-	map("n", "<Leader>lg", ":Telescope live_grep<CR>", opts)
-	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>", opts)
+mappings.terminal = function()
+	map("n", "<Leader>t", ":lua require 'modules.terminal'.term_toggle('vertical')<CR>",   opts)
+	map("n", "<Leader>T", ":lua require 'modules.terminal'.term_toggle('horizontal')<CR>", opts)
+	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
+end
+
+mappings.telescope = function()
+	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>",                  opts)
+	map("n", "<Leader>lg", ":Telescope live_grep<CR>",                               opts)
+	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>",   opts)
 	map("n", "<Leader>df", ":lua require 'configs.telescope'.search_dotfiles()<CR>", opts)
 end
 
-function M.easyAlign()
+mappings.easyAlign = function()
 	map("x", "ga", "<Plug>(EasyAlign)", {})
 end
 
-function M.trouble()
-	map("n", "<Leader>x", ":TroubleToggle lsp_document_diagnostics<CR>",  opts)
-	map("n", "<Leader>X", ":TroubleToggle lsp_workspace_diagnostics<CR>", opts)
+mappings.trouble = function()
+	map("n", "<Leader>d", ":TroubleToggle lsp_document_diagnostics<CR>",  opts)
+	map("n", "<Leader>D", ":TroubleToggle lsp_workspace_diagnostics<CR>", opts)
 end
 
-return M
+return mappings

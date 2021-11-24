@@ -38,7 +38,8 @@ end)
 null_ls.config {
     sources = {
 			null_ls.builtins.formatting.prettierd, -- npm install -g @fsouza/prettierd
-			null_ls.builtins.formatting.clang_format -- sudo pacman -S clang
+			null_ls.builtins.formatting.clang_format, -- sudo pacman -S clang
+			null_ls.builtins.formatting.gofmt -- included with go
 		}
 }
 

@@ -1,9 +1,9 @@
 local toggle_term_window = -1
 local toggle_term_buffer = -1
 
-local T = {}
+local terminal = {}
 
-local function termOpen(split_dir)
+local function term_open(split_dir)
 	-- If terminal buffer does not exists
 	if vim.fn.bufexists(toggle_term_buffer) == 0 then
 		if split_dir == "vertical" then
@@ -33,7 +33,7 @@ local function termOpen(split_dir)
 	end
 end
 
-local function termClose()
+local function term_close()
 	if vim.fn.win_gotoid(toggle_term_window) ~= 0 then
 		-- Stores the previous terminal windows size
 		-- toggle_term_window_size = vim.fn.winheight(toggle_term_window)
@@ -41,15 +41,15 @@ local function termClose()
 	end
 end
 
-function T.termToggle(split_dir)
+terminal.term_toggle = function(split_dir)
 	if vim.fn.win_gotoid(toggle_term_window) == 0 then
-		termOpen(split_dir)
+		term_open(split_dir)
 	else
-		termClose()
+		term_close()
 	end
 end
 
 -- Activates keymappings
 require "core.mappings".terminal()
 
-return T
+return terminal
