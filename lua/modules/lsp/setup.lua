@@ -23,18 +23,18 @@ end
 -- Diagnostics signs
 function setup.diagnostics()
 	-- Setting signcolumn signs
-	aux_set_signcolumn_sign("LspDiagnosticsSignError",          "")
-	aux_set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
-	aux_set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")
-	aux_set_signcolumn_sign("LspDiagnosticsDefaultHint",        "")
+	aux_set_signcolumn_sign("LspDiagnosticsSignError",          "")
+	aux_set_signcolumn_sign("LspDiagnosticsSignWarning",        "")
+	aux_set_signcolumn_sign("LspDiagnosticsDefaultInformation", "")
+	aux_set_signcolumn_sign("LspDiagnosticsDefaultHint",        "")
 
 	-- Diagnositcs windows/virtual text
 	vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = false
-		-- virtual_text = {
-			-- spacing = 0
-		-- }
+		virtual_text = {
+			spacing = 0,
+			prefix = ""
+		}
 	})
 end
 

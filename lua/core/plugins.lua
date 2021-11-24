@@ -1,4 +1,4 @@
---  Automatically install Packer if its missing
+-- Automatically install Packer if its missing
 local execute = vim.api.nvim_command
 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
