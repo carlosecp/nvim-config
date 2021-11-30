@@ -23,11 +23,11 @@ local ts_playground_cmds = {
 
 return require "packer".startup(function(use)
 	-- LSP
-	use "neovim/nvim-lspconfig"
-	use {
-		"williamboman/nvim-lsp-installer",
-		"jose-elias-alvarez/null-ls.nvim"
-	}
+	-- use "neovim/nvim-lspconfig"
+	-- use {
+		-- "williamboman/nvim-lsp-installer",
+		-- "jose-elias-alvarez/null-ls.nvim"
+	-- }
 
 	-- Autocompletion
 	use {
@@ -103,6 +103,15 @@ return require "packer".startup(function(use)
 		end
 	}
 
+	-- File Explorer
+	use {
+		"kyazdani42/nvim-tree.lua",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require "configs.nvimtree"
+		end
+	}
+
 	-- Colorscheme
 	use {
 		"navarasu/onedark.nvim",
@@ -113,29 +122,9 @@ return require "packer".startup(function(use)
 
 	-- Utilities
 	use {
-		"ThePrimeagen/harpoon",
-		module = {
-			"harpoon.mark",
-			"harpoon.ui"
-		},
-		config = function()
-			require "configs.harpoon"
-		end
-	}
-	use {
-		"folke/trouble.nvim",
-		cmd = { "Trouble", "TroubleToggle" },
-		config = function()
-			require "configs.trouble"
-		end,
-		setup = function()
-			require "core.mappings".trouble()
-		end
-	}
-	use {
 		"tpope/vim-surround",
 		keys = {
-			{"v", "S"}
+			{ "v", "S" }
 		}
 	}
 	use {

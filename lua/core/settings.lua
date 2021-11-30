@@ -20,12 +20,6 @@ o.wrap           = false
 o.scrolloff      = 5
 
 -- Autocompletion
-o.completeopt    = {
-  "menu",
-  "menuone",
-  "noselect",
-	"noinsert"
-}
 o.pumheight      = 10
 o.cmdheight      = 2
 
@@ -36,9 +30,14 @@ o.shiftwidth     = 2
 o.autoindent     = true
 o.smartindent    = true
 o.smarttab       = true
+o.list           = false
+o.listchars      = {
+  tab = "  ",
+	lead = "."
+}
 
 -- Env
-o.shell = "sh"
+o.shell = "bash"
 vim.g.python3_host_prog = "/usr/sbin/python3"
 
 -- Format Options

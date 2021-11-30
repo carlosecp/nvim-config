@@ -19,7 +19,7 @@ lsp_installer.on_server_ready(function(server)
 	server_config.on_attach = common_on_attach
 
 	if server.name == "tailwindcss" then
-		server_config.on_attach = function (client, bufnr)
+		server_config.on_attach = function(client, bufnr)
 			if client.server_capabilities.colorProvider then
 				require"modules.lsp.documentcolors".buf_attach(bufnr)
 			end
@@ -39,7 +39,8 @@ null_ls.config {
     sources = {
 			null_ls.builtins.formatting.prettierd, -- npm install -g @fsouza/prettierd
 			null_ls.builtins.formatting.clang_format, -- sudo pacman -S clang
-			null_ls.builtins.formatting.gofmt -- included with go
+			null_ls.builtins.formatting.gofmt, -- included with go
+      null_ls.builtins.formatting.autopep8 -- pip install autopep8
 		}
 }
 

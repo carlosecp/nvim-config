@@ -5,8 +5,7 @@ local bit = require "bit"
 
 local function lsp_color_to_hex(color)
   local function to256(c) return math.floor(c * color.alpha * 255) end
-  return bit.tohex(bit.bor(bit.lshift(to256(color.red), 16), bit.lshift(to256(color.green), 8),
-                           to256(color.blue)), 6)
+  return bit.tohex(bit.bor(bit.lshift(to256(color.red), 16), bit.lshift(to256(color.green), 8), to256(color.blue)), 6)
 end
 
 -- Determine whether to use black or white text
@@ -104,7 +103,9 @@ function M.buf_attach(bufnr, options)
   if ATTACHED_BUFFERS[bufnr] then return end
   ATTACHED_BUFFERS[bufnr] = true
 
-  options = options or {}
+  options = options or {
+		mode = "background" -- or foreground
+	}
 
   -- VSCode extension also does 200ms debouncing
   local trigger_update_highlight, timer = require"modules.lsp.defer".debounce_trailing(M.update_highlight, options.debounce or 200, false)
