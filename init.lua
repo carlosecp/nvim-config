@@ -12,7 +12,7 @@ require "core.plugins"
 require "core.commands"
 
 require "modules.statusline"
--- require "modules.lsp"
+require "modules.lsp"
 require "modules.terminal"
 require "modules.netrw"
 

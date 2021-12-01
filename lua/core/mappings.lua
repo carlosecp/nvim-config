@@ -29,18 +29,18 @@ mappings.lsp = function(bufnr)
 	bufmap(bufnr, "n", "gd",         ":lua vim.lsp.buf.definition()<CR>",              opts)
 	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",             opts)
 	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                  opts)
-	bufmap(bufnr, "n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",             opts)
+	-- bufmap(bufnr, "n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",             opts)
 	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting_sync() vim.cmd('w')<CR>", opts)
 
-	bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
-	bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
+	-- bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
+	-- bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
 
-	vim.cmd[[
-	imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-	smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-	imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-	smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-	]]
+	-- vim.cmd[[
+	-- imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+	-- smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+	-- imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+	-- smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+	-- ]]
 end
 
 mappings.terminal = function()
@@ -50,8 +50,11 @@ mappings.terminal = function()
 end
 
 mappings.telescope = function()
-	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>",                  opts)
-	map("n", "<Leader>lg", ":Telescope live_grep<CR>",                               opts)
+	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", opts)
+	map("n", "<Leader>lg", ":Telescope live_grep<CR>",              opts)
+	map("n", "<Leader>gc", ":Telescope git_commits<CR>",            opts)
+
+	-- Custom finders
 	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>",   opts)
 	map("n", "<Leader>df", ":lua require 'configs.telescope'.search_dotfiles()<CR>", opts)
 end

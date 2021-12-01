@@ -2,7 +2,6 @@ local o = vim.opt
 
 -- Defaults
 vim.cmd("set syntax=off")
-o.hidden         = true
 o.cursorline     = true
 o.termguicolors  = true
 o.splitbelow     = true

@@ -23,11 +23,11 @@ local ts_playground_cmds = {
 
 return require "packer".startup(function(use)
 	-- LSP
-	-- use "neovim/nvim-lspconfig"
-	-- use {
-		-- "williamboman/nvim-lsp-installer",
-		-- "jose-elias-alvarez/null-ls.nvim"
-	-- }
+	use "neovim/nvim-lspconfig"
+	use {
+		"williamboman/nvim-lsp-installer",
+		"jose-elias-alvarez/null-ls.nvim"
+	}
 
 	-- Autocompletion
 	use {

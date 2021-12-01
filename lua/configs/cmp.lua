@@ -2,7 +2,7 @@ local cmp = require "cmp"
 cmp.setup {
 	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
 	completion = {
-		completeopt = "menu,menuone,noinsert"
+		completeopt = "menu,menuone,noinsert,noselect"
 	},
 	documentation = {
 		border    = "rounded",
@@ -15,12 +15,12 @@ cmp.setup {
 		["<CR>"]      = cmp.mapping.confirm()
 	},
 	sources = {
-		{ name = "nvim_lsp" },
+		-- { name = "nvim_lsp" },
 		{ name = "path"     },
-		{ name = "vsnip"    },
+		-- { name = "vsnip"    },
 		{
 			name = "buffer",
-			keyword_length = 5
+			keyword_length = 2
 		}
 	},
 	formatting = {

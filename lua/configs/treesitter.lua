@@ -10,11 +10,7 @@ require "nvim-treesitter.configs".setup {
 		disable = {}
 	},
 	refactor = {
-		highlight_definitions = { enable = true },
-		smart_rename = {
-			enable = true,
-			keymaps = { smart_rename = "<Leader>rn", }
-		}
+		highlight_definitions = { enable = true }
 	},
 	playground = {
 		enable = true
