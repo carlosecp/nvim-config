@@ -46,7 +46,6 @@ end
 mappings.terminal = function()
 	map("n", "<Leader>t", ":lua require 'modules.terminal'.term_toggle('vertical')<CR>",   opts)
 	map("n", "<Leader>T", ":lua require 'modules.terminal'.term_toggle('horizontal')<CR>", opts)
-	vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
 mappings.telescope = function()
