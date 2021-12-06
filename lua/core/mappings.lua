@@ -20,6 +20,8 @@ map("i", ".", ".<c-g>u", { noremap = true })
 map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 map("n", "<Leader>cc", ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>", opts)
+map("n", "<Leader>N", ":norm ", opts)
+map("v", "<Leader>N", ":norm ", opts)
 
 local mappings = {}
 
@@ -46,6 +48,7 @@ end
 mappings.terminal = function()
 	map("n", "<Leader>t", ":lua require 'modules.terminal'.term_toggle('vertical')<CR>",   opts)
 	map("n", "<Leader>T", ":lua require 'modules.terminal'.term_toggle('horizontal')<CR>", opts)
+  vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
 mappings.telescope = function()

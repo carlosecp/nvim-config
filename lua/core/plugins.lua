@@ -143,6 +143,12 @@ return require "packer".startup(function(use)
 			require "configs.colorizer"
 		end,
 	}
+	use {
+		"numToStr/Comment.nvim",
+		config = function()
+			require "configs.comment"
+		end
+	}
 
 	-- Modules
 	use {

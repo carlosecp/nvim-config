@@ -5,8 +5,3 @@
 -- 	end,
 -- 	requires = "rktjmp/lush.nvim"
 -- }
-
-vim.cmd [[
-colo gruvbox
-hi Normal guibg=NONE ctermbg=NONE
-]]
