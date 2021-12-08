@@ -31,11 +31,11 @@ mappings.lsp = function(bufnr)
 	bufmap(bufnr, "n", "gd",         ":lua vim.lsp.buf.definition()<CR>",              opts)
 	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",             opts)
 	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                  opts)
-	-- bufmap(bufnr, "n", "gc",         ":lua vim.lsp.buf.code_action()<CR>",             opts)
+	bufmap(bufnr, "n", "gs",         ":lua vim.lsp.buf.code_action()<CR>",             opts)
 	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting_sync() vim.cmd('w')<CR>", opts)
 
-	-- bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
-	-- bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
+	bufmap(bufnr, "n", "[g", ":lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'rounded' }})<CR>", opts)
+	bufmap(bufnr, "n", "]g", ":lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'rounded' }})<CR>", opts)
 
 	-- vim.cmd[[
 	-- imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
