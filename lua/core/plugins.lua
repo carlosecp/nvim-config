@@ -114,13 +114,19 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"navarasu/onedark.nvim",
+		"ishan9299/nvim-solarized-lua",
 		config = function()
-			require "themes.onedark"
+			require "themes.nvim_solarized_lua"
 		end
 	}
 
 	-- Utilities
+	use {
+		"numToStr/Comment.nvim",
+		config = function()
+			require "configs.comment"
+		end
+	}
 	use {
 		"tpope/vim-surround",
 		keys = {
@@ -138,16 +144,9 @@ return require "packer".startup(function(use)
 	}
 	use {
 		"norcalli/nvim-colorizer.lua",
-		cmd = "ColorizerToggle",
 		config = function()
 			require "configs.colorizer"
 		end,
-	}
-	use {
-		"numToStr/Comment.nvim",
-		config = function()
-			require "configs.comment"
-		end
 	}
 
 	-- Modules

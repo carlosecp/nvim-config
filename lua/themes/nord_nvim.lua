@@ -8,6 +8,6 @@
 vim.g.nord_borders = true
 vim.cmd("colo nord")
 vim.cmd[[
-hi Comment gui=italic
+" hi Comment gui=italic
 hi NvimTreeGitIgnored gui=NONE
 ]]

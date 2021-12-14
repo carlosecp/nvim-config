@@ -37,6 +37,7 @@ end)
 
 null_ls.config {
     sources = {
+			-- null_ls.builtins.formatting.prettier,     -- npm install -g prettier
 			null_ls.builtins.formatting.prettierd,    -- npm install -g @fsouza/prettierd
 			null_ls.builtins.formatting.clang_format, -- sudo pacman -S clang
 			null_ls.builtins.formatting.gofmt,        -- included with go
@@ -48,3 +49,4 @@ null_ls.config {
 lspconfig["null-ls"].setup {
     on_attach = common_on_attach
 }
+

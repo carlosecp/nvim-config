@@ -1,5 +1,5 @@
 --[[
-	ITSCARLOSECP.NVIM
+	CECP.NVIM
 • Author: Carlos Castillo (itscarlosecp)
 • Github: https://github.com/itscarlosecp
 ]]

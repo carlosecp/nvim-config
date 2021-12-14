@@ -5,7 +5,7 @@ cmp.setup {
 		completeopt = "menu,menuone,noinsert,noselect"
 	},
 	documentation = {
-		border    = "rounded",
+		-- border    = "rounded",
 		max_width = 80
 	},
 	mapping = {
@@ -15,12 +15,11 @@ cmp.setup {
 		["<CR>"]      = cmp.mapping.confirm()
 	},
 	sources = {
-		-- { name = "nvim_lsp" },
+		{ name = "nvim_lsp" },
 		{ name = "path"     },
-		-- { name = "vsnip"    },
 		{
 			name = "buffer",
-			keyword_length = 2
+			-- keyword_length = 2
 		}
 	},
 	formatting = {
