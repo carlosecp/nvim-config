@@ -28,7 +28,7 @@ local cstm_finders = {}
 cstm_finders.search_dotfiles = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Dotfiles",
-		cwd = "/home/itscarlosecp/dotfiles",
+		cwd = "/home/cecp01/dotfiles",
 		hidden = true
 	}
 end
@@ -37,7 +37,7 @@ end
 cstm_finders.search_neovim = function()
 	require "telescope.builtin".find_files {
 		prompt_title = "Search Neovim",
-		cwd = "/home/itscarlosecp/.config/nvim",
+		cwd = "/home/cecp01/.config/nvim",
 		hidden = true
 	}
 end

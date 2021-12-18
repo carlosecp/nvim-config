@@ -24,9 +24,12 @@ local ts_playground_cmds = {
 return require "packer".startup(function(use)
 	-- LSP
 	use "neovim/nvim-lspconfig"
+	use "williamboman/nvim-lsp-installer"
 	use {
-		"williamboman/nvim-lsp-installer",
-		"jose-elias-alvarez/null-ls.nvim"
+		"jose-elias-alvarez/null-ls.nvim", 
+		config = function()
+			require "configs.null_ls"
+		end
 	}
 
 	-- Autocompletion
@@ -114,9 +117,9 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"ishan9299/nvim-solarized-lua",
+		"navarasu/onedark.nvim",
 		config = function()
-			require "themes.nvim_solarized_lua"
+			require "themes.onedark"
 		end
 	}
 
