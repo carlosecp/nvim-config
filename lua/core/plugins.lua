@@ -117,9 +117,9 @@ return require "packer".startup(function(use)
 
 	-- Colorscheme
 	use {
-		"navarasu/onedark.nvim",
+		"morhetz/gruvbox",
 		config = function()
-			require "themes.onedark"
+			require "themes.gruvbox"
 		end
 	}
 

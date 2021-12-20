@@ -5,5 +5,5 @@
 -- 	end
 -- }
 
-vim.g.gruvbox_transparent_bg = 1
 vim.cmd("colo gruvbox")
+vim.cmd("hi Normal guibg=NONE")
