@@ -1,4 +1,3 @@
-local lspconfig     = require "lspconfig"
 local lsp_installer = require "nvim-lsp-installer"
 local cstm_configs  = require "modules.lsp.cstm_configs"
 local setup         = require "modules.lsp.setup"
@@ -12,6 +11,7 @@ end
 
 lsp_installer.on_server_ready(function(server)
 	local capabilities = require "cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities())
+	-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 	local server_config = cstm_configs[server.name] or {}
 	server_config.capabilities = capabilities

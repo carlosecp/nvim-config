@@ -7,5 +7,8 @@ null_ls.setup {
 			null_ls.builtins.formatting.gofmt,        -- included with go
       null_ls.builtins.formatting.autopep8,     -- pip install autopep8
       null_ls.builtins.formatting.rustfmt       -- rustfmt
-		}
+		},
+    on_attach = function(_, bufnr)
+      require "core.mappings".lsp(bufnr)
+    end
 }

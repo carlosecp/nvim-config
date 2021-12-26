@@ -13,13 +13,6 @@ function setup.floating_windows()
 	})
 end
 
-local function aux_set_signcolumn_sign(diag_type, sign)
-	vim.fn.sign_define(diag_type, {
-		text = sign,
-		numhl = diag_type
-	})
-end
-
 -- Diagnostics signs
 function setup.diagnostics()
 	-- Setting signcolumn signs
