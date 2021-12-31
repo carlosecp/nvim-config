@@ -15,12 +15,6 @@ require "nvim-treesitter.configs".setup {
       enable = true,
       keymaps = { smart_rename = "<Leader>rn", }
     }
-	},
-	playground = {
-		enable = true
-	},
-	autotag = {
-		enable = true
 	}
 }
 

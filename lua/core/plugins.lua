@@ -1,27 +1,28 @@
 -- Automatically install Packer if its missing
 local execute = vim.api.nvim_command
 
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = vim.fn.stdpath "data"  .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.fn.system {
-		"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
-	execute "packadd packer.nvim"
+		"git",
+		"clone",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path
+	}
+	print "Installing packer close and reopen Neovim..."
+	vim.cmd [[packadd packer.nvim]]
 end
 
-local frontend_ft = {
-	"javascript",
-	"javascriptreact",
-	"typescript",
-	"typescriptreact"
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then 
+	return
+end
+
+packer.init {
 }
 
-local ts_playground_cmds = {
-	"TSPlaygroundToggle",
-	"TSHighlightCapturesUnderCursor"
-}
-
-return require "packer".startup {
+return packer.startup {
 	function(use)
 		-- LSP
 		use "neovim/nvim-lspconfig"
@@ -50,7 +51,7 @@ return require "packer".startup {
 				},
 				{ "hrsh7th/cmp-vsnip",    after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
-				-- { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
+				{ "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
 				{ "hrsh7th/cmp-path",     after = "nvim-cmp" }
 			}
 		}
@@ -64,18 +65,8 @@ return require "packer".startup {
 			end,
 			run = ":TSUpdate",
 			requires = {
-				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-				{ "windwp/nvim-ts-autotag", after = "nvim-treesitter", ft = frontend_ft },
-				{
-					"nvim-treesitter/playground" ,
-					after = "nvim-treesitter",
-					cmd = ts_playground_cmds
-				}
+				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
 			}
-		}
-		use {
-			"MaxMEllon/vim-jsx-pretty",
-			ft = frontend_ft
 		}
 
 		-- Fuzzy Finder
@@ -97,14 +88,6 @@ return require "packer".startup {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				run = "make"
 			}}
-		}
-
-		-- Statusline
-		use {
-			"tjdevries/express_line.nvim",
-			config = function()
-				require "configs.express_line"
-			end
 		}
 
 		-- File Explorer
@@ -155,6 +138,10 @@ return require "packer".startup {
 
 		-- Improve Startup Time
 		use "lewis6991/impatient.nvim"
+		use {
+			"dstein64/vim-startuptime",
+			cmd = "StartupTime"
+		}
 
 		-- Modules
 		use {
@@ -180,4 +167,3 @@ return require "packer".startup {
 		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
 	}
 }
-
