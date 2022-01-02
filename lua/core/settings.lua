@@ -1,7 +1,6 @@
 local o = vim.opt
 
 -- Defaults
-o.mouse = "a"
 o.cursorline     = true
 o.termguicolors  = true
 o.splitbelow     = true

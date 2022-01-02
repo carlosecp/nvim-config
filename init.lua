@@ -2,7 +2,7 @@
 -- https://github.com/cecp01/nvim
 
 -- Loads caches requires
-require "impatient"
+pcall(require, "impatient")
 
 -- Sources core defaults
 require "core.settings"
@@ -12,7 +12,7 @@ require "core.commands"
 
 -- Load plugins
 require "core.plugins"
-require "packer_compiled"
+pcall(require, "packer_compiled")
 
 -- LSP
 require "modules.lsp"
