@@ -43,3 +43,7 @@ vim.g.python3_host_prog = "/usr/sbin/python3"
 -- Format Options
 -- Stop adding comments on newline
 vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
+
+-- Use faster filetype detection
+vim.g.do_filetype_lua = 1
+-- vim.g.did_load_filetypes = 0
