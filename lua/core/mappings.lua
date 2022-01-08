@@ -46,8 +46,7 @@ mappings.lsp = function(bufnr)
 end
 
 mappings.terminal = function()
-	map("n", "<Leader>t", ":lua require 'modules.terminal'.term_toggle('vertical')<CR>",   opts)
-	map("n", "<Leader>T", ":lua require 'modules.terminal'.term_toggle('horizontal')<CR>", opts)
+	map("n", "<Leader>t", ":lua require 'modules.terminal'.term_toggle()<CR>", opts)
   vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 

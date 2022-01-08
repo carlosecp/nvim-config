@@ -15,12 +15,7 @@ local function common_on_attach(client, bufnr)
 end
 
 lsp_installer.on_server_ready(function(server)
-	local status_ok, nvim_cmp_lsp = pcall(require, "cmp_nvim_lsp")
-	if status_ok then
-		local capabilities = require "cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities())
-	else
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-	end
+	local capabilities = require "cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 	local server_config = cstm_configs[server.name] or {}
 	server_config.capabilities = capabilities

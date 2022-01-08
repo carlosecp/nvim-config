@@ -2,16 +2,14 @@ local toggle_term_window = -1
 local toggle_term_buffer = -1
 
 local terminal = {}
+local toggle_term_window_size = 12
 
 local function term_open(split_dir)
 	-- If terminal buffer does not exists
 	if vim.fn.bufexists(toggle_term_buffer) == 0 then
-		if split_dir == "vertical" then
-			vim.cmd("vnew toggle_term") -- use just `new` to :split terminal
-		else
-			vim.cmd("new toggle_term")
-		end
-		-- vim.cmd("resize " .. term_size)
+		vim.cmd("new toggle_term") -- use just `new` to :split terminal
+
+		vim.cmd("resize " .. toggle_term_window_size)
 		vim.fn.termopen("fish", { detach = 1 })
 		vim.cmd("silent file Terminal")
 
@@ -21,12 +19,9 @@ local function term_open(split_dir)
 		vim.opt.buflisted = false
 	else
 		if vim.fn.win_gotoid(toggle_term_window) == 0 then
-			if split_dir == "vertical" then
-				vim.cmd("vs")
-			else
-				vim.cmd("sp")
-			end
+			vim.cmd("sp")
 			vim.cmd("buffer Terminal")
+			vim.cmd("resize " .. toggle_term_window_size)
 
 			toggle_term_window = vim.api.nvim_get_current_win()
 		end
@@ -36,7 +31,7 @@ end
 local function term_close()
 	if vim.fn.win_gotoid(toggle_term_window) ~= 0 then
 		-- Stores the previous terminal windows size
-		-- toggle_term_window_size = vim.fn.winheight(toggle_term_window)
+		toggle_term_window_size = vim.fn.winheight(toggle_term_window)
 		vim.cmd("hide")
 	end
 end

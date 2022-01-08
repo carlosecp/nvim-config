@@ -16,3 +16,4 @@ pcall(require, "packer_compiled")
 
 -- LSP
 require "modules.lsp"
+require "modules.terminal"
