@@ -17,12 +17,12 @@ cmp.setup {
 		["<CR>"]      = cmp.mapping.confirm()
 	},
 	sources = {
+		{ name = "luasnip"  },
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "path"     },
-		{
-			name = "buffer",
-			-- keyword_length = 2
-		}
+		{ name = "spell"    },
+		{ name = "buffer", keyword_length = 2 },
 	},
 	formatting = {
 		format = function(entry, vim_item)
@@ -65,7 +65,7 @@ cmp.setup {
 	},
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			require "luasnip".lsp_expand(args.body)
 		end
 	},
 	experimental = {

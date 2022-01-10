@@ -36,6 +36,10 @@ o.listchars      = {
 	lead = "."
 }
 
+-- Spell
+o.spell = true
+o.spelllang = { "en_us" }
+
 -- Env
 o.shell = "bash"
 vim.g.python3_host_prog = "/usr/sbin/python3"
