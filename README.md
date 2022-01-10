@@ -13,8 +13,8 @@ git clone https://github.com/cecp01/nvim.git $HOME/.config/nvim
 nvim +PackerSync
 ```
 
-The latter command is equivalent to opening neovim and then running the
-`:PackerSync` command. When opening the first buffer after the installation,
+The latter command is equivalent to opening neovim and then running
+`:PackerSync` from within neovim. When opening the first buffer after the installation,
 you'll feel neovim a little bit laggy, this is because treesitter stars
 installing every parser available. This will only happen once until treesitter
 updates any parser.
