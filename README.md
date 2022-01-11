@@ -9,8 +9,8 @@ Simply run the following command to clone this repo to the default location and
 install my plugins:
 
 ```bash
-git clone https://github.com/cecp01/nvim.git $HOME/.config/nvim nvim
-+PackerSync
+git clone https://github.com/cecp01/nvim.git $HOME/.config/nvim
+nvim +PackerSync
 ```
 
 The latter command is equivalent to opening neovim and then running
