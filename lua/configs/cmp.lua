@@ -21,7 +21,7 @@ cmp.setup {
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "path"     },
-		{ name = "spell"    },
+		-- { name = "spell"    },
 		{ name = "buffer", keyword_length = 2 },
 	},
 	formatting = {

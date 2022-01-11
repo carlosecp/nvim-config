@@ -37,8 +37,8 @@ o.listchars      = {
 }
 
 -- Spell
-o.spell = true
-o.spelllang = { "en_us" }
+-- o.spell = true
+-- o.spelllang = { "en_us" }
 
 -- Env
 o.shell = "bash"
