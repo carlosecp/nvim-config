@@ -47,6 +47,14 @@ M.on_attach = function(client, bufnr)
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 	end
 
+	if client.name == "tsserver" then
+		local status_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
+		if status_ok then
+			ts_utils.setup {}
+			ts_utils.setup_client(client)
+		end
+	end
+
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 

@@ -14,6 +14,11 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
+	if server.name == "tsserver" then
+		local tsserver_opts = require "core.lsp.settings.tsserver"
+		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+	end
+
 	if server.name == "sumneko_lua" then
 		local sumneko_lua_opts = require "core.lsp.settings.sumneko_lua"
 		opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
