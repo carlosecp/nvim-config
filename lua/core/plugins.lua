@@ -1,5 +1,3 @@
--- Automatically install Packer if its missing
-
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -10,7 +8,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 		install_path
 	}
 	print("Installing packer close and reopen Neovim...")
-	vim.cmd [[packadd packer.nvim]]
+	vim.cmd("packadd packer.nvim")
 end
 
 local status_ok, packer = pcall(require, "packer")
@@ -21,28 +19,20 @@ end
 return packer.startup {
 	function(use)
 		-- LSP
-		use "neovim/nvim-lspconfig"
-		use "williamboman/nvim-lsp-installer"
 		use {
-			"jose-elias-alvarez/null-ls.nvim",
-			config = function()
-				require "configs.null_ls"
-			end
-		}
-    use {
+			"neovim/nvim-lspconfig",
+			"williamboman/nvim-lsp-installer",
       "nvim-lua/lsp_extensions.nvim",
-      setup = function()
-        vim.cmd[[ autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText", enabled = {"ChainingHint"} } ]]
-      end
-    }
-		use "jose-elias-alvarez/nvim-lsp-ts-utils"
+			"jose-elias-alvarez/nvim-lsp-ts-utils",
+			"jose-elias-alvarez/null-ls.nvim"
+		}
 
 		-- Autocompletion
 		use {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
 			config = function()
-				require "configs.cmp"
+				require "plugins.cmp"
 			end,
 			requires = {
 				{
@@ -63,7 +53,7 @@ return packer.startup {
 			"nvim-treesitter/nvim-treesitter",
 			event = "BufRead",
 			config = function()
-				require "configs.treesitter"
+				require "plugins.treesitter"
 			end,
 			run = ":TSUpdate",
 			requires = {
@@ -71,17 +61,17 @@ return packer.startup {
 			}
 		}
 
-		-- Fuzzy Finder
+		-- Fuzzy finder
 		use {
 			"nvim-telescope/telescope.nvim",
 			cmd = "Telescope",
 			module = {
 				"telescope",
 				"telescope.builtin",
-				"configs.telescope"
+				"plugins.telescope"
 			},
 			config = function()
-				require "configs.telescope"
+				require "plugins.telescope"
 			end,
 			setup = function()
 				require "core.mappings".telescope()
@@ -92,12 +82,12 @@ return packer.startup {
 			}}
 		}
 
-		-- File Explorer
+		-- File explorer
 		use {
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
 			config = function()
-				require "configs.nvimtree"
+				require "plugins.nvimtree"
 			end
 		}
 
@@ -113,7 +103,7 @@ return packer.startup {
 		use {
 			"numToStr/Comment.nvim",
 			config = function()
-				require "configs.comment"
+				require "plugins.comment"
 			end
 		}
 		use {
@@ -134,11 +124,11 @@ return packer.startup {
 		use {
 			"norcalli/nvim-colorizer.lua",
 			config = function()
-				require "configs.colorizer"
+				require "plugins.colorizer"
 			end,
 		}
 
-		-- Improve Startup Time
+		-- Neovim overall performance
 		use "lewis6991/impatient.nvim"
 		use {
 			"dstein64/vim-startuptime",
@@ -158,7 +148,7 @@ return packer.startup {
 			"kyazdani42/nvim-web-devicons",
 			module = "nvim-web-devicons",
 			config = function()
-				require "configs.devicons"
+				require "plugins.devicons"
 			end
 		}
 

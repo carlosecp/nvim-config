@@ -1,2 +1,0 @@
-; highlights.scm
-

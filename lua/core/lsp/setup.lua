@@ -15,12 +15,6 @@ end
 
 -- Diagnostics signs
 function setup.diagnostics()
-	-- Setting signcolumn signs
-	-- aux_set_signcolumn_sign("DiagnosticsSignError",          "")
-	-- aux_set_signcolumn_sign("DiagnosticsSignWarning",        "")
-	-- aux_set_signcolumn_sign("DiagnosticsDefaultInformation", "")
-	-- aux_set_signcolumn_sign("DiagnosticsDefaultHint",        "")
-
 	-- Diagnositcs windows/virtual text
 	vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

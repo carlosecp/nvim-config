@@ -23,6 +23,8 @@ map("n", "<Leader>cc", ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80'
 map("n", "<Leader>N", ":norm ", opts)
 map("v", "<Leader>N", ":norm ", opts)
 
+--[[ Mappings that are gonna be required only when for specific plugins.
+These mappings are not activated if their respective plugins are not active. ]]
 local mappings = {}
 
 mappings.lsp = function(bufnr)
@@ -30,22 +32,15 @@ mappings.lsp = function(bufnr)
 	bufmap(bufnr, "n", "gs",         ":lua vim.lsp.buf.signature_help()<CR>",          opts)
 	bufmap(bufnr, "n", "gd",         ":lua vim.lsp.buf.definition()<CR>",              opts)
 	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",             opts)
-	-- bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                  opts)
+	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                  opts)
 	bufmap(bufnr, "n", "gs",         ":lua vim.lsp.buf.code_action()<CR>",             opts)
 	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting_sync() vim.cmd('w')<CR>", opts)
 
 	bufmap(bufnr, "n", "[g", ":lua vim.diagnostic.goto_next()<CR>", opts)
 	bufmap(bufnr, "n", "]g", ":lua vim.diagnostic.goto_prev()<CR>", opts)
-
-	-- vim.cmd[[
-	-- imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-	-- smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-	-- imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-	-- smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-	-- ]]
 end
 
-mappings.terminal = function()
+mappings.toggle_terminal = function()
 	map("n", "<C-t>", ":lua require 'modules.terminal'.term_toggle()<CR>", opts)
   vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
@@ -62,21 +57,6 @@ end
 
 mappings.easyAlign = function()
 	map("x", "ga", "<Plug>(EasyAlign)", {})
-end
-
-mappings.trouble = function()
-	map("n", "<Leader>x", ":TroubleToggle lsp_document_diagnostics<CR>",  opts)
-	map("n", "<Leader>X", ":TroubleToggle lsp_workspace_diagnostics<CR>", opts)
-end
-
-mappings.harpoon = function()
-	map("n", "<Leader>`", ":lua require 'harpoon.mark'.add_file()<CR>",        opts)
-	-- map("n", "<Leader>hh", ":lua require 'harpoon.ui'.toggle_quick_menu()<CR>", opts)
-
-	map("n", "<Leader>1", ":lua require 'harpoon.ui'.nav_file(1)<CR>", opts)
-	map("n", "<Leader>2", ":lua require 'harpoon.ui'.nav_file(2)<CR>", opts)
-	map("n", "<Leader>3", ":lua require 'harpoon.ui'.nav_file(3)<CR>", opts)
-	map("n", "<Leader>4", ":lua require 'harpoon.ui'.nav_file(4)<CR>", opts)
 end
 
 return mappings
