@@ -51,8 +51,8 @@ mappings.telescope = function()
 	map("n", "<Leader>gc", ":Telescope git_commits<CR>",            opts)
 
 	-- Custom finders
-	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>",   opts)
-	map("n", "<Leader>df", ":lua require 'configs.telescope'.search_dotfiles()<CR>", opts)
+	map("n", "<Leader>nv", ":lua require 'plugins.telescope'.search_neovim()<CR>",   opts)
+	map("n", "<Leader>df", ":lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
 end
 
 mappings.easyAlign = function()
