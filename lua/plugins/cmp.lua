@@ -1,20 +1,29 @@
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then return end
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+	return
+end
+
+local luasnip_status_ok, luasnip = pcall(require, "luasnip")
+if not luasnip_status_ok then
+	return
+end
 
 cmp.setup {
-	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
+	confirmation = {
+		default_behaviour = cmp.ConfirmBehavior.Replace
+	},
 	completion = {
 		completeopt = "menu,menuone,noinsert,noselect"
 	},
 	documentation = {
-		-- border    = "rounded",
+		border    = "rounded",
 		max_width = 80
 	},
 	mapping = {
 		["<C-p>"]     = cmp.mapping.select_prev_item(),
 		["<C-n>"]     = cmp.mapping.select_next_item(),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<CR>"]      = cmp.mapping.confirm()
+		["<CR>"]      = cmp.mapping.confirm(),
 	},
 	sources = {
 		{ name = "luasnip"  },
@@ -65,11 +74,10 @@ cmp.setup {
 	},
 	snippet = {
 		expand = function(args)
-			require "luasnip".lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end
 	},
 	experimental = {
 		ghost_text = true
 	}
 }
-

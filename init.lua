@@ -2,7 +2,7 @@
 -- https://github.com/cecp01/nvim
 
 -- Loads caches requires
--- pcall(require, "impatient")
+pcall(require, "impatient")
 
 -- Sources core defaults
 require "core.options"

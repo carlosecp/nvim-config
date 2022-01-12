@@ -24,21 +24,13 @@ M.setup = function()
 	vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
-local function lsp_highlight_document(client)
-	if client.resolved_capabilities.document_highlight then
-		vim.api.nvim_exec([[
-			augroup lsp_document_highlight
-				autocmd! * <buffer>
-				autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-				autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-			augroup END
-		]], false)
-	end
-end
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.on_attach = function(client, bufnr)
+	if client.name == "rust_analyzer" then
+		require("lsp_extensions").inlay_hints { prefix = " >> ", highlight = "Comment", enabled = { "TypeHint", "ChainingHint", "ParameterHint" }}
+	end
+
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
 			require "core.lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
@@ -59,7 +51,6 @@ M.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_range_formatting = false
 
 	require "core.mappings".lsp(bufnr)
-	lsp_highlight_document(client)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
