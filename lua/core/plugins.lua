@@ -29,6 +29,13 @@ return packer.startup {
 				require "configs.null_ls"
 			end
 		}
+    use {
+      "nvim-lua/lsp_extensions.nvim",
+      setup = function()
+        vim.cmd[[ autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText", enabled = {"ChainingHint"} } ]]
+      end
+    }
+		use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
 		-- Autocompletion
 		use {
