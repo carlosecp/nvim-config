@@ -23,7 +23,22 @@ return packer.startup {
 			"neovim/nvim-lspconfig",
 			"williamboman/nvim-lsp-installer",
       "nvim-lua/lsp_extensions.nvim",
-			"jose-elias-alvarez/nvim-lsp-ts-utils",
+			{
+				"akinsho/flutter-tools.nvim",
+				ft = "dart",
+				config = function()
+					require "cecp01.plugins.flutter_tools"
+				end
+			},
+			{
+				"jose-elias-alvarez/nvim-lsp-ts-utils",
+				ft = {
+					"javascript",
+					"typescript",
+					"javascriptreact",
+					"typescriptreact"
+				}
+			},
 			"jose-elias-alvarez/null-ls.nvim"
 		}
 

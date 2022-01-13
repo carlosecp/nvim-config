@@ -12,7 +12,7 @@ configs.setup {
 	},
 	indent = {
 		enable = true,
-		disable = { "yaml" }
+		disable = { "lua", "yaml" }
 	},
 	refactor = {
 		highlight_definitions = { enable = true }

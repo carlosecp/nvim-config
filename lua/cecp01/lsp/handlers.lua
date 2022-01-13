@@ -33,7 +33,7 @@ M.on_attach = function(client, bufnr)
 
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
-			require "core.lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
+			require "cecp01.lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
 		end
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }

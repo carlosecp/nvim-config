@@ -18,3 +18,13 @@ The latter command is equivalent to opening neovim and then running
 installation, you'll feel neovim a little bit laggy, this is because treesitter
 stars installing every parser available. This will only happen once until
 treesitter updates any parser. 
+
+## LSP
+
+This configuration uses neovim native-lsp client to support various language
+servers (if you are comming from something like VSCode, think about language
+servers as language extensions, under the hood that's exactly what they are).
+The add support for a language, run the `:LspInstall <server-name>` command
+with the name of the server for your language. You can checkout the list of
+available servers per language
+[here](https://github.com/williamboman/nvim-lsp-installer#available-lsps).
