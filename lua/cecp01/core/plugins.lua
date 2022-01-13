@@ -118,12 +118,6 @@ return packer.startup {
 		}
 
 		-- Utilities
-    use {
-			"numToStr/Comment.nvim",
-			config = function()
-				require "cecp01.plugins.comment"
-			end
-		}
 		use {
 			"tpope/vim-surround",
 			keys = {
