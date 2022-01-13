@@ -5,7 +5,6 @@ o.cursorline     = true
 o.termguicolors  = true
 o.splitbelow     = true
 o.splitright     = true
--- o.colorcolumn    = "80"
 o.swapfile       = false
 
 -- Search
@@ -13,7 +12,7 @@ o.incsearch      = true
 o.hlsearch       = true
 o.ignorecase     = true
 
--- Scrolling
+-- Lines / Scrolling
 o.number         = true
 o.relativenumber = true
 o.wrap           = false
@@ -30,15 +29,6 @@ o.shiftwidth     = 2
 o.autoindent     = true
 o.smartindent    = true
 o.smarttab       = true
-o.list           = false
-o.listchars      = {
-  tab = "  ",
-	lead = "."
-}
-
--- Spell
--- o.spell = true
--- o.spelllang = { "en_us" }
 
 -- Env
 o.shell = "bash"
@@ -50,4 +40,3 @@ vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
 
 -- Use faster filetype detection
 vim.g.do_filetype_lua = 1
--- vim.g.did_load_filetypes = 0

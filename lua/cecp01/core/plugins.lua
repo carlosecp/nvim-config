@@ -147,6 +147,12 @@ return packer.startup {
 		}
 
 		-- Neovim overall performance
+		use {
+			"nathom/filetype.nvim",
+			config = function()
+				require "cecp01.plugins.filetype"
+			end
+		}
 		use "lewis6991/impatient.nvim"
 		use {
 			"dstein64/vim-startuptime",
