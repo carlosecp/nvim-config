@@ -5,22 +5,22 @@ end
 
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require "core.lsp.handlers".on_attach,
-		capabilities = require "core.lsp.handlers".capabilities
+		on_attach = require "cecp01.lsp.handlers".on_attach,
+		capabilities = require "cecp01.lsp.handlers".capabilities
 	}
 
 	if server.name == "jsonls" then
-		local jsonls_opts = require "core.lsp.settings.jsonls"
+		local jsonls_opts = require "cecp01.lsp.settings.jsonls"
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
 	if server.name == "tsserver" then
-		local tsserver_opts = require "core.lsp.settings.tsserver"
+		local tsserver_opts = require "cecp01.lsp.settings.tsserver"
 		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
 	end
 
 	if server.name == "sumneko_lua" then
-		local sumneko_lua_opts = require "core.lsp.settings.sumneko_lua"
+		local sumneko_lua_opts = require "cecp01.lsp.settings.sumneko_lua"
 		opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
 	end
 

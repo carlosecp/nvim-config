@@ -32,7 +32,7 @@ return packer.startup {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
 			config = function()
-				require "plugins.cmp"
+				require "cecp01.plugins.cmp"
 			end,
 			requires = {
 				{
@@ -53,7 +53,7 @@ return packer.startup {
 			"nvim-treesitter/nvim-treesitter",
 			event = "BufRead",
 			config = function()
-				require "plugins.treesitter"
+				require "cecp01.plugins.treesitter"
 			end,
 			run = ":TSUpdate",
 			requires = {
@@ -68,13 +68,13 @@ return packer.startup {
 			module = {
 				"telescope",
 				"telescope.builtin",
-				"plugins.telescope"
+				"cecp01.plugins.telescope"
 			},
 			config = function()
-				require "plugins.telescope"
+				require "cecp01.plugins.telescope"
 			end,
 			setup = function()
-				require "core.mappings".telescope()
+				require "cecp01.core.mappings".telescope()
 			end,
 			requires = {{
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -87,7 +87,7 @@ return packer.startup {
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
 			config = function()
-				require "plugins.nvimtree"
+				require "cecp01.plugins.nvimtree"
 			end
 		}
 
@@ -95,7 +95,7 @@ return packer.startup {
 		use {
 			"navarasu/onedark.nvim",
 			config = function()
-				require "themes.onedark"
+				require "cecp01.themes.onedark"
 			end
 		}
 
@@ -103,7 +103,7 @@ return packer.startup {
     use {
 			"numToStr/Comment.nvim",
 			config = function()
-				require "plugins.comment"
+				require "cecp01.plugins.comment"
 			end
 		}
 		use {
@@ -118,13 +118,13 @@ return packer.startup {
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require "core.mappings".easyAlign()
+				require "cecp01.core.mappings".easyAlign()
 			end
 		}
 		use {
 			"norcalli/nvim-colorizer.lua",
 			config = function()
-				require "plugins.colorizer"
+				require "cecp01.plugins.colorizer"
 			end,
 		}
 
@@ -148,7 +148,7 @@ return packer.startup {
 			"kyazdani42/nvim-web-devicons",
 			module = "nvim-web-devicons",
 			config = function()
-				require "plugins.devicons"
+				require "cecp01.plugins.devicons"
 			end
 		}
 

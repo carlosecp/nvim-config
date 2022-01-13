@@ -33,7 +33,7 @@ mappings.lsp = function(bufnr)
 	bufmap(bufnr, "n", "gd",         ":lua vim.lsp.buf.definition()<CR>",              opts)
 	bufmap(bufnr, "n", "gD",         ":lua vim.lsp.buf.declaration()<CR>",             opts)
 	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",                  opts)
-	bufmap(bufnr, "n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<CR>",             opts)
+	-- bufmap(bufnr, "n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<CR>",             opts)
 	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting_sync() vim.cmd('w')<CR>", opts)
 
 	bufmap(bufnr, "n", "[g", ":lua vim.diagnostic.goto_next()<CR>", opts)
@@ -51,8 +51,8 @@ mappings.telescope = function()
 	map("n", "<Leader>gc", ":Telescope git_commits<CR>",            opts)
 
 	-- Custom finders
-	map("n", "<Leader>nv", ":lua require 'plugins.telescope'.search_neovim()<CR>",   opts)
-	map("n", "<Leader>df", ":lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
+	map("n", "<Leader>nv", ":lua require 'cecp01.plugins.telescope'.search_neovim()<CR>",   opts)
+	map("n", "<Leader>df", ":lua require 'cecp01.plugins.telescope'.search_dotfiles()<CR>", opts)
 end
 
 mappings.easyAlign = function()

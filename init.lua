@@ -5,13 +5,13 @@
 pcall(require, "impatient")
 
 -- Sources core defaults
-require "core.options"
-require "core.mappings"
-require "core.autocommands"
+require "cecp01.core.options"
+require "cecp01.core.mappings"
+require "cecp01.core.autocommands"
 
 -- Load plugins
-require "core.plugins"
+require "cecp01.core.plugins"
 pcall(require, "packer_compiled")
 
-require "core.lsp"
-require "core.terminal"
+require "cecp01.lsp"
+require "cecp01.core.terminal"
