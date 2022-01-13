@@ -103,6 +103,9 @@ return packer.startup {
 			cmd = "NvimTreeToggle",
 			config = function()
 				require "cecp01.plugins.nvimtree"
+			end,
+			setup = function()
+				require "cecp01.core.mappings".nvim_tree()
 			end
 		}
 

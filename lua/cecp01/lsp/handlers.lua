@@ -1,6 +1,6 @@
-local M = {}
+local mappings = {}
 
-M.setup = function()
+mappings.setup = function()
 	local diagnostic_config = {
 		virtual_text = true,
 		update_in_insert = true,
@@ -26,9 +26,13 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-M.on_attach = function(client, bufnr)
+mappings.on_attach = function(client, bufnr)
 	--[[ if client.name == "rust_analyzer" then
-		require("lsp_extensions").inlay_hints { prefix = ">> ", highlight = "Comment", enabled = { "TypeHint", "ChainingHint", "ParameterHint" }}
+		require "lsp_extensions".inlay_hints {
+			prefix = ">> ",
+			highlight = "Comment",
+			enabled = { "TypeHint", "ChainingHint", "ParameterHint" }
+		}
 	end ]]
 
 	if client.name == "tailwindcss" then
@@ -55,10 +59,10 @@ end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
-	M.capabilities = capabilities
-	return M
+	mappings.capabilities = capabilities
+	return mappings
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+mappings.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-return M
+return mappings
