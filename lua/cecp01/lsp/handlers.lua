@@ -31,14 +31,6 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 mappings.on_attach = function(client, bufnr)
-	--[[ if client.name == "rust_analyzer" then
-		require "lsp_extensions".inlay_hints {
-			prefix = ">> ",
-			highlight = "Comment",
-			enabled = { "TypeHint", "ChainingHint", "ParameterHint" }
-		}
-	end ]]
-
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
 			require "cecp01.lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)

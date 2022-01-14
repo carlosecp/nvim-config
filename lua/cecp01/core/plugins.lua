@@ -22,23 +22,6 @@ return packer.startup {
 		use {
 			"neovim/nvim-lspconfig",
 			"williamboman/nvim-lsp-installer",
-      "nvim-lua/lsp_extensions.nvim",
-			{
-				"akinsho/flutter-tools.nvim",
-				ft = "dart",
-				config = function()
-					require "cecp01.plugins.flutter_tools"
-				end
-			},
-			{
-				"jose-elias-alvarez/nvim-lsp-ts-utils",
-				ft = {
-					"javascript",
-					"typescript",
-					"javascriptreact",
-					"typescriptreact"
-				}
-			},
 			"jose-elias-alvarez/null-ls.nvim"
 		}
 
@@ -52,7 +35,10 @@ return packer.startup {
 			requires = {
 				{
 					"L3MON4D3/LuaSnip",
-					after = "nvim-cmp"
+					after = "nvim-cmp",
+					config = function()
+						require "cecp01.plugins.luasnip"
+					end
 				},
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
@@ -72,6 +58,7 @@ return packer.startup {
 			end,
 			run = ":TSUpdate",
 			requires = {
+				{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
 			}
 		}

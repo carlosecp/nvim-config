@@ -28,11 +28,10 @@ o.tabstop        = 2
 o.shiftwidth     = 2
 o.autoindent     = true
 o.smartindent    = true
+o.cindent        = true
 o.smarttab       = true
-
--- Env
-o.shell = "bash"
-vim.g.python3_host_prog = "/usr/sbin/python3"
+o.list           = false
+o.listchars      = { tab = "> ", eol = "﬋" }
 
 -- Format Options
 -- Stop adding comments on newline

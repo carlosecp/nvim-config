@@ -4,7 +4,7 @@ local toggle_term_buffer = -1
 local terminal = {}
 local toggle_term_window_size = 12
 
-local function term_open(split_dir)
+local term_open = function(split_dir)
 	-- If terminal buffer does not exists
 	if vim.fn.bufexists(toggle_term_buffer) == 0 then
 		vim.cmd("new toggle_term") -- use just `new` to :split terminal
@@ -28,7 +28,7 @@ local function term_open(split_dir)
 	end
 end
 
-local function term_close()
+local term_close = function()
 	if vim.fn.win_gotoid(toggle_term_window) ~= 0 then
 		-- Stores the previous terminal windows size
 		toggle_term_window_size = vim.fn.winheight(toggle_term_window)

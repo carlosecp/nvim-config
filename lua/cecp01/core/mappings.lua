@@ -45,7 +45,7 @@ M.lsp = function(bufnr)
 end
 
 M.toggle_terminal = function()
-	map("n", "<C-t>", ":lua require 'modules.terminal'.term_toggle()<CR>", opts)
+	map("n", "<C-t>", ":lua require 'cecp01.core.terminal'.term_toggle()<CR>", opts)
   vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
