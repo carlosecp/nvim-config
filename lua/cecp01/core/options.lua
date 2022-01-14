@@ -1,11 +1,11 @@
 local o = vim.opt
 
--- Defaults
 o.cursorline     = true
 o.termguicolors  = true
 o.splitbelow     = true
 o.splitright     = true
 o.swapfile       = false
+o.foldmethod     = "marker"
 
 -- Search
 o.incsearch      = true
