@@ -19,11 +19,11 @@ end
 return packer.startup {
 	function(use)
 		-- LSP
-		use {
-			"neovim/nvim-lspconfig",
-			"williamboman/nvim-lsp-installer",
-			"jose-elias-alvarez/null-ls.nvim"
-		}
+-- 		use {
+-- 			"neovim/nvim-lspconfig",
+-- 			"williamboman/nvim-lsp-installer",
+-- 			"jose-elias-alvarez/null-ls.nvim"
+-- 		}
 
 		-- Autocompletion
 		use {
@@ -98,9 +98,9 @@ return packer.startup {
 
 		-- Colorscheme
 		use {
-			"navarasu/onedark.nvim",
+			"ishan9299/nvim-solarized-lua",
 			config = function()
-				require "cecp01.themes.onedark"
+				require "cecp01.themes.nvim_solarized_lua"
 			end
 		}
 

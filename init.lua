@@ -8,11 +8,10 @@ pcall(require, "impatient")
 require "cecp01.core.options"
 require "cecp01.core.mappings"
 require "cecp01.core.autocommands"
-
+ 
 -- Load plugins
 require "cecp01.core.plugins"
 pcall(require, "packer_compiled")
-
-require "cecp01.lsp"
-require "cecp01.core.utils"
+ 
+-- require "cecp01.lsp"
 require "cecp01.core.terminal"

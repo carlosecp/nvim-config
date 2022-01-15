@@ -30,8 +30,10 @@ o.autoindent     = true
 o.smartindent    = true
 o.cindent        = true
 o.smarttab       = true
-o.list           = false
-o.listchars      = { tab = "> ", eol = "﬋" }
+-- o.list           = false
+-- o.listchars      = { tab = "> ", eol = "﬋" }
+
+o.shell = "bash"
 
 -- Format Options
 -- Stop adding comments on newline
