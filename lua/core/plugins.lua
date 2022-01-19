@@ -19,11 +19,17 @@ end
 return packer.startup {
 	function(use)
 		-- LSP
--- 		use {
--- 			"neovim/nvim-lspconfig",
--- 			"williamboman/nvim-lsp-installer",
--- 			"jose-elias-alvarez/null-ls.nvim"
--- 		}
+		use {
+			"neovim/nvim-lspconfig",
+			cmd = "LspStart",
+			config = function()
+				require "lsp"
+			end,
+			requires = {
+				"williamboman/nvim-lsp-installer",
+				"jose-elias-alvarez/null-ls.nvim"
+			}
+		}
 
 		-- Autocompletion
 		use {
@@ -42,7 +48,7 @@ return packer.startup {
 				},
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
-				-- { "hrsh7th/cmp-nvim-lsp",     module = "cmp_nvim_lsp" },
+				{ "hrsh7th/cmp-nvim-lsp",     module = "cmp_nvim_lsp" },
 				{ "hrsh7th/cmp-nvim-lua",     after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path",         after = "nvim-cmp" },
 				{ "f3fora/cmp-spell",         after = "nvim-cmp" }

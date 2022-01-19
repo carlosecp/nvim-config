@@ -1,2 +1,0 @@
--- buffer: in-memory, text representation of a file (not the actual file).
--- window: viewport on buffers

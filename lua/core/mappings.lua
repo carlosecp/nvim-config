@@ -54,8 +54,8 @@ M.telescope = function()
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>",              opts)
 
 	-- Custom finders
-	map("n", "<Leader>nv", ":lua require 'plugins.telescope'.search_neovim()<CR>",   opts)
-	map("n", "<Leader>df", ":lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
+	map("n", "<Leader>nv", ":lua require 'configs.telescope'.search_neovim()<CR>",   opts)
+	map("n", "<Leader>df", ":lua require 'configs.telescope'.search_dotfiles()<CR>", opts)
 end
 
 M.easyAlign = function()

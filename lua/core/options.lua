@@ -33,7 +33,7 @@ o.smarttab       = true
 o.list           = false
 o.listchars      = { tab = "> ", eol = "﬋" }
 
-o.shell = "bash"
+o.shell = "sh"
 
 -- Format Options
 -- Stop adding comments on newline
