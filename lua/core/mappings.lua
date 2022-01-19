@@ -45,7 +45,7 @@ M.lsp = function(bufnr)
 end
 
 M.toggle_terminal = function()
-	map("n", "<C-t>", ":lua require 'cecp01.core.terminal'.term_toggle()<CR>", opts)
+	map("n", "<C-t>", ":lua require 'core.terminal'.term_toggle()<CR>", opts)
   vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 end
 
@@ -54,8 +54,8 @@ M.telescope = function()
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>",              opts)
 
 	-- Custom finders
-	map("n", "<Leader>nv", ":lua require 'cecp01.plugins.telescope'.search_neovim()<CR>",   opts)
-	map("n", "<Leader>df", ":lua require 'cecp01.plugins.telescope'.search_dotfiles()<CR>", opts)
+	map("n", "<Leader>nv", ":lua require 'plugins.telescope'.search_neovim()<CR>",   opts)
+	map("n", "<Leader>df", ":lua require 'plugins.telescope'.search_dotfiles()<CR>", opts)
 end
 
 M.easyAlign = function()

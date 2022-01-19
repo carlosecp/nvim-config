@@ -34,7 +34,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 mappings.on_attach = function(client, bufnr)
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
-			require "cecp01.lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
+			require "lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
 		end
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }
@@ -51,7 +51,7 @@ mappings.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
-	require "cecp01.core.mappings".lsp(bufnr)
+	require "core.mappings".lsp(bufnr)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

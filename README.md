@@ -9,7 +9,7 @@ Simply run the following command to clone this repo to the default location and
 install my plugins:
 
 ```bash
-git clone https://github.com/cecp01/nvim.git $HOME/.config/nvim
+git clone https://github.com/carlosecp/nvim.git $HOME/.config/nvim
 nvim +PackerSync
 ```
 

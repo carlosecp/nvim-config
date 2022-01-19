@@ -45,6 +45,6 @@ terminal.term_toggle = function(split_dir)
 end
 
 -- Activates keymappings
-require "cecp01.core.mappings".toggle_terminal()
+require "core.mappings".toggle_terminal()
 
 return terminal

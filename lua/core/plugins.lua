@@ -19,25 +19,25 @@ end
 return packer.startup {
 	function(use)
 		-- LSP
-		use {
-			"neovim/nvim-lspconfig",
-			"williamboman/nvim-lsp-installer",
-			"jose-elias-alvarez/null-ls.nvim"
-		}
+-- 		use {
+-- 			"neovim/nvim-lspconfig",
+-- 			"williamboman/nvim-lsp-installer",
+-- 			"jose-elias-alvarez/null-ls.nvim"
+-- 		}
 
 		-- Autocompletion
 		use {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
 			config = function()
-				require "cecp01.plugins.cmp"
+				require "configs.cmp"
 			end,
 			requires = {
 				{
 					"L3MON4D3/LuaSnip",
 					after = "nvim-cmp",
 					config = function()
-						require "cecp01.plugins.luasnip"
+						require "configs.luasnip"
 					end
 				},
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
@@ -54,7 +54,7 @@ return packer.startup {
 			"nvim-treesitter/nvim-treesitter",
 			event = "BufRead",
 			config = function()
-				require "cecp01.plugins.treesitter"
+				require "configs.treesitter"
 			end,
 			run = ":TSUpdate",
 			requires = {
@@ -70,13 +70,13 @@ return packer.startup {
 			module = {
 				"telescope",
 				"telescope.builtin",
-				"cecp01.plugins.telescope"
+				"configs.telescope"
 			},
 			config = function()
-				require "cecp01.plugins.telescope"
+				require "configs.telescope"
 			end,
 			setup = function()
-				require "cecp01.core.mappings".telescope()
+				require "core.mappings".telescope()
 			end,
 			requires = {{
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -89,18 +89,18 @@ return packer.startup {
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
 			config = function()
-				require "cecp01.plugins.nvimtree"
+				require "configs.nvimtree"
 			end,
 			setup = function()
-				require "cecp01.core.mappings".nvim_tree()
+				require "core.mappings".nvim_tree()
 			end
 		}
 
 		-- Colorscheme
 		use {
-			"navarasu/onedark.nvim",
+			"ishan9299/nvim-solarized-lua",
 			config = function()
-				require "cecp01.themes.onedark"
+				require "themes.nvim_solarized_lua"
 			end
 		}
 
@@ -117,13 +117,13 @@ return packer.startup {
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require "cecp01.core.mappings".easyAlign()
+				require "core.mappings".easyAlign()
 			end
 		}
 		use {
 			"norcalli/nvim-colorizer.lua",
 			config = function()
-				require "cecp01.plugins.colorizer"
+				require "configs.colorizer"
 			end,
 		}
 
@@ -131,7 +131,7 @@ return packer.startup {
 		use {
 			"nathom/filetype.nvim",
 			config = function()
-				require "cecp01.plugins.filetype"
+				require "configs.filetype"
 			end
 		}
 		use "lewis6991/impatient.nvim"
@@ -153,7 +153,7 @@ return packer.startup {
 			"kyazdani42/nvim-web-devicons",
 			module = "nvim-web-devicons",
 			config = function()
-				require "cecp01.plugins.devicons"
+				require "configs.devicons"
 			end
 		}
 
