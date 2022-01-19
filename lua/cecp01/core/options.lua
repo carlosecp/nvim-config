@@ -30,14 +30,14 @@ o.autoindent     = true
 o.smartindent    = true
 o.cindent        = true
 o.smarttab       = true
--- o.list           = false
--- o.listchars      = { tab = "> ", eol = "﬋" }
+o.list           = false
+o.listchars      = { tab = "> ", eol = "﬋" }
 
 o.shell = "bash"
 
 -- Format Options
 -- Stop adding comments on newline
-vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
+-- vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
 
 -- Use faster filetype detection
 vim.g.do_filetype_lua = 1

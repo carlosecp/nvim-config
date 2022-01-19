@@ -13,5 +13,5 @@ require "cecp01.core.autocommands"
 require "cecp01.core.plugins"
 pcall(require, "packer_compiled")
  
--- require "cecp01.lsp"
+require "cecp01.lsp"
 require "cecp01.core.terminal"

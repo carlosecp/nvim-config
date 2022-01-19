@@ -11,8 +11,8 @@ configs.setup {
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		enable = true,
-		disable = { "lua", "yaml" }
+		enable = false,
+		disable = { }
 	},
 	refactor = {
 		highlight_definitions = { enable = true }
