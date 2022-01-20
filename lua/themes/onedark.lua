@@ -1,8 +1,8 @@
 -- use {
-	-- "navarasu/onedark.nvim",
-	-- config = function()
-		-- require "themes.onedark"
-	-- end
+-- 	"navarasu/onedark.nvim",
+-- 	config = function()
+-- 		require "themes.onedark"
+-- 	end
 -- }
 
 local status_ok, onedark = pcall(require, "onedark")
