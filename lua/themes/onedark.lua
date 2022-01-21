@@ -13,10 +13,10 @@ end
 onedark.load()
 onedark.setup {
 	style = "dark",
-	transparent = false,
-	code_style = {
-		comments = "italic"
-	}
+	transparent = true,
+-- 	code_style = {
+-- 		comments = "italic"
+-- 	}
 }
 
 vim.cmd("hi VertSplit guifg=#21252b")

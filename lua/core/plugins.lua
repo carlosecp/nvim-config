@@ -21,7 +21,6 @@ return packer.startup {
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
-			cmd = "LspStart",
 			config = function()
 				require "lsp"
 			end,
@@ -103,12 +102,7 @@ return packer.startup {
 		}
 
 		-- Colorscheme
-		use {
-			"ishan9299/nvim-solarized-lua",
-			config = function()
-				require "themes.nvim_solarized_lua"
-			end
-		}
+		use "rktjmp/lush.nvim"
 
 		-- Utilities
 		use {

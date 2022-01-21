@@ -23,11 +23,11 @@ cmp.setup {
 		["<C-p>"]     = cmp.mapping.select_prev_item(),
 		["<C-n>"]     = cmp.mapping.select_next_item(),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<CR>"]      = cmp.mapping.confirm(),
+		["<CR>"]      = cmp.mapping.confirm()
 	},
 	sources = {
 		{ name = "luasnip"  },
-		{ name = "nvim_lsp" },
+		-- { name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "path"     },
 		{ name = "buffer", keyword_length = 2 },

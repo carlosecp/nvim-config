@@ -40,8 +40,8 @@ M.lsp = function(bufnr)
 	bufmap(bufnr, "n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<CR>",    opts)
 	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting()<CR>",     opts)
 
-	bufmap(bufnr, "n", "[g", ":lua vim.diagnostic.goto_next()<CR>", opts)
-	bufmap(bufnr, "n", "]g", ":lua vim.diagnostic.goto_prev()<CR>", opts)
+	bufmap(bufnr, "n", "[g", ":lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
+	bufmap(bufnr, "n", "]g", ":lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
 end
 
 M.toggle_terminal = function()

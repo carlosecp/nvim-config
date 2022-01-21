@@ -13,4 +13,5 @@ require "core.autocommands"
 require "core.plugins"
 pcall(require, "packer_compiled")
  
+vim.cmd("colo solarized")
 require "core.terminal"

@@ -3,7 +3,7 @@ local mappings = {}
 mappings.setup = function()
 	local diagnostic_config = {
 		virtual_text = true,
-		update_in_insert = true,
+		update_in_insert = false,
 		underline = true,
 		float = {
 			focusable = false,
@@ -15,8 +15,7 @@ mappings.setup = function()
 		}
 	}
 
-	-- vim.diagnostic.config(diagnostic_config)
-	vim.diagnostic.disable()
+	vim.diagnostic.config(diagnostic_config)
 
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
