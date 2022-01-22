@@ -8,10 +8,10 @@ pcall(require, "impatient")
 require "core.options"
 require "core.mappings"
 require "core.autocommands"
- 
+
 -- Load plugins
 require "core.plugins"
 pcall(require, "packer_compiled")
- 
-vim.cmd("colo solarized")
+
+vim.cmd("colo default_mod")
 require "core.terminal"

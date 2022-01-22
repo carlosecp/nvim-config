@@ -4,5 +4,7 @@ if not status_ok then
 end
 
 nvimtree.setup {
+	disable_netrw = false,
+	hijack_netrw  = false,
 	git = { enable = false }
 }

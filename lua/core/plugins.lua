@@ -19,16 +19,16 @@ end
 return packer.startup {
 	function(use)
 		-- LSP
-		use {
-			"neovim/nvim-lspconfig",
-			config = function()
-				require "lsp"
-			end,
-			requires = {
-				"williamboman/nvim-lsp-installer",
-				"jose-elias-alvarez/null-ls.nvim"
-			}
-		}
+-- 		use {
+-- 			"neovim/nvim-lspconfig",
+-- 			config = function()
+-- 				require "lsp"
+-- 			end,
+-- 			requires = {
+-- 				"williamboman/nvim-lsp-installer",
+-- 				"jose-elias-alvarez/null-ls.nvim"
+-- 			}
+-- 		}
 
 		-- Autocompletion
 		use {
@@ -63,7 +63,9 @@ return packer.startup {
 			end,
 			run = ":TSUpdate",
 			requires = {
-				{ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
+				{ "nvim-treesitter/playground", cmd = {
+					"TSPlaygroundToggle", "TSHighlightCapturesUnderCursor"
+				}},
 				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
 			}
 		}
