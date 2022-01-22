@@ -106,7 +106,9 @@ local theme = lush(function()
 
 		-- Error          { }, -- (preferred) any erroneous construct
 
-		Todo           { fg = hsl("#40ffff"), gui = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Todo           { gui = "bold", fg = hsl("#40ffff") }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+
+		FloatBorder { fg = "fg", bg = "none" }, -- Border for floating windows like LSP hover dialogs
 
 		-- DiagnosticError            { fg = "red" }, -- used as the base highlight group.
 		-- DiagnosticVirtualTextError { }, -- used for "Error" diagnostic virtual text.

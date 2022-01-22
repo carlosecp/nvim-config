@@ -13,5 +13,5 @@ require "core.autocommands"
 require "core.plugins"
 pcall(require, "packer_compiled")
 
-vim.cmd("colo default_mod")
+vim.cmd("colo lush_default")
 require "core.terminal"
