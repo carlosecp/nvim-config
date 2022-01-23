@@ -19,16 +19,16 @@ end
 return packer.startup {
 	function(use)
 		-- LSP
-		use {
-			"neovim/nvim-lspconfig",
-			config = function()
-				require "lsp"
-			end,
-			requires = {
-				"williamboman/nvim-lsp-installer",
-				"jose-elias-alvarez/null-ls.nvim"
-			}
-		}
+-- 		use {
+-- 			"neovim/nvim-lspconfig",
+-- 			config = function()
+-- 				require "lsp"
+-- 			end,
+-- 			requires = {
+-- 				"williamboman/nvim-lsp-installer",
+-- 				"jose-elias-alvarez/null-ls.nvim"
+-- 			}
+-- 		}
 
 		-- Autocompletion
 		use {
@@ -104,7 +104,13 @@ return packer.startup {
 		}
 
 		-- Colorscheme
-		use "rktjmp/lush.nvim"
+		-- use "rktjmp/lush.nvim"
+		use {
+			"ishan9299/nvim-solarized-lua",
+			config = function()
+				require "themes.nvim_solarized_lua"
+			end
+		}
 
 		-- Utilities
 		use {
