@@ -16,5 +16,6 @@ vim.cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 vim.cmd("hi DiagnosticUnderlineInfo gui=undercurl")
 vim.cmd("hi DiagnosticUnderlineHint gui=undercurl")
 
+-- vim.cmd("hi TSVariable guifg=#eee8d5")
 vim.cmd("hi TSKeywordFunction gui=bold")
 vim.cmd("hi TSConstructor gui=bold")
