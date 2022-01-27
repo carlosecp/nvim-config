@@ -11,6 +11,7 @@ null_ls.setup {
 		formatting.clang_format, -- sudo pacman -S clang
 		formatting.gofmt,        -- included with go
 		formatting.autopep8,     -- pip install autopep8
-		formatting.rustfmt       -- rustfmt
+		formatting.rustfmt,       -- rustfmt
+		require"null-ls".builtins.diagnostics.flake8
 	}
 }
