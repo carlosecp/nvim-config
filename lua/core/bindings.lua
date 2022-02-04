@@ -38,10 +38,13 @@ M.lsp = function(bufnr)
 	bufmap(bufnr, "n", "gx",         ":lua vim.lsp.buf.signature_help()<CR>", opts)
 	bufmap(bufnr, "n", "<Leader>rn", ":lua vim.lsp.buf.rename()<CR>",         opts)
 	bufmap(bufnr, "n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<CR>",    opts)
-	bufmap(bufnr, "n", "<C-s>",      ":lua vim.lsp.buf.formatting()<CR>",     opts)
 
 	bufmap(bufnr, "n", "[g", ":lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
 	bufmap(bufnr, "n", "]g", ":lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
+end
+
+M.null_ls = function(bufnr)
+	bufmap(bufnr, "n", "<C-s>", ":lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
 M.toggle_terminal = function()

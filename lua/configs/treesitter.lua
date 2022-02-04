@@ -4,25 +4,7 @@ if not configs_status_ok then
 end
 
 configs.setup {
-	ensure_installed = {
-    "bash",
-    "c",
-    "cpp",
-    "fish",
-    "go",
-    "javascript",
-    "json",
-    "jsonc",
-    "latex",
-    "lua",
-    "make",
-    "markdown",
-    "python",
-    "rust",
-    "tsx",
-    "typescript",
-    "yaml"
-  },
+	ensure_installed = "maintained",
 	highlight = {
 		enable = true,
 		disable = { "html" },

@@ -5,13 +5,16 @@ end
 
 local formatting = null_ls.builtins.formatting
 
-null_ls.setup {
-	sources = {
-		formatting.prettierd,    -- sudo npm install -g @fsouza/prettierd
-		formatting.clang_format, -- sudo pacman -S clang
-		formatting.gofmt,        -- included with go
-		formatting.autopep8,     -- pip install autopep8
-		formatting.rustfmt,       -- rustfmt
-		require"null-ls".builtins.diagnostics.flake8
-	}
-}
+null_ls.setup({
+    sources = {
+			formatting.prettierd.with({ -- sudo npm install -g @fsouza/prettierd
+				extra_filetypes = { "svelte" }
+			}),
+			formatting.clang_format, -- sudo pacman -S clang
+			formatting.gofmt,        -- included with go
+			formatting.rustfmt       -- rustfmt (included with rustup)
+    },
+		on_attach = function()
+			require("core.bindings").null_ls()
+		end
+})
