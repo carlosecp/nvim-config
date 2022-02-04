@@ -1,13 +1,13 @@
-local mappings = {}
+local M = {}
 
-mappings.setup = function()
+M.setup = function()
 	local diagnostic_config = {
 		virtual_text = true,
 		update_in_insert = false,
 		underline = true,
 		float = {
 			focusable = false,
-			style = "minimal",
+			style  = "minimal",
 			border = "rounded",
 			source = "always",
 			header = "",
@@ -30,7 +30,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-mappings.on_attach = function(client, bufnr)
+M.on_attach = function(client, bufnr)
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
 			require "lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
@@ -50,15 +50,15 @@ mappings.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
-	require "core.mappings".lsp(bufnr)
+	require("core.bindings").lsp(bufnr)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
-	mappings.capabilities = capabilities
-	return mappings
+	M.capabilities = capabilities
+	return M
 end
 
-mappings.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-return mappings
+return M

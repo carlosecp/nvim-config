@@ -20,7 +20,7 @@ map("i", "!", "!<c-g>u", { noremap = true })
 map("i", "?", "?<c-g>u", { noremap = true })
 map("n", "<Leader>cc", ":execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>", opts)
 
---[[ Mappings that are gonna be required only when for specific plugins. These
+--[[ Bindings that are gonna be required only when for specific plugins. These
 are not activated if their respective plugins are not active. ]]
 local M = {}
 

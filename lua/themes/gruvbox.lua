@@ -1,7 +1,7 @@
 -- use {
 -- 	"morhetz/gruvbox",
 -- 	config = function()
--- 		require "themes.gruvbox"
+-- 		require("themes.gruvbox")
 -- 	end
 -- }
 

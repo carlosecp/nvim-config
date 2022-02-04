@@ -44,7 +44,7 @@ terminal.term_toggle = function(split_dir)
 	end
 end
 
--- Activates keymappings
-require "core.mappings".toggle_terminal()
+-- Activates keybindings
+require("core.bindings").toggle_terminal()
 
 return terminal
