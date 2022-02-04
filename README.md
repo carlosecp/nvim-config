@@ -9,7 +9,7 @@ Simply run the following command to clone this repo to the default location and
 install my plugins:
 
 ```bash
-git clone https://github.com/carlosecp/nvim.git $HOME/.config/nvim
+git clone https://github.com/carlosecp/dotfiles-nvim.git $HOME/.config/nvim
 nvim +PackerSync
 ```
 
@@ -28,8 +28,3 @@ The add support for a language, run the `:LspInstall <server-name>` command
 with the name of the server for your language. You can checkout the list of
 available servers per language
 [here](https://github.com/williamboman/nvim-lsp-installer#available-lsps).
-
-Since I don't really use autocompletion and diagnostics features that much, by
-default LSP is deactivated so loading the servers doesn't have and impact on
-neovim startup time. To activate LSP run the `:LspStart` command when you want
-to enable it.
