@@ -1,39 +1,37 @@
-local o = vim.opt
-
-o.cursorline     = true
-o.termguicolors  = true
-o.splitbelow     = true
-o.splitright     = true
-o.swapfile       = false
-o.foldmethod     = "marker"
+vim.opt.cursorline     = true
+vim.opt.termguicolors  = true
+vim.opt.splitbelow     = true
+vim.opt.splitright     = true
+vim.opt.swapfile       = false
+vim.opt.foldmethod     = "marker"
 
 -- Search
-o.incsearch      = true
-o.hlsearch       = true
-o.ignorecase     = true
+vim.opt.incsearch      = true
+vim.opt.hlsearch       = true
+vim.opt.ignorecase     = true
 
 -- Lines / Scrolling
-o.number         = true
-o.relativenumber = true
-o.wrap           = false
-o.scrolloff      = 5
+vim.opt.number         = true
+vim.opt.relativenumber = true
+vim.opt.wrap           = false
+vim.opt.scrolloff      = 5
 
 -- Autocompletion
-o.pumheight      = 10
-o.cmdheight      = 2
+vim.opt.pumheight      = 10
+vim.opt.cmdheight      = 2
 
 -- Indentation
-o.expandtab      = false
-o.tabstop        = 2
-o.shiftwidth     = 2
-o.autoindent     = true
-o.smartindent    = true
-o.cindent        = true
-o.smarttab       = true
-o.list           = false
-o.listchars      = { tab = "> ", eol = "﬋" }
+vim.opt.expandtab      = false
+vim.opt.tabstop        = 2
+vim.opt.shiftwidth     = 2
+vim.opt.autoindent     = true
+vim.opt.smartindent    = true
+vim.opt.cindent        = true
+vim.opt.smarttab       = true
+vim.opt.list           = false
+vim.opt.listchars      = { tab = "> ", eol = "﬋" }
 
-o.shell = "sh"
+vim.opt.shell = "sh"
 
 -- Format Options
 -- Stop adding comments on newline

@@ -1,9 +1,7 @@
 local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-	return
-end
+if not status_ok then return end
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 		file_ignore_patterns = { "node_modules/", ".next/", ".git/" },
 		sorting_strategy = "ascending",
@@ -22,29 +20,29 @@ telescope.setup {
 			case_mode = "smart_case"
 		}
 	}
-}
+})
 
 telescope.load_extension("fzf")
 
 --- Custom Finders
-local cstm_finders = {}
+local M = {}
 
 -- Search inside my dotfiles directory
-cstm_finders.search_dotfiles = function()
+M.search_dotfiles = function()
 	require("telescope.builtin").find_files {
 		prompt_title = "Search Dotfiles",
-		cwd = "/home/carlos/dotfiles",
+		cwd = "/home/carlosecp/dotfiles",
 		hidden = true
 	}
 end
 
 -- Search inside my Neovim config
-cstm_finders.search_neovim = function()
+M.search_neovim = function()
 	require("telescope.builtin").find_files {
 		prompt_title = "Search Neovim",
-		cwd = "/home/carlos/.config/nvim",
+		cwd = "/home/carlosecp/.config/nvim",
 		hidden = true
 	}
 end
 
-return cstm_finders
+return M

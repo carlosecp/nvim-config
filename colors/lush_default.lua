@@ -7,9 +7,7 @@
 vim.cmd("set background=dark")
 
 local status_ok, lush = pcall(require, "lush")
-if not status_ok then
-	return
-end
+if not status_ok then return end
 
 lush(require("themes.lush_default"))
 vim.cmd("hi DiagnosticUnderlineError gui=undercurl")

@@ -1,14 +1,10 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
+if not cmp_status_ok then return end
 
 local luasnip_status_ok, luasnip = pcall(require, "luasnip")
-if not luasnip_status_ok then
-	return
-end
+if not luasnip_status_ok then return end
 
-cmp.setup {
+cmp.setup({
 	confirmation = {
 		default_behaviour = cmp.ConfirmBehavior.Replace
 	},
@@ -16,7 +12,7 @@ cmp.setup {
 		completeopt = "menu,menuone,noinsert,noselect"
 	},
 	documentation = {
-		border    = "rounded",
+		border    = _G.carlosecp.border,
 		max_width = 80
 	},
 	mapping = {
@@ -79,4 +75,4 @@ cmp.setup {
 	experimental = {
 		ghost_text = true
 	}
-}
+})

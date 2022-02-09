@@ -1,5 +1,8 @@
 local M = {}
 
+local global_borders = _G.carlosecp.borders
+local borders = global_borders and global_borders or "single"
+
 M.setup = function()
 	local diagnostic_config = {
 		virtual_text = true,
@@ -8,7 +11,7 @@ M.setup = function()
 		float = {
 			focusable = false,
 			style  = "minimal",
-			border = "rounded",
+			border = borders,
 			source = "always",
 			header = "",
 			prefix = ""
@@ -19,12 +22,12 @@ M.setup = function()
 
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded"
+		border = borders
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =
 	vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded"
+		border = borders
 	})
 end
 
@@ -42,7 +45,7 @@ M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		local status_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
 		if status_ok then
-			ts_utils.setup {}
+			ts_utils.setup({})
 			ts_utils.setup_client(client)
 		end
 	end
@@ -50,7 +53,20 @@ M.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
-	require("core.bindings").lsp(bufnr)
+	-- Bindings
+	vim.keymap.set("n", "K",  vim.lsp.buf.hover,          noremap)
+	vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, noremap)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition,     noremap)
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration,    noremap)
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, noremap)
+	vim.keymap.set("n", "gr", vim.lsp.buf.references,     noremap)
+	vim.keymap.set("n", "gx", vim.lsp.buf.signature_help, noremap)
+
+	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename,         noremap)
+	vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action,    noremap)
+
+	vim.keymap.set("n", "[g", vim.diagnostic.goto_next, noremap)
+	vim.keymap.set("n", "]g", vim.diagnostic.goto_prev, noremap)
 end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

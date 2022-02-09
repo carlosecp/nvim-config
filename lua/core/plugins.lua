@@ -12,9 +12,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
+if not status_ok then return end
 
 return packer.startup {
 	function(use)
@@ -70,9 +68,8 @@ return packer.startup {
 			end,
 			run = ":TSUpdate",
 			requires = {
-				{ "nvim-treesitter/playground", cmd = {
-					"TSPlaygroundToggle", "TSHighlightCapturesUnderCursor"
-				}},
+				{ "nvim-treesitter/playground",
+					cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }},
 				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
 			}
 		}
@@ -81,32 +78,29 @@ return packer.startup {
 		use {
 			"nvim-telescope/telescope.nvim",
 			cmd = "Telescope",
-			module = {
-				"telescope",
-				"telescope.builtin",
-				"configs.telescope"
-			},
 			config = function()
 				require("configs.telescope")
 			end,
-			setup = function()
-				require("core.bindings").telescope()
-			end,
+			module = { "telescope", "telescope.builtin" },
 			requires = {{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				run = "make"
-			}}
+			}},
+			setup = function()
+				require("core.bindings").telescope()
+			end
 		}
 
 		-- File explorer
 		use {
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
+			commit = "d8bf1ad",
 			config = function()
 				require("configs.nvimtree")
 			end,
 			setup = function()
-				require("core.bindings").nvim_tree()
+				require("core.bindings").nvimtree()
 			end
 		}
 
@@ -125,20 +119,20 @@ return packer.startup {
 				{ "v", "S" }
 			}
 		}
-	use {
+		use {
 			"junegunn/vim-easy-align",
 			cmd = "EasyAlign",
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require("core.bindings").easyAlign()
+				require("core.bindings").easy_align()
 			end
 		}
 		use {
 			"norcalli/nvim-colorizer.lua",
 			config = function()
 				require("configs.colorizer")
-			end,
+			end
 		}
 
 		-- Neovim overall performance

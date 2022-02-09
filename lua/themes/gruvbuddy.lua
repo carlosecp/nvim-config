@@ -6,4 +6,4 @@
 -- 	requires = "tjdevries/colorbuddy.vim"
 -- }
 
-require "colorbuddy".colorscheme("gruvbuddy")
+require("colorbuddy").colorscheme("gruvbuddy")

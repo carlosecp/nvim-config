@@ -1,7 +1,7 @@
 local toggle_term_window = -1
 local toggle_term_buffer = -1
 
-local terminal = {}
+local M = {}
 local toggle_term_window_size = 12
 
 local term_open = function(split_dir)
@@ -36,7 +36,7 @@ local term_close = function()
 	end
 end
 
-terminal.term_toggle = function(split_dir)
+M.term_toggle = function(split_dir)
 	if vim.fn.win_gotoid(toggle_term_window) == 0 then
 		term_open(split_dir)
 	else
@@ -47,4 +47,4 @@ end
 -- Activates keybindings
 require("core.bindings").toggle_terminal()
 
-return terminal
+return M
