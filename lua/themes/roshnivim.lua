@@ -6,3 +6,4 @@
 -- }
 
 vim.cmd("colo rvcs")
+vim.cmd("hi ColorColumn guibg=#141414")
