@@ -1,3 +1,5 @@
+-- :lua require("carlosecp.inlay_hints").set_inlay_hints()
+
 local namespace = vim.api.nvim_create_namespace("rust-analyzer/inlayHints")
 local enabled = false
 
