@@ -1,7 +1,7 @@
 -- use {
 -- 	"shaeinst/roshnivim-cs",
 -- 	config = function()
--- 		require("themes.roshnivim")
+-- 		require("carlosecp.colorschemes.roshnivim")
 -- 	end
 -- }
 

@@ -27,7 +27,7 @@ vim.opt.expandtab   = false
 vim.opt.list        = true
 vim.opt.listchars   = {
 	eol = "﬋",
-	lead = ".",
+	-- lead = ".",
 	tab = "  "
 }
 vim.opt.shiftwidth  = 2
@@ -36,10 +36,4 @@ vim.opt.smarttab    = true
 vim.opt.tabstop     = 2
 
 vim.opt.shell = "sh"
-
--- Format Options
--- Stop adding comments on newline
--- vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
-
--- Use faster filetype detection
 vim.g.do_filetype_lua = 1

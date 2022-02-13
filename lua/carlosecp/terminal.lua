@@ -4,13 +4,13 @@ local toggle_term_buffer = -1
 local M = {}
 local toggle_term_window_size = 12
 
-local term_open = function(split_dir)
+local term_open = function()
 	-- If terminal buffer does not exists
 	if vim.fn.bufexists(toggle_term_buffer) == 0 then
-		vim.cmd("new toggle_term") -- use just `new` to :split terminal
+		vim.cmd("new toggle_term")
 
 		vim.cmd("resize " .. toggle_term_window_size)
-		vim.fn.termopen("fish", { detach = 1 })
+		vim.fn.termopen(vim.o.shell, { detach = 1 })
 		vim.cmd("silent file Terminal")
 
 		toggle_term_window = vim.api.nvim_get_current_win()
@@ -36,15 +36,22 @@ local term_close = function()
 	end
 end
 
-M.term_toggle = function(split_dir)
+M.term_toggle = function()
 	if vim.fn.win_gotoid(toggle_term_window) == 0 then
-		term_open(split_dir)
+		term_open()
 	else
 		term_close()
 	end
 end
 
--- Activates keybindings
-require("core.bindings").toggle_terminal()
+-- Toggle terminal window settings
+vim.cmd[[
+" Terminal Highlight
+" au TermOpen,TermEnter * setlocal winhl=Normal:Terminal,NormalNC:TerminalNC
+" Terminal Settings
+au TermOpen,TermEnter * setlocal nonu nornu
+au TermOpen,TermEnter * setlocal nocursorline
+au TermOpen,TermEnter * setlocal winfixheight
+]]
 
 return M

@@ -12,8 +12,8 @@ cmp.setup({
 		completeopt = "menu,menuone,noinsert,noselect"
 	},
 	documentation = {
-		border    = _G.carlosecp.border,
-		max_width = 80
+		border   = "rounded",
+		maxwidth = 60
 	},
 	mapping = {
 		["<C-p>"]     = cmp.mapping.select_prev_item(),
@@ -64,6 +64,14 @@ cmp.setup({
 				Operator      = "ﬦ Operator",
 				TypeParameter = " TypeParameter",
 			})[vim_item.kind]
+
+			-- Limit item with to 50 characters
+			local maxwidth = 50
+			if string.len(vim_item.abbr) >= maxwidth then
+				vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth - 3)
+				vim_item.abbr = vim_item.abbr .. "..."
+			end
+
 			return vim_item
 		end
 	},

@@ -18,16 +18,10 @@ vim.keymap.set("n", "<C-Down>",  ":res -5<CR>",      silent_noremap)
 vim.keymap.set("n", "<C-Right>", ":vert res +5<CR>", silent_noremap)
 vim.keymap.set("n", "<C-Left>",  ":vert res -5<CR>", silent_noremap)
 
--- Better undo history
-vim.keymap.set("i", ",", ",<c-g>u", silent_noremap)
-vim.keymap.set("i", ".", ".<c-g>u", silent_noremap)
-vim.keymap.set("i", "!", "!<c-g>u", silent_noremap)
-vim.keymap.set("i", "?", "?<c-g>u", silent_noremap)
-
 -- Toggle colorcolumn on and off
 vim.keymap.set("n", "<Leader>cc", function()
-	local colorcolumn = vim.api.nvim_win_get_option(0, "colorcolumn")
-	vim.opt.colorcolumn = string.len(colorcolumn) == 0 and "80" or ""
+	local colorcolumn = vim.wo.colorcolumn
+	vim.wo.colorcolumn = string.len(colorcolumn) == 0 and "80" or ""
 end, noremap)
 
 -- Plugin specific bindings
@@ -38,8 +32,8 @@ M.easy_align = function()
 	vim.keymap.set("x", "ga", "<Plug>(EasyAlign)", noremap)
 end
 
-M.null_ls = function(bufnr)
-	vim.keymap.set("n", "<Leader>x", vim.lsp.buf.formatting, opts)
+M.null_ls = function()
+	vim.keymap.set("n", "<Leader>x", vim.lsp.buf.formatting, noremap)
 end
 
 M.nvimtree = function()
@@ -49,6 +43,13 @@ end
 M.telescope = function()
 	vim.keymap.set("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
 	vim.keymap.set("n", "<Leader>lg", ":Telescope live_grep<CR>", { noremap = true })
+
+	vim.keymap.set("n", "<Leader>df", function()
+		require("carlosecp.telescope").dotfiles()
+	end, { noremap = true })
+	vim.keymap.set("n", "<Leader>nv", function()
+		require("carlosecp.telescope").neovim()
+	end,   { noremap = true })
 end
 
 return M

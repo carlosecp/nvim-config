@@ -19,19 +19,23 @@ return packer.startup {
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
-			config = function()
-				require "lsp"
-			end,
 			requires = {
 				"williamboman/nvim-lsp-installer",
 				"jose-elias-alvarez/null-ls.nvim"
 			}
 		}
+		--		TODO: Figure out why this is not working in neovim 0.6
+		--		Probably I should just fork this plugin and build my own inlay hints plugin.
+		--		https://github.com/simrat39/rust-tools.nvim/tree/master/lua/rust-tools
+		--		use {
+		--			"nvim-lua/lsp_extensions.nvim",
+		--			module = "lsp_extensions"
+		--		}
 		use {
 			"carlosecp/diaglist.nvim",
 			after = "nvim-lspconfig",
 			config = function()
-				require("configs.diaglist")
+				require("carlosecp.diaglist")
 			end
 		}
 
@@ -40,14 +44,14 @@ return packer.startup {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
 			config = function()
-				require("configs.cmp")
+				require("carlosecp.cmp")
 			end,
 			requires = {
 				{
 					"L3MON4D3/LuaSnip",
 					after = "nvim-cmp",
 					config = function()
-						require("configs.luasnip")
+						require("carlosecp.luasnip")
 					end
 				},
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
@@ -64,7 +68,7 @@ return packer.startup {
 			"nvim-treesitter/nvim-treesitter",
 			event = "BufRead",
 			config = function()
-				require("configs.treesitter")
+				require("carlosecp.treesitter")
 			end,
 			run = ":TSUpdate",
 			requires = {
@@ -79,7 +83,7 @@ return packer.startup {
 			"nvim-telescope/telescope.nvim",
 			cmd = "Telescope",
 			config = function()
-				require("configs.telescope")
+				require("carlosecp.telescope")
 			end,
 			module = { "telescope", "telescope.builtin" },
 			requires = {{
@@ -87,7 +91,7 @@ return packer.startup {
 				run = "make"
 			}},
 			setup = function()
-				require("core.bindings").telescope()
+				require("carlosecp.keymappings").telescope()
 			end
 		}
 
@@ -97,20 +101,21 @@ return packer.startup {
 			cmd = "NvimTreeToggle",
 			commit = "d8bf1ad",
 			config = function()
-				require("configs.nvimtree")
+				require("carlosecp.nvimtree")
 			end,
 			setup = function()
-				require("core.bindings").nvimtree()
+				require("carlosecp.keymappings").nvimtree()
 			end
 		}
 
 		-- Colorscheme
-		use {
-			"shaeinst/roshnivim-cs",
-			config = function()
-				require("themes.roshnivim")
-			end
-		}
+use {
+	"tjdevries/gruvbuddy.nvim",
+	config = function()
+		require("carlosecp.colorschemes.gruvbuddy")
+	end,
+	requires = "tjdevries/colorbuddy.vim"
+}
 
 		-- Utilities
 		use {
@@ -125,13 +130,13 @@ return packer.startup {
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require("core.bindings").easy_align()
+				require("carlosecp.keymappings").easy_align()
 			end
 		}
 		use {
 			"norcalli/nvim-colorizer.lua",
 			config = function()
-				require("configs.colorizer")
+				require("carlosecp.colorizer")
 			end
 		}
 
@@ -139,7 +144,7 @@ return packer.startup {
 		use {
 			"nathom/filetype.nvim",
 			config = function()
-				require("configs.filetype")
+				require("carlosecp.filetype")
 			end
 		}
 		use "lewis6991/impatient.nvim"
@@ -150,10 +155,6 @@ return packer.startup {
 
 		-- Modules
 		use {
-			"nvim-lua/popup.nvim",
-			module = "popup"
-		}
-		use {
 			"nvim-lua/plenary.nvim",
 			module = "plenary"
 		}
@@ -161,7 +162,7 @@ return packer.startup {
 			"kyazdani42/nvim-web-devicons",
 			module = "nvim-web-devicons",
 			config = function()
-				require("configs.devicons")
+				require("carlosecp.devicons")
 			end
 		}
 

@@ -24,25 +24,26 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 
---- Custom Finders
+local status_ok_builtin, builtin = pcall(require, "telescope.builtin")
+if not status_ok_builtin then return end
+
 local M = {}
 
--- Search inside my dotfiles directory
-M.search_dotfiles = function()
-	require("telescope.builtin").find_files {
+M.dotfiles = function()
+	builtin.find_files({
 		prompt_title = "Search Dotfiles",
-		cwd = "/home/carlosecp/dotfiles",
+		cwd = "/home/carlosecp/.dotfiles",
 		hidden = true
-	}
+	})
 end
 
 -- Search inside my Neovim config
-M.search_neovim = function()
-	require("telescope.builtin").find_files {
+M.neovim = function()
+	builtin.find_files({
 		prompt_title = "Search Neovim",
 		cwd = "/home/carlosecp/.config/nvim",
 		hidden = true
-	}
+	})
 end
 
 return M
