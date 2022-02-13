@@ -5,7 +5,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 M.on_attach = function(client, bufnr)
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
-			require "lsp.settings.tailwindcss.documentcolors".buf_attach(bufnr)
+			require("carlosecp.lsp.settings.tailwindcss.documentcolors").buf_attach(bufnr)
 		end
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }

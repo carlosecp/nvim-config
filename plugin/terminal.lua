@@ -1,7 +1,6 @@
 local toggle_term_window = -1
 local toggle_term_buffer = -1
 
-local M = {}
 local toggle_term_window_size = 12
 
 local term_open = function()
@@ -10,7 +9,8 @@ local term_open = function()
 		vim.cmd("new toggle_term")
 
 		vim.cmd("resize " .. toggle_term_window_size)
-		vim.fn.termopen(vim.o.shell, { detach = 1 })
+
+		vim.fn.termopen("fish", { detach = 1 })
 		vim.cmd("silent file Terminal")
 
 		toggle_term_window = vim.api.nvim_get_current_win()
@@ -36,7 +36,7 @@ local term_close = function()
 	end
 end
 
-M.term_toggle = function()
+local term_toggle = function()
 	if vim.fn.win_gotoid(toggle_term_window) == 0 then
 		term_open()
 	else
@@ -46,12 +46,13 @@ end
 
 -- Toggle terminal window settings
 vim.cmd[[
-" Terminal Highlight
-" au TermOpen,TermEnter * setlocal winhl=Normal:Terminal,NormalNC:TerminalNC
-" Terminal Settings
-au TermOpen,TermEnter * setlocal nonu nornu
-au TermOpen,TermEnter * setlocal nocursorline
-au TermOpen,TermEnter * setlocal winfixheight
+	" Terminal Highlight
+	" au TermOpen,TermEnter * setlocal winhl=Normal:Terminal,NormalNC:TerminalNC
+	" Terminal Settings
+	au TermOpen,TermEnter * setlocal nonu nornu
+	au TermOpen,TermEnter * setlocal nocursorline
+	au TermOpen,TermEnter * setlocal winfixheight
 ]]
 
-return M
+vim.keymap.set("n", "<C-t>", term_toggle, { noremap = true })
+vim.keymap.set("t", "<C-t>", term_toggle, { noremap = true })

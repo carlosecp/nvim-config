@@ -5,7 +5,7 @@
 pcall(require, "impatient")
 
 -- Sources core settings
-require("carlosecp.autocommands")
+require("carlosecp.autocmds")
 require("carlosecp.keymappings")
 require("carlosecp.options")
 
@@ -13,7 +13,3 @@ require("carlosecp.options")
 require("carlosecp.plugins")
 pcall(require, "packer_compiled")
 require("carlosecp.lsp")
-
--- Custom plugins
--- Toggle terminal
-require("carlosecp.terminal")

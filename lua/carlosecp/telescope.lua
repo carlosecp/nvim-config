@@ -37,7 +37,6 @@ M.dotfiles = function()
 	})
 end
 
--- Search inside my Neovim config
 M.neovim = function()
 	builtin.find_files({
 		prompt_title = "Search Neovim",

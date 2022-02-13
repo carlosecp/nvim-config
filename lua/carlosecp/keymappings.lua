@@ -45,11 +45,11 @@ M.telescope = function()
 	vim.keymap.set("n", "<Leader>lg", ":Telescope live_grep<CR>", { noremap = true })
 
 	vim.keymap.set("n", "<Leader>df", function()
-		require("carlosecp.telescope").dotfiles()
+		require ("carlosecp.telescope").dotfiles()
 	end, { noremap = true })
 	vim.keymap.set("n", "<Leader>nv", function()
 		require("carlosecp.telescope").neovim()
-	end,   { noremap = true })
+	end, { noremap = true })
 end
 
 return M
