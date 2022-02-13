@@ -15,6 +15,19 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
+	if server.name == "rust_analyzer" then
+		local status_ok_rust_tools, rust_tools = pcall(require, "rust-tools")
+		if status_ok_rust_tools then
+			rust_tools.setup({
+				tools = require("carlosecp.rust-tools"),
+				server = vim.tbl_deep_extend("force", server:get_default_options(), opts)
+			})
+
+			server:attach_buffers()
+		end
+		return
+	end
+
 	if server.name == "sumneko_lua" then
 		local sumneko_lua_opts = require("carlosecp.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)

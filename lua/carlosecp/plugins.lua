@@ -21,16 +21,12 @@ return packer.startup {
 			"neovim/nvim-lspconfig",
 			requires = {
 				"williamboman/nvim-lsp-installer",
-				"jose-elias-alvarez/null-ls.nvim"
+				"jose-elias-alvarez/null-ls.nvim",
 			}
 		}
-		--		TODO: Figure out why this is not working in neovim 0.6
-		--		Probably I should just fork this plugin and build my own inlay hints plugin.
-		--		https://github.com/simrat39/rust-tools.nvim/tree/master/lua/rust-tools
-		--		use {
-		--			"nvim-lua/lsp_extensions.nvim",
-		--			module = "lsp_extensions"
-		--		}
+		use {
+			{ "simrat39/rust-tools.nvim", module = "rust-tools" }
+		}
 		use {
 			"carlosecp/diaglist.nvim",
 			after = "nvim-lspconfig",

@@ -12,4 +12,7 @@ require("carlosecp.options")
 -- Load plugins
 require("carlosecp.plugins")
 pcall(require, "packer_compiled")
+
+-- Activate LSP only when I want to.
+-- vim.cmd("command LSP :lua require('carlosecp.lsp')")
 require("carlosecp.lsp")

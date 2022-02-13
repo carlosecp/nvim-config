@@ -11,14 +11,6 @@ M.on_attach = function(client, bufnr)
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 	end
 
-	if client.name == "tsserver" then
-		local status_ok, ts_utils = pcall(require, "nvim-lsp-ts-utils")
-		if status_ok then
-			ts_utils.setup({})
-			ts_utils.setup_client(client)
-		end
-	end
-
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
@@ -31,8 +23,8 @@ M.on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references,     { noremap = true })
 	vim.keymap.set("n", "gx", vim.lsp.buf.signature_help, { noremap = true })
 
-	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename,         { noremap = true })
-	vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action,    { noremap = true })
+	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename,      { noremap = true })
+	vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
 
 	vim.keymap.set("n", "[g", vim.diagnostic.goto_next, { noremap = true })
 	vim.keymap.set("n", "]g", vim.diagnostic.goto_prev, { noremap = true })
