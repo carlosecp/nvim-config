@@ -1,7 +1,7 @@
 # nvim
 
 My personal neovim configuration written in Lua. This requires neovim version
-0.6 and up.
+0.7 and up.
 
 ## Installation
 
