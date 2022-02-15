@@ -5,11 +5,12 @@ local luasnip_status_ok, luasnip = pcall(require, "luasnip")
 if not luasnip_status_ok then return end
 
 cmp.setup({
+	completion = {
+		-- completeopt = "menu,menuone,noinsert,noselect"
+		completeopt = "menu,menuone,noinsert"
+	},
 	confirmation = {
 		default_behaviour = cmp.ConfirmBehavior.Replace
-	},
-	completion = {
-		completeopt = "menu,menuone,noinsert,noselect"
 	},
 	documentation = {
 		border   = "rounded",

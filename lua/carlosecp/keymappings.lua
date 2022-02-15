@@ -28,6 +28,22 @@ end, noremap)
 -- These bindings are used to lazy-load some plugins.
 local M = {}
 
+M.lsp = function()
+	vim.keymap.set("n", "K",  vim.lsp.buf.hover,          { noremap = true })
+	vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { noremap = true })
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition,     { noremap = true })
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration,    { noremap = true })
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true })
+	vim.keymap.set("n", "gr", vim.lsp.buf.references,     { noremap = true })
+	vim.keymap.set("n", "gx", vim.lsp.buf.signature_help, { noremap = true })
+
+	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename,      { noremap = true })
+	vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { noremap = true })
+
+	vim.keymap.set("n", "[g", vim.diagnostic.goto_next, { noremap = true })
+	vim.keymap.set("n", "]g", vim.diagnostic.goto_prev, { noremap = true })
+end
+
 M.easy_align = function()
 	vim.keymap.set("x", "ga", "<Plug>(EasyAlign)", noremap)
 end

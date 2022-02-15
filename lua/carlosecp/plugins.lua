@@ -25,9 +25,6 @@ return packer.startup {
 			}
 		}
 		use {
-			{ "simrat39/rust-tools.nvim", module = "rust-tools" }
-		}
-		use {
 			"carlosecp/diaglist.nvim",
 			after = "nvim-lspconfig",
 			config = function()

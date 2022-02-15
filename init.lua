@@ -5,14 +5,11 @@
 pcall(require, "impatient")
 
 -- Sources core settings
-require("carlosecp.autocmds")
-require("carlosecp.keymappings")
-require("carlosecp.options")
+pcall(require, "carlosecp.autocmds")
+pcall(require, "carlosecp.keymappings")
+pcall(require, "carlosecp.options")
 
 -- Load plugins
-require("carlosecp.plugins")
+pcall(require, "carlosecp.plugins")
 pcall(require, "packer_compiled")
-
--- Activate LSP only when I want to.
--- vim.cmd("command LSP :lua require('carlosecp.lsp')")
-require("carlosecp.lsp")
+pcall(require, "carlosecp.lsp")
