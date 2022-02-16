@@ -5,34 +5,22 @@ return {
 			schemas = {
 				{
 					description = "TypeScript compiler configuration file",
-					fileMatch = {
-						"tsconfig.json",
-						"tsconfig.*.json",
-					},
+					fileMatch = { "tsconfig.json", "tsconfig.*.json" },
 					url = "https://json.schemastore.org/tsconfig.json",
 				},
 				{
 					description = "ESLint config",
-					fileMatch = {
-						".eslintrc.json",
-						".eslintrc",
-					},
+					fileMatch = { ".eslintrc.json", ".eslintrc" },
 					url = "https://json.schemastore.org/eslintrc.json",
 				},
 				{
 					description = "Prettier config",
-					fileMatch = {
-						".prettierrc",
-						".prettierrc.json",
-						"prettier.config.json",
-					},
+					fileMatch = { ".prettierrc" },
 					url = "https://json.schemastore.org/prettierrc",
 				},
 				{
 					description = "NPM configuration file",
-					fileMatch = {
-						"package.json",
-					},
+					fileMatch = { "package.json" },
 					url = "https://json.schemastore.org/package.json",
 				}
 			}

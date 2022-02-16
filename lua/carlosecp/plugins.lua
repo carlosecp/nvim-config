@@ -1,22 +1,15 @@
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	vim.fn.system {
-		"git",
-		"clone",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path
-	}
+	vim.fn.system({ "git", "clone", packer_repo, install_path })
 	print("Installing packer close and reopen Neovim...")
 	vim.cmd("packadd packer.nvim")
 end
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then return end
-
-return packer.startup {
+local packer = require("packer")
+return packer.startup({
 	function(use)
-		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
 			requires = {
@@ -24,6 +17,7 @@ return packer.startup {
 				"jose-elias-alvarez/null-ls.nvim",
 			}
 		}
+
 		use {
 			"carlosecp/diaglist.nvim",
 			after = "nvim-lspconfig",
@@ -32,7 +26,6 @@ return packer.startup {
 			end
 		}
 
-		-- Autocompletion
 		use {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
@@ -51,12 +44,10 @@ return packer.startup {
 				{ "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp",     module = "cmp_nvim_lsp" },
 				{ "hrsh7th/cmp-nvim-lua",     after = "nvim-cmp" },
-				{ "hrsh7th/cmp-path",         after = "nvim-cmp" },
-				{ "f3fora/cmp-spell",         after = "nvim-cmp" }
+				{ "hrsh7th/cmp-path",         after = "nvim-cmp" }
 			}
 		}
 
-		-- Treesitter
 		use {
 			"nvim-treesitter/nvim-treesitter",
 			event = "BufRead",
@@ -66,12 +57,11 @@ return packer.startup {
 			run = ":TSUpdate",
 			requires = {
 				{ "nvim-treesitter/playground",
-					cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }},
+				cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }},
 				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
 			}
 		}
 
-		-- Fuzzy finder
 		use {
 			"nvim-telescope/telescope.nvim",
 			cmd = "Telescope",
@@ -84,11 +74,10 @@ return packer.startup {
 				run = "make"
 			}},
 			setup = function()
-				require("carlosecp.keymappings").telescope()
+				require("carlosecp.keymappings").telescope_keymappings()
 			end
 		}
 
-		-- File explorer
 		use {
 			"kyazdani42/nvim-tree.lua",
 			cmd = "NvimTreeToggle",
@@ -97,35 +86,33 @@ return packer.startup {
 				require("carlosecp.nvimtree")
 			end,
 			setup = function()
-				require("carlosecp.keymappings").nvimtree()
+				require("carlosecp.keymappings").nvimtree_keymappings()
 			end
 		}
 
-		-- Colorscheme
-use {
-	"tjdevries/gruvbuddy.nvim",
-	config = function()
-		require("carlosecp.colorschemes.gruvbuddy")
-	end,
-	requires = "tjdevries/colorbuddy.vim"
-}
+		use {
+			"tjdevries/gruvbuddy.nvim",
+			config = function()
+				require("carlosecp.colorschemes.gruvbuddy")
+			end,
+			requires = "tjdevries/colorbuddy.vim"
+		}
 
-		-- Utilities
 		use {
 			"tpope/vim-surround",
-			keys = {
-				{ "v", "S" }
-			}
+			keys = {{ "v", "S" }}
 		}
+
 		use {
 			"junegunn/vim-easy-align",
 			cmd = "EasyAlign",
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require("carlosecp.keymappings").easy_align()
+				require("carlosecp.keymappings").easy_align_keymappings()
 			end
 		}
+
 		use {
 			"norcalli/nvim-colorizer.lua",
 			config = function()
@@ -133,24 +120,23 @@ use {
 			end
 		}
 
-		-- Neovim overall performance
 		use {
 			"nathom/filetype.nvim",
 			config = function()
 				require("carlosecp.filetype")
 			end
 		}
-		use "lewis6991/impatient.nvim"
+
 		use {
 			"dstein64/vim-startuptime",
 			cmd = "StartupTime"
 		}
 
-		-- Modules
 		use {
 			"nvim-lua/plenary.nvim",
 			module = "plenary"
 		}
+
 		use {
 			"kyazdani42/nvim-web-devicons",
 			module = "nvim-web-devicons",
@@ -159,10 +145,10 @@ use {
 			end
 		}
 
-		-- Packer can manage itself
+		use "lewis6991/impatient.nvim"
 		use "wbthomason/packer.nvim"
 	end,
 	config = {
 		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
 	}
-}
+})

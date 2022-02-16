@@ -1,5 +1,5 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then return end
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
 
 telescope.setup({
 	defaults = {
@@ -24,12 +24,9 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 
-local status_ok_builtin, builtin = pcall(require, "telescope.builtin")
-if not status_ok_builtin then return end
-
 local M = {}
 
-M.dotfiles = function()
+M.dotfiles_finder = function()
 	builtin.find_files({
 		prompt_title = "Search Dotfiles",
 		cwd = "/home/carlosecp/.dotfiles",
@@ -37,7 +34,7 @@ M.dotfiles = function()
 	})
 end
 
-M.neovim = function()
+M.neovim_finder = function()
 	builtin.find_files({
 		prompt_title = "Search Neovim",
 		cwd = "/home/carlosecp/.config/nvim",

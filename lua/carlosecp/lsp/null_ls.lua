@@ -1,6 +1,4 @@
-local status_ok, null_ls = pcall(require, "null-ls")
-if not status_ok then return end
-
+local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
@@ -13,6 +11,6 @@ null_ls.setup({
 			formatting.rustfmt       -- rustfmt (included with rustup)
     },
 		on_attach = function()
-			require("carlosecp.keymappings").null_ls()
+			require("carlosecp.keymappings").null_ls_keymappings()
 		end
 })

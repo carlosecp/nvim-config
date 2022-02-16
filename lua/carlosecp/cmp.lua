@@ -1,24 +1,11 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then return end
-
-local luasnip_status_ok, luasnip = pcall(require, "luasnip")
-if not luasnip_status_ok then return end
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 
 cmp.setup({
-	completion = {
-		-- completeopt = "menu,menuone,noinsert,noselect"
-		completeopt = "menu,menuone,noinsert"
-	},
-	confirmation = {
-		default_behaviour = cmp.ConfirmBehavior.Replace
-	},
-	documentation = {
-		border   = "rounded",
-		maxwidth = 60
-	},
+	completion    = { completeopt = "menu,menuone,noinsert,noselect" },
+	confirmation  = { default_behaviour = cmp.ConfirmBehavior.Replace },
+	documentation = { border = "rounded", maxwidth = 60 },
 	mapping = {
-		["<C-p>"]     = cmp.mapping.select_prev_item(),
-		["<C-n>"]     = cmp.mapping.select_next_item(),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"]      = cmp.mapping.confirm()
 	},
@@ -81,7 +68,5 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end
 	},
-	experimental = {
-		ghost_text = true
-	}
+	experimental = { ghost_text = true }
 })

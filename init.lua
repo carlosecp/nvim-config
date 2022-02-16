@@ -2,14 +2,14 @@
 -- https://github.com/carlosecp/dotfiles-nvim
 
 -- Loads cached plugins
-pcall(require, "impatient")
+require("impatient")
 
 -- Sources core settings
-pcall(require, "carlosecp.autocmds")
-pcall(require, "carlosecp.keymappings")
-pcall(require, "carlosecp.options")
+require("carlosecp.options")
+require("carlosecp.keymappings")
+require("carlosecp.autocmds")
 
 -- Load plugins
-pcall(require, "carlosecp.plugins")
-pcall(require, "packer_compiled")
-pcall(require, "carlosecp.lsp")
+require("carlosecp.plugins")
+require("packer_compiled")
+require("carlosecp.lsp")

@@ -1,5 +1,5 @@
-local configs_status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not configs_status_ok then return end
+local configs = require("nvim-treesitter.configs")
+local parsers = require("nvim-treesitter.parsers")
 
 configs.setup({
 	ensure_installed = "maintained",
@@ -11,16 +11,12 @@ configs.setup({
 	indent = {
 		-- Must specify parsers, not languages.
 		enable = { "tsx" },
-		disable = { }
+		disable = { "lua" }
 	},
 	refactor = {
 		highlight_definitions = { enable = true }
 	}
 })
 
-local parsers_status_ok, parsers = pcall(require, "nvim-treesitter.parsers")
-if not parsers_status_ok then return end
-
--- Use the jsonc parser for standard JSON files
 local parser_config = parsers.get_parser_configs()
 parser_config.jsonc.filetype_to_parsername = "json"
