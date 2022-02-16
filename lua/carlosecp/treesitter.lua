@@ -22,4 +22,4 @@ if not parsers_status_ok then return end
 
 -- Use the jsonc parser for standard JSON files
 local parser_config = parsers.get_parser_configs()
-parser_config.jsonc.used_by = "json"
+parser_config.jsonc.filetype_to_parsername = "json"
