@@ -9,7 +9,8 @@ configs.setup({
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		enable = false,
+		-- Must specify parsers, not languages.
+		enable = { "tsx" },
 		disable = { }
 	},
 	refactor = {
