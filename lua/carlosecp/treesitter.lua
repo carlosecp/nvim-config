@@ -10,7 +10,7 @@ configs.setup({
 	},
 	indent = {
 		enable = false,
-		disable = { "gitcommit" }
+		disable = {}
 	},
 	refactor = {
 		highlight_definitions = { enable = true }

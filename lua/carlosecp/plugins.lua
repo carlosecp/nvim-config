@@ -18,13 +18,13 @@ return packer.startup({
 			}
 		}
 
-		use {
-			"carlosecp/diaglist.nvim",
-			after = "nvim-lspconfig",
-			config = function()
-				require("carlosecp.diaglist")
-			end
-		}
+-- 		use {
+-- 			"carlosecp/diaglist.nvim",
+-- 			after = "nvim-lspconfig",
+-- 			config = function()
+-- 				require("carlosecp.diaglist")
+-- 			end
+-- 		}
 
 		use {
 			"hrsh7th/nvim-cmp",
@@ -51,13 +51,16 @@ return packer.startup({
 		use {
 			"nvim-treesitter/nvim-treesitter",
 			event = "BufRead",
+			module = "nvim-treesitter.ts_utils",
 			config = function()
 				require("carlosecp.treesitter")
 			end,
 			run = ":TSUpdate",
 			requires = {
-				{ "nvim-treesitter/playground",
-				cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }},
+				{
+					"nvim-treesitter/playground",
+					cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }
+				},
 				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
 				{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
 			}

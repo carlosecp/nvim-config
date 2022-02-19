@@ -8,6 +8,7 @@ pcall("impatient")
 require("carlosecp.options")
 require("carlosecp.keymappings")
 require("carlosecp.autocmds")
+require("carlosecp.utils")
 
 -- Load plugins
 require("carlosecp.plugins")

@@ -1,1 +1,1 @@
-vim.opt.ft = "jsonc"
+vim.bo.ft = "jsonc"
