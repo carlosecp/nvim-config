@@ -9,12 +9,14 @@ configs.setup({
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		-- Must specify parsers, not languages.
-		enable = { "tsx" },
-		disable = { "lua" }
+		enable = false,
+		disable = { }
 	},
 	refactor = {
 		highlight_definitions = { enable = true }
+	},
+	autotag = {
+		enable = true
 	}
 })
 

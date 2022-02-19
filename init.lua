@@ -2,7 +2,7 @@
 -- https://github.com/carlosecp/dotfiles-nvim
 
 -- Loads cached plugins
-require("impatient")
+pcall("impatient")
 
 -- Sources core settings
 require("carlosecp.options")

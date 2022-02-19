@@ -6,7 +6,10 @@ nvimtree.setup({
 		enable = false
 	},
 	git = {
-		enable = true,
+		enable = false,
 		ignore = false
+	},
+	update_focused_file = {
+		enable = true,
 	}
 })

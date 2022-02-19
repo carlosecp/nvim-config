@@ -22,7 +22,12 @@ return {
 					description = "NPM configuration file",
 					fileMatch = { "package.json" },
 					url = "https://json.schemastore.org/package.json",
-				}
+				},
+				{
+					description = "JavaScript interpreter configuration",
+					fileMatch = { "jsconfig.json", "jsconfig.*.json" },
+					url = "https://json.schemastore.org/jsconfig.json",
+				},
 			}
 		}
 	}

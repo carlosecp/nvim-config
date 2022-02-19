@@ -35,7 +35,7 @@ return packer.startup({
 			requires = {
 				{
 					"L3MON4D3/LuaSnip",
-					after = "nvim-cmp",
+					module = "luasnip",
 					config = function()
 						require("carlosecp.luasnip")
 					end
@@ -58,8 +58,14 @@ return packer.startup({
 			requires = {
 				{ "nvim-treesitter/playground",
 				cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }},
-				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
+				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+				{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
 			}
+		}
+
+		use {
+			"MaxMEllon/vim-jsx-pretty",
+			ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 		}
 
 		use {
@@ -68,7 +74,11 @@ return packer.startup({
 			config = function()
 				require("carlosecp.telescope")
 			end,
-			module = { "telescope", "telescope.builtin" },
+			module = {
+				"telescope",
+				"telescope.builtin",
+				"carlosecp.telescope"
+			},
 			requires = {{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				run = "make"

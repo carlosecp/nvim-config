@@ -1,16 +1,12 @@
-local telescope = require("telescope")
-local builtin = require("telescope.builtin")
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+	return
+end
 
-telescope.setup({
+telescope.setup {
 	defaults = {
 		file_ignore_patterns = { "node_modules/", ".next/", ".git/" },
-		sorting_strategy = "ascending",
-		layout_config = {
-			horizontal = {
-				prompt_position = "top",
-				preview_width = 0.5,
-			}
-		}
+		sorting_strategy = "ascending"
 	},
 	extensions = {
 		fzf = {
@@ -20,24 +16,26 @@ telescope.setup({
 			case_mode = "smart_case"
 		}
 	}
-})
+}
 
 telescope.load_extension("fzf")
 
+local builtin = require("telescope.builtin")
+
 local M = {}
 
-M.dotfiles_finder = function()
+M.search_dotfiles = function()
 	builtin.find_files({
 		prompt_title = "Search Dotfiles",
-		cwd = "/home/carlosecp/.dotfiles",
+		cwd = "$HOME/.dotfiles",
 		hidden = true
 	})
 end
 
-M.neovim_finder = function()
+M.search_neovim = function()
 	builtin.find_files({
 		prompt_title = "Search Neovim",
-		cwd = "/home/carlosecp/.config/nvim",
+		cwd = "$HOME/.config/nvim",
 		hidden = true
 	})
 end
