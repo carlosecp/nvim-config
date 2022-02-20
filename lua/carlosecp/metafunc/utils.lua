@@ -31,7 +31,7 @@ local node_is_of_type = function(node, types)
 	return false
 end
 
-M.get_parent_function = function(node, types)
+M.get_parent_func = function(node, types)
 	while node:parent() do
 		if node_is_of_type(node, types) then
 			break
@@ -41,11 +41,13 @@ M.get_parent_function = function(node, types)
 	return node
 end
 
-M.get_raw_return_type = function(function_node, field)
+M.get_func_field = function(function_node, field)
 	local function_return_node = function_node:field(field)
 	return ts_utils.get_node_text(function_return_node[1])[1]
 end
 
+-- Different parsers may change the way they output a function's return
+-- type information, so there are parsers for different kind of outputs.
 M.parsers = {
 	go = function(raw_str)
 		local return_types = {}
@@ -67,6 +69,9 @@ M.parsers = {
 		end
 
 		return return_types
+	end,
+	rust = function(raw_str)
+		return raw_str
 	end
 }
 

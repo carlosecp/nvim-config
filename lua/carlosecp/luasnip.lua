@@ -15,23 +15,24 @@ ls.config.set_config({
 ls.snippets = {
 	all = {},
 	go = {
-		s("reterr", {
+		s("func_type", {
 			f(function(args, snip)
 				local defaults = {
-					int = "0",
+					bool = "false",
 					float64 = "0.0",
-					boolean = "false"
+					int = "0",
+					string = ""
 				}
-				local return_type = require("carlosecp.return_type").get()
 
-				local snippet_str = ""
+				local func_metadata = require("carlosecp.metafunc").get()
+				local return_types = ""
 				local prefix = ""
-				for i, t in ipairs(return_type) do
-					snippet_str = snippet_str ..  prefix .. defaults[t]
+				for i, t in ipairs(func_metadata.func_type) do
+					snippet = snippet ..  prefix .. defaults[t]
 					prefix = ", "
 				end
 
-				return "return " .. snippet_str
+				return return_types
 			end, {}),
 			i(0)
 		})
