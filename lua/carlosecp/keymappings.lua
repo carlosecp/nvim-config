@@ -24,11 +24,11 @@ end, noremap)
 -- These bindings are used to lazy-load some plugins.
 local M = {}
 
-M.easy_align_keymappings = function()
+M.easy_align = function()
 	map("x", "ga", "<Plug>(EasyAlign)", noremap)
 end
 
-M.lsp_keymappings = function()
+M.lsp = function()
 	map("n", "K",          vim.lsp.buf.hover,          noremap)
 	map("n", "gs",         vim.lsp.buf.signature_help, noremap)
 	map("n", "gd",         vim.lsp.buf.definition,     noremap)
@@ -40,16 +40,17 @@ M.lsp_keymappings = function()
 	map("n", "]g",         vim.diagnostic.goto_prev,   noremap)
 end
 
-M.null_ls_keymappings = function()
+M.null_ls = function()
 	map("n", "<Leader>x", vim.lsp.buf.formatting, noremap)
 end
 
-M.nvimtree_keymappings = function()
+M.nvimtree = function()
 	vim.api.nvim_set_keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", noremap)
 end
 
-M.telescope_keymappings = function()
-	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
+M.telescope = function()
+	map("n", "<Leader>ff", ":Telescope git_files hidden=true<CR>", { noremap = true })
+	map("n", "<Leader>af", ":Telescope find_files hidden=true<CR>", { noremap = true })
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>", { noremap = true })
 
 	-- Custom telescope finders.

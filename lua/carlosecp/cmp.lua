@@ -9,13 +9,12 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"]      = cmp.mapping.confirm()
 	},
-	sources = {
+	sources = cmp.config.sources({
 		{ name = "luasnip"  },
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "path"     },
-		{ name = "buffer", keyword_length = 1 },
-	},
+		{ name = "buffer"   },
+	}),
 	formatting = {
 		format = function(entry, vim_item)
 			vim_item.menu = ({
@@ -69,4 +68,22 @@ cmp.setup({
 		end
 	},
 	experimental = { ghost_text = true }
+})
+
+cmp.setup.filetype("lua", {
+	sources = cmp.config.sources({
+		{ name = "luasnip"  },
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "path"     },
+		{ name = "buffer"   },
+	})
+})
+
+cmp.setup.filetype("rust", {
+	sources = cmp.config.sources({
+		{ name = "luasnip" },
+		{ name = "path"    },
+		{ name = "buffer"  },
+	})
 })

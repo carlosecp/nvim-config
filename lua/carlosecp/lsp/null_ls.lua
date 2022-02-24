@@ -10,6 +10,6 @@ null_ls.setup({
 		formatting.rustfmt                                             -- rustfmt (included with rustup)
 	},
 	on_attach = function()
-		require("carlosecp.keymappings").null_ls_keymappings()
+		require("carlosecp.keymappings").null_ls()
 	end
 })

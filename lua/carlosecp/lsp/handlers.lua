@@ -16,6 +16,7 @@ M.setup = function()
 	}
 
 	vim.diagnostic.config(diagnostic_config)
+
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded"
@@ -30,6 +31,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.on_attach = function(client, bufnr)
+	if client.name == "rust_analyzer" then
+		vim.diagnostic.disable(vim.api.nvim_get_current_buf(), nil)
+	end
+
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
 			require("carlosecp.lsp.settings.tailwindcss.documentcolors").buf_attach(bufnr)
@@ -40,7 +45,7 @@ M.on_attach = function(client, bufnr)
 
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
-	require("carlosecp.keymappings").lsp_keymappings()
+	require("carlosecp.keymappings").lsp()
 end
 
 local cmp_nvim_lsp = require("cmp_nvim_lsp")

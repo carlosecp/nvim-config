@@ -87,7 +87,7 @@ return packer.startup({
 				run = "make"
 			}},
 			setup = function()
-				require("carlosecp.keymappings").telescope_keymappings()
+				require("carlosecp.keymappings").telescope()
 			end
 		}
 
@@ -99,7 +99,7 @@ return packer.startup({
 				require("carlosecp.nvimtree")
 			end,
 			setup = function()
-				require("carlosecp.keymappings").nvimtree_keymappings()
+				require("carlosecp.keymappings").nvimtree()
 			end
 		}
 
@@ -122,7 +122,7 @@ return packer.startup({
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require("carlosecp.keymappings").easy_align_keymappings()
+				require("carlosecp.keymappings").easy_align()
 			end
 		}
 
@@ -160,6 +160,7 @@ return packer.startup({
 
 		use "lewis6991/impatient.nvim"
 		use "wbthomason/packer.nvim"
+		use "milisims/nvim-luaref"
 	end,
 	config = {
 		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
