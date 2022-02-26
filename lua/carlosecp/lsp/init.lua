@@ -3,6 +3,10 @@ local handlers = require("carlosecp.lsp.handlers")
 
 handlers.setup()
 
+require("fidget").setup({
+	fmt = { stack_upwards = false }
+})
+
 lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = handlers.on_attach,

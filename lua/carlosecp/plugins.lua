@@ -15,6 +15,7 @@ return packer.startup({
 			requires = {
 				"williamboman/nvim-lsp-installer",
 				"jose-elias-alvarez/null-ls.nvim",
+				"j-hui/fidget.nvim"
 			}
 		}
 
