@@ -45,7 +45,7 @@ M.on_attach = function(client, bufnr)
 
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
-	require("carlosecp.keymappings").lsp()
+	require("carlosecp.mappings").lsp()
 end
 
 local cmp_nvim_lsp = require("cmp_nvim_lsp")

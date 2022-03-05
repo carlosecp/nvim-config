@@ -19,14 +19,6 @@ return packer.startup({
 			}
 		}
 
--- 		use {
--- 			"carlosecp/diaglist.nvim",
--- 			after = "nvim-lspconfig",
--- 			config = function()
--- 				require("carlosecp.diaglist")
--- 			end
--- 		}
-
 		use {
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
@@ -88,7 +80,7 @@ return packer.startup({
 				run = "make"
 			}},
 			setup = function()
-				require("carlosecp.keymappings").telescope()
+				require("carlosecp.mappings").telescope()
 			end
 		}
 
@@ -100,7 +92,7 @@ return packer.startup({
 				require("carlosecp.nvimtree")
 			end,
 			setup = function()
-				require("carlosecp.keymappings").nvimtree()
+				require("carlosecp.mappings").nvimtree()
 			end
 		}
 
@@ -123,7 +115,7 @@ return packer.startup({
 			keys = "<Plug>(EasyAlign)",
 			setup = function()
 				vim.g.easy_align_ignore_groups = {}
-				require("carlosecp.keymappings").easy_align()
+				require("carlosecp.mappings").easy_align()
 			end
 		}
 

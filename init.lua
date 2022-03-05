@@ -6,7 +6,7 @@ pcall("impatient")
 
 -- Sources core settings
 require("carlosecp.options")
-require("carlosecp.keymappings")
+require("carlosecp.mappings")
 require("carlosecp.autocmds")
 require("carlosecp.utils")
 

@@ -24,6 +24,12 @@ end, noremap)
 -- These bindings are used to lazy-load some plugins.
 local M = {}
 
+M.carbon_now = function()
+	map("v", "<Leader>cn", function()
+		require("carbon-now").create_snippet()
+	end, noremap)
+end
+
 M.easy_align = function()
 	map("x", "ga", "<Plug>(EasyAlign)", noremap)
 end
@@ -49,8 +55,8 @@ M.nvimtree = function()
 end
 
 M.telescope = function()
-	map("n", "<Leader>ff", ":Telescope git_files hidden=true<CR>", { noremap = true })
-	map("n", "<Leader>af", ":Telescope find_files hidden=true<CR>", { noremap = true })
+	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
+	map("n", "<Leader>gf", ":Telescope git_files hidden=true<CR>", { noremap = true })
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>", { noremap = true })
 
 	-- Custom telescope finders.
