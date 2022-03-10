@@ -8,7 +8,6 @@
 
 require("colorbuddy").colorscheme("gruvbuddy")
 vim.cmd("hi Normal guibg=NONE")
-
 vim.cmd("hi DiagnosticUnderlineError gui=undercurl")
 vim.cmd("hi DiagnosticUnderlineWarn gui=undercurl")
 vim.cmd("hi DiagnosticUnderlineInfo gui=undercurl")
