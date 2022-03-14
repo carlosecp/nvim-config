@@ -12,5 +12,5 @@ require("carlosecp.utils")
 
 -- Load plugins
 require("carlosecp.plugins")
-require("packer_compiled")
+pcall(require, "packer_compiled")
 require("carlosecp.lsp")
