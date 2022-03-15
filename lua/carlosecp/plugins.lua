@@ -97,11 +97,10 @@ return packer.startup({
 		}
 
 		use {
-			"tjdevries/gruvbuddy.nvim",
+			"Mofiqul/vscode.nvim",
 			config = function()
-				require("carlosecp.colorschemes.gruvbuddy")
-			end,
-			requires = "tjdevries/colorbuddy.vim"
+				require("carlosecp.colorschemes.vscode_nvim")
+			end
 		}
 
 		use {

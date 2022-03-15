@@ -1,8 +1,8 @@
--- carlosecp's nvim config
+-- @carlosecp's nvim config
 -- https://github.com/carlosecp/dotfiles-nvim
 
 -- Loads cached plugins
-pcall("impatient")
+pcall(require, "impatient")
 
 -- Sources core settings
 require("carlosecp.options")
