@@ -37,7 +37,8 @@ return packer.startup({
 				{ "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp",     module = "cmp_nvim_lsp" },
 				{ "hrsh7th/cmp-nvim-lua",     after = "nvim-cmp" },
-				{ "hrsh7th/cmp-path",         after = "nvim-cmp" }
+				{ "hrsh7th/cmp-path",         after = "nvim-cmp" },
+				{ "windwp/nvim-autopairs",    module = "nvim-autopairs" }
 			}
 		}
 
@@ -62,6 +63,11 @@ return packer.startup({
 		use {
 			"MaxMEllon/vim-jsx-pretty",
 			ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+		}
+
+		use {
+			"leafOfTree/vim-svelte-plugin",
+			ft = { "svelte" }
 		}
 
 		use {

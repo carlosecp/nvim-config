@@ -35,6 +35,10 @@ M.on_attach = function(client, bufnr)
 		vim.diagnostic.disable(vim.api.nvim_get_current_buf(), nil)
 	end
 
+	if client.name == "gopls" then
+		vim.diagnostic.disable(vim.api.nvim_get_current_buf(), nil)
+	end
+
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
 			require("carlosecp.lsp.settings.tailwindcss.documentcolors").buf_attach(bufnr)

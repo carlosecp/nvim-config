@@ -1,4 +1,6 @@
 local cmp = require("cmp")
+local autopairs = require("nvim-autopairs")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
 
 cmp.setup({
@@ -87,3 +89,15 @@ cmp.setup.filetype("rust", {
 		{ name = "buffer"  },
 	})
 })
+
+cmp.setup.filetype("go", {
+	sources = cmp.config.sources({
+		{ name = "luasnip" },
+		{ name = "path"    },
+		{ name = "buffer"  },
+	})
+})
+
+autopairs.setup({})
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" }}))
