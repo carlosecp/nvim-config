@@ -55,14 +55,8 @@ return packer.startup({
 					"nvim-treesitter/playground",
 					cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" }
 				},
-				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-				{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
+				{ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }
 			}
-		}
-
-		use {
-			"MaxMEllon/vim-jsx-pretty",
-			ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 		}
 
 		use {
@@ -103,10 +97,11 @@ return packer.startup({
 		}
 
 		use {
-			"Mofiqul/vscode.nvim",
+			"tjdevries/gruvbuddy.nvim",
 			config = function()
-				require("carlosecp.colorschemes.vscode_nvim")
-			end
+				require("carlosecp.colorschemes.gruvbuddy")
+			end,
+			requires = "tjdevries/colorbuddy.vim"
 		}
 
 		use {

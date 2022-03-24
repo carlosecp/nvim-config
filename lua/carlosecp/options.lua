@@ -6,6 +6,7 @@ o.splitright    = true
 o.swapfile      = false
 o.foldmethod    = "marker"
 o.cmdheight     = 2
+o.laststatus    = 3
 
 o.incsearch  = true
 o.hlsearch   = true
