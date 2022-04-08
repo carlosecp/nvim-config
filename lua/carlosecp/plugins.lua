@@ -60,11 +60,6 @@ return packer.startup({
 		}
 
 		use {
-			"leafOfTree/vim-svelte-plugin",
-			ft = { "svelte" }
-		}
-
-		use {
 			"nvim-telescope/telescope.nvim",
 			cmd = "Telescope",
 			config = function()
