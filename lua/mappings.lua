@@ -61,10 +61,10 @@ M.telescope = function()
 
 	-- Custom telescope finders.
 	map("n", "<Leader>df", function()
-		require("carlosecp.telescope").search_dotfiles()
+		require("configs.telescope").search_dotfiles()
 	end, { noremap = true })
 	map("n", "<Leader>nv", function()
-		require("carlosecp.telescope").search_neovim()
+		require("configs.telescope").search_neovim()
 	end, { noremap = true })
 end
 

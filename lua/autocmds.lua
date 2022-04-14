@@ -13,9 +13,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 local mdx_group = create_augroup("MDXasMD")
 vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = "markdown",
+	pattern = "*.md",
 	callback = function()
-		vim.bo.colorcolumn = "80"
+		vim.wo.colorcolumn = "80"
 	end,
 	group = mdx_group
 })

@@ -1,14 +1,14 @@
 local configs = require("nvim-treesitter.configs")
 
 configs.setup({
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		disable = { "html" },
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		enable = {"python"},
+		enable = { "python" },
 		disable = {}
 	},
 	refactor = {

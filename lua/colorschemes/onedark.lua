@@ -1,7 +1,7 @@
 -- use {
 -- 	"navarasu/onedark.nvim",
 -- 	config = function()
--- 		require("carlosecp.colorschemes.onedark")
+-- 		require("colorschemes.onedark")
 -- 	end
 -- }
 

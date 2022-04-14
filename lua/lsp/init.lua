@@ -1,7 +1,7 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then return end
 
-local handlers = require("carlosecp.lsp.handlers")
+local handlers = require("lsp.handlers")
 
 handlers.setup()
 
@@ -16,16 +16,16 @@ lsp_installer.on_server_ready(function(server)
 	}
 
 	if server.name == "jsonls" then
-		local jsonls_opts = require("carlosecp.lsp.settings.jsonls")
+		local jsonls_opts = require("lsp.settings.jsonls")
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
 	if server.name == "sumneko_lua" then
-		local sumneko_lua_opts = require("carlosecp.lsp.settings.sumneko_lua")
+		local sumneko_lua_opts = require("lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
 	end
 
 	server:setup(opts)
 end)
 
-require("carlosecp.lsp.null_ls")
+require("lsp.null_ls")

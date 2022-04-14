@@ -4,9 +4,9 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
 
 cmp.setup({
-	completion    = { completeopt = "menu,menuone,noinsert,noselect" },
-	confirmation  = { default_behaviour = cmp.ConfirmBehavior.Replace },
-	documentation = { border = "rounded", maxwidth = 60 },
+	completion   = { completeopt = "menu,menuone,noinsert,noselect" },
+	confirmation = { default_behaviour = cmp.ConfirmBehavior.Replace },
+	window       = { documentation = "native" },
 	mapping = {
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"]      = cmp.mapping.confirm()

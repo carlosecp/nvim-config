@@ -1,7 +1,7 @@
 -- use {
 -- 	"morhetz/gruvbox",
 -- 	config = function()
--- 		require("carlosecp.colorschemes.gruvbox")
+-- 		require("colorschemes.gruvbox")
 -- 	end
 -- }
 
