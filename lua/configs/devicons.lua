@@ -1,7 +1,8 @@
 -- nvim-web-devicons
 -- lua `fork` of vim-web-devicons for neovim
-local devicons = require("nvim-web-devicons")
+-- https://github.com/kyazdani42/nvim-web-devicons
 
+local devicons = require("nvim-web-devicons")
 devicons.setup({
 	override = {
 		dockerfile = {

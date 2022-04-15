@@ -7,5 +7,4 @@
 -- }
 
 vim.cmd("colo gruvy")
--- vim.cmd("hi Normal guibg=NONE")
--- TODO: Remove bold highlights using Lush.
+vim.cmd("hi Normal guibg=NONE")

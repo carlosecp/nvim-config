@@ -6,4 +6,4 @@
 -- }
 
 vim.cmd("colo gruvbox")
--- vim.cmd("hi Normal guibg=NONE")
+vim.cmd("hi Normal guibg=NONE")

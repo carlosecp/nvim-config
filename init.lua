@@ -1,6 +1,5 @@
--- @carlosecp's nvim config
+-- carlosecp's dotfiles-nvim
 -- https://github.com/carlosecp/dotfiles-nvim
-
 require("options")
 require("mappings")
 require("autocmds")

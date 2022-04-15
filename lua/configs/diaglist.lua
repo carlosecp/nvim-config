@@ -1,7 +1,7 @@
--- * diaglist.nvim *
+-- diaglist.nvim
 -- Live render workspace diagnostics in quickfix with current buf errors on
 -- top, buffer diagnostics in loclist.
--- repo: https://github.com/onsails/diaglist.nvim
-local diaglist = require("diaglist")
+-- https://github.com/onsails/diaglist.nvim
 
+local diaglist = require("diaglist")
 diaglist.init({})

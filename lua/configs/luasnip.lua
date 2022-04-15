@@ -1,8 +1,12 @@
+-- Luasnip
+-- Snippet Engine for Neovim written in Lua.
+-- https://github.com/L3MON4D3/LuaSnip
+
 local ls = require("luasnip")
-local s   = ls.snippet
-local t   = ls.text_node
-local i   = ls.insert_node
-local f   = ls.function_node
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
 local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
@@ -14,29 +18,7 @@ ls.config.set_config({
 
 ls.snippets = {
 	all = {},
-	go = {
-		s("func_type", {
-			f(function(args, snip)
-				local defaults = {
-					bool = "false",
-					float64 = "0.0",
-					int = "0",
-					string = ""
-				}
-
-				local func_metadata = require("carlosecp.metafunc").get()
-				local return_types = ""
-				local prefix = ""
-				for i, t in ipairs(func_metadata.func_type) do
-					snippet = snippet ..  prefix .. defaults[t]
-					prefix = ", "
-				end
-
-				return return_types
-			end, {}),
-			i(0)
-		})
-	},
+	go = {},
 	lua = {
 		s("req", fmt("local {} = require(\"{}\")", { i(1, "module"), rep(1) })),
 		s("lf", fmt("local {} = function({})\n\t{}\nend", { i(1, "identifier"), i(2, "args"), i(0) })),

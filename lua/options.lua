@@ -1,41 +1,35 @@
-local o = vim.opt
-
-o.termguicolors = true
-o.splitbelow    = true
-o.splitright    = true
-o.swapfile      = false
-o.foldmethod    = "marker"
-o.cmdheight     = 2
--- o.laststatus    = 3
-o.completeopt = "menu,menuone,noinsert,noselect"
-
-o.incsearch  = true
-o.hlsearch   = true
-o.ignorecase = true
-
-o.cursorline     = true
-o.number         = true
-o.relativenumber = true
-o.scrolloff      = 5
-o.wrap           = false
--- o.virtualedit = "all"
-
-o.pumheight = 10
-
-o.autoindent  = true
-o.cindent     = true
-o.expandtab   = false
-o.list        = false
-o.listchars   = {
+vim.g.filetype_lua = 1
+vim.opt.autoindent = true
+vim.opt.cindent = true
+vim.opt.cmdheight = 2
+vim.opt.completeopt = "menu,menuone,noinsert,noselect"
+vim.opt.cursorline = true
+vim.opt.expandtab = false
+vim.opt.foldmethod = "marker"
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.laststatus = 2
+vim.opt.list = false
+vim.opt.listchars = {
 	eol = "﬋",
 	tab = "  "
 }
-o.shiftwidth  = 2
-o.smartindent = true
-o.smarttab    = true
-o.tabstop     = 2
-
-o.shell = "sh"
-vim.g.do_filetype_lua = 1
-
-vim.opt.wildignore = { "node_modules/**", ".git/**" }
+vim.opt.number = true
+vim.opt.pumheight = 10
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 5
+vim.opt.shell = "sh"
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.tabstop = 2
+vim.opt.termguicolors = true
+vim.opt.wildignore = {
+	"node_modules/**",
+	".git/**"
+}
+vim.opt.wrap = false

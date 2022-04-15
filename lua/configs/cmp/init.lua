@@ -1,6 +1,7 @@
--- * nvim-cmp *
+-- nvim-cmp
 -- A completion plugin for neovim coded in Lua.
--- repo: https://github.com/hrsh7th/nvim-cmp
+-- https://github.com/hrsh7th/nvim-cmp
+
 local cmp = require("cmp")
 local autopairs = require("nvim-autopairs")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")

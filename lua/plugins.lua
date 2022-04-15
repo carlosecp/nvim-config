@@ -1,5 +1,5 @@
--- Bootstrap
--- Install packer.nvim plugin manager automatically if not installed already.
+-- Bootstrap plugin manager.
+-- Install packer.nvim automatically if not installed already.
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
@@ -118,13 +118,6 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"nathom/filetype.nvim",
-		config = function()
-			require("configs.filetype")
-		end
-	}
-
-	use {
 		"dstein64/vim-startuptime",
 		cmd = "StartupTime"
 	}
@@ -149,5 +142,4 @@ return require("packer").startup(function(use)
 
 	use "lewis6991/impatient.nvim"
 	use "wbthomason/packer.nvim"
-	use "milisims/nvim-luaref"
 end)

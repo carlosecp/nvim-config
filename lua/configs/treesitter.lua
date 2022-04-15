@@ -1,5 +1,8 @@
-local configs = require("nvim-treesitter.configs")
+-- nvim-treesitter
+-- Nvim Treesitter configurations and abstraction layer.
+-- https://github.com/nvim-treesitter/nvim-treesitter
 
+local configs = require("nvim-treesitter.configs")
 configs.setup({
 	ensure_installed = "all",
 	highlight = {

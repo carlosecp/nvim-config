@@ -1,6 +1,5 @@
 -- use {
 -- 	"Mofiqul/vscode.nvim",
--- 	config = function()
 -- 		require("colorschemes.vscode_nvim")
 -- 	end
 -- }

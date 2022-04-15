@@ -1,4 +1,5 @@
 -- Formatter for completion option/entries.
+
 return function(entry, vim_item)
 	vim_item.menu = ({
 		nvim_lsp      = "[LSP]",
