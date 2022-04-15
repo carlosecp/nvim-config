@@ -7,6 +7,7 @@ o.swapfile      = false
 o.foldmethod    = "marker"
 o.cmdheight     = 2
 -- o.laststatus    = 3
+o.completeopt = "menu,menuone,noinsert,noselect"
 
 o.incsearch  = true
 o.hlsearch   = true
@@ -17,6 +18,7 @@ o.number         = true
 o.relativenumber = true
 o.scrolloff      = 5
 o.wrap           = false
+-- o.virtualedit = "all"
 
 o.pumheight = 10
 

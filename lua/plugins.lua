@@ -1,12 +1,12 @@
+-- Bootstrap
+-- Install packer.nvim plugin manager automatically if not installed already.
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	print("Installing dependencies...")
-
 	vim.fn.system({ "git", "clone", packer_repo, install_path })
 	vim.cmd("packadd packer.nvim")
-
 	print("Dependencies installed. Restart Neovim and run ':PackerSync'.")
 end
 
@@ -89,11 +89,10 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"RishabhRD/gruvy",
+		"projekt0n/github-nvim-theme",
 		config = function()
-			require("colorschemes.gruvbuddy_lush")
-		end,
-		requires = "rktjmp/lush.nvim"
+			require("colorschemes.github")
+		end
 	}
 
 	use {
@@ -141,6 +140,11 @@ return require("packer").startup(function(use)
 		config = function()
 			require("configs.devicons")
 		end
+	}
+
+	use {
+		"jbyuki/venn.nvim",
+		cmd = "VBox"
 	}
 
 	use "lewis6991/impatient.nvim"

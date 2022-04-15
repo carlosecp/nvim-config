@@ -55,17 +55,17 @@ M.nvimtree = function()
 end
 
 M.telescope = function()
-	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", { noremap = true })
-	map("n", "<Leader>gf", ":Telescope git_files hidden=true<CR>", { noremap = true })
-	map("n", "<Leader>lg", ":Telescope live_grep<CR>", { noremap = true })
+	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", noremap)
+	map("n", "<Leader>gf", ":Telescope git_files hidden=true<CR>", noremap)
+	map("n", "<Leader>lg", ":Telescope live_grep<CR>", noremap)
 
 	-- Custom telescope finders.
 	map("n", "<Leader>df", function()
 		require("configs.telescope").search_dotfiles()
-	end, { noremap = true })
+	end, noremap)
 	map("n", "<Leader>nv", function()
 		require("configs.telescope").search_neovim()
-	end, { noremap = true })
+	end, noremap)
 end
 
 return M
