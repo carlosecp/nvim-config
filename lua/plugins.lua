@@ -14,7 +14,6 @@ return require("packer").startup(function(use)
 	use {
 		"neovim/nvim-lspconfig",
 		requires = {
-			"williamboman/nvim-lsp-installer",
 			"jose-elias-alvarez/null-ls.nvim",
 			"j-hui/fidget.nvim"
 		}
@@ -34,12 +33,12 @@ return require("packer").startup(function(use)
 					require("configs.luasnip")
 				end
 			},
+			"hrsh7th/cmp-nvim-lsp",
 			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-buffer",       after = "nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lua",     after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path",         after = "nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp",     module = "cmp_nvim_lsp" },
-			{ "windwp/nvim-autopairs",    module = "nvim-autopairs" }
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+			{ "windwp/nvim-autopairs", module = "nvim-autopairs" }
 		}
 	}
 

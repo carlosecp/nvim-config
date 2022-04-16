@@ -88,11 +88,8 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
-    after_files = { "/home/carlosecp/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/carlosecp/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp",
+    loaded = true,
+    path = "/home/carlosecp/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-nvim-lua"] = {
@@ -154,7 +151,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-path", "cmp_luasnip", "cmp-nvim-lua", "cmp-buffer" },
+    after = { "cmp_luasnip", "cmp-path", "cmp-nvim-lua", "cmp-buffer" },
     config = { "\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16configs.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -167,11 +164,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/carlosecp/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/carlosecp/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -276,7 +268,6 @@ _G.packer_plugins = {
 
 time([[Defining packer_plugins]], false)
 local module_lazy_loads = {
-  ["^cmp_nvim_lsp"] = "cmp-nvim-lsp",
   ["^configs%.telescope"] = "telescope.nvim",
   ["^luasnip"] = "LuaSnip",
   ["^nvim%-autopairs"] = "nvim-autopairs",
@@ -311,14 +302,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Setup for: vim-easy-align
-time([[Setup for vim-easy-align]], true)
-try_loadstring("\27LJ\2\nj\0\0\3\0\6\0\n6\0\0\0009\0\1\0004\1\0\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\15easy_align\rmappings\frequire\29easy_align_ignore_groups\6g\bvim\0", "setup", "vim-easy-align")
-time([[Setup for vim-easy-align]], false)
 -- Setup for: telescope.nvim
 time([[Setup for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14telescope\rmappings\frequire\0", "setup", "telescope.nvim")
 time([[Setup for telescope.nvim]], false)
+-- Setup for: vim-easy-align
+time([[Setup for vim-easy-align]], true)
+try_loadstring("\27LJ\2\nj\0\0\3\0\6\0\n6\0\0\0009\0\1\0004\1\0\0=\1\2\0006\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\15easy_align\rmappings\frequire\29easy_align_ignore_groups\6g\bvim\0", "setup", "vim-easy-align")
+time([[Setup for vim-easy-align]], false)
 -- Setup for: nvim-tree.lua
 time([[Setup for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\rnvimtree\rmappings\frequire\0", "setup", "nvim-tree.lua")
@@ -334,10 +325,10 @@ time([[Config for nvim-colorizer.lua]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file VBox lua require("packer.load")({'venn.nvim'}, { cmd = "VBox", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file EasyAlign lua require("packer.load")({'vim-easy-align'}, { cmd = "EasyAlign", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file EasyAlign lua require("packer.load")({'vim-easy-align'}, { cmd = "EasyAlign", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file VBox lua require("packer.load")({'venn.nvim'}, { cmd = "VBox", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
@@ -351,8 +342,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

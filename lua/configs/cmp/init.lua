@@ -9,7 +9,7 @@ local luasnip = require("luasnip")
 local formatter = require("configs.cmp.formatter")
 
 cmp.setup({
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-f>"] = cmp.mapping.scroll_docs(-4),
@@ -19,7 +19,7 @@ cmp.setup({
 			behaviour = cmp.ConfirmBehavior.Insert,
 			select = true
 		})
-	},
+	}),
 	window = {
 		-- completion = { border = "rounded" },
 		documentation = {
@@ -28,15 +28,15 @@ cmp.setup({
 			-- max_height = 50
 		}
 	},
-	sources = {
+	sources = cmp.config.sources({
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer", keyword_length = 2 }
-	},
+	}),
 	experimental = { ghost_text = true },
-	formatting = { format = formatter },
+	-- formatting = { format = formatter },
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)

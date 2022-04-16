@@ -2,9 +2,9 @@ local M = {}
 
 M.setup = function()
 	local diagnostic_config = {
-		virtual_text     = true,
+		virtual_text = true,
 		update_in_insert = true,
-		underline        = true,
+		underline = true,
 		float = {
 			focusable = false,
 			style  = "minimal",
@@ -28,13 +28,7 @@ M.setup = function()
 	})
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 M.on_attach = function(client, bufnr)
-	if client.name == "rust_analyzer" then
-		vim.diagnostic.disable(vim.api.nvim_get_current_buf(), nil)
-	end
-
 	if client.name == "gopls" then
 		vim.diagnostic.disable(vim.api.nvim_get_current_buf(), nil)
 	end
@@ -49,10 +43,8 @@ M.on_attach = function(client, bufnr)
 
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
+
 	require("mappings").lsp()
 end
-
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
