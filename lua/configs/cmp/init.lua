@@ -36,7 +36,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 2 }
 	}),
 	experimental = { ghost_text = true },
-	-- formatting = { format = formatter },
+	formatting = { format = formatter },
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)

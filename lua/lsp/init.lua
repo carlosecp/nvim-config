@@ -4,12 +4,9 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 handlers.setup()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
 local opts = {
 	on_attach = handlers.on_attach,
-	capabilities = capabilities
+	capabilities = handlers.capabilities
 }
 
 -- npm install -g typescript typescript-language-server
@@ -24,7 +21,7 @@ local sumneko_opts = require("lsp.settings.sumneko_lua")
 lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", opts, sumneko_opts))
 
 -- npm install -g @tailwindcss/language-server
-lspconfig.tailwindcss.setup({})
+lspconfig.tailwindcss.setup(opts)
 
 require("fidget").setup({
 	fmt = { stack_upwards = false }

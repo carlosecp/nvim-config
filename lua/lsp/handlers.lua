@@ -28,6 +28,8 @@ M.setup = function()
 	})
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 M.on_attach = function(client, bufnr)
 	if client.name == "gopls" then
 		vim.diagnostic.disable(vim.api.nvim_get_current_buf(), nil)
@@ -46,5 +48,8 @@ M.on_attach = function(client, bufnr)
 
 	require("mappings").lsp()
 end
+
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
