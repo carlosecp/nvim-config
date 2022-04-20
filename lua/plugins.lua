@@ -76,16 +76,16 @@ return require("packer").startup(function(use)
 		end
 	}
 
-	use {
-		"kyazdani42/nvim-tree.lua",
-		cmd = "NvimTreeToggle",
-		config = function()
-			require("configs.nvimtree")
-		end,
-		setup = function()
-			require("mappings").nvimtree()
-		end
-	}
+-- 	use {
+-- 		"kyazdani42/nvim-tree.lua",
+-- 		cmd = "NvimTreeToggle",
+-- 		config = function()
+-- 			require("configs.nvimtree")
+-- 		end,
+-- 		setup = function()
+-- 			require("mappings").nvimtree()
+-- 		end
+-- 	}
 
 	use {
 		"projekt0n/github-nvim-theme",
@@ -136,9 +136,13 @@ return require("packer").startup(function(use)
 
 	use {
 		"jbyuki/venn.nvim",
-		cmd = "VBox"
+		cmd = "VBox",
+		setup = function()
+			require("mappings").venn()
+		end
 	}
 
 	use "lewis6991/impatient.nvim"
 	use "wbthomason/packer.nvim"
+	use "milisims/nvim-luaref"
 end)

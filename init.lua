@@ -2,8 +2,10 @@
 -- https://github.com/carlosecp/dotfiles-nvim
 require("options")
 require("mappings")
-require("autocmds")
+require("autocommands")
+require("utils")
 
 pcall(require, "impatient")
 require("plugins")
+require("configs.netrw")
 require("lsp")

@@ -15,7 +15,11 @@ configs.setup({
 		disable = {}
 	},
 	refactor = {
-		highlight_definitions = { enable = true }
+		highlight_definitions = { enable = true },
+		smart_rename = {
+			enable = true,
+			keymaps = { smart_rename = "<Leader>rn" }
+		}
 	}
 })
 

@@ -17,8 +17,8 @@ local jsonls_opts = require("lsp.settings.jsonls")
 lspconfig.jsonls.setup(vim.tbl_deep_extend("force", opts, jsonls_opts))
 
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
-local sumneko_opts = require("lsp.settings.sumneko_lua")
-lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", opts, sumneko_opts))
+-- local sumneko_opts = require("lsp.settings.sumneko_lua")
+-- lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", opts, sumneko_opts))
 
 -- npm install -g @tailwindcss/language-server
 lspconfig.tailwindcss.setup(opts)

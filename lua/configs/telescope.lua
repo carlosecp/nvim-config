@@ -5,7 +5,7 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 		file_ignore_patterns = { "node_modules/", ".next/", ".git/" },
 		sorting_strategy = "ascending"
@@ -18,7 +18,7 @@ telescope.setup {
 			case_mode = "smart_case"
 		}
 	}
-}
+})
 
 telescope.load_extension("fzf")
 
