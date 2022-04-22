@@ -14,7 +14,7 @@ map("n", "<C-Up>",           ":res +5<CR>",      no_si)
 map("n", "<C-Down>",         ":res -5<CR>",      no_si)
 map("n", "<C-Right>",        ":vert res +5<CR>", no_si)
 map("n", "<C-Left>",         ":vert res -5<CR>", no_si)
-map("n", "<Leader>e",        ":Exp<CR>",         no_si)
+-- map("n", "<Leader>e",        ":Exp<CR>",         no_si)
 
 map("n", "<Leader>cc", function()
 	local colorcolumn = vim.wo.colorcolumn

@@ -76,16 +76,16 @@ return require("packer").startup(function(use)
 		end
 	}
 
--- 	use {
--- 		"kyazdani42/nvim-tree.lua",
--- 		cmd = "NvimTreeToggle",
--- 		config = function()
--- 			require("configs.nvimtree")
--- 		end,
--- 		setup = function()
--- 			require("mappings").nvimtree()
--- 		end
--- 	}
+	use {
+		"kyazdani42/nvim-tree.lua",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require("configs.nvimtree")
+		end,
+		setup = function()
+			require("mappings").nvimtree()
+		end
+	}
 
 	use {
 		"projekt0n/github-nvim-theme",
