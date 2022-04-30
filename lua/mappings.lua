@@ -48,9 +48,11 @@ M.nvimtree = function()
 end
 
 M.telescope = function()
-	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", noremap)
-	map("n", "<Leader>gf", ":Telescope git_files hidden=true<CR>",  noremap)
-	map("n", "<Leader>lg", ":Telescope live_grep<CR>",              noremap)
+	map("n", "<Leader>ff", function()
+		require("configs.telescope").project_files()
+	end, noremap)
+
+	map("n", "<Leader>lg", ":Telescope live_grep<CR>", noremap)
 
 	-- Custom telescope finders.
 	map("n", "<Leader>df", function()

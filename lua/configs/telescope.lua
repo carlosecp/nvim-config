@@ -24,6 +24,11 @@ telescope.load_extension("fzf")
 
 local M = {}
 
+M.project_files = function()
+	local ok = pcall(builtin.git_files, { hidden = true })
+	if not ok then builtin.find_files({ hidden = true }) end
+end
+
 M.search_dotfiles = function()
 	builtin.find_files({
 		prompt_title = "Search Dotfiles",

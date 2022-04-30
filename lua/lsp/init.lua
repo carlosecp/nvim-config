@@ -1,29 +1,22 @@
-local lspconfig = require("lspconfig")
+local lsp_installer = require("nvim-lsp-installer")
 local handlers = require("lsp.handlers")
 
 handlers.setup()
 
-local opts = {
+local default_config = {
 	on_attach = handlers.on_attach,
 	capabilities = handlers.capabilities
 }
 
-local opts = {
-	on_attach = handlers.on_attach,
-	capabilities = handlers.capabilities
+local custom_setup = {
+	jsonls = require("lsp.configs.jsonls")
 }
 
--- npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup(opts)
-
--- npm install -g vscode-langservers-extracted
-local jsonls_opts = require("lsp.settings.jsonls")
-lspconfig.jsonls.setup(vim.tbl_deep_extend("force", opts, jsonls_opts))
-
--- npm install -g @tailwindcss/language-server
-lspconfig.tailwindcss.setup(opts)
-
--- https://github.com/georgewfraser/java-language-server
+lsp_installer.on_server_ready(function(server)
+	local config = custom_setup[server.name] or {}
+	config = vim.tbl_deep_extend("force", config, default_config)
+	server:setup(config)
+end)
 
 require("fidget").setup({
 	fmt = { stack_upwards = false }

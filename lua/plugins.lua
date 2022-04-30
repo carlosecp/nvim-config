@@ -14,14 +14,10 @@ return require("packer").startup(function(use)
 	use {
 		"neovim/nvim-lspconfig",
 		requires = {
+			"williamboman/nvim-lsp-installer",
 			"jose-elias-alvarez/null-ls.nvim",
 			"j-hui/fidget.nvim"
 		}
-	}
-
-	use {
-		"mfussenegger/nvim-jdtls",
-		module = "jdtls"
 	}
 
 	use {
