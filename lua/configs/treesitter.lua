@@ -7,23 +7,22 @@ configs.setup({
 	ensure_installed = "all",
 	highlight = {
 		enable = true,
-		disable = { "html" },
+		disable = {},
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
 		enable = { "python" },
-		disable = {}
+		disable = { "fennel" }
 	},
 	refactor = {
-		highlight_definitions = { enable = true },
-		smart_rename = {
+		highlight_definitions = {
 			enable = true,
-			keymaps = { smart_rename = "<Leader>rn" }
+			clear_on_cursor_move = true
 		}
 	}
 })
 
 local parsers = require("nvim-treesitter.parsers")
 
-local parser_config = parsers.get_parser_configs()
-parser_config.jsonc.filetype_to_parsername = "json"
+-- local parser_config = parsers.get_parser_configs()
+-- parser_config.jsonc.filetype_to_parsername = "json"

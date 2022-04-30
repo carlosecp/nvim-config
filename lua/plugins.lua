@@ -20,6 +20,11 @@ return require("packer").startup(function(use)
 	}
 
 	use {
+		"mfussenegger/nvim-jdtls",
+		module = "jdtls"
+	}
+
+	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
@@ -54,6 +59,11 @@ return require("packer").startup(function(use)
 			"nvim-treesitter/nvim-treesitter-refactor",
 			after = "nvim-treesitter"
 		}}
+	}
+
+	use {
+		"bakpakin/fennel.vim",
+		ft = "fennel"
 	}
 
 	use {
@@ -131,14 +141,6 @@ return require("packer").startup(function(use)
 		module = "nvim-web-devicons",
 		config = function()
 			require("configs.devicons")
-		end
-	}
-
-	use {
-		"jbyuki/venn.nvim",
-		cmd = "VBox",
-		setup = function()
-			require("mappings").venn()
 		end
 	}
 

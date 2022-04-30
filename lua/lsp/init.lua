@@ -1,8 +1,12 @@
 local lspconfig = require("lspconfig")
 local handlers = require("lsp.handlers")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 handlers.setup()
+
+local opts = {
+	on_attach = handlers.on_attach,
+	capabilities = handlers.capabilities
+}
 
 local opts = {
 	on_attach = handlers.on_attach,
@@ -16,12 +20,10 @@ lspconfig.tsserver.setup(opts)
 local jsonls_opts = require("lsp.settings.jsonls")
 lspconfig.jsonls.setup(vim.tbl_deep_extend("force", opts, jsonls_opts))
 
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run
--- local sumneko_opts = require("lsp.settings.sumneko_lua")
--- lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", opts, sumneko_opts))
-
 -- npm install -g @tailwindcss/language-server
 lspconfig.tailwindcss.setup(opts)
+
+-- https://github.com/georgewfraser/java-language-server
 
 require("fidget").setup({
 	fmt = { stack_upwards = false }

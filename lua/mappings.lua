@@ -33,6 +33,7 @@ M.lsp = function()
 	map("n", "gd",         vim.lsp.buf.definition,     no_si_buf)
 	map("n", "gD",         vim.lsp.buf.declaration,    no_si_buf)
 	map("n", "gx",         vim.lsp.buf.signature_help, no_si_buf)
+	map("n", "<Leader>rn", vim.lsp.buf.rename,         no_si_buf)
 	map("n", "<Leader>ca", vim.lsp.buf.code_action,    no_si_buf)
 	map("n", "[g",         vim.diagnostic.goto_next,   no_si_buf)
 	map("n", "]g",         vim.diagnostic.goto_prev,   no_si_buf)
@@ -58,26 +59,6 @@ M.telescope = function()
 	map("n", "<Leader>nv", function()
 		require("configs.telescope").search_neovim()
 	end, noremap)
-end
-
-M.venn = function()
-	local toggle_venn = function()
-		local venn_enabled = vim.inspect(vim.b.venn_enabled)
-		if venn_enabled == "nil" then
-			vim.b.venn_enabled = true
-			vim.wo.virtualedit = "all"
-
-			map("n", "J", "<C-v>j:VBox<CR>", no_si_buf)
-			map("n", "K", "<C-v>k:VBox<CR>", no_si_buf)
-			map("n", "L", "<C-v>l:VBox<CR>", no_si_buf)
-			map("n", "H", "<C-v>h:VBox<CR>", no_si_buf)
-			map("n", "v", ":VBox<CR>", no_si_buf)
-		else
-			vim.wo.virtualedit = ""
-			vim.cmd("mapclear <buffer>")
-			vim.b.venn_enabled = nil
-		end
-	end
 end
 
 return M
