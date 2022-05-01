@@ -1,3 +1,0 @@
-*carlosecp*                                                     Neovim dotfiles
-
-asdkfjlkasdfjlkasfd

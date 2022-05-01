@@ -23,18 +23,18 @@ cmp.setup({
 	window = {
 		-- completion = { border = "rounded" },
 		documentation = {
-			border = "rounded",
+			-- border = "rounded",
 			max_width = 50,
 			-- max_height = 50
 		}
 	},
-	sources = cmp.config.sources({
+	sources = {
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer", keyword_length = 2 }
-	}),
+	},
 	experimental = { ghost_text = true },
 	formatting = { format = formatter },
 	snippet = {

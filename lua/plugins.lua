@@ -29,7 +29,7 @@ return require("packer").startup(function(use)
 		requires = {
 			{
 				"L3MON4D3/LuaSnip",
-				module = "luasnip",
+				module = "cmp",
 				config = function()
 					require("configs.luasnip")
 				end
@@ -60,6 +60,14 @@ return require("packer").startup(function(use)
 	use {
 		"bakpakin/fennel.vim",
 		ft = "fennel"
+	}
+
+	use {
+		"folke/twilight.nvim",
+		cmd = "Twilight",
+		config = function()
+			require("configs.twilight")
+		end
 	}
 
 	use {
