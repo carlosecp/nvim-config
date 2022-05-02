@@ -14,7 +14,6 @@ map("n", "<C-Up>",           ":res +5<CR>",      no_si)
 map("n", "<C-Down>",         ":res -5<CR>",      no_si)
 map("n", "<C-Right>",        ":vert res +5<CR>", no_si)
 map("n", "<C-Left>",         ":vert res -5<CR>", no_si)
--- map("n", "<Leader>e",        ":Exp<CR>",         no_si)
 
 map("n", "<Leader>cc", function()
 	local colorcolumn = vim.wo.colorcolumn
@@ -48,18 +47,19 @@ M.nvimtree = function()
 end
 
 M.telescope = function()
-	map("n", "<Leader>ff", function()
-		require("configs.telescope").project_files()
+	map("n", "<Leader>ff", ":Telescope find_files hidden=true<CR>", noremap)
+	map("n", "<Leader>gf", function()
+		require "configs.telescope".project_files()
 	end, noremap)
 
 	map("n", "<Leader>lg", ":Telescope live_grep<CR>", noremap)
 
 	-- Custom telescope finders.
 	map("n", "<Leader>df", function()
-		require("configs.telescope").search_dotfiles()
+		require "configs.telescope".search_dotfiles()
 	end, noremap)
 	map("n", "<Leader>nv", function()
-		require("configs.telescope").search_neovim()
+		require "configs.telescope".search_neovim()
 	end, noremap)
 end
 

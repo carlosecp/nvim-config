@@ -1,7 +1,7 @@
 -- use {
 -- 	"ellisonleao/gruvbox.nvim",
 -- 	config = function()
--- 		require("colorschemes.gruvbox_nvim")
+-- 		require "colorschemes.gruvbox_nvim"
 -- 	end,
 -- 	requires = "rktjmp/lush.nvim"
 -- }

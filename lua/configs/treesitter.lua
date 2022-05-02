@@ -2,7 +2,7 @@
 -- Nvim Treesitter configurations and abstraction layer.
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
-local configs = require("nvim-treesitter.configs")
+local configs = require "nvim-treesitter.configs"
 configs.setup({
 	ensure_installed = "all",
 	highlight = {
@@ -22,7 +22,7 @@ configs.setup({
 	}
 })
 
-local parsers = require("nvim-treesitter.parsers")
+-- local parsers = require "nvim-treesitter.parsers"
 
 -- local parser_config = parsers.get_parser_configs()
 -- parser_config.jsonc.filetype_to_parsername = "json"

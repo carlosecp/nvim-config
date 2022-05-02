@@ -1,4 +1,4 @@
-local utils = require("autocommands.utils")
+local utils = require "autocommands.utils"
 
 local augroup = utils.create_augroup("SpecialFiles")
 

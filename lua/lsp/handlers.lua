@@ -1,3 +1,5 @@
+local utils = require "utils"
+
 local M = {}
 
 M.setup = function()
@@ -8,7 +10,7 @@ M.setup = function()
 		float = {
 			focusable = false,
 			style  = "minimal",
-			border = "rounded",
+			border = utils.borders,
 			source = "always",
 			header = "",
 			prefix = ""
@@ -19,12 +21,12 @@ M.setup = function()
 
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded"
+		border = utils.borders
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =
 	vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded"
+		border = utils.borders
 	})
 end
 
@@ -37,7 +39,7 @@ M.on_attach = function(client, bufnr)
 
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
-			require("lsp.configs.tailwindcss.documentcolors").buf_attach(bufnr)
+			require "lsp.configs.tailwindcss.documentcolors".buf_attach(bufnr)
 		end
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }
@@ -47,10 +49,10 @@ M.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
-	require("mappings").lsp()
+	require "keybindings".lsp()
 end
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M

@@ -2,8 +2,7 @@
 -- A file explorer tree for neovim written in lua.
 -- https://github.com/kyazdani42/nvim-tree.lua
 
-local nvimtree = require("nvim-tree")
-local lib = require("nvim-tree.lib")
+local nvimtree = require "nvim-tree"
 
 nvimtree.setup({
 	disable_netrw = false,
@@ -13,21 +12,9 @@ nvimtree.setup({
 	},
 	git = {
 		enable = false,
-		ignore = false
-	},
-	view = {
-		mappings = {
-			list = {
-				{
-					key = "H",
-					action = lib.collapse_all,
-					mode = "n"
-				}
-			}
-		}
+		ignore = true
 	},
 	update_focused_file = {
 		enable = true,
 	}
 })
-

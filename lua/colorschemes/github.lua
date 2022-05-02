@@ -1,11 +1,11 @@
 -- use {
 -- 	"projekt0n/github-nvim-theme",
 -- 	config = function()
--- 		require("colorschemes.github")
+-- 		require "colorschemes.github"
 -- 	end
 -- }
 
-require("github-theme").setup({
+require "github-theme".setup({
 	theme_style = "dark_default",
 	hide_inactive_statusline = false,
 	transparent = true

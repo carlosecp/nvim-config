@@ -1,1 +1,1 @@
-require("autocommands.special_files")
+require "autocommands.special_files"

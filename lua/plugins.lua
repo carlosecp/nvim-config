@@ -1,5 +1,6 @@
 -- Bootstrap plugin manager.
 -- Install packer.nvim automatically if not installed already.
+
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
@@ -10,7 +11,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	print("Dependencies installed. Restart Neovim and run ':PackerSync'.")
 end
 
-return require("packer").startup(function(use)
+return require "packer".startup(function(use)
 	use {
 		"neovim/nvim-lspconfig",
 		requires = {
@@ -24,18 +25,11 @@ return require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
-			require("configs.cmp")
+			require "configs.cmp"
 		end,
 		requires = {
-			{
-				"L3MON4D3/LuaSnip",
-				module = "cmp",
-				config = function()
-					require("configs.luasnip")
-				end
-			},
 			"hrsh7th/cmp-nvim-lsp",
-			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+			"saadparwaiz1/cmp_luasnip",
 			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
 			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
@@ -44,11 +38,19 @@ return require("packer").startup(function(use)
 	}
 
 	use {
+		"L3MON4D3/LuaSnip",
+		module = "luasnip",
+		config = function()
+			require "configs.luasnip"
+		end
+	}
+
+	use {
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 		module = "nvim-treesitter.ts_utils",
 		config = function()
-			require("configs.treesitter")
+			require "configs.treesitter"
 		end,
 		run = ":TSUpdate",
 		requires = {{
@@ -63,18 +65,10 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"folke/twilight.nvim",
-		cmd = "Twilight",
-		config = function()
-			require("configs.twilight")
-		end
-	}
-
-	use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		config = function()
-			require("configs.telescope")
+			require "configs.telescope"
 		end,
 		module = {
 			"telescope",
@@ -86,7 +80,7 @@ return require("packer").startup(function(use)
 			run = "make"
 		}},
 		setup = function()
-			require("mappings").telescope()
+			require "keybindings".telescope()
 		end
 	}
 
@@ -94,17 +88,17 @@ return require("packer").startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require("configs.nvimtree")
+			require "configs.nvimtree"
 		end,
 		setup = function()
-			require("mappings").nvimtree()
+			require "keybindings".nvimtree()
 		end
 	}
 
 	use {
 		"projekt0n/github-nvim-theme",
 		config = function()
-			require("colorschemes.github")
+			require "colorschemes.github"
 		end
 	}
 
@@ -119,14 +113,14 @@ return require("packer").startup(function(use)
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
 			vim.g.easy_align_ignore_groups = {}
-			require("mappings").easy_align()
+			require "keybindings".easy_align()
 		end
 	}
 
 	use {
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("configs.colorizer")
+			require "configs.colorizer"
 		end
 	}
 
@@ -144,7 +138,7 @@ return require("packer").startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require("configs.devicons")
+			require "configs.devicons"
 		end
 	}
 

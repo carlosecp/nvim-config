@@ -2,7 +2,8 @@
 -- Use Neovim as a language server to inject LSP diagnostics, code actions, and
 -- more via Lua.
 -- repo: https://github.com/jose-elias-alvarez/null-ls.nvim
-local null_ls = require("null-ls")
+
+local null_ls = require "null-ls"
 local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
@@ -14,6 +15,6 @@ null_ls.setup({
 		formatting.rustfmt       -- rustfmt (included with rustup)
 	},
 	on_attach = function()
-		require("mappings").null_ls()
+		require "keybindings".null_ls()
 	end
 })

@@ -1,5 +1,5 @@
-local lsp_installer = require("nvim-lsp-installer")
-local handlers = require("lsp.handlers")
+local lsp_installer = require "nvim-lsp-installer"
+local handlers = require "lsp.handlers"
 
 handlers.setup()
 
@@ -9,7 +9,7 @@ local default_config = {
 }
 
 local custom_setup = {
-	jsonls = require("lsp.configs.jsonls")
+	jsonls = require "lsp.configs.jsonls"
 }
 
 lsp_installer.on_server_ready(function(server)
@@ -18,8 +18,8 @@ lsp_installer.on_server_ready(function(server)
 	server:setup(config)
 end)
 
-require("fidget").setup({
+require "fidget".setup({
 	fmt = { stack_upwards = false }
 })
 
-require("lsp.null_ls")
+require "lsp.null_ls"

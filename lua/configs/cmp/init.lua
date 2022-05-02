@@ -2,11 +2,11 @@
 -- A completion plugin for neovim coded in Lua.
 -- https://github.com/hrsh7th/nvim-cmp
 
-local cmp = require("cmp")
-local autopairs = require("nvim-autopairs")
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local luasnip = require("luasnip")
-local formatter = require("configs.cmp.formatter")
+local cmp = require "cmp"
+local autopairs = require "nvim-autopairs"
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+local formatter = require "configs.cmp.formatter"
+local utils = require "utils"
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
@@ -21,9 +21,11 @@ cmp.setup({
 		})
 	}),
 	window = {
-		-- completion = { border = "rounded" },
+		completion = {
+			border = utils.borders
+		},
 		documentation = {
-			-- border = "rounded",
+			border = utils.borders,
 			max_width = 50,
 			-- max_height = 50
 		}
@@ -33,7 +35,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "buffer", keyword_length = 2 }
+		{ name = "buffer" }
 	},
 	experimental = { ghost_text = true },
 	formatting = { format = formatter },
