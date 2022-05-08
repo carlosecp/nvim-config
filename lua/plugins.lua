@@ -96,9 +96,9 @@ return require "packer".startup(function(use)
 	}
 
 	use {
-		"projekt0n/github-nvim-theme",
+		"navarasu/onedark.nvim",
 		config = function()
-			require "colorschemes.github"
+			require "colorschemes.onedark"
 		end
 	}
 

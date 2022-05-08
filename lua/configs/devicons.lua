@@ -5,20 +5,53 @@
 local devicons = require "nvim-web-devicons"
 devicons.setup({
 	override = {
-		dockerfile = {
-			icon  = "",
-			color = "#0087c9",
-			name  = "Dockerfile"
+		css = {
+			icon = "",
+			name = "css",
 		},
-		[".dockerignore"] = {
-			icon  = "",
-			color = "#0087c9",
-			name  = "DockerIgnore"
+		Dockerfile = {
+			icon = "",
+			name = "Dockerfile",
 		},
-		["go.mod"] = {
-			icon  = "",
-			color = "#519aba",
-			name  = "Gomod"
+		html = {
+			icon = "",
+			name = "html",
+		},
+		js = {
+			icon = "",
+			name = "js",
+		},
+		lock = {
+			icon = "",
+			name = "lock",
+		},
+		out = {
+			icon = "",
+			name = "out",
+		},
+		["robots.txt"] = {
+			icon = "ﮧ",
+			name = "robots",
+		},
+		toml = {
+			icon = "",
+			name = "toml",
+		},
+		ts = {
+			icon = "ﯤ",
+			name = "ts",
+		},
+		vue = {
+			icon = "﵂",
+			name = "vue",
+		},
+		xz = {
+			icon = "",
+			name = "xz",
+		},
+		zip = {
+			icon = "",
+			name = "zip",
 		}
 	}
 })

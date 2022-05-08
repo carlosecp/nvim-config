@@ -13,7 +13,7 @@ _G.R = function(module)
 end
 
 local M = {
-	borders = "none"
+	borders = "rounded"
 }
 
 return M
