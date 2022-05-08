@@ -6,7 +6,7 @@
 -- }
 
 require "github-theme".setup({
-	theme_style = "dark_default",
+	theme_style = "dark",
 	hide_inactive_statusline = false,
 	transparent = true
 })

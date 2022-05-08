@@ -12,11 +12,11 @@ local custom_setup = {
 	jsonls = require "lsp.configs.jsonls"
 }
 
-lsp_installer.on_server_ready(function(server)
-	local config = custom_setup[server.name] or {}
-	config = vim.tbl_deep_extend("force", config, default_config)
-	server:setup(config)
-end)
+-- lsp_installer.on_server_ready(function(server)
+-- 	local config = custom_setup[server.name] or {}
+-- 	config = vim.tbl_deep_extend("force", config, default_config)
+-- 	server:setup(config)
+-- end)
 
 require "fidget".setup({
 	fmt = { stack_upwards = false }

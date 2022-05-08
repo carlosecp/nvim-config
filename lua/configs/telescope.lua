@@ -7,7 +7,7 @@ local builtin = require "telescope.builtin"
 
 telescope.setup({
 	defaults = {
-		file_ignore_patterns = { "node_modules/", ".next/", ".git/" },
+		file_ignore_patterns = { "node_modules/", ".next/", ".git/", "*.class" },
 		sorting_strategy = "ascending"
 	},
 	extensions = {
