@@ -41,7 +41,7 @@ cmp.setup({
 	formatting = { format = formatter },
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body)
+			require "luasnip".lsp_expand(args.body)
 		end
 	}
 })

@@ -16,9 +16,17 @@ onedark.setup({
 	highlights = {
 		VertSplit = { fg = "#21252b" },
 		ColorColumn = { bg = "#21252b" },
-		FloatBorder = { fg= "#21252b" }
+		Pmenu = { bg = "none" },
+		NormalFloat = { bg = "none" },
+		FloatBorder = {
+			fg= "#21252b",
+			bg = "none"
+		},
+		TelescopeBorder = { fg = "#21252b" },
+		TelescopePreviewBorder = { fg = "#21252b" },
+		TelescopePromptBorder = { fg = "#21252b" },
+		TelescopeResultsBorder = { fg = "#21252b" }
 	}
 })
 
 onedark.load()
-

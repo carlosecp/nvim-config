@@ -1,4 +1,5 @@
-local lsp_installer = require "nvim-lsp-installer"
+local status_ok_installer, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok_installer then return end
 local handlers = require "lsp.handlers"
 
 handlers.setup()
@@ -18,7 +19,10 @@ lsp_installer.on_server_ready(function(server)
 	server:setup(config)
 end)
 
-require "fidget".setup({
+local status_ok_fidget, fidget = pcall(require, "fidget")
+if not status_ok_fidget then return end
+
+fidget.setup({
 	fmt = { stack_upwards = false }
 })
 
