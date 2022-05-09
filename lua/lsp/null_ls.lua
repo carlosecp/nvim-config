@@ -16,6 +16,6 @@ null_ls.setup({
 		formatting.rustfmt       -- rustfmt (included with rustup)
 	},
 	on_attach = function()
-		require "keybindings".null_ls()
+		require "core.mappings".null_ls()
 	end
 })

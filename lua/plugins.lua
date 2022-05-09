@@ -80,7 +80,7 @@ return require "packer".startup(function(use)
 			run = "make"
 		}},
 		setup = function()
-			require "keybindings".telescope()
+			require "core.mappings".telescope()
 		end
 	}
 
@@ -91,7 +91,7 @@ return require "packer".startup(function(use)
 			require "configs.nvimtree"
 		end,
 		setup = function()
-			require "keybindings".nvimtree()
+			require "core.mappings".nvimtree()
 		end
 	}
 
@@ -113,7 +113,7 @@ return require "packer".startup(function(use)
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
 			vim.g.easy_align_ignore_groups = {}
-			require "keybindings".easy_align()
+			require "core.mappings".easy_align()
 		end
 	}
 

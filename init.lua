@@ -1,8 +1,8 @@
 -- carlosecp's dotfiles-nvim
 -- https://github.com/carlosecp/dotfiles-nvim
 
-require "options"
-require "keybindings"
+require "core.options"
+require "core.mappings"
 require "autocommands"
 require "utils"
 
