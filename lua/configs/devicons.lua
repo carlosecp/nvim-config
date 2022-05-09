@@ -17,17 +17,9 @@ devicons.setup({
 			icon = "",
 			name = "html",
 		},
-		js = {
-			icon = "",
-			name = "js",
-		},
 		lock = {
 			icon = "",
 			name = "lock",
-		},
-		out = {
-			icon = "",
-			name = "out",
 		},
 		["robots.txt"] = {
 			icon = "ﮧ",
@@ -36,10 +28,6 @@ devicons.setup({
 		toml = {
 			icon = "",
 			name = "toml",
-		},
-		ts = {
-			icon = "ﯤ",
-			name = "ts",
 		},
 		vue = {
 			icon = "﵂",

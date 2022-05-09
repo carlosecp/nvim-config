@@ -6,7 +6,21 @@ local cmp = require "cmp"
 local autopairs = require "nvim-autopairs"
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local formatter = require "configs.cmp.formatter"
-local utils = require "utils"
+-- local utils = require "utils"
+
+-- TODO: Make this function available with utils
+local border = function(hl_name)
+   return {
+      { "╭", hl_name },
+      { "─", hl_name },
+      { "╮", hl_name },
+      { "│", hl_name },
+      { "╯", hl_name },
+      { "─", hl_name },
+      { "╰", hl_name },
+      { "│", hl_name },
+   }
+end
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
@@ -22,10 +36,10 @@ cmp.setup({
 	}),
 	window = {
 		completion = {
-			border = utils.borders
+			border = border("CmpBorder")
 		},
 		documentation = {
-			border = utils.borders,
+			border = border("CmpBorder"),
 			max_width = 50,
 			-- max_height = 50
 		}
