@@ -1,7 +1,7 @@
 -- use {
 -- 	"projekt0n/github-nvim-theme",
 -- 	config = function()
--- 		require "colorschemes.github"
+-- 		require "plugins.themes.github"
 -- 	end
 -- }
 

@@ -1,4 +1,4 @@
-local utils = require "utils"
+local utils = require "core.utils"
 
 local M = {}
 
@@ -39,7 +39,7 @@ M.on_attach = function(client, bufnr)
 
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
-			require "lsp.configs.tailwindcss.documentcolors".buf_attach(bufnr)
+			require "plugins.lsp.configs.tailwindcss.documentcolors".buf_attach(bufnr)
 		end
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }

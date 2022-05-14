@@ -9,6 +9,10 @@ g.clipboard = {
     copy = {
 	["+"] = {"kitty", "+kitten", "clipboard"},
 	["*"] = {"kitty", "+kitten", "clipboard"}
+    },
+    paste = {
+	["+"] = {"kitty", "+kitten", "clipboard", "--get-clipboard"},
+	["*"] = {"kitty", "+kitten", "clipboard", "--get-clipboard"}
     }
 }
 
@@ -16,10 +20,12 @@ opt.confirm = true
 opt.laststatus = 2
 opt.cmdheight = 1
 opt.cursorline = true
+opt.scrolloff = 5
 
 opt.expandtab = false
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 opt.smartindent = true
+opt.tabstop = 2
 
 opt.hlsearch = true
 opt.hidden = true

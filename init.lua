@@ -3,9 +3,9 @@
 
 require "core.options"
 require "core.mappings"
-require "autocommands"
-require "utils"
+require "core.autocmds"
+require "core.utils"
 
 pcall(require, "impatient")
 require "plugins"
-require "lsp"
+require "plugins.lsp"

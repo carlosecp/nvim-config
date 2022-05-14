@@ -25,7 +25,7 @@ return require "packer".startup(function(use)
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
-			require "configs.cmp"
+			require "plugins.configs.cmp"
 		end,
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
@@ -41,7 +41,7 @@ return require "packer".startup(function(use)
 		"L3MON4D3/LuaSnip",
 		module = "luasnip",
 		config = function()
-			require "configs.luasnip"
+			require "plugins.configs.luasnip"
 		end
 	}
 
@@ -50,7 +50,7 @@ return require "packer".startup(function(use)
 		event = "BufRead",
 		module = "nvim-treesitter.ts_utils",
 		config = function()
-			require "configs.treesitter"
+			require "plugins.configs.treesitter"
 		end,
 		run = ":TSUpdate",
 		requires = {{
@@ -68,12 +68,12 @@ return require "packer".startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		config = function()
-			require "configs.telescope"
+			require "plugins.configs.telescope"
 		end,
 		module = {
 			"telescope",
 			"telescope.builtin",
-			"configs.telescope"
+			"plugins.configs.telescope"
 		},
 		requires = {{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -88,7 +88,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require "configs.nvimtree"
+			require "plugins.configs.nvimtree"
 		end,
 		setup = function()
 			require "core.mappings".nvimtree()
@@ -98,7 +98,7 @@ return require "packer".startup(function(use)
 	use {
 		"navarasu/onedark.nvim",
 		config = function()
-			require "colorschemes.onedark"
+			require "plugins.themes.onedark"
 		end
 	}
 
@@ -120,7 +120,7 @@ return require "packer".startup(function(use)
 	use {
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require "configs.colorizer"
+			require "plugins.configs.colorizer"
 		end
 	}
 
@@ -138,7 +138,7 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require "configs.devicons"
+			require "plugins.configs.devicons"
 		end
 	}
 
