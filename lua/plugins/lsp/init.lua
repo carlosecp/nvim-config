@@ -22,8 +22,8 @@ end)
 local status_ok_fidget, fidget = pcall(require, "fidget")
 if not status_ok_fidget then return end
 
-fidget.setup({
+fidget.setup {
 	fmt = { stack_upwards = false }
-})
+}
 
 require "plugins.lsp.null_ls"

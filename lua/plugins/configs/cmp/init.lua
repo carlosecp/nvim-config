@@ -9,58 +9,45 @@ local formatter = require "plugins.configs.cmp.formatter"
 
 vim.opt.completeopt = "menuone,noselect"
 
-local border = function(hl_name)
-    return {
-	{ "╭", hl_name },
-	{ "─", hl_name },
-	{ "╮", hl_name },
-	{ "│", hl_name },
-	{ "╯", hl_name },
-	{ "─", hl_name },
-	{ "╰", hl_name },
-	{ "│", hl_name },
-    }
-end
-
-cmp.setup({
-    mapping = {
-	["<C-n>"] = cmp.mapping.select_next_item(),
-	["<C-p>"] = cmp.mapping.select_prev_item(),
-	["<C-f>"] = cmp.mapping.scroll_docs(-4),
-	["<C-d>"] = cmp.mapping.scroll_docs(4),
-	["<C-Space>"] = cmp.mapping.complete(),
-	["<CR>"] = cmp.mapping.confirm({
-	    behaviour = cmp.ConfirmBehavior.Replace,
-	    select = true
-	})
-    },
-    window = {
-	completion = {
-	    border = border("CmpBorder")
+cmp.setup {
+	mapping = {
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-f>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<CR>"] = cmp.mapping.confirm({
+			behaviour = cmp.ConfirmBehavior.Replace,
+			select = true
+		})
 	},
-	documentation = {
-	    border = border("CmpBorder"),
-	    max_width = 50,
-	    -- max_height = 50
+	window = {
+		completion = {
+			border = _G.defaults.borders
+		},
+		documentation = {
+			border = _G.defaults.borders,
+			max_width = 50
+			-- max_height = 50
+		}
+	},
+	sources = {
+		{ name = "luasnip" },
+		{ name = "nvim_lua" },
+		{ name = "nvim_lsp" },
+		{ name = "path" },
+		{ name = "buffer" }
+	},
+	experimental = { ghost_text = true },
+	formatting = { format = formatter },
+	snippet = {
+		expand = function(args)
+			require "luasnip".lsp_expand(args.body)
+		end
 	}
-    },
-    sources = {
-	{ name = "luasnip" },
-	{ name = "nvim_lua" },
-	{ name = "nvim_lsp" },
-	{ name = "path" },
-	{ name = "buffer" }
-    },
-    experimental = { ghost_text = true },
-    formatting = { format = formatter },
-    snippet = {
-	expand = function(args)
-	    require "luasnip".lsp_expand(args.body)
-	end
-    }
-})
+}
 
-autopairs.setup({})
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({
-    map_char = { tex = "" }
-}))
+autopairs.setup {}
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {
+	map_char = { tex = "" }
+})

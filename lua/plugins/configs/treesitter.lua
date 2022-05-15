@@ -3,7 +3,7 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
 local configs = require "nvim-treesitter.configs"
-configs.setup({
+configs.setup {
 	ensure_installed = "all",
 	highlight = {
 		enable = true,
@@ -20,7 +20,7 @@ configs.setup({
 			clear_on_cursor_move = true
 		}
 	}
-})
+}
 
 -- local parsers = require "nvim-treesitter.parsers"
 

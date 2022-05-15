@@ -3,7 +3,7 @@
 -- https://github.com/kyazdani42/nvim-web-devicons
 
 local devicons = require "nvim-web-devicons"
-devicons.setup({
+devicons.setup {
 	override = {
 		css = {
 			icon = "",
@@ -42,4 +42,4 @@ devicons.setup({
 			name = "zip",
 		}
 	}
-})
+}

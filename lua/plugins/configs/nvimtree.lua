@@ -3,8 +3,7 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 
 local nvimtree = require "nvim-tree"
-
-nvimtree.setup({
+nvimtree.setup {
 	disable_netrw = false,
 	hijack_netrw  = false,
 	diagnostics = {
@@ -17,4 +16,4 @@ nvimtree.setup({
 	update_focused_file = {
 		enable = true,
 	}
-})
+}

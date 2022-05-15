@@ -10,11 +10,11 @@ local f = ls.function_node
 local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 
-ls.config.set_config({
+ls.config.set_config {
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true
-})
+}
 
 ls.add_snippets(nil, {
 	all = {},

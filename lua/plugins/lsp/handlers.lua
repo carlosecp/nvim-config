@@ -10,7 +10,7 @@ M.setup = function()
 		float = {
 			focusable = false,
 			style  = "minimal",
-			border = utils.borders,
+			border = _G.defaults.borders,
 			source = "always",
 			header = "",
 			prefix = ""
@@ -21,12 +21,12 @@ M.setup = function()
 
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
-		border = utils.borders
+		border = _G.defaults.borders
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =
 	vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = utils.borders
+		border = _G.defaults.borders
 	})
 end
 

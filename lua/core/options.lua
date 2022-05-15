@@ -4,17 +4,6 @@ local g = vim.g
 g.mapleader = " "
 g.did_lload_filetypes = 0
 g.do_filetype_lua = 1
-g.clipboard = {
-    name = "kitty",
-    copy = {
-	["+"] = {"kitty", "+kitten", "clipboard"},
-	["*"] = {"kitty", "+kitten", "clipboard"}
-    },
-    paste = {
-	["+"] = {"kitty", "+kitten", "clipboard", "--get-clipboard"},
-	["*"] = {"kitty", "+kitten", "clipboard", "--get-clipboard"}
-    }
-}
 
 opt.confirm = true
 opt.laststatus = 2

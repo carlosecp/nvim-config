@@ -4,4 +4,4 @@
 -- https://github.com/onsails/diaglist.nvim
 
 local diaglist = require "diaglist"
-diaglist.init({})
+diaglist.init {}

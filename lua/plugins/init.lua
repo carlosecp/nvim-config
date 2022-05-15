@@ -5,10 +5,10 @@ local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.n
 local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	print("Installing dependencies...")
-	vim.fn.system({ "git", "clone", packer_repo, install_path })
-	vim.cmd("packadd packer.nvim")
-	print("Dependencies installed. Restart Neovim and run ':PackerSync'.")
+	print "Installing dependencies..."
+	vim.fn.system { "git", "clone", packer_repo, install_path }
+	vim.cmd "packadd packer.nvim"
+	print "Dependencies installed. Restart Neovim and run ':PackerSync'."
 end
 
 return require "packer".startup(function(use)
@@ -96,9 +96,18 @@ return require "packer".startup(function(use)
 	}
 
 	use {
-		"navarasu/onedark.nvim",
+		"catppuccin/nvim",
+		as = "catppuccin",
 		config = function()
-			require "plugins.themes.onedark"
+			require "plugins.themes.catppuccin"
+		end
+	}
+
+	use {
+		"lewis6991/gitsigns.nvim",
+		event = "BufEnter",
+		setup = function()
+			require "plugins.configs.gitsigns"
 		end
 	}
 
@@ -119,6 +128,7 @@ return require "packer".startup(function(use)
 
 	use {
 		"norcalli/nvim-colorizer.lua",
+		event = "BufReadPre",
 		config = function()
 			require "plugins.configs.colorizer"
 		end
