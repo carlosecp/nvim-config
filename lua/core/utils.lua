@@ -16,6 +16,14 @@ _G.P = function(...)
 	vim.pretty_print(...)
 end
 
+_G.diag = function()
+	if not vim.g.diagnostics_active then
+		vim.diagnostic.show()
+	else
+		vim.diagnostic.hide()
+	end
+end
+
 local M = {}
 
 function M.map(mode, keys, command, opt)

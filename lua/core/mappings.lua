@@ -15,6 +15,9 @@ map("n", "<Leader>cc", function()
     vim.wo.colorcolumn = string.len(colorcolumn) == 0 and "80" or ""
 end)
 
+map("n", "<C-n>", ":cn<CR>")
+map("n", "<C-p>", ":cn<CR>")
+
 -- mappings for plugins
 local M = {}
 

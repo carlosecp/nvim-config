@@ -18,7 +18,7 @@ cmp.setup {
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"] = cmp.mapping.confirm({
 			behaviour = cmp.ConfirmBehavior.Replace,
-			select = true
+			select = false
 		})
 	},
 	window = {

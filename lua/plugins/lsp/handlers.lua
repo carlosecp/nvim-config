@@ -21,7 +21,8 @@ M.setup = function()
 
 	vim.lsp.handlers["textDocument/hover"] =
 	vim.lsp.with(vim.lsp.handlers.hover, {
-		border = _G.defaults.borders
+		border = _G.defaults.borders,
+		max_width = 80
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =

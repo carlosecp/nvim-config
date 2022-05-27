@@ -47,7 +47,6 @@ return require "packer".startup(function(use)
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		event = "BufRead",
 		module = "nvim-treesitter.ts_utils",
 		config = function()
 			require "plugins.configs.treesitter"
@@ -100,14 +99,6 @@ return require "packer".startup(function(use)
 		as = "catppuccin",
 		config = function()
 			require "plugins.themes.catppuccin"
-		end
-	}
-
-	use {
-		"lewis6991/gitsigns.nvim",
-		event = "BufEnter",
-		setup = function()
-			require "plugins.configs.gitsigns"
 		end
 	}
 
