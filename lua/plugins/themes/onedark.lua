@@ -1,11 +1,11 @@
 -- use {
 -- 	"navarasu/onedark.nvim",
 -- 	config = function()
--- 		require "plugins.themes.onedark"
+-- 		require("plugins.themes.onedark")
 -- 	end
 -- }
 
-local onedark = require "onedark"
+local onedark = require("onedark")
 
 onedark.setup({
 	style = "dark",

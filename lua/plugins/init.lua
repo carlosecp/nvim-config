@@ -92,6 +92,13 @@ return require("packer").startup(function(use)
 			require("core.mappings").nvimtree()
 		end
 	}
+	
+-- 	use {
+-- 		"feline-nvim/feline.nvim",
+-- 		config = function()
+-- 			require("plugins.configs.feline")
+-- 		end
+-- 	}
 
 	use {
 		"shaeinst/roshnivim-cs",
@@ -119,7 +126,7 @@ return require("packer").startup(function(use)
 		"norcalli/nvim-colorizer.lua",
 		event = "BufReadPre",
 		config = function()
-			require "plugins.configs.colorizer"
+			require("plugins.configs.colorizer")
 		end
 	}
 
@@ -137,7 +144,7 @@ return require("packer").startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require "plugins.configs.devicons"
+			require("plugins.configs.devicons")
 		end
 	}
 

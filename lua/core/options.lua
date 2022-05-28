@@ -6,7 +6,7 @@ g.did_lload_filetypes = 0
 g.do_filetype_lua     = 1
 
 opt.confirm    = true
-opt.laststatus = 2
+opt.laststatus = 3
 opt.cmdheight  = 1
 opt.cursorline = true
 opt.scrolloff  = 5

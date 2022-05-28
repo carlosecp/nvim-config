@@ -3,8 +3,10 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
 local configs = require("nvim-treesitter.configs")
+local parsers = require("nvim-treesitter.parsers")
+
 configs.setup {
-	ensure_installed = { "lua" },
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		disable = {},
@@ -22,7 +24,5 @@ configs.setup {
 	}
 }
 
--- local parsers = require("nvim-treesitter.parsers")
-
--- local parser_config = parsers.get_parser_configs()
--- parser_config.jsonc.filetype_to_parsername = "json"
+local parser_config = parsers.get_parser_configs()
+parser_config.jsonc.filetype_to_parsername = "json"

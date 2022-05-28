@@ -7,7 +7,7 @@ return function(entry, vim_item)
 		nvim_lua      = "[Lua]",
 		luasnip       = "[luasnip]",
 		latex_symbols = "[Latex]",
-	})[entry.source.name]
+})[entry.source.name]
 	vim_item.kind = ({
 		Text          = " Text",
 		Method        = " Method",
@@ -34,12 +34,12 @@ return function(entry, vim_item)
 		Event         = " Event",
 		Operator      = "ﬦ Operator",
 		TypeParameter = " TypeParameter",
-	})[vim_item.kind]
+})[vim_item.kind]
 
 	-- Limit item with to 50 characters
-	local maxwidth = 50
-	if string.len(vim_item.abbr) >= maxwidth then
-		vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth - 3)
+	local max_width = 50
+	if string.len(vim_item.abbr) >= max_width then
+		vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 3)
 		vim_item.abbr = vim_item.abbr .. "..."
 	end
 

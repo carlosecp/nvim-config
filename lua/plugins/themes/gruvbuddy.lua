@@ -1,12 +1,12 @@
 -- use {
 -- 	"tjdevries/gruvbuddy.nvim",
 -- 	config = function()
--- 		require "plugins.themes.gruvbuddy"
+-- 		require("plugins.themes.gruvbuddy")
 -- 	end,
 -- 	requires = "tjdevries/colorbuddy.vim"
 -- }
 
-require "colorbuddy".colorscheme("gruvbuddy")
+require("colorbuddy").colorscheme("gruvbuddy")
 vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi VertSplit gui=NONE")
 vim.cmd("hi DiagnosticUnderlineError gui=undercurl")

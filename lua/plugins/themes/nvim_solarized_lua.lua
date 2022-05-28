@@ -1,7 +1,7 @@
 -- use {
 -- 	"ishan9299/nvim-solarized-lua",
 -- 	config = function()
--- 		require "plugins.themes.nvim_solarized_lua"
+-- 		require("plugins.themes.nvim_solarized_lua")
 -- 	end
 -- }
 
