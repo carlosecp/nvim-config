@@ -2,8 +2,8 @@
 -- Find, Filter, Preview, Pick. All lua, all the time.
 -- https://github.com/nvim-telescope/telescope.nvim
 
-local telescope = require "telescope"
-local builtin = require "telescope.builtin"
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
 
 telescope.setup {
 	defaults = {

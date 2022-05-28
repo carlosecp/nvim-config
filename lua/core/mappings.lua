@@ -1,4 +1,4 @@
-local utils = require "core.utils"
+local utils = require("core.utils")
 local map = utils.map
 
 map("n", "<Leader>h",        ":noh<CR>")
@@ -48,17 +48,17 @@ end
 function M.telescope()
 	map("n", "<Leader>ff",
 		function()
-			require "telescope.builtin".find_files { hidden = true }
+			require("telescope.builtin").find_files { hidden = true }
 		end)
 
 	map("n", "<Leader>lg",
 		function()
-			require "telescope.builtin".live_grep { hidden = true }
+			require("telescope.builtin").live_grep { hidden = true }
 		end)
 
 	map("n", "<Leader>df", 
 		function()
-			require "telescope.builtin".find_files {
+			require("telescope.builtin").find_files {
 				prompt_title = "Search Dotfiles",
 				cwd = "$HOME/.dotfiles",
 				hidden = true
@@ -67,7 +67,7 @@ function M.telescope()
 
 	map("n", "<Leader>nv", 
 		function()
-			require "telescope.builtin".find_files {
+			require("telescope.builtin").find_files {
 				prompt_title = "Search Nvim Config",
 				cwd = "$HOME/.config/nvim",
 				hidden = true

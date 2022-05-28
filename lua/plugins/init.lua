@@ -6,12 +6,12 @@ local packer_repo = "https://github.com/wbthomason/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	print "Installing dependencies..."
-	vim.fn.system { "git", "clone", packer_repo, install_path }
+	vim.fn.system({ "git", "clone", packer_repo, install_path })
 	vim.cmd "packadd packer.nvim"
 	print "Dependencies installed. Restart Neovim and run ':PackerSync'."
 end
 
-return require "packer".startup(function(use)
+return require("packer").startup(function(use)
 	use {
 		"neovim/nvim-lspconfig",
 		requires = {
@@ -25,14 +25,14 @@ return require "packer".startup(function(use)
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
-			require "plugins.configs.cmp"
+			require("plugins.configs.cmp")
 		end,
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
 			"saadparwaiz1/cmp_luasnip",
-			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua",  after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path",      after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer",    after = "nvim-cmp" },
 			{ "windwp/nvim-autopairs", module = "nvim-autopairs" }
 		}
 	}
@@ -41,15 +41,14 @@ return require "packer".startup(function(use)
 		"L3MON4D3/LuaSnip",
 		module = "luasnip",
 		config = function()
-			require "plugins.configs.luasnip"
+			require("plugins.configs.luasnip")
 		end
 	}
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		module = "nvim-treesitter.ts_utils",
 		config = function()
-			require "plugins.configs.treesitter"
+			require("plugins.configs.treesitter")
 		end,
 		run = ":TSUpdate",
 		requires = {{
@@ -67,7 +66,7 @@ return require "packer".startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		config = function()
-			require "plugins.configs.telescope"
+			require("plugins.configs.telescope")
 		end,
 		module = {
 			"telescope",
@@ -79,7 +78,7 @@ return require "packer".startup(function(use)
 			run = "make"
 		}},
 		setup = function()
-			require "core.mappings".telescope()
+			require("core.mappings").telescope()
 		end
 	}
 
@@ -87,18 +86,17 @@ return require "packer".startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require "plugins.configs.nvimtree"
+			require("plugins.configs.nvimtree")
 		end,
 		setup = function()
-			require "core.mappings".nvimtree()
+			require("core.mappings").nvimtree()
 		end
 	}
 
 	use {
-		"catppuccin/nvim",
-		as = "catppuccin",
+		"shaeinst/roshnivim-cs",
 		config = function()
-			require "plugins.themes.catppuccin"
+			require("plugins.themes.roshnivim")
 		end
 	}
 
@@ -113,7 +111,7 @@ return require "packer".startup(function(use)
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
 			vim.g.easy_align_ignore_groups = {}
-			require "core.mappings".easy_align()
+			require("core.mappings").easy_align()
 		end
 	}
 

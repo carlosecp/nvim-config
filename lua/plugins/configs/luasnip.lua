@@ -2,7 +2,7 @@
 -- Snippet Engine for Neovim written in Lua.
 -- https://github.com/L3MON4D3/LuaSnip
 
-local ls = require "luasnip"
+local ls = require("luasnip")
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node

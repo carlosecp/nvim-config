@@ -2,7 +2,7 @@
 -- lua `fork` of vim-web-devicons for neovim
 -- https://github.com/kyazdani42/nvim-web-devicons
 
-local devicons = require "nvim-web-devicons"
+local devicons = require("nvim-web-devicons")
 devicons.setup {
 	override = {
 		css = {

@@ -2,10 +2,10 @@
 -- A completion plugin for neovim coded in Lua.
 -- https://github.com/hrsh7th/nvim-cmp
 
-local cmp = require "cmp"
-local autopairs = require "nvim-autopairs"
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local formatter = require "plugins.configs.cmp.formatter"
+local cmp = require("cmp")
+local autopairs = require("nvim-autopairs")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local formatter = require("plugins.configs.cmp.formatter")
 
 vim.opt.completeopt = "menuone,noselect"
 
@@ -42,7 +42,7 @@ cmp.setup {
 	formatting = { format = formatter },
 	snippet = {
 		expand = function(args)
-			require "luasnip".lsp_expand(args.body)
+			require("luasnip").lsp_expand(args.body)
 		end
 	}
 }
