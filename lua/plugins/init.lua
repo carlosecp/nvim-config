@@ -93,12 +93,12 @@ return require("packer").startup(function(use)
 		end
 	}
 	
--- 	use {
--- 		"feline-nvim/feline.nvim",
--- 		config = function()
--- 			require("plugins.configs.feline")
--- 		end
--- 	}
+	use {
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.configs.lualine")
+		end
+	}
 
 	use {
 		"shaeinst/roshnivim-cs",
