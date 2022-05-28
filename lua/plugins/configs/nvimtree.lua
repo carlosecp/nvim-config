@@ -15,5 +15,10 @@ nvimtree.setup {
 	},
 	update_focused_file = {
 		enable = true,
+	},
+	renderer = {
+		indent_markers = {
+			enable = false
+		}
 	}
 }

@@ -29,7 +29,7 @@ lualine.setup {
 				}
 			}
 		},
-		lualine_x = {},
+		lualine_x = { "filetype" },
 		lualine_y = {{ "progress", color = "StatusLine" }},
 		lualine_z = {{ "location", color = "StatusLine" }}
 	}

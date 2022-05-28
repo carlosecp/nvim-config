@@ -33,3 +33,5 @@ opt.undofile      = true
 opt.swapfile      = false
 opt.foldmethod    = "marker"
 opt.wrap          = false
+
+opt.winbar = "%f %m"
