@@ -4,11 +4,17 @@ local map = utils.map
 map("n", "<Leader>h",        ":noh<CR>")
 map("n", "<Leader><Leader>", "<C-^>")
 
+-- Switching windows
+-- map("n", "<C-j>", "<C-w>j")
+-- map("n", "<C-k>", "<C-w>k")
+-- map("n", "<C-l>", "<C-w>l")
+-- map("n", "<C-h>", "<C-w>h")
+
 -- Resizing windows
-map("n", "<C-Up>",    ":res +5<CR>")
-map("n", "<C-Down>",  ":res -5<CR>")
-map("n", "<C-Right>", ":vert res +5<CR>")
-map("n", "<C-Left>",  ":vert res -5<CR>")
+map("n", "<C-k>", ":res +2<CR>")
+map("n", "<C-j>", ":res -2<CR>")
+map("n", "<C-l>", ":vert res +2<CR>")
+map("n", "<C-h>", ":vert res -2<CR>")
 
 map("n", "<Leader>cc", function()
 	local colorcolumn = vim.wo.colorcolumn
@@ -18,14 +24,14 @@ end)
 map("n", "<C-n>", ":cn<CR>")
 map("n", "<C-p>", ":cn<CR>")
 
--- mappings for plugins
+-- Mappings for plugins
 local M = {}
 
-function M.easy_align()
+M.easy_align = function()
 	map("x", "ga", "<Plug>(EasyAlign)")
 end
 
-function M.lsp()
+M.lsp = function()
 	map("n", "K",          vim.lsp.buf.hover)
 	map("n", "gs",         vim.lsp.buf.signature_help)
 	map("n", "gd",         vim.lsp.buf.definition)
@@ -37,15 +43,15 @@ function M.lsp()
 	map("n", "]g",         vim.diagnostic.goto_prev)
 end
 
-function M.null_ls()
+M.null_ls = function()
 	map("n", "<Leader>x", vim.lsp.buf.formatting, { buffer = true })
 end
 
-function M.nvimtree()
+M.nvimtree = function()
 	map("n", "<Leader>e", ":NvimTreeToggle<CR>")
 end
 
-function M.telescope()
+M.telescope = function()
 	map("n", "<Leader>ff", function()
 		require("telescope.builtin").find_files { hidden = true }
 	end)

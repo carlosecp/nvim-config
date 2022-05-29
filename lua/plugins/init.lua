@@ -130,6 +130,16 @@ return require("packer").startup(function(use)
 		end
 	}
 
+-- 	use {
+-- 		"numToStr/Navigator.nvim",
+-- 		config = function()
+-- 			require("plugins.configs.navigator")
+-- 		end,
+-- 		setup = function()
+-- 			require("core.mappings").navigator()
+-- 		end
+-- 	}
+
 	use {
 		"dstein64/vim-startuptime",
 		cmd = "StartupTime"
