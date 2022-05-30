@@ -6,13 +6,13 @@ g.did_lload_filetypes = 0
 g.do_filetype_lua     = 1
 
 opt.confirm    = true
-opt.laststatus = 3
 opt.cmdheight  = 1
 opt.cursorline = true
 opt.scrolloff  = 5
 
 opt.expandtab   = false
 opt.shiftwidth  = 2
+opt.autoindent  = true
 opt.smartindent = true
 opt.tabstop     = 2
 
@@ -34,4 +34,5 @@ opt.swapfile      = false
 opt.foldmethod    = "marker"
 opt.wrap          = false
 
-opt.winbar = "%f %m"
+opt.laststatus = 3
+-- opt.winbar = "%=%m %f"

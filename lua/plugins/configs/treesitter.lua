@@ -13,12 +13,12 @@ configs.setup {
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		enable = { "python" },
-		disable = { "fennel" }
+		enable = true,
+		disable = {}
 	},
 	refactor = {
 		highlight_definitions = {
-			enable = true,
+			enable = false,
 			clear_on_cursor_move = true
 		}
 	}

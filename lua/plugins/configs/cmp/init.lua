@@ -3,8 +3,8 @@
 -- https://github.com/hrsh7th/nvim-cmp
 
 local cmp = require("cmp")
-local autopairs = require("nvim-autopairs")
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+-- local autopairs = require("nvim-autopairs")
+-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local formatter = require("plugins.configs.cmp.formatter")
 
 vim.opt.completeopt = "menuone,noselect"
@@ -47,7 +47,7 @@ cmp.setup {
 	}
 }
 
-autopairs.setup {}
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {
-	map_char = { tex = "" }
-})
+-- autopairs.setup {}
+-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {
+-- 	map_char = { tex = "" }
+-- })

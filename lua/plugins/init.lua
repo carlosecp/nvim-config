@@ -17,7 +17,8 @@ return require("packer").startup(function(use)
 		requires = {
 			"williamboman/nvim-lsp-installer",
 			"jose-elias-alvarez/null-ls.nvim",
-			"j-hui/fidget.nvim"
+			"j-hui/fidget.nvim",
+			"stevearc/aerial.nvim"
 		}
 	}
 
@@ -33,7 +34,7 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/cmp-nvim-lua",  after = "nvim-cmp" },
 			{ "hrsh7th/cmp-path",      after = "nvim-cmp" },
 			{ "hrsh7th/cmp-buffer",    after = "nvim-cmp" },
-			{ "windwp/nvim-autopairs", module = "nvim-autopairs" }
+			-- { "windwp/nvim-autopairs", module = "nvim-autopairs" }
 		}
 	}
 
@@ -101,15 +102,11 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"shaeinst/roshnivim-cs",
+		"ellisonleao/gruvbox.nvim",
 		config = function()
-			require("plugins.themes.roshnivim")
-		end
-	}
-
-	use {
-		"tpope/vim-surround",
-		keys = {{ "v", "S" }}
+			require("plugins.themes.gruvbox_nvim")
+		end,
+		requires = "rktjmp/lush.nvim"
 	}
 
 	use {
@@ -124,7 +121,7 @@ return require("packer").startup(function(use)
 
 	use {
 		"norcalli/nvim-colorizer.lua",
-		event = "BufReadPre",
+		event = "BufEnter",
 		config = function()
 			require("plugins.configs.colorizer")
 		end

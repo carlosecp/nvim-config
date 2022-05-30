@@ -16,20 +16,21 @@ lualine.setup {
 		lualine_b = {{
 			"branch",
 			color = "StatusLine",
-			icon = ""
+			icon = ""
 		}},
 		lualine_c = {
 			"%=",
 			{
 				"filename",
+				path = 1,
 				symbols = {
-					modified = " [+]",
-					readonly = " [-]",
+					modified = "",
+					readonly = "",
 					unnamed  = "",
 				}
 			}
 		},
-		lualine_x = { "filetype" },
+		lualine_x = {},
 		lualine_y = {{ "progress", color = "StatusLine" }},
 		lualine_z = {{ "location", color = "StatusLine" }}
 	}
