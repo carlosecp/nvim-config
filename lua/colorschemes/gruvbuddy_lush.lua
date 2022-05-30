@@ -1,7 +1,7 @@
 -- use {
 -- 	"RishabhRD/gruvy",
 -- 	config = function()
--- 		require("plugins.themes.gruvbuddy_lush")
+-- 		require("colorschemes.gruvbuddy_lush")
 -- 	end,
 -- 	requires = "rktjmp/lush.nvim"
 -- }

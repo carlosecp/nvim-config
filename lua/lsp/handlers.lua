@@ -1,4 +1,4 @@
-local utils = require("core.utils")
+local utils = require("utils")
 
 local M = {}
 
@@ -40,7 +40,7 @@ M.on_attach = function(client, bufnr)
 
 	if client.name == "tailwindcss" then
 		if client.server_capabilities.colorProvider then
-			require("plugins.lsp.configs.tailwindcss.documentcolors").buf_attach(bufnr)
+			require("lsp.configs.tailwindcss.documentcolors").buf_attach(bufnr)
 		end
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		capabilities.textDocument.colorProvider = { dynamicRegistration = false }
@@ -50,7 +50,7 @@ M.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
-	require("core.mappings").lsp()
+	require("mappings").lsp()
 end
 
 local cmp_nvim_lsp = require("cmp_nvim_lsp")

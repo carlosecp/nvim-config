@@ -1,7 +1,7 @@
 -- use {
 -- 	"sainnhe/gruvbox-material",
 -- 	config = function()
--- 		require("plugins.themes.gruvbox_material")
+-- 		require("colorschemes.gruvbox_material")
 -- 	end
 -- }
 

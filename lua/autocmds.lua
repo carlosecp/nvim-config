@@ -38,14 +38,15 @@ local get_filename = function()
 	for str in string.gmatch(filename, "([^/]+)") do
 		table.insert(t, str)
 	end
-	return t[#t]
+	return t[#t] or ""
 end
 
 local winbar_fmt = function()
-	local filename = get_filename()
+	local result = get_filename()
 	local ast_symbols = require("aerial").get_location()
-	if vim.tbl_isempty(ast_symbols) then return filename end
-	return filename .. parse_ast_symbols(ast_symbols)
+
+	if vim.tbl_isempty(ast_symbols) then return result end
+	return result .. parse_ast_symbols(ast_symbols)
 end
 
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {

@@ -24,7 +24,7 @@ return require("packer").startup(function(use)
 	use {
 		"stevearc/aerial.nvim",
 		config = function()
-			require("plugins.configs.aerial")
+			require("plugins.aerial")
 		end
 	}
 
@@ -32,7 +32,7 @@ return require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
-			require("plugins.configs.cmp")
+			require("plugins.cmp")
 		end,
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
@@ -49,14 +49,14 @@ return require("packer").startup(function(use)
 		"L3MON4D3/LuaSnip",
 		module = "luasnip",
 		config = function()
-			require("plugins.configs.luasnip")
+			require("plugins.luasnip")
 		end
 	}
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
-			require("plugins.configs.treesitter")
+			require("plugins.treesitter")
 		end,
 		run = ":TSUpdate",
 		requires = {{
@@ -74,19 +74,19 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		config = function()
-			require("plugins.configs.telescope")
+			require("plugins.telescope")
 		end,
 		module = {
 			"telescope",
 			"telescope.builtin",
-			"plugins.configs.telescope"
+			"plugins.telescope"
 		},
 		requires = {{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			run = "make"
 		}},
 		setup = function()
-			require("core.mappings").telescope()
+			require("mappings").telescope()
 		end
 	}
 
@@ -94,17 +94,17 @@ return require("packer").startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
-			require("plugins.configs.nvimtree")
+			require("plugins.nvimtree")
 		end,
 		setup = function()
-			require("core.mappings").nvimtree()
+			require("mappings").nvimtree()
 		end
 	}
 	
 	use {
 		"sainnhe/gruvbox-material",
 		config = function()
-			require("plugins.themes.gruvbox_material")
+			require("colorschemes.gruvbox_material")
 		end
 	}
 
@@ -114,7 +114,7 @@ return require("packer").startup(function(use)
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
 			-- vim.g.easy_align_ignore_groups = {}
-			require("core.mappings").easy_align()
+			require("mappings").easy_align()
 		end
 	}
 
@@ -122,17 +122,17 @@ return require("packer").startup(function(use)
 		"norcalli/nvim-colorizer.lua",
 		event = "BufEnter",
 		config = function()
-			require("plugins.configs.colorizer")
+			require("plugins.colorizer")
 		end
 	}
 
 -- 	use {
 -- 		"numToStr/Navigator.nvim",
 -- 		config = function()
--- 			require("plugins.configs.navigator")
+-- 			require("plugins.navigator")
 -- 		end,
 -- 		setup = function()
--- 			require("core.mappings").navigator()
+-- 			require("mappings").navigator()
 -- 		end
 -- 	}
 
@@ -150,7 +150,7 @@ return require("packer").startup(function(use)
 		"kyazdani42/nvim-web-devicons",
 		module = "nvim-web-devicons",
 		config = function()
-			require("plugins.configs.devicons")
+			require("plugins.devicons")
 		end
 	}
 

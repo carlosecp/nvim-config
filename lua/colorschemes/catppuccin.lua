@@ -2,7 +2,7 @@
 -- 	"catppuccin/nvim",
 -- 	as = "catppuccin",
 -- 	config = function()
--- 		require("plugins.themes.catppuccin")
+-- 		require("colorschemes.catppuccin")
 -- 	end
 -- }
 

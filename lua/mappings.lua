@@ -1,4 +1,4 @@
-local utils = require("core.utils")
+local utils = require("utils")
 local map = utils.map
 
 map("n", "<Leader>h",        ":noh<CR>")

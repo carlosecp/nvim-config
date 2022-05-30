@@ -1,7 +1,7 @@
 -- use {
 -- 	"tjdevries/gruvbuddy.nvim",
 -- 	config = function()
--- 		require("plugins.themes.gruvbuddy")
+-- 		require("colorschemes.gruvbuddy")
 -- 	end,
 -- 	requires = "tjdevries/colorbuddy.vim"
 -- }

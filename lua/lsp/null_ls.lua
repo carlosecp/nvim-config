@@ -17,6 +17,6 @@ null_ls.setup {
 		formatting.rustfmt       -- rustfmt (included with rustup)
 	},
 	on_attach = function()
-		require("core.mappings").null_ls()
+		require("mappings").null_ls()
 	end
 }

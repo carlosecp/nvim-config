@@ -1,7 +1,7 @@
 -- use {
 --		"luisiacc/gruvbox-baby",
 --		config = function()
---			require("plugins.themes.gruvbox_baby")
+--			require("colorschemes.gruvbox_baby")
 --		end
 -- }
 

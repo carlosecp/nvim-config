@@ -1,7 +1,7 @@
 -- use {
 -- 	"shaunsingh/nord.nvim",
 -- 	config = function()
--- 		require("plugins.themes.nord_nvim")
+-- 		require("colorschemes.nord_nvim")
 -- 	end
 -- }
 

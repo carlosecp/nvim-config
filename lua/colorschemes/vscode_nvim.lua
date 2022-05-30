@@ -1,6 +1,6 @@
 -- use {
 -- 	"Mofiqul/vscode.nvim",
--- 		require("plugins.themes.vscode_nvim")
+-- 		require("colorschemes.vscode_nvim")
 -- 	end
 -- }
 
