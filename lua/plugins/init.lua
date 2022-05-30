@@ -18,8 +18,14 @@ return require("packer").startup(function(use)
 			"williamboman/nvim-lsp-installer",
 			"jose-elias-alvarez/null-ls.nvim",
 			"j-hui/fidget.nvim",
-			"stevearc/aerial.nvim"
 		}
+	}
+
+	use {
+		"stevearc/aerial.nvim",
+		config = function()
+			require("plugins.configs.aerial")
+		end
 	}
 
 	use {
