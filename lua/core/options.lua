@@ -34,5 +34,12 @@ opt.swapfile      = false
 opt.foldmethod    = "marker"
 opt.wrap          = false
 
+opt.list     = true
+opt.listchars = {
+	eol   = "﬋",
+	tab   = "  ",
+	trail = "."
+}
+
 opt.laststatus = 3
 -- opt.winbar = "%=%m %f"
