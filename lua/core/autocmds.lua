@@ -2,6 +2,7 @@ local function create_augroup(name)
 	return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
+-- Filetype Associtions {{{
 local ft_associations_augroup = create_augroup("FileTypeAssocations")
 local associate_fts = function(pattern, filetype)
 	vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -19,12 +20,14 @@ end
 associate_fts(".prettierc", "json")
 -- Take multiple UML extensions just as regular UML
 associate_fts({ "*.pu", "*.uml", "*.puml", "*.iuml", "*.plantuml" }, "uml")
+-- }}}
 
+-- Parse Treesitter AST Symbols for Winbar {{{
 local parse_ast_symbols = function(symbols_tbl)
 	local result = ""
 	local sep = " > "
 	for i, symbol in pairs(symbols_tbl) do
-		result = string.format("%s%s%s%s", result, sep, symbol.icon, symbol.name)
+		result = string.format("%s%s%s %s", result, sep, symbol.icon, symbol.name)
 	end
 	return result
 end
@@ -48,13 +51,14 @@ end
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 	 callback = function()
     local excluded_fts = {
-      "help",
-      "packer",
-      "NvimTree",
-      "alpha",
 			"Prompt",
+			"startuptime",
 			"TelescopePrompt",
-			"TelescopeResults"
+			"TelescopeResults",
+      "alpha",
+      "help",
+      "NvimTree",
+      "packer"
     }
 
     if vim.tbl_contains(excluded_fts, vim.bo.filetype) then
@@ -65,3 +69,4 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
     vim.opt_local.winbar = winbar_fmt()
   end
 })
+-- }}}

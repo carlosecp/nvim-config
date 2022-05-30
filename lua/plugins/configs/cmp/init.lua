@@ -5,7 +5,7 @@
 local cmp = require("cmp")
 -- local autopairs = require("nvim-autopairs")
 -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local formatter = require("plugins.configs.cmp.formatter")
+local lspkind = require("lspkind")
 
 vim.opt.completeopt = "menuone,noselect"
 
@@ -39,7 +39,15 @@ cmp.setup {
 		{ name = "buffer" }
 	},
 	experimental = { ghost_text = true },
-	formatting = { format = formatter },
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 50,
+			before = function(entrey, vim_item)
+				return vim_item
+			end
+		})
+	},
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)

@@ -1,5 +1,5 @@
 _G.defaults = {
-	borders = "single"
+	borders = "none"
 }
 
 _G.R = function(module)

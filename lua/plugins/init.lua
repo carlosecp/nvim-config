@@ -37,10 +37,11 @@ return require("packer").startup(function(use)
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
 			"saadparwaiz1/cmp_luasnip",
-			{ "hrsh7th/cmp-nvim-lua",  after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path",      after = "nvim-cmp" },
-			{ "hrsh7th/cmp-buffer",    after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path",     after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
 			-- { "windwp/nvim-autopairs", module = "nvim-autopairs" }
+			{ "onsails/lspkind.nvim", module = "lspkind" }
 		}
 	}
 
@@ -112,7 +113,7 @@ return require("packer").startup(function(use)
 		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)",
 		setup = function()
-			vim.g.easy_align_ignore_groups = {}
+			-- vim.g.easy_align_ignore_groups = {}
 			require("core.mappings").easy_align()
 		end
 	}
