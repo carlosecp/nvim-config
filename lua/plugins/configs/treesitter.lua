@@ -14,7 +14,7 @@ configs.setup {
 	},
 	indent = {
 		enable = true,
-		disable = {}
+		disable = { "lua" }
 	},
 	refactor = {
 		highlight_definitions = {

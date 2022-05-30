@@ -95,18 +95,10 @@ return require("packer").startup(function(use)
 	}
 	
 	use {
-		"nvim-lualine/lualine.nvim",
+		"sainnhe/gruvbox-material",
 		config = function()
-			require("plugins.configs.lualine")
+			require("plugins.themes.gruvbox_material")
 		end
-	}
-
-	use {
-		"ellisonleao/gruvbox.nvim",
-		config = function()
-			require("plugins.themes.gruvbox_nvim")
-		end,
-		requires = "rktjmp/lush.nvim"
 	}
 
 	use {

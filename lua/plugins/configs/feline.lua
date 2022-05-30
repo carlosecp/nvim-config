@@ -16,7 +16,7 @@ table.insert(components.active, {
 		provider = {
 			name = "vi_mode",
 			opts = {
-				padding = "center"
+				-- padding = "center"
 			}
 		},
 		hl = function()
