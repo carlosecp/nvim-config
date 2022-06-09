@@ -4,6 +4,7 @@
 
 local gitsigns = require("gitsigns")
 gitsigns.setup {
+	current_line_blame = true,
 	on_attach = function()
 		vim.wo.signcolumn = "yes"
 	end

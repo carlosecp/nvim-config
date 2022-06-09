@@ -3,4 +3,6 @@
 -- https://github.com/stevearc/aerial.nvim
 
 local aerial = require("aerial")
-aerial.setup {}
+aerial.setup {
+	backends = { "treesitter", "lsp" }
+}

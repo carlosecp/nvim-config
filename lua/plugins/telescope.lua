@@ -8,7 +8,15 @@ local builtin = require("telescope.builtin")
 telescope.setup {
 	defaults = {
 		file_ignore_patterns = { "node_modules/", ".next/", ".git/", "*.class" },
-		sorting_strategy = "ascending"
+		sorting_strategy = "ascending",
+		layout_config = {
+			prompt_position = "top"
+		},
+		mappings = {
+			i = {
+				["<C-u>"] = { "<C-S-u>", type = "command" }
+			}
+		}
 	},
 	extensions = {
 		fzf = {

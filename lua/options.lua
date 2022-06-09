@@ -34,6 +34,7 @@ opt.swapfile      = false
 opt.foldmethod    = "marker"
 opt.wrap          = false
 
+opt.shell = "sh"
 opt.list     = true
 opt.listchars = {
 	eol   = "﬋",
@@ -42,4 +43,4 @@ opt.listchars = {
 }
 
 opt.laststatus = 3
--- opt.winbar = "%=%m %f"
+opt.winbar = "%=%m %t"

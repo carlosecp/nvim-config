@@ -23,7 +23,8 @@ local status_ok_fidget, fidget = pcall(require, "fidget")
 if not status_ok_fidget then return end
 
 fidget.setup {
-	fmt = { stack_upwards = false }
+	fmt = { stack_upwards = false },
+	window = { blend = 0 }
 }
 
-require("lsp.null_ls")
+-- require("lsp.null_ls")

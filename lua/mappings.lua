@@ -11,10 +11,10 @@ map("n", "<Leader><Leader>", "<C-^>")
 -- map("n", "<C-h>", "<C-w>h")
 
 -- Resizing windows
--- map("n", "<C-k>", ":res +2<CR>")
--- map("n", "<C-j>", ":res -2<CR>")
--- map("n", "<C-l>", ":vert res +2<CR>")
--- map("n", "<C-h>", ":vert res -2<CR>")
+map("n", "<C-Up>",    ":res +2<CR>")
+map("n", "<C-Down>",  ":res -2<CR>")
+map("n", "<C-Right>", ":vert res +2<CR>")
+map("n", "<C-Left>",  ":vert res -2<CR>")
 
 map("n", "<Leader>cc", function()
 	local colorcolumn = vim.wo.colorcolumn

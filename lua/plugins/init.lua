@@ -71,6 +71,11 @@ return require("packer").startup(function(use)
 	}
 
 	use {
+		"aklt/plantuml-syntax",
+		ft = "plantuml"
+	}
+
+	use {
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
 		config = function()
@@ -109,6 +114,11 @@ return require("packer").startup(function(use)
 	}
 
 	use {
+		"tpope/vim-surround",
+		keys = { "v", "S" }
+	}
+
+	use {
 		"junegunn/vim-easy-align",
 		cmd = "EasyAlign",
 		keys = "<Plug>(EasyAlign)",
@@ -126,6 +136,13 @@ return require("packer").startup(function(use)
 		end
 	}
 
+	use {
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("plugins.gitsigns")
+		end
+	}
+
 -- 	use {
 -- 		"numToStr/Navigator.nvim",
 -- 		config = function()
@@ -135,6 +152,18 @@ return require("packer").startup(function(use)
 -- 			require("mappings").navigator()
 -- 		end
 -- 	}
+
+	use {
+		"onsails/diaglist.nvim",
+		config = function()
+			require("plugins.diaglist")
+		end
+	}
+
+	use {
+		"Olical/anissed",
+		ft = "fennel"
+	}
 
 	use {
 		"dstein64/vim-startuptime",

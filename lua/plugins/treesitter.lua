@@ -8,7 +8,7 @@ local parsers = require("nvim-treesitter.parsers")
 configs.setup {
 	ensure_installed = "all",
 	highlight = {
-		enable = true,
+		enable = { "python" },
 		disable = {},
 		additional_vim_regex_highlighting = true
 	},
