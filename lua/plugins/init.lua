@@ -22,6 +22,10 @@ return require("packer").startup(function(use)
 	}
 
 	use {
+		"mfussenegger/nvim-dap"
+	}
+
+	use {
 		"stevearc/aerial.nvim",
 		config = function()
 			require("plugins.aerial")
@@ -63,11 +67,6 @@ return require("packer").startup(function(use)
 			"nvim-treesitter/nvim-treesitter-refactor",
 			after = "nvim-treesitter"
 		}}
-	}
-
-	use {
-		"bakpakin/fennel.vim",
-		ft = "fennel"
 	}
 
 	use {
@@ -137,32 +136,10 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("plugins.gitsigns")
-		end
-	}
-
--- 	use {
--- 		"numToStr/Navigator.nvim",
--- 		config = function()
--- 			require("plugins.navigator")
--- 		end,
--- 		setup = function()
--- 			require("mappings").navigator()
--- 		end
--- 	}
-
-	use {
 		"onsails/diaglist.nvim",
 		config = function()
 			require("plugins.diaglist")
 		end
-	}
-
-	use {
-		"Olical/anissed",
-		ft = "fennel"
 	}
 
 	use {
