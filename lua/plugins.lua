@@ -22,17 +22,6 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"mfussenegger/nvim-dap"
-	}
-
-	use {
-		"stevearc/aerial.nvim",
-		config = function()
-			require("plugins.aerial")
-		end
-	}
-
-	use {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()
@@ -70,27 +59,12 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"aklt/plantuml-syntax",
-		ft = "plantuml"
-	}
-
-	use {
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		config = function()
-			require("plugins.telescope")
-		end,
-		module = {
-			"telescope",
-			"telescope.builtin",
-			"plugins.telescope"
-		},
-		requires = {{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			run = "make"
-		}},
+		"ibhagwan/fzf-lua",
 		setup = function()
-			require("mappings").telescope()
+			require("mappings").fzf()
+		end,
+		config = function()
+			require("plugins.fzflua")
 		end
 	}
 
@@ -105,12 +79,7 @@ return require("packer").startup(function(use)
 		end
 	}
 	
-	use {
-		"sainnhe/gruvbox-material",
-		config = function()
-			require("colorschemes.gruvbox_material")
-		end
-	}
+	use "rktjmp/lush.nvim"
 
 	use {
 		"tpope/vim-surround",

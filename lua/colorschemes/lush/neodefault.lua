@@ -108,7 +108,7 @@ local theme = lush(function()
 
 		-- Todo           { gui = "bold", fg = hsl("#0000ff") }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-		FloatBorder { fg = "fg", bg = "none" }, -- Border for floating windows like LSP hover dialogs
+		FloatBorder { fg = Normal.fg, bg = "none" }, -- Border for floating windows like LSP hover dialogs
 
 		-- DiagnosticError            { fg = "red" }, -- used as the base highlight group.
 		-- DiagnosticVirtualTextError { }, -- used for "Error" diagnostic virtual text.
@@ -183,7 +183,7 @@ local theme = lush(function()
 		-- NvimTreeSpecialFile { gui = "bold,underline", fg = hsl("#e5c07b") },
 		TelescopeMatching { gui = "bold", fg = "orange" },
 
-		gitcommitSummary { fg = "fg" },
+		gitcommitSummary { fg = Normal.fg },
 	}
 end)
 

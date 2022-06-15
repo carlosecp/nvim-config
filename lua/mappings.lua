@@ -51,6 +51,24 @@ M.nvimtree = function()
 	map("n", "<Leader>e", ":NvimTreeToggle<CR>")
 end
 
+M.fzf = function()
+	map("n", "<Leader>ff", function()
+		require("fzf-lua").files()
+	end)
+
+	map("n", "<Leader>lg", function()
+		require("fzf-lua").live_grep()
+	end)
+
+	map("n", "<Leader>df", function()
+		require("fzf-lua").files({ cwd = "$HOME/.dotfiles" })
+	end)
+
+	map("n", "<Leader>nv", function()
+		require("fzf-lua").files({ cwd = "$HOME/.config/nvim" })
+	end)
+end
+
 M.telescope = function()
 	map("n", "<Leader>ff", function()
 		require("telescope.builtin").find_files { hidden = true }
