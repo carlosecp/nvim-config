@@ -15,9 +15,9 @@ return require("packer").startup(function(use)
 	use {
 		"neovim/nvim-lspconfig",
 		requires = {
-			"williamboman/nvim-lsp-installer",
-			"jose-elias-alvarez/null-ls.nvim",
 			"j-hui/fidget.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+			"mfussenegger/nvim-dap"
 		}
 	}
 
@@ -30,11 +30,11 @@ return require("packer").startup(function(use)
 		requires = {
 			"hrsh7th/cmp-nvim-lsp",
 			"saadparwaiz1/cmp_luasnip",
-			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path",     after = "nvim-cmp" },
-			{ "hrsh7th/cmp-buffer",   after = "nvim-cmp" },
-			-- { "windwp/nvim-autopairs", module = "nvim-autopairs" }
-			{ "onsails/lspkind.nvim", module = "lspkind" }
+			{ "hrsh7th/cmp-nvim-lua",  after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path",      after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer",    after = "nvim-cmp" },
+			{ "windwp/nvim-autopairs", module = "nvim-autopairs" },
+			{ "onsails/lspkind.nvim",  module = "lspkind" }
 		}
 	}
 
@@ -59,12 +59,9 @@ return require("packer").startup(function(use)
 	}
 
 	use {
-		"ibhagwan/fzf-lua",
-		setup = function()
-			require("mappings").fzf()
-		end,
+		"numToStr/Comment.nvim",
 		config = function()
-			require("plugins.fzflua")
+			require("plugins.comment")
 		end
 	}
 
@@ -78,13 +75,35 @@ return require("packer").startup(function(use)
 			require("mappings").nvimtree()
 		end
 	}
-	
-	use "rktjmp/lush.nvim"
 
 	use {
-		"tpope/vim-surround",
-		keys = { "v", "S" }
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
+		config = function()
+			require("plugins.telescope")
+		end,
+		module = {
+			"telescope",
+			"telescope.builtin",
+			"plugins.telescope"
+		},
+		requires = {{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			run = "make"
+		}},
+		setup = function()
+			require("mappings").telescope()
+		end
 	}
+
+	use {
+		"shaunsingh/nord.nvim",
+		config = function()
+			require("colorschemes.nord_nvim")
+		end
+	}
+
+	use "tpope/vim-surround"
 
 	use {
 		"junegunn/vim-easy-align",

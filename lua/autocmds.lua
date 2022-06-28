@@ -1,64 +1,16 @@
--- local function create_augroup(name)
--- 	return vim.api.nvim_create_augroup(name, { clear = true })
--- end
--- 
--- local winbar_augroup = create_augroup("WinBarTS")
--- 
--- local parse_ast_symbols = function(symbols_tbl)
--- 	local result = ""
--- 	local sep = " > "
--- 	for i, symbol in pairs(symbols_tbl) do
--- 		result = string.format("%s%s%s %s", result, sep, symbol.icon, symbol.name)
--- 	end
--- 	return result
--- end
--- 
--- local get_filename = function()
--- 	local filename = vim.api.nvim_buf_get_name(0)
--- 	local t = {}
--- 	for str in string.gmatch(filename, "([^/]+)") do
--- 		table.insert(t, str)
--- 	end
--- 	return t[#t] and " " .. t[#t] or ""
--- end
--- 
--- local winbar_fmt = function()
--- 	local result = get_filename()
--- 	local ast_symbols = require("aerial").get_location()
--- 
--- 	local excluded_fts = { "markdown" }
--- 	local empty_winbar = vim.tbl_isempty(ast_symbols) or vim.tbl_contains(excluded_fts, vim.bo.filetype)
--- 	if empty_winbar then return result end
--- 
--- 	return result .. parse_ast_symbols(ast_symbols)
--- end
--- 
--- vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
--- 	 callback = function()
---     local excluded_fts = {
--- 			"Prompt",
--- 			"startuptime",
--- 			"TelescopePrompt",
--- 			"TelescopeResults",
---       "alpha",
---       "help",
---       "NvimTree",
---       "packer"
---     }
--- 
---     if vim.tbl_contains(excluded_fts, vim.bo.filetype) then
---       vim.opt_local.winbar = nil
---       return
---     end
--- 
---     vim.opt_local.winbar = winbar_fmt()
---   end,
--- 	group = winbar_augroup
--- })
--- 
--- local plantuml_skeleton_group = create_augroup("PlantUMLSkeleton")
--- vim.api.nvim_create_autocmd({ "BufNewFile "}, {
--- 	pattern = "*.puml",
--- 	command = "0r /home/carlosecp/.config/nvim/skeletons/skeleton.puml",
--- 	group = plantuml_skeleton_group
--- })
+local utils = require("utils")
+
+local function create_augroup(name)
+	return vim.api.nvim_create_augroup(name, { clear = true })
+end
+
+local qf_list_window_mappings = create_augroup("QFListWindowMappings")
+
+vim.api.nvim_create_autocmd({ "BufWinEnter", "BufEnter" }, {
+	pattern = "quickfix",
+	callback = function()
+		-- utils.map("n", "j", ":cnext<CR>", { buffer = true })
+		-- utils.map("n", "k", ":cprev<CR>", { buffer = true })
+	end,
+	group = qf_list_window_mappings
+})

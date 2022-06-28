@@ -22,5 +22,8 @@ ls.add_snippets(nil, {
 		s("req", fmt("local {} = require(\"{}\")", { i(1, "module"), rep(1) })),
 		s("lf", fmt("local {} = function({})\n\t{}\nend", { i(1, "identifier"), i(2, "args"), i(0) })),
 		s("mf", fmt("{}.{} = function({})\n\t{}\nend", { i(1, "M"), i(2, "method"),i(3, "args"), i(0) }))
-	}
+	},
+	-- rust = {
+	-- 	s("print", fmt("println!(\"{:?}\"), {}"))
+	-- }
 })

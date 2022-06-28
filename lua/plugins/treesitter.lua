@@ -13,8 +13,8 @@ configs.setup {
 		additional_vim_regex_highlighting = true
 	},
 	indent = {
-		enable = true,
-		disable = { "lua" }
+		enable = false,
+		disable = { "lua", "python" }
 	},
 	refactor = {
 		highlight_definitions = {

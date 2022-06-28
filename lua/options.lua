@@ -11,10 +11,10 @@ opt.cursorline = true
 opt.scrolloff  = 5
 
 opt.expandtab   = false
-opt.shiftwidth  = 2
+opt.shiftwidth  = 4
 opt.autoindent  = true
 opt.smartindent = true
-opt.tabstop     = 2
+opt.tabstop     = 4
 
 opt.hlsearch   = true
 opt.hidden     = true
@@ -35,12 +35,15 @@ opt.foldmethod    = "marker"
 opt.wrap          = false
 
 opt.shell = "sh"
-opt.list     = true
+opt.list     = false
 opt.listchars = {
 	eol   = "﬋",
 	tab   = "  ",
 	trail = "."
 }
 
-opt.laststatus = 3
-opt.winbar = "%=%m %t"
+-- opt.laststatus = 3
+-- opt.winbar = "%=%m %t"
+
+opt.guifont = "JetBrains Mono:h8"
+g.neovide_cursor_animation_length = 0

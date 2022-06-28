@@ -1,30 +1,38 @@
-local status_ok_installer, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok_installer then return end
+-- :h lspconfig-server-configurations
+local lspconfig = require("lspconfig")
 local handlers = require("lsp.handlers")
+local fidget = require("fidget")
 
 handlers.setup()
 
-local default_config = {
-	on_attach = handlers.on_attach,
-	capabilities = handlers.capabilities
-}
+local setup = function(server_name)
+	local opts = {
+		on_attach = handlers.on_attach,
+		capabilities = handlers.capabilities
+	}
 
-local custom_setup = {
-	jsonls = require("lsp.configs.jsonls")
-}
+	if server_anem == "jsonls" then
+		opts = vim.tbl_deep_extend(opts, require("lsp.configs.jsonls"))
+	end
 
-lsp_installer.on_server_ready(function(server)
-	local config = custom_setup[server.name] or {}
-	config = vim.tbl_deep_extend("force", config, default_config)
-	server:setup(config)
-end)
+	lspconfig[server_name].setup(opts)
+end
 
-local status_ok_fidget, fidget = pcall(require, "fidget")
-if not status_ok_fidget then return end
+-- paru -S jdtls
+setup("jdtls")
+
+-- npm i -g tailw
+setup("tailwindcss")
+
+-- paru -S rust-analyzer
+-- setup("rust_analyzer")
+
+-- npm i -g typescript-language-server
+setup("tsserver")
 
 fidget.setup {
 	fmt = { stack_upwards = false },
 	window = { blend = 0 }
 }
 
--- require("lsp.null_ls")
+require("lsp.null_ls")

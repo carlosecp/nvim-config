@@ -2,7 +2,7 @@ local utils = require("utils")
 local map = utils.map
 
 map("n", "<Leader>h",        ":noh<CR>")
-map("n", "<Leader><Leader>", "<C-^>")
+-- map("n", "<Leader><Leader>", "<C-^>")
 
 -- Switching windows
 -- map("n", "<C-j>", "<C-w>j")
@@ -38,7 +38,12 @@ M.lsp = function()
 	map("n", "gD",         vim.lsp.buf.declaration)
 	map("n", "gx",         vim.lsp.buf.signature_help)
 	map("n", "<Leader>rn", vim.lsp.buf.rename)
+	map("n", "<Leader>fr", vim.lsp.buf.references)
 	map("n", "<Leader>ca", vim.lsp.buf.code_action)
+	-- TODO: Load diaglist correctly with LSP
+	map("n", "<Leader>gd", function()
+		require("diaglist").open_all_diagnostics()
+	end)
 	map("n", "[g",         vim.diagnostic.goto_next)
 	map("n", "]g",         vim.diagnostic.goto_prev)
 end
@@ -48,7 +53,7 @@ M.null_ls = function()
 end
 
 M.nvimtree = function()
-	map("n", "<Leader>e", ":NvimTreeToggle<CR>")
+	map("n", "<Leader>op", ":NvimTreeToggle<CR>")
 end
 
 M.fzf = function()
@@ -70,7 +75,7 @@ M.fzf = function()
 end
 
 M.telescope = function()
-	map("n", "<Leader>ff", function()
+	map("n", "<Leader><Leader>", function()
 		require("telescope.builtin").find_files { hidden = true }
 	end)
 
