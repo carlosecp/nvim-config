@@ -34,6 +34,7 @@ opt.swapfile      = false
 opt.foldmethod    = "marker"
 opt.wrap          = false
 
+opt.mouse = "a"
 opt.shell = "sh"
 opt.list     = false
 opt.listchars = {

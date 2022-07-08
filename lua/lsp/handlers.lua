@@ -47,8 +47,8 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- In order to use null-ls.
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	client.server_capabilities.document_formatting = false
+	client.server_capabilities.document_range_formatting = false
 
 	require("mappings").lsp()
 end
