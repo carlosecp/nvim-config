@@ -56,7 +56,8 @@ cmp.setup({
 					return vim.api.nvim_list_bufs()
 				end
 			}
-		}
+		},
+		-- { name = "nvim_lsp_signature_help" }
 	},
 	experimental = {
 		ghost_text = true

@@ -30,7 +30,6 @@ end
 
 function M.lsp()
 	localmap("n", "K",          vim.lsp.buf.hover)
-	localmap("i", "<C-K>",      vim.lsp.buf.signature_help)
 	localmap("n", "gs",         vim.lsp.buf.signature_help)
 	localmap("n", "gd",         vim.lsp.buf.definition)
 	localmap("n", "gD",         vim.lsp.buf.declaration)

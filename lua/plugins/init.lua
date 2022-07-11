@@ -24,7 +24,8 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/cmp-path",         after = "nvim-cmp" },
 			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 			{ "onsails/lspkind.nvim",     module = "lspkind" },
-			{ "windwp/nvim-autopairs",    module = "nvim-autopairs" }
+			{ "windwp/nvim-autopairs",    module = "nvim-autopairs" },
+			-- { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" }
 		}
 	})
 
@@ -111,6 +112,11 @@ return require("packer").startup(function(use)
 		config = function()
 			require("plugins.configs.colorizer")
 		end
+	})
+
+	use({
+		"aklt/plantuml-syntax",
+		ft = "plantuml"
 	})
 
 	use({

@@ -1,7 +1,6 @@
 local status_ok_configs, configs = pcall(require, "nvim-treesitter.configs")
-local status_ok_parsers, parsers = pcall(require, "nvim-treesitter.parsers")
 
-if not status_ok_configs or not status_ok_configs then return end
+if not status_ok_configs then return end
 
 local utils    = require("core.utils")
 local defaults = utils.defaults
@@ -22,17 +21,15 @@ configs.setup({
 	},
 	refactor = {
 		highlight_definitions = {
-			enable = false,
+			enable = true,
 			clear_on_cursor_move = true
-		},
-		smart_rename = {
-			enable  = true,
-			keymaps = {
-				smart_rename = defaults.mappings.rename
-			}
 		}
 	}
 })
+
+local status_ok_parsers, parsers = pcall(require, "nvim-treesitter.parsers")
+
+if not status_ok_parsers then return end
 
 local parser_config = parsers.get_parser_configs()
 parser_config.jsonc.filetype_to_parsername = "json"

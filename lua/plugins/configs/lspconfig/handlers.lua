@@ -23,7 +23,7 @@ vim.diagnostic.config(diagnostic_config)
 vim.lsp.handlers["textDocument/hover"] =
 vim.lsp.with(vim.lsp.handlers.hover, {
 	border    = defaults.borders,
-	max_width = 80
+	-- max_width = 80
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] =
@@ -51,7 +51,18 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 
 function M.on_attach(client, bufnr)
-	require"lsp_signature".setup()
+	local status_ok_lsp_signature, lsp_signature = pcall(require, "lsp_signature")
+
+	if status_ok_lsp_signature then
+		lsp_signature.on_attach({
+			bind = true,
+			hint_enable  = false,
+			handler_opts = {
+				border = defaults.borders
+			}
+		}, bufnr)
+	end
+
 	mappings.lsp()
 end
 

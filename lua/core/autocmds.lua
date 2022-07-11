@@ -4,13 +4,12 @@ local function create_augroup(name)
 	return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
-local qf_list_window_mappings = create_augroup("QFListWindowMappings")
+local plantuml_group = create_augroup("PlantUMLGroup")
 
-vim.api.nvim_create_autocmd({ "BufWinEnter", "BufEnter" }, {
-	pattern = "quickfix",
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	pattern = { "*.pu", "*.uml", "*.puml", "*.iuml", "*.plantuml" },
 	callback = function()
-		-- utils.map("n", "j", ":cnext<CR>", { buffer = true })
-		-- utils.map("n", "k", ":cprev<CR>", { buffer = true })
+		vim.bo.filetype = "plantuml"
 	end,
-	group = qf_list_window_mappings
+	group = plantuml_group
 })
