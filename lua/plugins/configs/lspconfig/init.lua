@@ -10,38 +10,27 @@ local default_opts = {
 	capabilities = handlers.capabilities
 }
 
+local function with_default_opts(opts)
+	return vim.tbl_deep_extend("force", default_opts, opts)
+end
+
 -- Available servers:
 -- :h lspconfig-server-configurations
 
--- https://github.com/golang/tools/tree/master/gopls
--- Arch: included with golang arch package
 lspconfig.gopls.setup(default_opts)
 
--- https://github.com/eclipse/eclipse.jdt.ls
--- Arch: paru -S jdtls
 lspconfig.jdtls.setup(default_opts)
 
--- npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup(default_opts)
-
--- https://rust-analyzer.github.io
--- Arch: sudo pacman -S rust-analyzer
 lspconfig.rust_analyzer.setup(default_opts)
 
--- npm install -g @tailwindcss/language-server
-local tailwindcss_capabilities = vim.lsp.protocol.make_client_capabilities()
-tailwindcss_capabilities.textDocument.completion.completionItem.snippetSupport = true
-tailwindcss_capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+local tsserver_opts = require("plugins.configs.lspconfig.server_configs.tsserver")
+lspconfig.tsserver.setup(with_default_opts(tsserver_opts))
 
-lspconfig.tailwindcss.setup(vim.tbl_deep_extend("force", default_opts, {
-	capabilities = tailwindcss_capabilities,
-	on_attach = function(client, bufnr)
-		if client.server_capabilities.colorProvider then
-			require("plugins.configs.lspconfig.server_configs.tailwindcss.documentcolors").buf_attach(bufnr)
-		end
-		default_opts.on_attach(client, bufnr)
-	end
-}))
+local jsonls_opts = require("plugins.configs.lspconfig.server_configs.jsonls")
+lspconfig.jsonls.setup(with_default_opts(jsonls_opts))
+
+local tailwindcss_opts = require("plugins.configs.lspconfig.server_configs.tailwindcss")
+lspconfig.tailwindcss.setup(with_default_opts(tailwindcss_opts))
 
 local status_ok_fidget, fidget = pcall(require, "fidget")
 

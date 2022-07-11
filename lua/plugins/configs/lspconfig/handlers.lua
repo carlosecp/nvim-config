@@ -51,18 +51,6 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 
 function M.on_attach(client, bufnr)
-	local status_ok_lsp_signature, lsp_signature = pcall(require, "lsp_signature")
-
-	if status_ok_lsp_signature then
-		lsp_signature.on_attach({
-			bind = true,
-			hint_enable  = false,
-			handler_opts = {
-				border = defaults.borders
-			}
-		}, bufnr)
-	end
-
 	mappings.lsp()
 end
 

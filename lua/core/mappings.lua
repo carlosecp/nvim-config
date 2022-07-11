@@ -38,8 +38,13 @@ function M.lsp()
 	localmap("n", "[g",         vim.diagnostic.goto_next)
 	localmap("n", "]g",         vim.diagnostic.goto_prev)
 	localmap("n", defaults.mappings.rename, vim.lsp.buf.rename)
+
 	localmap("n", "<Leader>x", function()
 		vim.lsp.buf.format({ async = true })
+	end)
+
+	localmap("n", "<Leader>gx", function()
+		require("diaglist").open_all_diagnostics()
 	end)
 end
 

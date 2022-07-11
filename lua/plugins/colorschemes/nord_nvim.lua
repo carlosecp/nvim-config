@@ -15,3 +15,5 @@ vim.cmd("hi Comment gui=italic")
 -- vim.cmd("hi EndOfBuffer guifg=#616E88")
 vim.cmd("hi NvimTreeIndentMarker guifg=#616E88")
 vim.cmd("hi NvimTreeEmptyFolderName guifg=#616E88")
+
+vim.cmd("hi Todo gui=reverse")

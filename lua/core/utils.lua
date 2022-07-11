@@ -23,7 +23,7 @@ end
 local M = {}
 
 M.defaults = {
-	borders = "single",
+	borders = "none",
 	mappings = {
 		rename = "<Leader>rn"
 	}

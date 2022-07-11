@@ -6,9 +6,11 @@ local compare  = cmp.config.compare
 local utils    = require("core.utils")
 local defaults = utils.defaults
 
+vim.opt.pumheight = 15
+
 cmp.setup({
 	completion = {
-		completeopt = "menuone,noselect"
+		completeopt = "menuone,noselect",
 	},
 	mapping = {
 		["<C-n>"] = cmp.mapping.select_next_item(),
@@ -40,7 +42,8 @@ cmp.setup({
 			border = defaults.borders
 		},
 		documentation = {
-			border = defaults.borders,
+			-- border = defaults.borders,
+			border = "single",
 			max_width = 50
 		}
 	},
@@ -57,7 +60,7 @@ cmp.setup({
 				end
 			}
 		},
-		-- { name = "nvim_lsp_signature_help" }
+		{ name = "nvim_lsp_signature_help" }
 	},
 	experimental = {
 		ghost_text = true

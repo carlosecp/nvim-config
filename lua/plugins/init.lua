@@ -6,8 +6,7 @@ return require("packer").startup(function(use)
 		end,
 		requires = {
 			"j-hui/fidget.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
-			"ray-x/lsp_signature.nvim"
+			"jose-elias-alvarez/null-ls.nvim"
 		}
 	})
 
@@ -25,7 +24,7 @@ return require("packer").startup(function(use)
 			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 			{ "onsails/lspkind.nvim",     module = "lspkind" },
 			{ "windwp/nvim-autopairs",    module = "nvim-autopairs" },
-			-- { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" }
+			{ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" }
 		}
 	})
 
@@ -48,13 +47,26 @@ return require("packer").startup(function(use)
 				"nvim-treesitter/nvim-treesitter-refactor",
 				after = "nvim-treesitter"
 			},
-			{ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
+			{
+				"windwp/nvim-ts-autotag",
+				after = "nvim-treesitter",
+				ft = {
+					"javascript",
+					"typescript",
+					"javascriptreact",
+					"typescriptreact"
+				}
+			}
 		}
 	})
 
-
 	use({
 		"numToStr/Comment.nvim",
+		keys = {
+			{ "n", "gcc" },
+			{ "x", "gc" },
+			{ "x", "gb" }
+		},
 		config = function()
 			require("plugins.configs.comment")
 		end
@@ -121,6 +133,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"onsails/diaglist.nvim",
+		cmd = "diaglist",
 		config = function()
 			require("plugins.configs.diaglist")
 		end
@@ -134,10 +147,20 @@ return require("packer").startup(function(use)
 		end
 	})
 
+	use({
+		"jose-elias-alvarez/nvim-lsp-ts-utils",
+		ft = {
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact"
+		}
+	})
+
 	use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 	use({ "nvim-lua/plenary.nvim", module = "plenary" })
+	use({ "tpope/vim-surround", keys = {{ "x", "S" }}})
 
-	use("tpope/vim-surround")
 	use("lewis6991/impatient.nvim")
 	use("wbthomason/packer.nvim")
 	use("milisims/nvim-luaref")
