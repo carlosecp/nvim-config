@@ -1,9 +1,9 @@
--- use {
--- 	"shaeinst/roshnivim-cs",
--- 	config = function()
--- 		require("plugins.colorschemes.roshnivim")
--- 	end
--- }
+--[[ use({
+	"shaeinst/roshnivim-cs",
+	config = function()
+		require("plugins.colorschemes.roshnivim")
+	end
+}) ]]
 
 vim.g.transparent_background = true
 vim.cmd("colo rvcs")

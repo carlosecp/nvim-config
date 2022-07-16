@@ -1,9 +1,9 @@
--- use {
--- 	"ishan9299/nvim-solarized-lua",
--- 	config = function()
--- 		require("plugins.colorschemes.nvim_solarized_lua")
--- 	end
--- }
+--[[ use({
+	"ishan9299/nvim-solarized-lua",
+	config = function()
+		require("plugins.colorschemes.solarized")
+	end
+}) ]]
 
 vim.g.solarized_italics = 0
 vim.g.solarized_termtrans = 1

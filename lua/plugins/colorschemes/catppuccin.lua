@@ -1,10 +1,10 @@
--- use {
--- 	"catppuccin/nvim",
--- 	as = "catppuccin",
--- 	config = function()
--- 		require("plugins.colorschemes.catppuccin")
--- 	end
--- }
+--[[ use({
+	"catppuccin/nvim",
+	as = "catppuccin",
+	config = function()
+		require("plugins.colorschemes.catppuccin")
+	end
+}) ]]
 
 local catppuccin = require("catppuccin")
 

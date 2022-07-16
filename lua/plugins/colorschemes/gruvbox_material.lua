@@ -1,9 +1,9 @@
--- use {
--- 	"sainnhe/gruvbox-material",
--- 	config = function()
--- 		require("plugins.colorschemes.gruvbox_material")
--- 	end
--- }
+--[[ use({
+	"sainnhe/gruvbox-material",
+	config = function()
+		require("plugins.colorschemes.gruvbox_material")
+	end
+}) ]]
 
 vim.g.gruvbox_material_background = "hard"
 vim.g.gruvbox_material_better_performance = 1

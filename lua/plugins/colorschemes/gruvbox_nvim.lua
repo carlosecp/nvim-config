@@ -1,10 +1,10 @@
--- use({
--- 	"ellisonleao/gruvbox.nvim",
--- 	config = function()
--- 		require("plugins.colorschemes.gruvbox_nvim")
--- 	end,
--- 	requires = "rktjmp/lush.nvim"
--- })
+--[[ use({
+	"ellisonleao/gruvbox.nvim",
+	config = function()
+		require("plugins.colorschemes.gruvbox_nvim")
+	end,
+	requires = "rktjmp/lush.nvim"
+}) ]]
 
 vim.g.gruvbox_material_enable_italic = 0
 vim.g.gruvbox_material_disable_italic_comment = 1
