@@ -17,7 +17,7 @@ configs.setup({
 	},
 	indent = {
 		enable = true,
-		disable = { "lua", "python" }
+		disable = { "lua", "python", "rust" }
 	},
 	refactor = {
 		highlight_definitions = {
@@ -30,6 +30,9 @@ configs.setup({
 				smart_rename = "grr",
 			}
 		}
+	},
+	playground = {
+		enable = true
 	}
 })
 

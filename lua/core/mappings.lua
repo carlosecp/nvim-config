@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 
 map("n", "<Leader>h", ":noh<CR>")
 map("x", "<Leader>s", ":sort<CR>")
+-- map("n", "<Leader><Leader>", "<C-^>")
 
 map("n", "<Leader>cc", function()
 	local colorcolumn = vim.wo.colorcolumn
@@ -59,12 +60,16 @@ function M.null_ls()
 	end)
 end
 
+function M.netrw()
+	map("n", "<Leader>e", ":Explore<CR>")
+end
+
 function M.nvimtree()
-	map("n", "<Leader>op", ":NvimTreeToggle<CR>")
+	map("n", "<Leader>e", ":NvimTreeToggle<CR>")
 end
 
 function M.telescope()
-	map("n", "<Leader><Leader>", function()
+	map("n", "<Leader>ff", function()
 		require("telescope.builtin").find_files({ hidden = true })
 	end)
 

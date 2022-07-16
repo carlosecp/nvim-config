@@ -8,7 +8,7 @@ local defaults = utils.defaults
 
 vim.opt.pumheight = 15
 
-cmp.setup({
+local cmp_opts = {
 	completion = {
 		completeopt = "menuone,noselect",
 	},
@@ -25,12 +25,12 @@ cmp.setup({
 	},
 	sorting = {
 		comparators = {
+			compare.score,
+			compare.scopes,
+			compare.locality,
 			compare.offset,
 			compare.exact,
-			compare.scopes,
-			compare.score,
 			compare.recently_used,
-			compare.locality,
 			compare.kind,
 			compare.sort_text,
 			compare.length,
@@ -39,18 +39,18 @@ cmp.setup({
 	},
 	window = {
 		completion = {
-			border = defaults.borders
+			-- border = defaults.borders
+			border = "none"
 		},
 		documentation = {
-			-- border = defaults.borders,
-			border = "single",
+			border = defaults.borders,
 			max_width = 50
 		}
 	},
 	sources = {
+		{ name = "nvim_lsp" },
 		{ name = "luasnip"  },
 		{ name = "nvim_lua" },
-		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{
 			name = "buffer",
@@ -70,25 +70,25 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end
 	}
-})
+}
 
 local status_ok_lspkind, lspkind = pcall(require, "lspkind")
 
 if status_ok_lspkind then
-	cmp.setup({
-		formatting = {
-			format = lspkind.cmp_format({
-				mode = "symbol_text",
-				maxwidth = 50,
-				before = function(entrey, vim_item)
-					return vim_item
-				end
-			})
-		}
-	})
+	cmp_opts["formatting"] = {
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 50,
+			before = function(entrey, vim_item)
+				return vim_item
+			end
+		})
+	}
 end
 
-local status_ok_autopairs, autopairs = pcall(require, "nvim-autopairs")
+cmp.setup(cmp_opts)
+
+--[[ local status_ok_autopairs, autopairs = pcall(require, "nvim-autopairs")
 local status_ok_cmp_autopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 
 if status_ok_autopairs and status_ok_cmp_autopairs then
@@ -96,4 +96,4 @@ if status_ok_autopairs and status_ok_cmp_autopairs then
 	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({
 		map_char = { tex = "" }
 	}))
-end
+end ]]

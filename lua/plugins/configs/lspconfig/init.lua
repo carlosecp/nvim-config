@@ -19,8 +19,6 @@ end
 
 lspconfig.gopls.setup(default_opts)
 
-lspconfig.jdtls.setup(default_opts)
-
 lspconfig.rust_analyzer.setup(default_opts)
 
 local tsserver_opts = require("plugins.configs.lspconfig.server_configs.tsserver")

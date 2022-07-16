@@ -23,7 +23,7 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/cmp-path",         after = "nvim-cmp" },
 			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 			{ "onsails/lspkind.nvim",     module = "lspkind" },
-			{ "windwp/nvim-autopairs",    module = "nvim-autopairs" },
+			-- { "windwp/nvim-autopairs",    module = "nvim-autopairs" },
 			{ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" }
 		}
 	})
@@ -51,10 +51,18 @@ return require("packer").startup(function(use)
 				"windwp/nvim-ts-autotag",
 				after = "nvim-treesitter",
 				ft = {
+					"html",
 					"javascript",
 					"typescript",
 					"javascriptreact",
 					"typescriptreact"
+				}
+			},
+			{
+				"nvim-treesitter/playground",
+				cmd = {
+					"TSPlaygroundToggle",
+					"TSHighlightCapturesUnderCursor"
 				}
 			}
 		}
@@ -72,7 +80,7 @@ return require("packer").startup(function(use)
 		end
 	})
 
-	use({
+	--[[ use({
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
 		config = function()
@@ -81,7 +89,7 @@ return require("packer").startup(function(use)
 		setup = function()
 			require("core.mappings").nvimtree()
 		end
-	})
+	}) ]]
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -109,7 +117,6 @@ return require("packer").startup(function(use)
 			require("plugins.colorschemes.nord_nvim")
 		end
 	})
-
 
 	use({
 		"junegunn/vim-easy-align",
@@ -145,16 +152,6 @@ return require("packer").startup(function(use)
 		config = function()
 			require("plugins.configs.devicons")
 		end
-	})
-
-	use({
-		"jose-elias-alvarez/nvim-lsp-ts-utils",
-		ft = {
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact"
-		}
 	})
 
 	use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
