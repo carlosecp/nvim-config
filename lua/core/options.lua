@@ -38,6 +38,7 @@ opt.listchars = {
 	tab   = "  ",
 	trail = "."
 }
+opt.spelllang = "en_us,es"
 
 -- opt.laststatus = 3
 -- opt.winbar = "%=%m %t"

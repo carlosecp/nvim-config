@@ -111,12 +111,12 @@ return require("packer").startup(function(use)
 		end
 	})
 
-	use({
+	--[[ use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("plugins.configs.lualine")
 		end
-	})
+	}) ]]
 
 	use({
 		"shaunsingh/nord.nvim",

@@ -1,9 +1,9 @@
--- use {
--- 	"https://github.com/navarasu/onedark.nvim",
--- 	config = function()
--- 		require("plugins.colorschemes.onedark")
--- 	end
--- }
+--[[ use({
+	"https://github.com/navarasu/onedark.nvim",
+	config = function()
+		require("plugins.colorschemes.onedark")
+	end
+}) ]]
 
 local onedark = require("onedark")
 

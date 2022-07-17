@@ -1,8 +1,9 @@
--- use {
--- 	"Mofiqul/vscode.nvim",
--- 		require("plugins.colorschemes.vscode_nvim")
--- 	end
--- }
+--[[ use({
+	"Mofiqul/vscode.nvim",
+	config = function()
+		require("plugins.colorschemes.vscode_nvim")
+	end
+}) ]]
 
 vim.g.vscode_style = "dark"
 -- vim.g.vscode_transparent = 1

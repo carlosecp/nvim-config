@@ -1,9 +1,9 @@
--- use {
--- 	"shaunsingh/nord.nvim",
--- 	config = function()
--- 		require("plugins.colorschemes.nord")
--- 	end
--- }
+--[[ use({
+	"shaunsingh/nord.nvim",
+	config = function()
+		require("plugins.colorschemes.nord")
+	end
+}) ]]
 
 vim.g.nord_borders = true
 vim.g.nord_italic = false
