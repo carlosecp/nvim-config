@@ -16,8 +16,7 @@ configs.setup({
 		enable = true
 	},
 	indent = {
-		enable = true,
-		disable = { "lua", "python", "rust" }
+		enable = false
 	},
 	refactor = {
 		highlight_definitions = {

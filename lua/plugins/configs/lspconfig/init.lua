@@ -15,7 +15,7 @@ local function with_default_opts(opts)
 end
 
 -- Available servers:
--- :h lspconfig-server-configurations
+-- :help lspconfig-server-configurations
 
 lspconfig.gopls.setup(default_opts)
 

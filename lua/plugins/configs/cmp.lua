@@ -39,8 +39,7 @@ local cmp_opts = {
 	},
 	window = {
 		completion = {
-			-- border = defaults.borders
-			border = "none"
+			border = defaults.borders
 		},
 		documentation = {
 			border = defaults.borders,

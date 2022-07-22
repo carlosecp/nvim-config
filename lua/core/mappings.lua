@@ -8,11 +8,15 @@ vim.g.mapleader = " "
 
 map("n", "<Leader>h", ":noh<CR>")
 map("x", "<Leader>s", ":sort<CR>")
--- map("n", "<Leader><Leader>", "<C-^>")
 
 map("n", "<Leader>cc", function()
 	local colorcolumn = vim.wo.colorcolumn
 	vim.wo.colorcolumn = string.len(colorcolumn) == 0 and "80" or ""
+end)
+
+map("n", "<Leader>ss", function()
+	local state = vim.wo.signcolumn
+	vim.wo.signcolumn = state == "yes" and "no" or "yes"
 end)
 
 map("n", "<C-Up>",    ":res +2<CR>")
@@ -22,6 +26,8 @@ map("n", "<C-Left>",  ":vert res -2<CR>")
 
 map("n", "<C-n>", ":cn<CR>")
 map("n", "<C-p>", ":cp<CR>")
+
+map("n", "<C-s>", R)
 
 local M = {}
 
@@ -89,6 +95,14 @@ function M.telescope()
 		require("telescope.builtin").find_files({
 			prompt_title = "Search Nvim Config",
 			cwd = "$HOME/.config/nvim",
+			hidden = true
+		})
+	end)
+
+	map("n", "<Leader>fp", function()
+		require("telescope.builtin").find_files({
+			prompt_title = "Search Installed Plugins",
+			cwd = vim.fn.stdpath("data") .. "/site/pack/packer",
 			hidden = true
 		})
 	end)

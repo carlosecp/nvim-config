@@ -1,4 +1,7 @@
-return require("packer").startup(function(use)
+local status_ok_packer, packer = pcall(require, "packer")
+if not status_ok_packer then return end
+
+packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -91,6 +94,13 @@ return require("packer").startup(function(use)
 		end
 	}) ]]
 
+	--[[ use({
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.configs.lualine")
+		end
+	}) ]]
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		cmd = "Telescope",
@@ -159,6 +169,25 @@ return require("packer").startup(function(use)
 		config = function()
 			require("plugins.configs.devicons")
 		end
+	})
+
+	use({
+		"chentoast/marks.nvim",
+		event = "BufEnter",
+		config = function()
+			require("plugins.configs.marks")
+		end
+	})
+
+	use({
+		"MaxMEllon/vim-jsx-pretty",
+		ft = {
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact"
+		}
 	})
 
 	use({ "dstein64/vim-startuptime", cmd = "StartupTime" })

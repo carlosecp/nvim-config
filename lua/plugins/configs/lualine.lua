@@ -15,17 +15,9 @@ lualine.setup({
 		}
 	},
 	sections = {
-		lualine_a = {{
-			"mode",
-			color = {
-				fg = "Normal",
-				bg = "NONE",
-				gui = "bold"
-			}
-		}},
+		lualine_a = {},
 		lualine_b = {{
 			"branch",
-			color = "StatusLine",
 			icon = ""
 		}},
 		lualine_c = {
@@ -42,12 +34,10 @@ lualine.setup({
 		},
 		lualine_x = {},
 		lualine_y = {{
-			"progress",
-			color = "StatusLine"
+			"progress"
 		}},
 		lualine_z = {{
-			"location",
-			color = "StatusLine"
+			"location"
 		}}
 	}
 })
